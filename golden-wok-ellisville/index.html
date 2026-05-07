@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Golden Wok — Fresh Pan-Asian Cuisine in Ellisville, MO | (636) 230-8966</title>
+  <meta name="description" content="Golden Wok in Ellisville, MO. Fresh Chinese, Thai & Vietnamese made to order since 1991. Huge portions, gluten-free friendly. Call (636) 230-8966.">
+  <meta name="theme-color" content="#8B1A1A">
+  <meta property="og:title" content="Golden Wok — Fresh Pan-Asian Cuisine in Ellisville, MO | (636) 230-8966">
+  <meta property="og:description" content="Golden Wok in Ellisville, MO. Fresh Chinese, Thai & Vietnamese made to order since 1991. Huge portions, gluten-free friendly. Call (636) 230-8966.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1555126634-323283e090fa?w=1600&q=80">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Theme 1: Crimson Heritage (default) ── */
+    :root, [data-theme="crimson-heritage"] {
+      --color-primary: #8B1A1A;
+      --color-bg: #FAFAF7;
+      --color-text: #2C2C2C;
+      --color-accent: #C9A84C;
+      --color-section-alt: #F5F0E8;
+      --color-secondary: #2D6A4F;
+      --color-card: #FFFFFF;
+      --color-soft-warm: #FBF7F4;
+      --font-heading: "Lora", Georgia, "Times New Roman", serif;
+      --font-body: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --shadow-card: 0 4px 16px rgba(0,0,0,0.08);
+      --shadow-lift: 0 18px 44px rgba(44,44,44,0.16);
+      --radius-card: 12px;
+      --radius-button: 8px;
+      --container: 1120px;
+    }
+
+    /* ── Theme 2: Midnight Luxe ── */
+    [data-theme="midnight-luxe"] {
+      --color-primary: #1B2A4A;
+      --color-bg: #F8F7F4;
+      --color-text: #1A1A2E;
+      --color-accent: #C9A84C;
+      --color-section-alt: #EEF0F5;
+      --color-secondary: #C0392B;
+      --color-card: #FFFFFF;
+      --color-soft-warm: #F4F3F0;
+    }
+
+    /* ── Theme 3: Mocha Warmth ── */
+    [data-theme="mocha-warmth"] {
+      --color-primary: #6B3F2A;
+      --color-bg: #FAF7F2;
+      --color-text: #2C1F14;
+      --color-accent: #D4A853;
+      --color-section-alt: #F2EBE0;
+      --color-secondary: #5C7A4E;
+      --color-card: #FFFFFF;
+      --color-soft-warm: #F7F2EA;
+    }
+
+    /* ── Theme 4: Forest Calm ── */
+    [data-theme="forest-calm"] {
+      --color-primary: #1E4D35;
+      --color-bg: #F7FAF8;
+      --color-text: #1A2E1E;
+      --color-accent: #C9A84C;
+      --color-section-alt: #EAF2EC;
+      --color-secondary: #8B1A1A;
+      --color-card: #FFFFFF;
+      --color-soft-warm: #F2F7F3;
+    }
+
+    /* ── Theme 5: Slate Modern ── */
+    [data-theme="slate-modern"] {
+      --color-primary: #2D3142;
+      --color-bg: #F9F9F9;
+      --color-text: #1C1C2E;
+      --color-accent: #E8A838;
+      --color-section-alt: #F0F0F5;
+      --color-secondary: #2D6A4F;
+      --color-card: #FFFFFF;
+      --color-soft-warm: #F5F5F8;
+    }
+
+    /* ── Theme switcher UI ── */
+    .theme-switcher {
+      position: fixed;
+      right: 18px;
+      bottom: 100px;
+      z-index: 8888;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      border-radius: 999px;
+      padding: 10px 8px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .theme-switcher__label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #888;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      margin-bottom: 4px;
+    }
+    .theme-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform 160ms ease, border-color 160ms ease;
+      padding: 0;
+    }
+    .theme-btn:hover { transform: scale(1.18); }
+    .theme-btn.active { border-color: #333; transform: scale(1.12); }
+    .theme-btn[data-theme="crimson-heritage"] { background: #8B1A1A; }
+    .theme-btn[data-theme="midnight-luxe"]    { background: #1B2A4A; }
+    .theme-btn[data-theme="mocha-warmth"]     { background: #6B3F2A; }
+    .theme-btn[data-theme="forest-calm"]      { background: #1E4D35; }
+    .theme-btn[data-theme="slate-modern"]     { background: #2D3142; }
+    @media (max-width: 767px) {
+      .theme-switcher { bottom: 104px; right: 12px; }
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-width: 0;
+      scroll-behavior: smooth;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      min-width: 0;
+      margin: 0;
+      color: var(--color-text);
+      background: var(--color-bg);
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    img,
+    iframe {
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid rgba(201, 168, 76, 0.78);
+      outline-offset: 3px;
+    }
+
+    .site-shell {
+      min-height: 100vh;
+      overflow-x: clip;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(201,168,76,0.08), transparent 34%),
+        linear-gradient(180deg, var(--color-soft-warm) 0%, var(--color-bg) 48%);
+    }
+
+    .container {
+      width: min(100% - 32px, var(--container));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 60px 0;
+      position: relative;
+    }
+
+    .section__eyebrow {
+      margin: 0 0 10px;
+      color: var(--color-primary);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .section__title {
+      margin: 0;
+      color: var(--color-text);
+      font-family: var(--font-heading);
+      font-size: clamp(32px, 9vw, 44px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .section__intro {
+      max-width: 680px;
+      margin: 14px auto 0;
+      color: rgba(44,44,44,0.76);
+      font-size: 18px;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin: 0 auto 34px;
+      text-align: center;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 28px;
+      border: 0;
+      border-radius: var(--radius-button);
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1;
+      text-decoration: none;
+      cursor: pointer;
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        background-color 180ms ease,
+        color 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 22px rgba(44,44,44,0.16);
+    }
+
+    .button:active {
+      transform: translateY(0);
+    }
+
+    .button--primary {
+      color: #fff;
+      background: var(--color-primary);
+    }
+
+    .button--secondary {
+      color: #fff;
+      background: var(--color-secondary);
+    }
+
+    .button--light {
+      color: var(--color-primary);
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(139,26,26,0.18);
+    }
+
+    .link-arrow {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--color-primary);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .link-arrow::after {
+      content: "→";
+      transform: translateX(0);
+      transition: transform 180ms ease;
+    }
+
+    .link-arrow:hover::after {
+      transform: translateX(4px);
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,250,247,0.94);
+      border-bottom: 1px solid rgba(139,26,26,0.12);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .site-nav__inner {
+      display: flex;
+      min-height: 70px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .site-nav__brand {
+      display: inline-flex;
+      min-width: 0;
+      align-items: center;
+      gap: 12px;
+      color: var(--color-primary);
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.15;
+      text-decoration: none;
+    }
+
+    .site-nav__mark {
+      display: inline-grid;
+      width: 38px;
+      height: 38px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--color-primary);
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .site-nav__name {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .site-nav__actions {
+      display: none;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .site-nav__phone {
+      color: rgba(44,44,44,0.82);
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 70px);
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      color: #fff;
+      background-image: url(https://images.unsplash.com/photo-1555126634-323283e090fa?w=1600&q=80);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        linear-gradient(90deg, rgba(49, 5, 5, 0.84) 0%, rgba(139, 26, 26, 0.64) 48%, rgba(35, 8, 8, 0.36) 100%),
+        radial-gradient(circle at 25% 32%, rgba(201,168,76,0.22), transparent 34%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      z-index: 0;
+      height: 34%;
+      background: linear-gradient(0deg, rgba(0,0,0,0.42), transparent);
+      pointer-events: none;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      padding: 76px 0 82px;
+    }
+
+    .hero__kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      color: #fff3d4;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hero__kicker::before {
+      content: "";
+      width: 38px;
+      height: 2px;
+      background: var(--color-accent);
+    }
+
+    .hero__title {
+      max-width: 11ch;
+      margin: 0;
+      font-family: var(--font-heading);
+      font-size: clamp(48px, 15vw, 92px);
+      font-weight: 700;
+      line-height: 0.96;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .hero__tagline {
+      max-width: 620px;
+      margin: 22px 0 0;
+      color: rgba(255,255,255,0.92);
+      font-size: clamp(19px, 5vw, 25px);
+      font-weight: 600;
+      line-height: 1.35;
+      text-wrap: pretty;
+    }
+
+    .hero__badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 30px 0 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      min-height: 38px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.24);
+      font-size: 14px;
+      font-weight: 700;
+      backdrop-filter: blur(10px);
+    }
+
+    .status-open {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .status-closed {
+      background: #f8d7da;
+      color: #721c24;
+    }
+
+    .hero__ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 34px 0 0;
+    }
+
+    .hero__ctas .button {
+      width: 100%;
+    }
+
+    .hero__menu-link {
+      margin-top: 16px;
+      color: #fff;
+    }
+
+    .hero__menu-link:hover {
+      color: #fff3d4;
+    }
+
+    .menu {
+      background: var(--color-bg);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .menu-card {
+      position: relative;
+      display: grid;
+      min-height: 190px;
+      gap: 12px;
+      padding: 24px;
+      overflow: hidden;
+      background: var(--color-card);
+      border-radius: var(--radius-card);
+      border-top: 5px solid var(--color-secondary);
+      box-shadow: var(--shadow-card);
+    }
+
+    .menu-card::after {
+      content: "";
+      position: absolute;
+      right: -42px;
+      bottom: -54px;
+      width: 140px;
+      height: 140px;
+      border-radius: 999px;
+      background: rgba(45,106,79,0.08);
+      pointer-events: none;
+    }
+
+    .menu-card__icon {
+      display: inline-grid;
+      width: 54px;
+      height: 54px;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(201,168,76,0.2);
+      color: var(--color-primary);
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .menu-card__title {
+      margin: 0;
+      color: var(--color-text);
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .menu-card__description {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: rgba(44,44,44,0.74);
+    }
+
+    .menu__footer {
+      margin-top: 28px;
+      text-align: center;
+    }
+
+    .story {
+      background: var(--color-section-alt);
+    }
+
+    .story-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .story-copy {
+      max-width: 720px;
+    }
+
+    .story-copy .section__title {
+      margin-bottom: 24px;
+    }
+
+    .story-copy p {
+      margin: 0 0 18px;
+      color: rgba(44,44,44,0.82);
+    }
+
+    .story-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .signature-card {
+      position: relative;
+      padding: 28px;
+      overflow: hidden;
+      background:
+        linear-gradient(145deg, #ffffff 0%, var(--color-soft-warm) 100%);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+    }
+
+    .signature-card::before {
+      content: "“";
+      position: absolute;
+      top: -24px;
+      right: 22px;
+      color: rgba(139,26,26,0.14);
+      font-family: var(--font-heading);
+      font-size: 142px;
+      line-height: 1;
+    }
+
+    .signature-card__badge {
+      display: inline-flex;
+      min-height: 38px;
+      align-items: center;
+      padding: 7px 13px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--color-secondary);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .signature-card blockquote {
+      position: relative;
+      z-index: 1;
+      margin: 22px 0 0;
+      color: var(--color-primary);
+      font-family: var(--font-heading);
+      font-size: clamp(24px, 7vw, 34px);
+      font-style: italic;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .signature-card cite {
+      display: block;
+      margin-top: 18px;
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .reviews {
+      background: var(--color-bg);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .review-card {
+      display: flex;
+      min-height: 250px;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 24px;
+      background: var(--color-card);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+    }
+
+    .review-card__stars {
+      color: var(--color-accent);
+      font-size: 20px;
+      letter-spacing: 0.08em;
+    }
+
+    .review-card blockquote {
+      margin: 0;
+      color: rgba(44,44,44,0.8);
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-style: italic;
+      line-height: 1.45;
+    }
+
+    .review-card__name {
+      margin: 0;
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+
+    .contact {
+      background: var(--color-section-alt);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .contact-card {
+      padding: 24px;
+      background: var(--color-card);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+    }
+
+    .contact-card__top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .contact-card__heading {
+      margin: 0;
+      font-family: var(--font-heading);
+      font-size: 27px;
+      line-height: 1.2;
+    }
+
+    .contact-status {
+      display: inline-flex;
+      min-height: 36px;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .today-hours {
+      margin: 0 0 18px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      color: var(--color-primary);
+      background: rgba(139,26,26,0.07);
+      font-weight: 700;
+    }
+
+    .hours-table {
+      width: 100%;
+      margin: 0 0 22px;
+      border-collapse: collapse;
+      font-size: 16px;
+    }
+
+    .hours-table th,
+    .hours-table td {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(44,44,44,0.1);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .hours-table th {
+      width: 42%;
+      color: rgba(44,44,44,0.72);
+      font-weight: 700;
+    }
+
+    .hours-table td {
+      color: var(--color-text);
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin: 0 0 22px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contact-list__item {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .contact-list__icon {
+      display: inline-grid;
+      width: 32px;
+      height: 32px;
+      place-items: center;
+      border-radius: 999px;
+      background: rgba(45,106,79,0.1);
+      font-size: 16px;
+    }
+
+    .contact-list a {
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+
+    .contact-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .map-wrap {
+      position: relative;
+      overflow: hidden;
+      min-height: 330px;
+      border-radius: 10px;
+      background: var(--color-section-alt);
+    }
+
+    .map-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .map-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: stretch;
+      margin-top: 18px;
+    }
+
+    .site-footer {
+      padding: 30px 0;
+      color: rgba(255,255,255,0.82);
+      background: #2a1111;
+      font-size: 15px;
+    }
+
+    .site-footer__inner {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .site-footer a {
+      color: #fff3d4;
+      font-weight: 700;
+    }
+
+    .mobile-call-bar {
+      display: none;
+    }
+
+    @media (max-width: 767px) {
+      body {
+        padding-bottom: 86px;
+      }
+
+      .mobile-call-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+        min-height: 74px;
+        padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+        background: var(--color-card);
+        border-top: 1px solid rgba(139,26,26,0.16);
+        box-shadow: 0 -10px 28px rgba(44,44,44,0.18);
+        opacity: 0;
+        transform: translateY(110%);
+        pointer-events: none;
+        transition: 220ms ease;
+      }
+
+      body.show-mobile-call-bar:not(.hide-mobile-call-bar) .mobile-call-bar {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .mobile-call-bar a {
+        display: inline-flex;
+        min-height: 54px;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border-radius: 8px;
+        color: white;
+        font-weight: 700;
+        line-height: 1.1;
+        text-decoration: none;
+      }
+
+      .mobile-call-bar__phone {
+        padding: 8px 14px;
+        background: var(--color-primary);
+      }
+
+      .mobile-call-bar__directions {
+        min-width: 116px;
+        padding: 8px 14px;
+        background: var(--color-secondary);
+      }
+
+      .mobile-call-bar__icon {
+        flex: 0 0 auto;
+        font-size: 20px;
+      }
+
+      .mobile-call-bar__text {
+        display: grid;
+        gap: 2px;
+        min-width: 0;
+      }
+
+      .mobile-call-bar__label {
+        display: block;
+        font-size: 13px;
+      }
+
+      .mobile-call-bar__number {
+        display: block;
+        font-size: 16px;
+        white-space: nowrap;
+      }
+    }
+
+    @media (min-width: 768px) {
+      body {
+        font-size: 18px;
+      }
+
+      .container {
+        width: min(100% - 56px, var(--container));
+      }
+
+      .section {
+        padding: 90px 0;
+      }
+
+      .section-header {
+        margin-bottom: 46px;
+      }
+
+      .section__title {
+        font-size: clamp(42px, 5vw, 58px);
+      }
+
+      .site-nav__actions {
+        display: flex;
+      }
+
+      .hero {
+        min-height: calc(92vh - 70px);
+      }
+
+      .hero__content {
+        padding: 112px 0 116px;
+      }
+
+      .hero__title {
+        max-width: 12ch;
+      }
+
+      .hero__ctas {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .hero__ctas .button {
+        width: auto;
+      }
+
+      .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .menu-card {
+        min-height: 220px;
+        padding: 30px;
+      }
+
+      .story-layout {
+        grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+        gap: 54px;
+      }
+
+      .signature-card {
+        padding: 36px;
+        position: sticky;
+        top: 110px;
+      }
+
+      .reviews-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .review-card {
+        padding: 28px;
+      }
+
+      .contact-layout {
+        grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+        gap: 24px;
+      }
+
+      .contact-card {
+        padding: 30px;
+      }
+
+      .map-wrap {
+        min-height: 470px;
+      }
+
+      .contact-actions {
+        grid-template-columns: auto;
+        justify-content: start;
+      }
+
+      .map-actions {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .site-footer__inner {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+
+    /* ── Section jump nav ── */
+    #menu-highlights, #story, #reviews, #contact { scroll-margin-top: 86px; }
+    .section-jump-nav {
+      background: var(--color-section-alt);
+      border-bottom: 1px solid rgba(139,26,26,0.1);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .section-jump-nav::-webkit-scrollbar { display: none; }
+    .section-jump-nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 16px;
+      min-width: max-content;
+      margin: 0 auto;
+    }
+    .section-jump-nav__link {
+      display: inline-flex;
+      min-height: 38px;
+      align-items: center;
+      padding: 7px 16px;
+      border-radius: 999px;
+      color: var(--color-primary);
+      background: var(--color-card);
+      border: 1px solid rgba(139,26,26,0.2);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+    }
+    .section-jump-nav__link:hover {
+      background: var(--color-primary);
+      color: #fff;
+      border-color: var(--color-primary);
+    }
+
+    /* ── Order strip ── */
+    .order-strip {
+      background: var(--color-primary);
+      padding: 20px 0;
+    }
+    .order-strip__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-align: center;
+    }
+    .order-strip__text {
+      color: rgba(255,255,255,0.92);
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+    }
+    .order-strip__phone {
+      color: #fff3d4;
+      font-size: 20px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    @media (min-width: 768px) {
+      .order-strip__inner { flex-direction: row; gap: 24px; }
+    }
+
+    /* ── Reviews summary ── */
+    .reviews-summary {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 28px;
+    }
+    .reviews-summary__rating {
+      font-family: var(--font-heading);
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--color-text);
+      line-height: 1;
+    }
+    .reviews-summary__stars-wrap {
+      position: relative;
+      display: inline-block;
+      font-size: 26px;
+      line-height: 1;
+      color: #ddd;
+      letter-spacing: 0.06em;
+    }
+    .reviews-summary__stars-fill {
+      position: absolute;
+      top: 0; left: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      color: var(--color-accent);
+      width: calc(var(--rating, 4.8) / 5 * 100%);
+    }
+    .reviews-summary__label {
+      color: rgba(44,44,44,0.68);
+      font-size: 15px;
+    }
+    .reviews-footer {
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    /* ── Menu card image & extras ── */
+    .menu-card__image {
+      width: calc(100% + 48px);
+      margin: -24px -24px 16px;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: var(--radius-card) var(--radius-card) 0 0;
+      display: block;
+      background: var(--color-section-alt);
+    }
+    .menu-card__badge {
+      position: absolute;
+      top: 12px; right: 12px;
+      background: var(--color-accent);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .menu-card__featured {
+      display: block;
+      margin-top: 6px;
+      color: var(--color-secondary);
+      font-size: 14px;
+      font-style: italic;
+      font-weight: 600;
+    }
+    @media (min-width: 768px) {
+      .menu-card__image { width: calc(100% + 60px); margin: -30px -30px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <nav class="site-nav" aria-label="Primary navigation">
+      <div class="container site-nav__inner">
+        <a class="site-nav__brand" href="#top" aria-label="Golden Wok home">
+          <span class="site-nav__mark" aria-hidden="true">R</span>
+          <span class="site-nav__name">Golden Wok</span>
+        </a>
+        <div class="site-nav__actions" aria-label="Quick actions">
+          <a class="site-nav__phone" href="tel:+16362308966">(636) 230-8966</a>
+          <a class="button button--primary" href="tel:+16362308966">Call Now</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero" id="top" role="banner" aria-label="Golden Wok pan-Asian cuisine — fresh noodle dishes made to order in Ellisville">
+      <div class="container">
+        <div class="hero__content">
+          <p class="hero__kicker">Ellisville Restaurant</p>
+          <h1 class="hero__title">Golden Wok</h1>
+          <p class="hero__tagline">Fresh Pan-Asian Cuisine Made to Order Since 1991</p>
+          <div class="hero__badges" aria-label="Restaurant highlights">
+            <span class="pill">📍 Ellisville</span>
+            <span class="pill">🍽 35 Years Serving</span>
+            <span class="pill status--open">Open Now</span>
+          </div>
+          <div class="hero__ctas" aria-label="Hero actions">
+            <a class="button button--primary" href="tel:+16362308966">Call to Order</a>
+            <a class="button button--secondary" href="https://maps.google.com/?q=15941+Manchester+Rd+Ellisville+MO+63011" target="_blank" rel="noopener">Get Directions</a>
+          </div>
+          <a class="link-arrow hero__menu-link" href="#menu-highlights">View Full Menu</a>
+        </div>
+      </div>
+    </header>
+
+    <nav class="section-jump-nav" aria-label="Jump to section">
+      <div class="section-jump-nav__inner">
+        <a class="section-jump-nav__link" href="#menu-highlights">🍽 Our Menu</a>
+        <a class="section-jump-nav__link" href="#story">📖 Our Story</a>
+        <a class="section-jump-nav__link" href="#reviews">⭐ Reviews</a>
+        <a class="section-jump-nav__link" href="#contact">📍 Find Us</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="section menu" id="menu-highlights" aria-labelledby="menu-title">
+        <div class="container">
+          <div class="section-header">
+            <p class="section__eyebrow">Menu Highlights</p>
+            <h2 class="section__title" id="menu-title">Made Fresh to Order, Every Time</h2>
+            <p class="section__intro">A concise look at the guest favorites people come back for, from a quick weeknight meal to a long table with friends.</p>
+          </div>
+          <div class="menu-grid">
+            <article class="menu-card">
+              <img class="menu-card__image" src="https://images.unsplash.com/photo-1559314809-0d155014e29e?w=800&q=80" alt="Noodle Dishes" loading="lazy">
+              <span class="menu-card__badge">Fan Favorite</span>
+              <span class="menu-card__icon" aria-hidden="true">🍜</span>
+              <h3 class="menu-card__title">Noodle Dishes</h3>
+              <p class="menu-card__description">Pad Thai, lo mein, chow fun, and pan-fried noodles — wok-tossed fresh for every order. The Pad Thai is the one regulars drive across town for.</p>
+              <span class="menu-card__featured">Try: Try the Pad Thai</span>
+            </article>
+            <article class="menu-card">
+              <img class="menu-card__image" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80" alt="Starters & Rolls" loading="lazy">
+              <span class="menu-card__icon" aria-hidden="true">🥟</span>
+              <h3 class="menu-card__title">Starters & Rolls</h3>
+              <p class="menu-card__description">Handmade spring rolls, fresh salad rolls, crab rangoon, and pot stickers — all made fresh, never frozen, with huge portions that surprise first-timers.</p>
+              <span class="menu-card__featured">Try: Try the fresh salad rolls</span>
+            </article>
+            <article class="menu-card">
+              <img class="menu-card__image" src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&q=80" alt="Soups" loading="lazy">
+              <span class="menu-card__icon" aria-hidden="true">🍲</span>
+              <h3 class="menu-card__title">Soups</h3>
+              <p class="menu-card__description">Hot and sour, egg drop, wonton, and Thai coconut soup — all made from scratch daily. Gluten-free options available across the soup menu.</p>
+              <span class="menu-card__featured">Try: Try the hot and sour soup</span>
+            </article>
+            <article class="menu-card">
+              <img class="menu-card__image" src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=800&q=80" alt="Main Dishes" loading="lazy">
+              <span class="menu-card__icon" aria-hidden="true">🍗</span>
+              <h3 class="menu-card__title">Main Dishes</h3>
+              <p class="menu-card__description">Orange chicken, beef with broccoli, pad see ew, Thai curry, and Vietnamese-style stir-fries — enormous portions that Jake and Diana make personally.</p>
+              <span class="menu-card__featured">Try: Try the orange chicken</span>
+            </article>
+          </div>
+          <div class="menu__footer">
+            <a class="link-arrow" href="#menu-highlights">See the Full Menu</a>
+          </div>
+        </div>
+      </section>
+
+      <aside class="order-strip" aria-label="Ready to order">
+        <div class="container order-strip__inner">
+          <p class="order-strip__text">Hungry? Give us a call.</p>
+          <a class="order-strip__phone" href="tel:+16362308966">(636) 230-8966</a>
+          <a class="button button--light" href="tel:+16362308966">📞 Call to Order</a>
+        </div>
+      </aside>
+
+      <section class="section story" id="story" aria-labelledby="story-title">
+        <div class="container">
+          <div class="story-layout">
+            <div class="story-copy">
+              <p class="section__eyebrow">Our Story</p>
+              <h2 class="section__title" id="story-title">A Local Favorite in Ellisville</h2>
+              <p>Golden Wok has been a fixture on Manchester Road since 1991 — long before the strip became the restaurant corridor it is today. Jake and Diana opened the kitchen with a simple rule that still holds 35 years later: every dish goes out fresh, made to order, with no shortcuts.</p>
+              <p>What started as a traditional Chinese menu has grown to include Thai and Vietnamese dishes, driven by customer requests and the owners' passion for the broader pan-Asian kitchen. The Pad Thai became the most-talked-about dish in the neighborhood — and the soups are made from scratch every single morning.</p>
+              <p>"The owners make everyone feel like family," is something regulars say time and again. Golden Wok is the rare restaurant where the same customers have been coming in for 20 years — and where gluten-free diners can eat without worry, because Jake and Diana take every request seriously.</p>
+            </div>
+            <aside class="signature-card" aria-label="Signature dish highlight">
+              <span class="signature-card__badge">35 Years Serving Ellisville</span>
+              <blockquote>
+                Made fresh to order. Pad Thai is outstanding. Huge portions, very friendly staff.
+                <cite>Pad Thai</cite>
+              </blockquote>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
+        <div class="container">
+          <div class="section-header">
+            <p class="section__eyebrow">Guest Notes</p>
+            <h2 class="section__title" id="reviews-title">What Ellisville Regulars Say</h2>
+            <p class="section__intro">Warm service, dependable cooking, and meals that feel personal are what regulars mention most.</p>
+          </div>
+          <div class="reviews-summary">
+            <span class="reviews-summary__rating">4.6</span>
+            <div class="reviews-summary__stars-wrap" style="--rating: 4.6" aria-label="4.6 out of 5 stars">
+              <span aria-hidden="true">★★★★★</span>
+              <span class="reviews-summary__stars-fill" aria-hidden="true">★★★★★</span>
+            </div>
+            <span class="reviews-summary__label">Based on 321 Google reviews</span>
+          </div>
+          <div class="reviews-grid">
+            <article class="review-card">
+              <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
+              <blockquote>Large portions of the most delicious and healthy food EVER!! The owners make everyone feel like family.</blockquote>
+              <p class="review-card__name">Gail L.</p>
+            </article>
+            <article class="review-card">
+              <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
+              <blockquote>Made fresh to order. Pad Thai is outstanding. Huge portions, very friendly staff.</blockquote>
+              <p class="review-card__name">Sandy P.</p>
+            </article>
+            <article class="review-card">
+              <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
+              <blockquote>Jake and Diana are two of the most awesome people! Great for celiac/gluten free people too!</blockquote>
+              <p class="review-card__name">Lisa B.</p>
+            </article>
+          </div>
+          <div class="reviews-footer">
+            <a class="link-arrow" href="https://www.google.com/maps?cid=12109610747587722318" target="_blank" rel="noopener">Read all 321 reviews on Google</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <div class="container">
+          <div class="section-header">
+            <p class="section__eyebrow">Visit Today</p>
+            <h2 class="section__title" id="contact-title">Find Us</h2>
+            <p class="section__intro">Call ahead, check today's hours, or get directions straight to the restaurant.</p>
+          </div>
+          <div class="contact-layout">
+            <article class="contact-card">
+              <div class="contact-card__top">
+                <h3 class="contact-card__heading">Hours & Contact</h3>
+                <span class="contact-status status--open">Open Now</span>
+              </div>
+              <p class="today-hours">Today: 11:30 AM – 8:30 PM</p>
+              <table class="hours-table" aria-label="Weekly restaurant hours">
+                <tbody>
+                  <tr>
+                    <th scope="row">Monday</th>
+                    <td>11:30 AM – 8:30 PM</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Tuesday</th>
+                    <td>11:30 AM – 8:30 PM</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Wednesday</th>
+                    <td>11:30 AM – 8:30 PM</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Thursday</th>
+                    <td>11:30 AM – 8:30 PM</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Friday</th>
+                    <td>11:30 AM – 8:30 PM</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Saturday</th>
+                    <td>12:00 PM – 8:30 PM</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Sunday</th>
+                    <td>Closed</td>
+                  </tr>
+                </tbody>
+              </table>
+              <ul class="contact-list" aria-label="Restaurant contact details">
+                <li class="contact-list__item">
+                  <span class="contact-list__icon" aria-hidden="true">☎</span>
+                  <span><a href="tel:+16362308966">(636) 230-8966</a></span>
+                </li>
+                <li class="contact-list__item">
+                  <span class="contact-list__icon" aria-hidden="true">⌖</span>
+                  <span>15941 Manchester Rd, Ellisville, MO 63011</span>
+                </li>
+              </ul>
+              <div class="contact-actions">
+                <a class="button button--primary" href="tel:+16362308966">Call to Order</a>
+              </div>
+            </article>
+            <article class="contact-card">
+              <div class="contact-card__top">
+                <h3 class="contact-card__heading">Map & Directions</h3>
+              </div>
+              <div class="map-wrap">
+                <iframe
+                  src="https://maps.google.com/maps?q=Golden+Wok+15941+Manchester+Rd+Ellisville+MO+63011&t=&z=15&ie=UTF8&iwloc=B&output=embed"
+                  title="Map showing Golden Wok at 15941 Manchester Rd, Ellisville, MO 63011"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <div class="map-actions">
+                <a class="button button--secondary" href="https://maps.google.com/?q=15941+Manchester+Rd+Ellisville+MO+63011" target="_blank" rel="noopener">Get Directions</a>
+                <a class="link-arrow" href="#menu-highlights">View Full Menu</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span>© 2026 Golden Wok. All rights reserved.</span>
+        <a href="tel:+16362308966">(636) 230-8966</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var body = document.body;
+      var contact = document.getElementById("contact");
+      var mobileQuery = window.matchMedia("(max-width: 767px)");
+
+      function updateScrollState() {
+        if (window.scrollY > 160) {
+          body.classList.add("show-mobile-call-bar");
+        } else {
+          body.classList.remove("show-mobile-call-bar");
+        }
+      }
+
+      updateScrollState();
+      window.addEventListener("scroll", updateScrollState, { passive: true });
+
+      if ("IntersectionObserver" in window && contact) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.15) {
+              body.classList.add("hide-mobile-call-bar");
+            } else {
+              body.classList.remove("hide-mobile-call-bar");
+            }
+          });
+        }, {
+          threshold: [0, 0.15, 0.35]
+        });
+
+        observer.observe(contact);
+      }
+
+      function syncMobilePadding(event) {
+        if (event.matches) {
+          body.style.setProperty("--mobile-actions-active", "1");
+        } else {
+          body.classList.remove("show-mobile-call-bar");
+          body.classList.remove("hide-mobile-call-bar");
+          body.style.removeProperty("--mobile-actions-active");
+        }
+      }
+
+      syncMobilePadding(mobileQuery);
+
+      if (typeof mobileQuery.addEventListener === "function") {
+        mobileQuery.addEventListener("change", syncMobilePadding);
+      } else if (typeof mobileQuery.addListener === "function") {
+        mobileQuery.addListener(syncMobilePadding);
+      }
+    })();
+  </script>
+
+<!-- Theme switcher — visible during demo, remove before client handoff -->
+<div class="theme-switcher" role="group" aria-label="Choose color theme">
+  <span class="theme-switcher__label">Theme</span>
+  <button class="theme-btn active" data-theme="crimson-heritage" title="Crimson Heritage"></button>
+  <button class="theme-btn" data-theme="midnight-luxe" title="Midnight Luxe"></button>
+  <button class="theme-btn" data-theme="mocha-warmth" title="Mocha Warmth"></button>
+  <button class="theme-btn" data-theme="forest-calm" title="Forest Calm"></button>
+  <button class="theme-btn" data-theme="slate-modern" title="Slate Modern"></button>
+</div>
+
+<div class="mobile-call-bar" role="region" aria-label="Quick restaurant actions">
+  <a class="mobile-call-bar__phone" href="tel:+16362308966">
+    <span class="mobile-call-bar__icon">📞</span>
+    <span class="mobile-call-bar__text">
+      <span class="mobile-call-bar__label">Call to Order</span>
+      <span class="mobile-call-bar__number">(636) 230-8966</span>
+    </span>
+  </a>
+  <a class="mobile-call-bar__directions" href="https://maps.google.com/?q=15941+Manchester+Rd+Ellisville+MO+63011" target="_blank" rel="noopener">
+    <span class="mobile-call-bar__icon">📍</span>
+    <span class="mobile-call-bar__label">Directions</span>
+  </a>
+</div>
+
+  <script>
+    (function () {
+      var html = document.documentElement;
+      var buttons = document.querySelectorAll('.theme-btn');
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var theme = btn.getAttribute('data-theme');
+          html.setAttribute('data-theme', theme);
+          buttons.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
