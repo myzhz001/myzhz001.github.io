@@ -78,11 +78,14 @@
     @media (max-width: 767px) { .theme-switcher { bottom: 104px; right: 12px; } }
 
     /* ── Language switcher ── */
-    .lang-zh, .lang-es { display: none; }
+    .lang-zh, .lang-es, .lang-vi { display: none; }
+    .vi-slot { display: none; }
     [data-lang="zh"] .lang-en { display: none; }
     [data-lang="zh"] .lang-zh { display: revert; }
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-es { display: revert; }
+    [data-lang="vi"] .lang-en { display: none; }
+    [data-lang="vi"] .lang-vi { display: revert; }
 
     .lang-switcher { display: flex; align-items: center; gap: 4px; }
     .lang-btn {
@@ -214,8 +217,8 @@
       background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.24);
       font-size: 14px; font-weight: 700; backdrop-filter: blur(10px);
     }
-    .status-open  { background: #d4edda; color: #155724; }
-    .status-closed { background: #f8d7da; color: #721c24; }
+    .status--open  { background: #d4edda; color: #155724; }
+    .status--closed { background: #f8d7da; color: #721c24; }
     .hero__ctas { display: flex; flex-direction: column; gap: 12px; margin: 34px 0 0; }
     .hero__ctas .button { width: 100%; }
     .hero__phone-display { margin: 10px 0 0; color: rgba(255,255,255,0.90); font-size: 17px; font-weight: 700; }
@@ -285,7 +288,7 @@
       justify-content: center; gap: 12px; text-align: center;
     }
     .book-strip__text { color: rgba(255,255,255,0.92); font-size: 18px; font-weight: 600; margin: 0; }
-    .book-strip__phone { color: #fff3d4; font-size: 20px; font-weight: 700; text-decoration: none; }
+    .book-strip__phone { display: inline-flex; align-items: center; min-height: 44px; color: #fff3d4; font-size: 20px; font-weight: 700; text-decoration: none; }
 
     /* ── Story ── */
     .story { background: var(--color-section-alt); }
@@ -367,7 +370,7 @@
       display: inline-grid; width: 32px; height: 32px; place-items: center;
       border-radius: 999px; background: rgba(45,106,79,0.1); font-size: 16px;
     }
-    .contact-list a { color: var(--color-primary); font-weight: 700; }
+    .contact-list a { display: inline-flex; align-items: center; min-height: 44px; color: var(--color-primary); font-weight: 700; }
     .contact-actions { display: grid; grid-template-columns: 1fr; gap: 12px; }
     .map-wrap { position: relative; overflow: hidden; min-height: 330px; border-radius: 10px; background: var(--color-section-alt); }
     .map-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
@@ -376,7 +379,7 @@
     /* ── Footer ── */
     .site-footer { padding: 30px 0; color: rgba(255,255,255,0.82); background: #2a1111; font-size: 15px; }
     .site-footer__inner { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; justify-content: space-between; }
-    .site-footer a { color: #fff3d4; font-weight: 700; }
+    .site-footer a { display: inline-flex; align-items: center; min-height: 44px; color: #fff3d4; font-weight: 700; }
 
     /* ── Mobile call bar ── */
     .mobile-call-bar { display: none; }
@@ -437,6 +440,7 @@
       }
     }
   </style>
+  
 </head>
 <body>
   <div class="site-shell">
@@ -448,10 +452,11 @@
           <span class="site-nav__name">iCare Nails & Spa</span>
         </a>
         <div class="site-nav__actions" aria-label="Quick actions">
-          <div class="lang-switcher" role="group" aria-label="Language / 语言 / Idioma">
+          <div class="lang-switcher" role="group" aria-label="Language / 语言 / Idioma / Tiếng Việt">
             <button class="lang-btn active" data-lang="en" title="English">🇺🇸 EN</button>
             <button class="lang-btn" data-lang="zh" title="中文">🇨🇳 中文</button>
             <button class="lang-btn" data-lang="es" title="Español">🇲🇽 ES</button>
+            <button class="lang-btn vi-slot" data-lang="vi" title="Tiếng Việt">🇻🇳 VI</button>
           </div>
           <a class="site-nav__phone" href="tel:+16367789588">(636) 778-9588</a>
           <a class="button button--primary" href="tel:+16367789588">Call to Book</a>
@@ -468,8 +473,9 @@
             <span class="lang-en">Where every visit leaves you feeling beautiful, cared for, and confident.</span>
             <span class="lang-zh">每次到访，都让您感受美丽、被呵护、充满自信。</span>
             <span class="lang-es">Donde cada visita te deja sintiéndote hermosa, cuidada y segura.</span>
+            <span class="lang-vi"></span>
           </p>
-          <div class="hero__badges" aria-label="Salon highlights">
+          <div class="hero__badges" aria-label="Business highlights">
             <span class="pill">📍 Chesterfield</span>
             <span class="pill">💅 3 Years Serving</span>
             <span class="pill status--open">Open Now</span>
@@ -478,6 +484,7 @@
               <span class="lang-en">Walk-ins Welcome</span>
               <span class="lang-zh">欢迎直接到访</span>
               <span class="lang-es">Se Aceptan Sin Cita</span>
+              <span class="lang-vi"></span>
             </span>
           </div>
           <div class="hero__ctas" aria-label="Hero actions">
@@ -508,11 +515,13 @@
               <span class="lang-en">Expert Care for Every Nail</span>
               <span class="lang-zh">专业护理，悉心呵护每一指</span>
               <span class="lang-es">Cuidado Experto para Cada Uña</span>
+              <span class="lang-vi"></span>
             </h2>
             <p class="section__intro">
               <span class="lang-en">From classic manicures to spa pedicures, gel, and dip — all delivered with care and attention.</span>
               <span class="lang-zh">从经典美甲到水疗足护，凝胶到晶石粉，每项服务都用心呵护。</span>
               <span class="lang-es">Desde manicuras clásicas hasta pedicuras de spa, gel y dip — todo con dedicación y atención.</span>
+              <span class="lang-vi"></span>
             </p>
           </div>
           <div class="services-grid">
@@ -525,11 +534,13 @@
                   <span class="lang-en">Manicure</span>
                   <span class="lang-zh">美甲</span>
                   <span class="lang-es">Manicura</span>
+                  <span class="lang-vi"></span>
                 </h3>
                 <p class="service-card__description">
                   <span class="lang-en">Classic, gel, and shellac manicures with your choice of color. Precision shaping and cuticle care included.</span>
                   <span class="lang-zh">经典、凝胶和甲油胶美甲，可自选颜色。包含精准修形与死皮护理。</span>
                   <span class="lang-es">Manicuras clásicas, de gel y shellac con tu color favorito. Incluye esmaltado preciso y cuidado de cutículas.</span>
+                  <span class="lang-vi"></span>
                 </p>
                 <span class="service-card__price">From $25</span>
                 <span class="service-card__featured">✨ Classic & Shellac options</span>
@@ -543,11 +554,13 @@
                   <span class="lang-en">Pedicure</span>
                   <span class="lang-zh">足部护理</span>
                   <span class="lang-es">Pedicura</span>
+                  <span class="lang-vi"></span>
                 </h3>
                 <p class="service-card__description">
                   <span class="lang-en">Relaxing spa pedicures with a soothing foot soak, exfoliation, massage, and polish for perfectly groomed feet.</span>
                   <span class="lang-zh">舒缓水疗足护，包含泡脚、去角质、按摩及抛光，令双足焕然一新。</span>
                   <span class="lang-es">Pedicuras de spa relajantes con baño de pies, exfoliación, masaje y esmalte para pies impecables.</span>
+                  <span class="lang-vi"></span>
                 </p>
                 <span class="service-card__price">From $35</span>
                 <span class="service-card__featured">✨ Spa & express options</span>
@@ -561,11 +574,13 @@
                   <span class="lang-en">Gel & Dip</span>
                   <span class="lang-zh">凝胶与晶石粉</span>
                   <span class="lang-es">Gel y Dip</span>
+                  <span class="lang-vi"></span>
                 </h3>
                 <p class="service-card__description">
                   <span class="lang-en">Long-lasting gel polish and powder dip systems for nails that stay chip-free and vibrant for weeks.</span>
                   <span class="lang-zh">持久凝胶和晶石粉系统，让指甲数周不脱色、不崩裂，光彩照人。</span>
                   <span class="lang-es">Sistemas de gel y dip de larga duración para uñas brillantes y sin descascararse por semanas.</span>
+                  <span class="lang-vi"></span>
                 </p>
                 <span class="service-card__price">From $45</span>
                 <span class="service-card__featured">✨ Dip lasts 3–4 weeks</span>
@@ -579,11 +594,13 @@
                   <span class="lang-en">Waxing & Spa</span>
                   <span class="lang-zh">脱毛与水疗</span>
                   <span class="lang-es">Cera y Spa</span>
+                  <span class="lang-vi"></span>
                 </h3>
                 <p class="service-card__description">
                   <span class="lang-en">Brow shaping, eyebrow threading, and relaxing spa add-ons to complete your beauty routine.</span>
                   <span class="lang-zh">眉形修整、眉线穿丝及各类水疗附加服务，全方位完善您的美容护理。</span>
                   <span class="lang-es">Diseño de cejas, hilo y complementos de spa relajantes para completar tu rutina de belleza.</span>
+                  <span class="lang-vi"></span>
                 </p>
                 <span class="service-card__price">Prices vary — call</span>
                 <span class="service-card__featured">✨ Eyebrow threading available</span>
@@ -612,6 +629,7 @@
                 <span class="lang-en">Dedicated to Beauty, Rooted in Care</span>
                 <span class="lang-zh">专注美丽，源于真诚呵护</span>
                 <span class="lang-es">Dedicados a la Belleza, Arraigados en el Cuidado</span>
+                <span class="lang-vi"></span>
               </h2>
               <div class="lang-en">
                 <p>iCare Nails & Spa has been serving the Chesterfield community for over three years, building a reputation that begins with one word its clients use most: clean. From spotless treatment stations to a welcoming environment, the iCare team treats cleanliness not as a baseline but as a point of pride — because beautiful nails deserve an equally beautiful environment.</p>
@@ -628,6 +646,11 @@
                 <p>Los técnicos aquí son conocidos por ser amables y atentos — se toman su tiempo y te animan genuinamente a explorar nuevos estilos. "Me animaron a probar algo nuevo", señaló una clienta, "y los resultados fueron hermosos." Ese espíritu creativo hace que las clientas regresen una y otra vez.</p>
                 <p>Ya sea que pase durante su descanso del mediodía o se dé el gusto de una tarde completa de spa, iCare Nails & Spa le da la bienvenida con calidez y habilidad. Siempre se aceptan sin cita, y el equipo está listo para darle a sus uñas el cuidado que merecen, aquí mismo en Chesterfield Valley.</p>
               </div>
+              <div class="lang-vi">
+                <p></p>
+                <p></p>
+                <p></p>
+              </div>
             </div>
             <aside class="signature-card" aria-label="Signature service highlight">
               <span class="signature-card__badge">3 Years Serving Chesterfield</span>
@@ -635,10 +658,12 @@
                 <span class="lang-en">We make every client feel beautiful — that is the iCare promise.</span>
                 <span class="lang-zh">我们让每位客户都感受到美丽——这是iCare的承诺。</span>
                 <span class="lang-es">Hacemos que cada cliente se sienta hermosa — esa es la promesa de iCare.</span>
+                <span class="lang-vi"></span>
                 <cite>
                   <span class="lang-en">iCare Nails & Spa — Chesterfield</span>
                   <span class="lang-zh">iCare美甲水疗 — 切斯特菲尔德</span>
                   <span class="lang-es">iCare Nails & Spa — Chesterfield</span>
+                  <span class="lang-vi"></span>
                 </cite>
               </blockquote>
             </aside>
@@ -655,6 +680,7 @@
               <span class="lang-en">What Our Clients Say</span>
               <span class="lang-zh">客户怎么说</span>
               <span class="lang-es">Lo Que Dicen Nuestros Clientes</span>
+              <span class="lang-vi"></span>
             </h2>
             <p class="section__intro">Clean, welcoming, and skilled — what clients mention most.</p>
           </div>
@@ -673,6 +699,7 @@
                 <span class="lang-en">10 out of 10! Very personable and friendly! Very clean! Was traveling from Iowa for business and will definitely be back when in the area. Thank you!</span>
                 <span class="lang-zh">满分！非常亲切友好！非常干净！我从爱荷华州出差，下次到这里一定还会来。谢谢！</span>
                 <span class="lang-es">¡10 de 10! ¡Muy amables y simpáticos! ¡Muy limpio! Estaba viajando desde Iowa por negocios y definitivamente volveré cuando esté en la zona. ¡Gracias!</span>
+                <span class="lang-vi"></span>
               </blockquote>
               <p class="review-card__name">— Melanie Denney</p>
             </article>
@@ -682,6 +709,7 @@
                 <span class="lang-en">Great service, beautiful results! I appreciate that they encouraged me to try something new.</span>
                 <span class="lang-zh">服务很棒，效果非常漂亮！很感谢他们鼓励我尝试新造型。</span>
                 <span class="lang-es">¡Gran servicio, resultados hermosos! Aprecio que me animaran a probar algo nuevo.</span>
+                <span class="lang-vi"></span>
               </blockquote>
               <p class="review-card__name">— Stacie Wolcott</p>
             </article>
@@ -691,6 +719,7 @@
                 <span class="lang-en">Mani pedi was awesome.</span>
                 <span class="lang-zh">美甲和足护太棒了。</span>
                 <span class="lang-es">La manicura y pedicura fueron increíbles.</span>
+                <span class="lang-vi"></span>
               </blockquote>
               <p class="review-card__name">— Andrew Richardson</p>
             </article>
@@ -716,7 +745,7 @@
                 <span class="contact-status status--open">Open Now</span>
               </div>
               <p class="today-hours">Today: 9:00 AM – 7:30 PM</p>
-              <table class="hours-table" aria-label="Weekly salon hours">
+              <table class="hours-table" aria-label="Weekly business hours">
                 <tbody>
                   <tr><th scope="row">Monday</th><td>9:00 AM – 7:30 PM</td></tr>
                   <tr><th scope="row">Tuesday</th><td>9:00 AM – 7:30 PM</td></tr>
@@ -727,7 +756,7 @@
                   <tr><th scope="row">Sunday</th><td>11:00 AM – 4:00 PM</td></tr>
                 </tbody>
               </table>
-              <ul class="contact-list" aria-label="Salon contact details">
+              <ul class="contact-list" aria-label="Business contact details">
                 <li class="contact-list__item">
                   <span class="contact-list__icon" aria-hidden="true">☎</span>
                   <span><a href="tel:+16367789588">(636) 778-9588</a></span>
@@ -782,7 +811,7 @@
     <button class="theme-btn" data-theme="slate-modern" title="Slate Modern"></button>
   </div>
 
-  <div class="mobile-call-bar" role="region" aria-label="Quick salon actions">
+  <div class="mobile-call-bar" role="region" aria-label="Quick business actions">
     <a class="mobile-call-bar__phone" href="tel:+16367789588">
       <span class="mobile-call-bar__icon">📞</span>
       <span class="mobile-call-bar__text">
@@ -840,7 +869,7 @@
         btn.addEventListener("click", function () {
           var lang = btn.getAttribute("data-lang");
           html.setAttribute("data-lang", lang);
-          html.setAttribute("lang", lang === "zh" ? "zh-CN" : lang === "es" ? "es" : "en");
+          html.setAttribute("lang", lang === "zh" ? "zh-CN" : lang === "es" ? "es" : lang === "vi" ? "vi" : "en");
           document.querySelectorAll(".lang-btn").forEach(function (b) { b.classList.remove("active"); });
           btn.classList.add("active");
         });

@@ -288,7 +288,7 @@
       justify-content: center; gap: 12px; text-align: center;
     }
     .book-strip__text { color: rgba(255,255,255,0.92); font-size: 18px; font-weight: 600; margin: 0; }
-    .book-strip__phone { color: #fff3d4; font-size: 20px; font-weight: 700; text-decoration: none; }
+    .book-strip__phone { display: inline-flex; align-items: center; min-height: 44px; color: #fff3d4; font-size: 20px; font-weight: 700; text-decoration: none; }
 
     /* ── Story ── */
     .story { background: var(--color-section-alt); }
@@ -370,7 +370,7 @@
       display: inline-grid; width: 32px; height: 32px; place-items: center;
       border-radius: 999px; background: rgba(45,106,79,0.1); font-size: 16px;
     }
-    .contact-list a { color: var(--color-primary); font-weight: 700; }
+    .contact-list a { display: inline-flex; align-items: center; min-height: 44px; color: var(--color-primary); font-weight: 700; }
     .contact-actions { display: grid; grid-template-columns: 1fr; gap: 12px; }
     .map-wrap { position: relative; overflow: hidden; min-height: 330px; border-radius: 10px; background: var(--color-section-alt); }
     .map-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
@@ -379,7 +379,7 @@
     /* ── Footer ── */
     .site-footer { padding: 30px 0; color: rgba(255,255,255,0.82); background: #2a1111; font-size: 15px; }
     .site-footer__inner { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; justify-content: space-between; }
-    .site-footer a { color: #fff3d4; font-weight: 700; }
+    .site-footer a { display: inline-flex; align-items: center; min-height: 44px; color: #fff3d4; font-weight: 700; }
 
     /* ── Mobile call bar ── */
     .mobile-call-bar { display: none; }
@@ -477,8 +477,8 @@
           </p>
           <div class="hero__badges" aria-label="Business highlights">
             <span class="pill">📍 Ballwin</span>
-            <span class="pill">💆 5 Years Serving</span>
-            <span class="pill status--open">Open Today</span>
+            <span class="pill">💆 Open 7 Days a Week</span>
+            <span class="pill status--open">Open Daily · 9AM–8:30PM</span>
             <span class="pill">⭐ 4.3 Stars · 29 Reviews</span>
             <span class="pill">
               <span class="lang-en">Walk-ins Welcome</span>
@@ -634,17 +634,17 @@
               <div class="lang-en">
                 <p>Let's Relax Massage on Manchester Road brings authentic Asian therapeutic bodywork to West County STL — Chinese Tui Na, Thai traditional massage, hot stone therapy, and full-body relaxation sessions. Therapist Tiffany has built a loyal following for her skill, attentiveness, and professionalism. 'Tiffany is professional and has the skills,' one regular noted. 'The place is clean and inviting.' That combination of technical skill and genuine care is what keeps clients coming back.</p>
                 <p>Every session at Let's Relax is shaped around your body's needs — not a fixed routine. 'Excellent massage customized to individual needs,' wrote Bjorn T., capturing an approach that reads posture, tension, and preference before choosing technique. Whether it's deep pressure for chronic tightness or a gentler relaxation flow, the work adapts to you. 'The massage here is never disappointing,' Vicki H. wrote, after years of regular visits.</p>
-                <p>For those discovering Chinese bodywork for the first time, the experience often leaves a lasting impression. One client called her first Chinese Tui Na session 'definitely the best massage I've ever had' — a reaction that is common here. Long-time clients drive from well outside Ballwin rather than settle for less. 'I've been coming to Let's Relax for some time now and I can recommend them without hesitation,' wrote Ron H. Open seven days a week, 9AM to 8:30PM — call ahead or walk in.</p>
+                <p>For those discovering Chinese bodywork for the first time, the experience often leaves a lasting impression. One client called her first Chinese Tui Na session 'definitely the best massage I've ever had.' That kind of reaction speaks for itself. 'I've been coming to Let's Relax for some time now and I can recommend them without hesitation,' wrote Ron H., a returning client. Open seven days a week, 9AM to 8:30PM — call ahead or walk in.</p>
               </div>
               <div class="lang-zh">
                 <p>位于曼彻斯特路的Let's Relax按摩，将正宗亚洲理疗技艺带到西县圣路易斯——涵盖中式推拿、泰式传统按摩、热石疗法及全身舒缓按摩。理疗师Tiffany以其精湛技艺、细心周到和专业态度积累了忠实客群。一位常客这样写道：「Tiffany专业，技术到位，环境整洁温馨。」正是技术与真诚的结合，让客户一再回访。</p>
                 <p>在Let's Relax的每次疗程，都会根据您身体的实际需求量身定制——而非一成不变的固定流程。Bjorn T.这样写道：「按摩效果极佳，完全根据个人需求定制。」在选择手法之前，理疗师会先观察您的体态、紧绷部位与个人偏好。无论是针对慢性紧张的深层按压，还是轻柔的放松调理，都会随您而变。Vicki H.在多年定期到访后写道：「这里的按摩从未让我失望。」</p>
-                <p>对于初次体验中式推拿的客人而言，这里的疗程往往令人印象深刻。一位客人在第一次中式推拿体验后称其为「我有过最好的按摩」，而这样的反应在这里十分常见。许多长期客户甚至不惜驱车远道而来，只为这里的品质。Ron H.这样写道：「我来Let's Relax已经有一段时间了，我毫不犹豫地向大家推荐。」每周七天，早九点至晚八点半——欢迎提前预约或直接到访。</p>
+                <p>对于初次体验中式推拿的客人而言，这里的疗程往往令人印象深刻。一位客人在第一次中式推拿体验后称其为「我有过最好的按摩」，这样的评价本身就说明一切。回头客Ron H.这样写道：「我来Let's Relax已经有一段时间了，我毫不犹豫地向大家推荐。」每周七天，早九点至晚八点半——欢迎提前预约或直接到访。</p>
               </div>
               <div class="lang-es">
                 <p>Let's Relax Massage en Manchester Road trae terapia corporal asiática auténtica al West County STL — Tui Na chino, masaje tradicional tailandés, terapia de piedras calientes y sesiones de relajación corporal completa. La terapeuta Tiffany ha construido una clientela fiel por su habilidad, atención y profesionalismo. 'Tiffany es profesional y tiene las habilidades', anotó una clienta habitual. 'El lugar es limpio e invitador.' Esa combinación de destreza técnica y cuidado genuino es lo que hace que los clientes sigan regresando.</p>
                 <p>Cada sesión en Let's Relax se adapta a las necesidades de su cuerpo — no una rutina fija. 'Excelente masaje personalizado a las necesidades individuales', escribió Bjorn T., capturando un enfoque que lee la postura, la tensión y las preferencias antes de elegir la técnica. Ya sea presión profunda para la tensión crónica o un flujo de relajación más suave, el trabajo se adapta a usted. 'El masaje aquí nunca decepciona', escribió Vicki H., después de años de visitas regulares.</p>
-                <p>Para quienes descubren el trabajo corporal chino por primera vez, la experiencia a menudo deja una impresión duradera. Una clienta llamó a su primera sesión de Tui Na chino 'definitivamente el mejor masaje que he tenido' — una reacción común aquí. Los clientes de largo tiempo conducen desde mucho más lejos que Ballwin en lugar de conformarse con menos. 'He venido a Let's Relax por bastante tiempo y puedo recomendarlos sin dudarlo', escribió Ron H. Abierto siete días a la semana, 9AM a 8:30PM — llame con anticipación o pase directamente.</p>
+                <p>Para quienes descubren el trabajo corporal chino por primera vez, la experiencia a menudo deja una impresión duradera. Una clienta llamó a su primera sesión de Tui Na chino 'definitivamente el mejor masaje que he tenido.' Ese tipo de reacción habla por sí sola. 'He venido a Let's Relax por bastante tiempo y puedo recomendarlos sin dudarlo', escribió Ron H., un cliente habitual. Abierto siete días a la semana, 9AM a 8:30PM — llame con anticipación o pase directamente.</p>
               </div>
               <div class="lang-vi">
                 <p></p>
@@ -653,7 +653,7 @@
               </div>
             </div>
             <aside class="signature-card" aria-label="Signature service highlight">
-              <span class="signature-card__badge">5 Years Serving Ballwin</span>
+              <span class="signature-card__badge">Serving Ballwin & West County STL</span>
               <blockquote>
                 <span class="lang-en">I've been coming to Let's Relax for some time now and I can recommend them without hesitation.</span>
                 <span class="lang-zh">我来Let's Relax已有一段时间，我毫不犹豫地推荐这里。</span>
@@ -742,7 +742,7 @@
             <article class="contact-card">
               <div class="contact-card__top">
                 <h3 class="contact-card__heading">Hours &amp; Contact</h3>
-                <span class="contact-status status--open">Open Today</span>
+                <span class="contact-status status--open">Open Daily · 9AM–8:30PM</span>
               </div>
               <p class="today-hours">Today: 9:00 AM – 8:30 PM</p>
               <table class="hours-table" aria-label="Weekly business hours">
