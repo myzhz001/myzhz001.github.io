@@ -79,7 +79,7 @@
 
     /* ── Language switcher ── */
     .lang-zh, .lang-es, .lang-vi { display: none; }
-    .vi-slot { display: none; }
+    .vi-slot { display: none !important; }
     [data-lang="zh"] .lang-en { display: none; }
     [data-lang="zh"] .lang-zh { display: revert; }
     [data-lang="es"] .lang-en { display: none; }
@@ -499,9 +499,15 @@
     <nav class="section-jump-nav" aria-label="Jump to section">
       <div class="section-jump-nav__inner">
         <a class="section-jump-nav__link" href="#services">💅 Our Services</a>
-        <a class="section-jump-nav__link" href="#story">📖 Our Story</a>
-        <a class="section-jump-nav__link" href="#reviews">⭐ Reviews</a>
-        <a class="section-jump-nav__link" href="#contact">📍 Find Us</a>
+        <a class="section-jump-nav__link" href="#story">
+          📖 <span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra Historia</span><span class="lang-vi">Câu Chuyện</span>
+        </a>
+        <a class="section-jump-nav__link" href="#reviews">
+          ⭐ <span class="lang-en">Reviews</span><span class="lang-zh">评价</span><span class="lang-es">Reseñas</span><span class="lang-vi">Đánh Giá</span>
+        </a>
+        <a class="section-jump-nav__link" href="#contact">
+          📍 <span class="lang-en">Find Us</span><span class="lang-zh">找到我们</span><span class="lang-es">Encuéntrenos</span><span class="lang-vi">Tìm Chúng Tôi</span>
+        </a>
       </div>
     </nav>
 
@@ -510,7 +516,7 @@
       <section class="section services" id="services" aria-labelledby="services-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Our Services</p>
+            <p class="section__eyebrow"><span class="lang-en">Our Services</span><span class="lang-zh">我们的服务</span><span class="lang-es">Nuestros Servicios</span><span class="lang-vi">Dịch Vụ</span></p>
             <h2 class="section__title" id="services-title">
               <span class="lang-en">Trusted Services, Beautiful Results</span>
               <span class="lang-zh">值得信赖的服务，美丽的效果</span>
@@ -624,7 +630,7 @@
         <div class="container">
           <div class="story-layout">
             <div class="story-copy">
-              <p class="section__eyebrow">Our Story</p>
+              <p class="section__eyebrow"><span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra Historia</span><span class="lang-vi">Câu Chuyện Của Chúng Tôi</span></p>
               <h2 class="section__title" id="story-title">
                 <span class="lang-en">Twenty Years of Beautiful Nails in Ballwin</span>
                 <span class="lang-zh">二十年扎根鲍尔温的美甲之道</span>
@@ -675,7 +681,7 @@
       <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Client Reviews</p>
+            <p class="section__eyebrow"><span class="lang-en">Client Reviews</span><span class="lang-zh">客户评价</span><span class="lang-es">Reseñas de Clientes</span><span class="lang-vi">Đánh Giá Khách Hàng</span></p>
             <h2 class="section__title" id="reviews-title">
               <span class="lang-en">What Clients Are Saying</span>
               <span class="lang-zh">客户心声</span>
@@ -734,17 +740,38 @@
       <section class="section contact" id="contact" aria-labelledby="contact-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Visit Today</p>
-            <h2 class="section__title" id="contact-title">Find Us</h2>
+            <p class="section__eyebrow">
+              <span class="lang-en">Visit Today</span>
+              <span class="lang-zh">立即到访</span>
+              <span class="lang-es">Visítenos Hoy</span>
+              <span class="lang-vi">Ghé Thăm Hôm Nay</span>
+            </p>
+            <h2 class="section__title" id="contact-title">
+              <span class="lang-en">Find Us</span>
+              <span class="lang-zh">找到我们</span>
+              <span class="lang-es">Encuéntrenos</span>
+              <span class="lang-vi">Tìm Chúng Tôi</span>
+            </h2>
             <p class="section__intro">Walk-ins welcome. Call ahead to confirm availability.</p>
           </div>
           <div class="contact-layout">
             <article class="contact-card">
               <div class="contact-card__top">
-                <h3 class="contact-card__heading">Hours &amp; Contact</h3>
+                <h3 class="contact-card__heading">
+                  <span class="lang-en">Hours &amp; Contact</span>
+                  <span class="lang-zh">营业时间与联系方式</span>
+                  <span class="lang-es">Horarios y Contacto</span>
+                  <span class="lang-vi">Giờ Làm Việc &amp; Liên Hệ</span>
+                </h3>
                 <span class="contact-status status--open">Open Now</span>
               </div>
-              <p class="today-hours">Today: 9:30 AM – 7:00 PM</p>
+              <p class="today-hours">
+                <span class="lang-en">Today:</span>
+                <span class="lang-zh">今日：</span>
+                <span class="lang-es">Hoy:</span>
+                <span class="lang-vi">Hôm Nay:</span>
+                9:30 AM – 7:00 PM
+              </p>
               <table class="hours-table" aria-label="Weekly business hours">
                 <tbody>
                   <tr><th scope="row">Monday</th><td>9:30 AM – 7:00 PM</td></tr>
@@ -772,7 +799,12 @@
             </article>
             <article class="contact-card">
               <div class="contact-card__top">
-                <h3 class="contact-card__heading">Map &amp; Directions</h3>
+                <h3 class="contact-card__heading">
+                  <span class="lang-en">Map &amp; Directions</span>
+                  <span class="lang-zh">地图与路线</span>
+                  <span class="lang-es">Mapa y Direcciones</span>
+                  <span class="lang-vi">Bản Đồ &amp; Chỉ Đường</span>
+                </h3>
               </div>
               <div class="map-wrap">
                 <iframe
