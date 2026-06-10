@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>STL Roofing Co | Roof Repair & Replacement Chesterfield, MO</title>
+  <meta name="description" content="West County's trusted roofing contractor. Roof repair, replacement, gutters, and storm damage. Licensed & insured — free inspections.">
+  <meta name="theme-color" content="#8B1A1A" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#8B1A1A" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="STL Roofing Co | Roof Repair & Replacement Chesterfield, MO">
+  <meta property="og:description" content="West County's trusted roofing contractor. Roof repair, replacement, gutters, and storm damage. Licensed & insured — free inspections.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://myzhz001.github.io/stl-roofing-co/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80">
+  <link rel="canonical" href="https://myzhz001.github.io/stl-roofing-co/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Theme 1: Crimson Heritage (default) ── */
+    :root, [data-theme="crimson-heritage"] {
+      --color-primary: #8B1A1A;
+      --color-bg: #FAFAF7;
+      --color-text: #2C2C2C;
+      --color-accent: #C9A84C;
+      --color-section-alt: #F5F0E8;
+      --color-secondary: #2D6A4F;
+      --color-card: #FFFFFF;
+      --color-soft-warm: #FBF7F4;
+      --font-heading: "Lora", Georgia, "Times New Roman", serif;
+      --font-body: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --color-accent-contrast: #2C2C2C;
+      --shadow-card: 0 4px 16px rgba(0,0,0,0.08);
+      --radius-card: 12px;
+      --radius-button: 8px;
+      --container: 1120px;
+    }
+    [data-theme="midnight-luxe"] {
+      --color-primary: #1B2A4A; --color-bg: #F8F7F4; --color-text: #1A1A2E;
+      --color-accent: #C9A84C; --color-section-alt: #EEF0F5;
+      --color-secondary: #C0392B; --color-card: #FFFFFF; --color-soft-warm: #F4F3F0;
+    }
+    [data-theme="mocha-warmth"] {
+      --color-primary: #6B3F2A; --color-bg: #FAF7F2; --color-text: #2C1F14;
+      --color-accent: #D4A853; --color-section-alt: #F2EBE0;
+      --color-secondary: #5C7A4E; --color-card: #FFFFFF; --color-soft-warm: #F7F2EA;
+    }
+    [data-theme="forest-calm"] {
+      --color-primary: #1E4D35; --color-bg: #F7FAF8; --color-text: #1A2E1E;
+      --color-accent: #C9A84C; --color-section-alt: #EAF2EC;
+      --color-secondary: #8B1A1A; --color-card: #FFFFFF; --color-soft-warm: #F2F7F3;
+    }
+    [data-theme="slate-modern"] {
+      --color-primary: #2D3142; --color-bg: #F9F9F9; --color-text: #1C1C2E;
+      --color-accent: #E8A838; --color-section-alt: #F0F0F5;
+      --color-secondary: #2D6A4F; --color-card: #FFFFFF; --color-soft-warm: #F5F5F8;
+    }
+
+
+    /* ── Theme switcher UI ── */
+    .theme-switcher {
+      position: fixed; right: 16px; top: 78px; z-index: 8888;
+      display: flex; flex-direction: row; align-items: center; gap: 8px;
+      background: #fff; border-radius: 999px; padding: 8px 14px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18); border: 1px solid rgba(0,0,0,0.08);
+    }
+    .theme-switcher__label {
+      font-size: 10px; font-weight: 700; color: #888; letter-spacing: 0.08em;
+      text-transform: uppercase; white-space: nowrap; margin-right: 2px;
+    }
+    .theme-btn {
+      width: 26px; height: 26px; border-radius: 999px; border: 2px solid transparent;
+      cursor: pointer; transition: transform 160ms ease, border-color 160ms ease; padding: 0;
+      flex: 0 0 auto;
+    }
+    .theme-btn:hover { transform: scale(1.18); }
+    .theme-btn.active { border-color: #333; transform: scale(1.12); }
+    .theme-btn[data-theme="crimson-heritage"] { background: #8B1A1A; }
+    .theme-btn[data-theme="midnight-luxe"]    { background: #1B2A4A; }
+    .theme-btn[data-theme="mocha-warmth"]     { background: #6B3F2A; }
+    .theme-btn[data-theme="forest-calm"]      { background: #1E4D35; }
+    .theme-btn[data-theme="slate-modern"]     { background: #2D3142; }
+    @media (max-width: 767px) { .theme-switcher { top: 78px; right: 12px; gap: 6px; padding: 7px 12px; } }
+
+    /* ── Language switcher ── */
+    .lang-zh, .lang-es, .lang-vi { display: none; }
+    .vi-slot { display: none !important; }
+    [data-lang="zh"] .lang-en { display: none; }
+    [data-lang="zh"] .lang-zh { display: revert; }
+    [data-lang="es"] .lang-en { display: none; }
+    [data-lang="es"] .lang-es { display: revert; }
+    [data-lang="vi"] .lang-en { display: none; }
+    [data-lang="vi"] .lang-vi { display: revert; }
+
+    .lang-switcher { display: flex; align-items: center; gap: 4px; }
+    .lang-btn {
+      display: inline-flex; min-height: 44px; align-items: center;
+      padding: 4px 9px; border: 1px solid rgba(0,0,0,0.14); border-radius: 6px;
+      background: transparent; font-family: var(--font-body); font-size: 13px;
+      font-weight: 700; cursor: pointer; color: rgba(44,44,44,0.68);
+      transition: background 160ms, color 160ms, border-color 160ms; white-space: nowrap;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      background: var(--color-primary); color: #fff; border-color: var(--color-primary);
+    }
+
+    /* ── Global reset ── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { min-width: 0; scroll-behavior: smooth; text-size-adjust: 100%; }
+    body {
+      min-width: 0; margin: 0; color: var(--color-text); background: var(--color-bg);
+      font-family: var(--font-body); font-size: 17px; line-height: 1.6;
+      overflow-x: hidden; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    img, iframe { max-width: 100%; }
+    a { color: inherit; text-decoration-thickness: 0.08em; text-underline-offset: 0.18em; }
+    a:focus-visible, button:focus-visible { outline: 3px solid rgba(201,168,76,0.78); outline-offset: 3px; }
+
+    /* ── Layout ── */
+    .site-shell {
+      min-height: 100vh; overflow-x: clip;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(201,168,76,0.08), transparent 34%),
+        linear-gradient(180deg, var(--color-soft-warm) 0%, var(--color-bg) 48%);
+    }
+    .container { width: min(100% - 32px, var(--container)); margin: 0 auto; }
+    .section { padding: 28px 0; position: relative; }
+    .section__eyebrow {
+      margin: 0 0 10px; color: var(--color-primary); font-size: 14px;
+      font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    .section__title {
+      margin: 0; color: var(--color-text); font-family: var(--font-heading);
+      font-size: 26px; font-size: clamp(22px, 5.5vw, 30px); font-weight: 700; line-height: 1.15;
+    }
+    .section__intro { max-width: 680px; margin: 14px auto 0; color: rgba(44,44,44,0.76); font-size: 18px; }
+    .section-header { max-width: 760px; margin: 0 auto 34px; text-align: center; }
+
+    /* ── Buttons ── */
+    .button {
+      display: inline-flex; min-height: 52px; align-items: center; justify-content: center;
+      gap: 10px; padding: 0 28px; border: 0; border-radius: var(--radius-button);
+      font-family: var(--font-body); font-size: 16px; font-weight: 700; line-height: 1;
+      text-decoration: none; cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 12px 22px rgba(44,44,44,0.16); }
+    .button:active { transform: translateY(0); }
+    .button--primary { color: #fff; background: var(--color-primary); }
+    .button--secondary { color: #fff; background: var(--color-secondary); }
+    .button--light { color: var(--color-primary); background: #fff; box-shadow: inset 0 0 0 1px rgba(139,26,26,0.18); }
+    .link-arrow {
+      display: inline-flex; min-height: 44px; align-items: center; gap: 8px;
+      color: var(--color-primary); font-weight: 700; text-decoration: none;
+    }
+    .link-arrow::after { content: "→"; transition: transform 180ms ease; }
+    .link-arrow:hover::after { transform: translateX(4px); }
+
+    /* ── Nav ── */
+    .site-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,250,247,0.98); border-bottom: 1px solid rgba(139,26,26,0.12);
+    }
+    @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+      .site-nav {
+        background: rgba(250,250,247,0.94);
+        backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      }
+    }
+    .site-nav { will-change: transform; }
+    .site-nav__inner {
+      display: flex; min-height: 70px; align-items: center;
+      justify-content: space-between; gap: 18px;
+    }
+    .site-nav__brand {
+      display: inline-flex; min-width: 0; align-items: center; gap: 12px;
+      color: var(--color-primary); font-family: var(--font-heading); font-size: 22px;
+      font-weight: 700; line-height: 1.15; text-decoration: none;
+    }
+    .site-nav__mark {
+      display: inline-grid; width: 38px; height: 38px; flex: 0 0 auto;
+      place-items: center; border-radius: 999px; color: #fff;
+      background: var(--color-primary); font-size: 18px; font-weight: 700;
+    }
+    .site-nav__name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .site-nav__actions { display: none; align-items: center; gap: 14px; }
+    .site-nav__phone {
+      display: inline-flex; align-items: center; min-height: 44px;
+      color: rgba(44,44,44,0.82); font-size: 15px; font-weight: 700;
+      text-decoration: none; white-space: nowrap;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative; min-height: 320px; display: grid;
+      align-items: center; overflow: hidden; color: #fff;
+      background-image: url(https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80);
+      background-position: center; background-size: cover; background-repeat: no-repeat;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0; z-index: 0;
+      background:
+        linear-gradient(90deg, rgba(49,5,5,0.84) 0%, rgba(139,26,26,0.64) 48%, rgba(35,8,8,0.36) 100%),
+        radial-gradient(circle at 25% 32%, rgba(201,168,76,0.22), transparent 34%);
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: auto 0 0; z-index: 0;
+      height: 34%; background: linear-gradient(0deg, rgba(0,0,0,0.42), transparent); pointer-events: none;
+    }
+    .hero__content { position: relative; z-index: 1; max-width: 760px; padding: 24px 0 28px; }
+    .hero__kicker {
+      display: inline-flex; align-items: center; gap: 8px; margin: 0 0 10px;
+      color: #fff3d4; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    .hero__kicker::before { content: ""; width: 38px; height: 2px; background: var(--color-accent); }
+    .hero__title {
+      max-width: 11ch; margin: 0; font-family: var(--font-heading);
+      font-size: 42px; font-size: clamp(36px, 4.5vw, 58px); font-weight: 700; line-height: 1.05; overflow-wrap: break-word; text-wrap: balance;
+    }
+    .hero__tagline {
+      max-width: 620px; margin: 10px 0 0; color: rgba(255,255,255,0.92);
+      font-size: 21px; font-size: clamp(19px, 5vw, 25px); font-weight: 600; line-height: 1.35; overflow-wrap: break-word; text-wrap: pretty;
+    }
+    .hero__badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; }
+    .pill {
+      display: inline-flex; min-height: 38px; align-items: center; justify-content: center;
+      gap: 8px; padding: 7px 14px; border-radius: 999px; color: #fff;
+      background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.24);
+      font-size: 14px; font-weight: 700; background: rgba(0,0,0,0.42);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    }
+    .status--open  { background: #d4edda; color: #155724; }
+    .status--closed { background: #f8d7da; color: #721c24; }
+    .hero__ctas { display: flex; flex-direction: column; gap: 10px; margin: 16px 0 0; }
+    .hero__ctas .button { width: 100%; }
+    .hero__phone-display { margin: 8px 0 0; color: rgba(255,255,255,0.90); font-size: 17px; font-weight: 700; }
+    .hero__phone-display a {
+      display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration: none;
+    }
+
+    /* ── Section jump nav ── */
+    #services, #story, #reviews, #contact { scroll-margin-top: 86px; }
+    .section-jump-nav {
+      background: var(--color-section-alt); border-bottom: 1px solid rgba(139,26,26,0.1);
+      overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none;
+    }
+    .section-jump-nav::-webkit-scrollbar { display: none; }
+    .section-jump-nav__inner {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; padding: 12px 16px; min-width: max-content; margin: 0 auto;
+    }
+    .section-jump-nav__link {
+      display: inline-flex; min-height: 44px; align-items: center; padding: 7px 16px;
+      border-radius: 999px; color: var(--color-primary); background: var(--color-card);
+      border: 1px solid rgba(139,26,26,0.2); font-size: 14px; font-weight: 700;
+      text-decoration: none; white-space: nowrap;
+      transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+    }
+    .section-jump-nav__link:last-child { margin-right: 16px; }
+    .section-jump-nav__link:hover { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+
+    /* ── Service cards ── */
+    .services { background: var(--color-bg); }
+    .services-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 34px; }
+    .service-card {
+      position: relative; display: grid; overflow: hidden;
+      background: var(--color-card); border-radius: var(--radius-card);
+      border-top: 5px solid var(--color-secondary); box-shadow: var(--shadow-card);
+    }
+    .service-card__image {
+      width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+      border-radius: var(--radius-card) var(--radius-card) 0 0;
+      display: block; background: var(--color-section-alt);
+    }
+    .service-card__badge {
+      position: absolute; top: 12px; right: 12px; background: var(--color-accent);
+      color: var(--color-accent-contrast); font-size: 13px; font-weight: 700; padding: 4px 10px;
+      border-radius: 999px; z-index: 2; pointer-events: none;
+    }
+    .service-card__body { padding: 20px 24px 24px; display: grid; gap: 10px; }
+    .service-card__icon {
+      display: inline-grid; width: 54px; height: 54px; place-items: center;
+      border-radius: 14px; background: rgba(201,168,76,0.2); font-size: 28px; line-height: 1;
+    }
+    .service-card__title {
+      margin: 0; color: var(--color-text); font-family: var(--font-heading);
+      font-size: 24px; font-weight: 700; line-height: 1.2;
+    }
+    .service-card__description { margin: 0; color: rgba(44,44,44,0.74); }
+    .service-card__price {
+      display: inline-flex; align-items: center; padding: 5px 12px;
+      border-radius: 999px; background: rgba(45,106,79,0.1);
+      color: var(--color-secondary); font-size: 14px; font-weight: 700; align-self: start;
+    }
+    .service-card__featured { font-size: 14px; font-style: italic; font-weight: 600; color: var(--color-primary); }
+
+    /* ── Booking strip ── */
+    .book-strip { background: var(--color-primary); padding: 20px 0; }
+    .book-strip__inner {
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: 12px; text-align: center;
+    }
+    .book-strip__text { color: rgba(255,255,255,0.92); font-size: 18px; font-weight: 600; margin: 0; }
+    .book-strip__phone { display: inline-flex; align-items: center; min-height: 44px; color: #fff3d4; font-size: 20px; font-weight: 700; text-decoration: none; }
+
+    /* ── Seasonal banner (optional block) ── */
+    .seasonal-banner {
+      background: linear-gradient(90deg, #2D5016 0%, #4A7C1F 100%);
+      padding: 14px 0; color: #fff; text-align: center;
+    }
+    .seasonal-banner__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; }
+    .seasonal-banner__text { font-size: 16px; font-weight: 600; }
+    .seasonal-banner__cta { font-size: 14px; font-weight: 700; color: #fff3d4; text-decoration: none; }
+
+    /* ── Story ── */
+    .story { background: var(--color-section-alt); }
+    .story-layout { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: start; }
+    .story-copy { max-width: 720px; }
+    .story-copy .section__title { margin-bottom: 24px; }
+    .story-copy p { margin: 0 0 18px; color: rgba(44,44,44,0.82); }
+    .story-copy p:last-child { margin-bottom: 0; }
+    .signature-card {
+      position: relative; padding: 28px; overflow: hidden;
+      background: linear-gradient(145deg, #ffffff 0%, var(--color-soft-warm) 100%);
+      border-radius: var(--radius-card); box-shadow: var(--shadow-card);
+    }
+    .signature-card::before { content: none; }
+    .signature-card__badge {
+      display: inline-flex; min-height: 38px; align-items: center; padding: 7px 13px;
+      border-radius: 999px; color: #fff; background: var(--color-secondary); font-size: 14px; font-weight: 700;
+    }
+    .signature-card blockquote {
+      position: relative; z-index: 1; margin: 22px 0 0; color: var(--color-primary);
+      font-family: var(--font-heading); font-size: 26px; font-size: clamp(22px, 6vw, 32px);
+      font-style: italic; font-weight: 400; line-height: 1.3;
+    }
+    .signature-card cite {
+      display: block; margin-top: 18px; color: var(--color-text);
+      font-family: var(--font-body); font-size: 16px; font-style: normal; font-weight: 700;
+    }
+
+    /* ── Nextdoor block (optional) ── */
+    .nextdoor-block {
+      margin-top: 24px; padding: 20px 24px;
+      background: #f0f7ff; border-radius: var(--radius-card);
+      border-left: 4px solid #00B4D8;
+    }
+    .nextdoor-block__heading { margin: 0 0 8px; font-weight: 700; color: #00688B; font-size: 15px; }
+    .nextdoor-block__body { margin: 0; color: rgba(44,44,44,0.78); font-size: 15px; }
+
+    /* ── Reviews ── */
+    .reviews { background: var(--color-bg); }
+    .reviews-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 34px; }
+    .review-card {
+      display: flex; min-height: 250px; flex-direction: column; justify-content: space-between;
+      gap: 18px; padding: 24px; background: var(--color-card);
+      border-radius: var(--radius-card); box-shadow: var(--shadow-card);
+    }
+    .review-card__stars { color: var(--color-accent); font-size: 20px; letter-spacing: 0.08em; }
+    .review-card blockquote {
+      margin: 0; color: rgba(44,44,44,0.8); font-family: var(--font-heading);
+      font-size: 20px; font-style: italic; line-height: 1.45;
+    }
+    .review-card__name { margin: 0; color: var(--color-primary); font-weight: 700; }
+    .reviews-summary { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 28px; }
+    .reviews-summary__rating { font-family: var(--font-heading); font-size: 42px; font-weight: 700; color: var(--color-text); line-height: 1; }
+    .reviews-summary__stars-wrap {
+      position: relative; display: inline-block; font-size: 26px; line-height: 1; color: #ddd; letter-spacing: 0.06em;
+    }
+    .reviews-summary__stars-fill {
+      position: absolute; top: 0; left: 0; overflow: hidden; white-space: nowrap;
+      color: var(--color-accent); width: calc(var(--rating, 4.8) / 5 * 100%);
+    }
+    .reviews-summary__label { color: rgba(44,44,44,0.68); font-size: 16px; }
+    .reviews-footer { text-align: center; margin-top: 24px; }
+
+    /* ── Contact ── */
+    .contact { background: var(--color-section-alt); }
+    .contact-layout { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 34px; }
+    .contact-card { padding: 24px; background: var(--color-card); border-radius: var(--radius-card); box-shadow: var(--shadow-card); display: flex; flex-direction: column; justify-content: space-between; }
+    .contact-card__top {
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 12px; margin-bottom: 22px;
+    }
+    .contact-card__heading { margin: 0; font-family: var(--font-heading); font-size: 23px; font-size: clamp(20px, 4vw, 27px); line-height: 1.2; }
+    .contact-status { display: inline-flex; min-height: 36px; align-items: center; padding: 6px 12px; border-radius: 999px; font-size: 14px; font-weight: 700; }
+    .today-hours {
+      margin: 0 0 18px; padding: 14px 16px; border-radius: 10px;
+      color: var(--color-primary); background: rgba(139,26,26,0.07); font-weight: 700;
+    }
+    .hours-table { width: 100%; margin: 0 0 22px; border-collapse: collapse; font-size: 16px; }
+    .hours-table th, .hours-table td { padding: 10px 0; border-bottom: 1px solid rgba(44,44,44,0.1); text-align: left; vertical-align: top; }
+    .hours-table th { width: 42%; color: rgba(44,44,44,0.72); font-weight: 700; }
+    .hours-table td { color: var(--color-text); font-weight: 600; text-align: right; }
+    .contact-list { display: grid; gap: 12px; margin: 0 0 22px; padding: 0; list-style: none; }
+    .contact-list__item { display: grid; grid-template-columns: 32px 1fr; gap: 10px; align-items: center; }
+    .contact-list__icon {
+      display: inline-grid; width: 32px; height: 32px; place-items: center;
+      border-radius: 999px; background: rgba(45,106,79,0.1); font-size: 16px;
+    }
+    .contact-list a { display: inline-flex; align-items: center; min-height: 44px; color: var(--color-primary); font-weight: 700; }
+    .contact-actions { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .map-wrap { position: relative; overflow: hidden; min-height: 330px; border-radius: 10px; background: var(--color-section-alt); }
+    .map-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .map-actions { display: flex; flex-direction: column; gap: 10px; align-items: stretch; margin-top: 18px; }
+
+    /* ── Footer ── */
+    .site-footer { padding: 30px 0; color: rgba(255,255,255,0.82); background: #2a1111; font-size: 15px; }
+    .site-footer__inner { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; justify-content: space-between; }
+    .site-footer a { display: inline-flex; align-items: center; min-height: 44px; color: #fff3d4; font-weight: 700; }
+
+    /* ── Mobile call bar ── */
+    .mobile-call-bar { display: none; }
+    @media (max-width: 767px) {
+      body { padding-bottom: 86px; }
+      .mobile-call-bar {
+        position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+        display: grid; grid-template-columns: 1fr auto; gap: 10px;
+        min-height: 74px; padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+        background: var(--color-card); border-top: 1px solid rgba(139,26,26,0.16);
+        box-shadow: 0 -10px 28px rgba(44,44,44,0.18);
+        opacity: 0; transform: translateY(110%); pointer-events: none; transition: 220ms ease;
+      }
+      body.show-mobile-call-bar:not(.hide-mobile-call-bar) .mobile-call-bar {
+        opacity: 1; transform: translateY(0); pointer-events: auto;
+      }
+      .mobile-call-bar a {
+        display: inline-flex; min-height: 54px; align-items: center; justify-content: flex-start;
+        gap: 10px; border-radius: 8px; color: white; font-weight: 700; line-height: 1.1; text-decoration: none;
+      }
+      .mobile-call-bar__phone { padding: 8px 18px; background: var(--color-primary); }
+      .mobile-call-bar__directions { min-width: 116px; padding: 8px 14px; background: var(--color-secondary); }
+      .mobile-call-bar__icon { flex: 0 0 auto; font-size: 20px; }
+      .mobile-call-bar__text { display: grid; gap: 2px; min-width: 0; }
+      .mobile-call-bar__label { display: block; font-size: 13px; }
+      .mobile-call-bar__number { display: block; font-size: 16px; white-space: nowrap; }
+    }
+
+    /* ── Responsive ── */
+    @media (min-width: 768px) {
+      body { font-size: 18px; }
+      .container { width: min(100% - 56px, var(--container)); }
+      .section { padding: 44px 0; }
+      .section-header { margin-bottom: 46px; }
+      .section__title { font-size: 32px; font-size: clamp(28px, 3.2vw, 36px); }
+      .site-nav__actions { display: flex; }
+      .hero { min-height: 380px; }
+      .hero__content { padding: 40px 0 44px; }
+      .hero__ctas { flex-direction: row; align-items: center; }
+      .hero__ctas .button { width: auto; }
+      .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+      .story-layout { grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr); gap: 54px; }
+      .signature-card { padding: 36px; position: sticky; top: 110px; }
+      .reviews-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+      .review-card { padding: 28px; }
+      .contact-layout { grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); gap: 24px; }
+      .contact-card { padding: 30px; }
+      .map-wrap { min-height: 470px; }
+      .contact-actions { grid-template-columns: auto; justify-content: start; }
+      .map-actions { flex-direction: row; align-items: center; }
+      .site-footer__inner { flex-direction: row; align-items: center; }
+      .book-strip__inner { flex-direction: row; gap: 24px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important; transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
+      }
+    }
+
+    /* ── CJK typography corrections ── */
+    [data-lang="zh"] .section__eyebrow,
+    [data-lang="zh"] .hero__kicker { letter-spacing: 0.04em; }
+    [data-lang="zh"] .story-copy p { line-height: 1.75; }
+    [data-lang="zh"] .review-card blockquote { line-height: 1.65; }
+    [data-lang="zh"] .signature-card blockquote { line-height: 1.55; }
+    [data-lang="zh"] .review-card blockquote,
+    [data-lang="zh"] .signature-card blockquote { font-family: var(--font-body); font-style: normal; }
+  </style>
+
+</head>
+<body>
+  <div class="site-shell">
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <div class="container site-nav__inner">
+        <a class="site-nav__brand" href="#top" aria-label="STL Roofing Co home">
+          <span class="site-nav__mark" aria-hidden="true">🏠</span>
+          <span class="site-nav__name">STL Roofing Co</span>
+        </a>
+        <div class="site-nav__actions" aria-label="Quick actions">
+          <div class="lang-switcher" role="group" aria-label="Language / 语言 / Idioma / Tiếng Việt">
+            <button class="lang-btn active" data-lang="en" title="English">🇺🇸 EN</button>
+            <button class="lang-btn" data-lang="zh" title="中文">🇨🇳 中文</button>
+            <button class="lang-btn" data-lang="es" title="Español">🇲🇽 ES</button>
+            
+          </div>
+          <a class="site-nav__phone" href="tel:3145550163">(314) 555-0163</a>
+          <a class="button button--primary" href="tel:3145550163"><span class="lang-en">Free Quote</span><span class="lang-zh">免费估价</span><span class="lang-es">Cotización Gratuita</span><span class="lang-vi">Báo Giá Miễn Phí</span></a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero" id="top" role="banner" aria-label="Professional roofing contractor serving Chesterfield and West County, MO">
+      <div class="container">
+        <div class="hero__content">
+          <p class="hero__kicker"><span class="lang-en">West County's Trusted Roofers</span><span class="lang-zh">西县最值得信赖的屋顶专家</span><span class="lang-es">Los techadores de confianza de West County</span><span class="lang-vi"></span></p>
+          <h1 class="hero__title">STL Roofing Co</h1>
+          <p class="hero__tagline">
+            <span class="lang-en">Roof Right the First Time — Repair, Replace, Protect</span>
+            <span class="lang-zh">一次做对——修缮、更换、守护您的屋顶</span>
+            <span class="lang-es">Hágalo bien desde el principio — repare, reemplace, proteja</span>
+            <span class="lang-vi"></span>
+          </p>
+          <div class="hero__badges" aria-label="Business highlights">
+            <span class="pill">📍 Chesterfield, MO</span>
+            <span class="pill"><span class="lang-en">18+ Years Roofing West County</span><span class="lang-zh">深耕西县屋顶行业18余年</span><span class="lang-es">Más de 18 años techando en West County</span><span class="lang-vi"></span></span>
+            <span class="pill pill--open"><span class="lang-en">Now Booking</span><span class="lang-zh">现正接受预约</span><span class="lang-es">Agenda abierta</span><span class="lang-vi">Đang Nhận Đặt Lịch</span></span>
+            <span class="pill"><span class="lang-en">⭐ 4.7 Google Rating</span><span class="lang-zh">⭐ Google 评分 4.7</span><span class="lang-es">⭐ Calificación 4.7 en Google</span><span class="lang-vi"></span></span>
+            <span class="pill">
+              <span class="lang-en">Licensed & Insured</span>
+              <span class="lang-zh">持牌且已投保</span>
+              <span class="lang-es">Con licencia y asegurado</span>
+              <span class="lang-vi"></span>
+            </span>
+          </div>
+          <div class="hero__ctas" aria-label="Hero actions">
+            <a class="button button--primary" href="tel:3145550163"><span class="lang-en">📞 Call for Free Quote</span><span class="lang-zh">📞 致电获取免费估价</span><span class="lang-es">📞 Llame para una cotización gratuita</span><span class="lang-vi">📞 Gọi Báo Giá Miễn Phí</span></a>
+            <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=14320+Manchester+Rd%2C+Chesterfield%2C+MO+63017" target="_blank" rel="noopener"><span class="lang-en">📍 Get Directions</span><span class="lang-zh">📍 查看路线</span><span class="lang-es">📍 Ver cómo llegar</span><span class="lang-vi">📍 Chỉ Đường</span></a>
+          </div>
+          <p class="hero__phone-display"><a href="tel:3145550163">(314) 555-0163</a></p>
+        </div>
+      </div>
+    </header>
+
+    
+
+    <nav class="section-jump-nav" aria-label="Jump to section">
+      <div class="section-jump-nav__inner">
+        <a class="section-jump-nav__link" href="#services">
+          🏠 <span class="lang-en">Services</span><span class="lang-zh">服务项目</span><span class="lang-es">Servicios</span><span class="lang-vi">Dịch Vụ</span>
+        </a>
+        <a class="section-jump-nav__link" href="#story">
+          📖 <span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra historia</span><span class="lang-vi">Câu Chuyện</span>
+        </a>
+        <a class="section-jump-nav__link" href="#reviews">
+          ⭐ <span class="lang-en">Reviews</span><span class="lang-zh">客户评价</span><span class="lang-es">Reseñas</span><span class="lang-vi">Đánh Giá</span>
+        </a>
+        <a class="section-jump-nav__link" href="#contact">
+          📍 <span class="lang-en">Find Us</span><span class="lang-zh">位置与联系</span><span class="lang-es">Ubicación</span><span class="lang-vi">Tìm Chúng Tôi</span>
+        </a>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Services -->
+      <section class="section services" id="services" aria-labelledby="services-title">
+        <div class="container">
+          <div class="section-header">
+            <p class="section__eyebrow"><span class="lang-en">Our Services</span><span class="lang-zh">我们的服务项目</span><span class="lang-es">Nuestros servicios</span><span class="lang-vi">Dịch Vụ</span></p>
+            <h2 class="section__title" id="services-title">
+              <span class="lang-en">Our Services</span>
+              <span class="lang-zh">服务项目</span>
+              <span class="lang-es">Nuestros servicios</span>
+              <span class="lang-vi">Dịch Vụ</span>
+            </h2>
+            <p class="section__intro">
+              <span class="lang-en">From a missing shingle to a full tear-off — licensed roofing work done right in West County</span>
+              <span class="lang-zh">从单块屋瓦更换到完整拆除重建——西县专业持牌屋顶工程</span>
+              <span class="lang-es">Desde una teja faltante hasta un reemplazo completo — trabajo de techado con licencia hecho correctamente en West County</span>
+              <span class="lang-vi"></span>
+            </p>
+          </div>
+          <div class="services-grid">
+            <article class="service-card">
+              <img class="service-card__image" src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?w=800&q=80" alt="Roof repair and shingle replacement work in progress" loading="lazy">
+              <span class="service-card__badge"><span class="lang-en">⚡ Fast Turnaround</span><span class="lang-zh">⚡ 快速完工</span><span class="lang-es">⚡ Entrega rápida</span><span class="lang-vi"></span></span>
+              <div class="service-card__body">
+                <h3 class="service-card__title">
+                  <span class="lang-en">Roof Repair & Patching</span>
+                  <span class="lang-zh">屋顶修缮与修补</span>
+                  <span class="lang-es">Reparación y parchado de techos</span>
+                  <span class="lang-vi"></span>
+                </h3>
+                <p class="service-card__description">
+                  <span class="lang-en">Missing shingles, leaks, flashing failures, and soft spots. We locate the source, not just the symptom, and fix it properly so the repair holds through the next storm.</span>
+                  <span class="lang-zh">缺失瓦片、漏水、泛水板失效及软烂区域。我们追查根源，而非仅处理表面，确保修缮在下次风暴中同样可靠。</span>
+                  <span class="lang-es">Tejas faltantes, goteras, fallas en el tapajuntas y puntos blandos. Localizamos la fuente, no solo el síntoma, y lo reparamos correctamente para que la reparación aguante la próxima tormenta.</span>
+                  <span class="lang-vi"></span>
+                </p>
+                <span class="service-card__price"><span class="lang-en">Starting at $350</span><span class="lang-zh">$350起</span><span class="lang-es">Desde $350</span><span class="lang-vi"></span></span>
+              </div>
+            </article>
+            <article class="service-card">
+              <img class="service-card__image" src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80" alt="New roof installation on a residential home" loading="lazy">
+              <div class="service-card__body">
+                <h3 class="service-card__title">
+                  <span class="lang-en">Full Roof Replacement</span>
+                  <span class="lang-zh">全面屋顶更换</span>
+                  <span class="lang-es">Reemplazo completo del techo</span>
+                  <span class="lang-vi"></span>
+                </h3>
+                <p class="service-card__description">
+                  <span class="lang-en">Complete tear-off of existing materials, inspection of decking, new underlayment, and 30-year architectural shingles. Fully permitted and inspected. We handle the paperwork.</span>
+                  <span class="lang-zh">完整拆除现有材料、检查屋板、铺设新防水毡及30年建筑级瓦片。全程持证施工并通过验收，手续由我们负责。</span>
+                  <span class="lang-es">Retiro completo de materiales existentes, inspección de la cubierta, nueva membrana y tejas arquitectónicas de 30 años. Totalmente permitido e inspeccionado. Nosotros nos encargamos del papeleo.</span>
+                  <span class="lang-vi"></span>
+                </p>
+                <span class="service-card__price"><span class="lang-en">Starting at $8,000</span><span class="lang-zh">$8,000起</span><span class="lang-es">Desde $8,000</span><span class="lang-vi"></span></span>
+              </div>
+            </article>
+            <article class="service-card">
+              <img class="service-card__image" src="https://images.unsplash.com/photo-1598300056393-4aac492f4344?w=800&q=80" alt="Gutter installation and repair on residential home" loading="lazy">
+              <div class="service-card__body">
+                <h3 class="service-card__title">
+                  <span class="lang-en">Gutter Installation & Repair</span>
+                  <span class="lang-zh">排水槽安装与修缮</span>
+                  <span class="lang-es">Instalación y reparación de canaletas</span>
+                  <span class="lang-vi"></span>
+                </h3>
+                <p class="service-card__description">
+                  <span class="lang-en">Seamless gutters, downspout repositioning, gutter guards, and repairs to sagging or leaking sections. Properly pitched gutters protect your foundation, siding, and landscaping.</span>
+                  <span class="lang-zh">无缝排水槽、落水管重新定位、排水槽护盖及下垂或漏水段修缮。正确倾斜的排水槽保护地基、外墙及绿化。</span>
+                  <span class="lang-es">Canaletas sin costuras, reposicionamiento de bajantes, protectores de canaletas y reparaciones de secciones hundidas o con fugas. Las canaletas bien inclinadas protegen los cimientos, el revestimiento y el paisajismo.</span>
+                  <span class="lang-vi"></span>
+                </p>
+                <span class="service-card__price"><span class="lang-en">Starting at $600</span><span class="lang-zh">$600起</span><span class="lang-es">Desde $600</span><span class="lang-vi"></span></span>
+              </div>
+            </article>
+            <article class="service-card">
+              <img class="service-card__image" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Storm damage roof inspection and assessment" loading="lazy">
+              <div class="service-card__body">
+                <h3 class="service-card__title">
+                  <span class="lang-en">Storm Damage Assessment</span>
+                  <span class="lang-zh">风暴损坏评估</span>
+                  <span class="lang-es">Evaluación de daños por tormenta</span>
+                  <span class="lang-vi"></span>
+                </h3>
+                <p class="service-card__description">
+                  <span class="lang-en">After a hail storm or high winds, your roof may be damaged and you don't even know it. Free on-site inspection with photos. We document everything you need for an insurance claim.</span>
+                  <span class="lang-zh">冰雹风暴或大风过后，您的屋顶可能已受损却浑然不知。免费上门检查并拍照记录。我们整理保险理赔所需的全部资料。</span>
+                  <span class="lang-es">Después de una tormenta de granizo o vientos fuertes, su techo puede estar dañado sin que lo sepa. Inspección gratuita en el sitio con fotos. Documentamos todo lo que necesita para una reclamación de seguro.</span>
+                  <span class="lang-vi"></span>
+                </p>
+                <span class="service-card__price"><span class="lang-en">Free — call to schedule</span><span class="lang-zh">免费——致电预约</span><span class="lang-es">Gratis — llame para programar</span><span class="lang-vi"></span></span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Booking strip -->
+      <aside class="book-strip" aria-label="Ready to book">
+        <div class="container book-strip__inner">
+          <p class="book-strip__text"><span class="lang-en">Storm damage or just overdue for an inspection? Free roof assessment — we're usually on-site within 24 hours.</span><span class="lang-zh">遭遇风暴损坏，还是该进行例行检查了？免费屋顶评估，通常24小时内上门。</span><span class="lang-es">¿Daños por tormenta o simplemente tiempo de una inspección? Evaluación gratuita del techo — generalmente en el sitio en 24 horas.</span><span class="lang-vi"></span></p>
+          <a class="book-strip__phone" href="tel:3145550163">(314) 555-0163</a>
+          <a class="button button--light" href="tel:3145550163"><span class="lang-en">📞 Call for Free Quote</span><span class="lang-zh">📞 致电获取免费估价</span><span class="lang-es">📞 Llame para una cotización gratuita</span><span class="lang-vi">📞 Gọi Báo Giá Miễn Phí</span></a>
+        </div>
+      </aside>
+
+      <!-- Our Story -->
+      <section class="section story" id="story" aria-labelledby="story-title">
+        <div class="container">
+          <div class="story-layout">
+            <div class="story-copy">
+              <p class="section__eyebrow"><span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra historia</span><span class="lang-vi">Câu Chuyện Của Chúng Tôi</span></p>
+              <h2 class="section__title" id="story-title">
+                <span class="lang-en">18 Years on West County Rooftops</span>
+                <span class="lang-zh">18年西县屋顶服务经历</span>
+                <span class="lang-es">18 años en los tejados de West County</span>
+                <span class="lang-vi"></span>
+              </h2>
+              <div class="lang-en">
+                <p>Dave started STL Roofing Co in 2006 after learning the trade from his father, who roofed homes in St. Louis County for 30 years. He's seen what shortcuts do to roofs after a Missouri hailstorm — lifted shingles, water damage, attic mold. He built his company around getting it right the first time.</p>
+                <p>Today, STL Roofing Co handles everything from a simple repair to a full architectural shingle replacement. Every project is fully permitted and inspected. Dave is on every job personally — not a subcontractor you've never met. When there's a problem, he calls you.</p>
+                <p>Licensed and insured. Free inspections for storm damage and routine assessments. Serving Chesterfield, Ballwin, Manchester, Wildwood, and Ellisville. If it's over your head, it's in our hands.</p>
+              </div>
+              <div class="lang-zh">
+                <p>Dave 于 2006 年创立了 STL Roofing Co，技艺传承自父亲——一位在圣路易斯县从事屋顶工作长达30年的老师傅。他见过偷工减料的屋顶在密苏里冰雹风暴后的惨状——翻卷的瓦片、水渍渗透、阁楼发霉。他创立公司的原则只有一个：一次做对。</p>
+                <p>如今，STL Roofing Co 承接从简单修缮到完整建筑级瓦片更换的所有工程。每个项目全程持证施工并通过验收。Dave 亲自出现在每个工地——不是您从未见过的转包商。出了问题，他会亲自打电话给您。</p>
+                <p>持牌且已投保。风暴损坏及常规检查均免费评估。服务 Chesterfield、Ballwin、Manchester、Wildwood 及 Ellisville。屋顶之上，交给我们。</p>
+              </div>
+              <div class="lang-es">
+                <p>Dave fundó STL Roofing Co en 2006, aprendiendo el oficio de su padre, quien techó viviendas en el condado de St. Louis durante 30 años. Ha visto lo que hacen los atajos a los techos después de una granizada de Missouri — tejas levantadas, daños por agua, moho en el ático. Construyó su empresa en torno a hacerlo bien desde el principio.</p>
+                <p>Hoy, STL Roofing Co maneja todo, desde una simple reparación hasta un reemplazo completo de tejas arquitectónicas. Cada proyecto está debidamente permitido e inspeccionado. Dave está personalmente en cada trabajo — no un subcontratista que nunca ha conocido. Cuando hay un problema, él lo llama.</p>
+                <p>Con licencia y asegurado. Inspecciones gratuitas para daños por tormenta y evaluaciones de rutina. Si está sobre su cabeza, está en nuestras manos.</p>
+              </div>
+              <div class="lang-vi">
+                <p></p>
+                <p></p>
+                <p></p>
+              </div>
+              
+            </div>
+            <aside class="signature-card" aria-label="Signature service highlight">
+              <span class="signature-card__badge">⭐ Most Requested</span>
+              <blockquote>
+                <span class="lang-en">Full architectural shingle replacement — tear-off, new decking if needed, underlayment, and 30-year shingles. Our most-requested project. Permitted, inspected, and backed by our workmanship.</span>
+                <span class="lang-zh">建筑级瓦片全面更换——拆除旧瓦、按需更换屋板、铺设防水毡及30年耐用瓦片。我们最受欢迎的项目，全程持证施工、验收通过，并有施工质量背书。</span>
+                <span class="lang-es">Reemplazo completo de tejas arquitectónicas — retiro del techado viejo, nueva cubierta si es necesaria, membrana y tejas de 30 años. Nuestro proyecto más solicitado. Permitido, inspeccionado y respaldado por nuestra mano de obra.</span>
+                <span class="lang-vi"></span>
+                <cite>
+                  <span class="lang-en">Full Roof Replacement</span>
+                  <span class="lang-zh">全面屋顶更换</span>
+                  <span class="lang-es">Reemplazo completo del techo</span>
+                  <span class="lang-vi"></span>
+                </cite>
+              </blockquote>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reviews -->
+      <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
+        <div class="container">
+          <div class="section-header">
+            <p class="section__eyebrow"><span class="lang-en">Client Reviews</span><span class="lang-zh">客户评价</span><span class="lang-es">Opiniones de clientes</span><span class="lang-vi">Đánh Giá Khách Hàng</span></p>
+            <h2 class="section__title" id="reviews-title">
+              <span class="lang-en">What Our Customers Say</span>
+              <span class="lang-zh">客户怎么说</span>
+              <span class="lang-es">Lo que dicen nuestros clientes</span>
+              <span class="lang-vi">Khách Hàng Nói Gì</span>
+            </h2>
+            <p class="section__intro"><span class="lang-en">Trusted by 400+ West County homeowners</span><span class="lang-zh">深受西县 400 多位业主信赖</span><span class="lang-es">Con la confianza de más de 400 propietarios en West County</span><span class="lang-vi"></span></p>
+          </div>
+          <div class="reviews-summary">
+            <span class="reviews-summary__rating">4.7</span>
+            <div class="reviews-summary__stars-wrap" style="--rating: 4.7" aria-label="4.7 out of 5 stars">
+              <span aria-hidden="true">★★★★★</span>
+              <span class="reviews-summary__stars-fill" aria-hidden="true">★★★★★</span>
+            </div>
+            <span class="reviews-summary__label"><span class="lang-en">Based on 220+ Google reviews</span><span class="lang-zh">基于 220 多条 Google 评价</span><span class="lang-es">Basado en más de 220 reseñas de Google</span><span class="lang-vi"></span></span>
+          </div>
+          <div class="reviews-grid">
+            <article class="review-card">
+              <div class="review-card__stars" aria-label="5 star review">★★★★★</div>
+              <blockquote>
+                <span class="lang-en">STL Roofing replaced our roof after last summer's hailstorm. Dave came out within a day, assessed the damage, and walked us through the whole process. New roof was done in two days. Spotless cleanup. Highly recommended.</span>
+                <span class="lang-zh">去年夏天冰雹风暴过后，STL Roofing 为我们更换了屋顶。Dave 第二天就来了，评估损坏情况，全程指导我们。新屋顶两天完工，清洁做到一尘不染。强烈推荐。</span>
+                <span class="lang-es">STL Roofing reemplazó nuestro techo después de la tormenta de granizo del verano pasado. Dave vino en un día, evaluó los daños y nos guió por todo el proceso. El nuevo techo estuvo listo en dos días. Limpieza impecable. Muy recomendado.</span>
+                <span class="lang-vi"></span>
+              </blockquote>
+              <p class="review-card__name">— Brian & Karen L. — Chesterfield</p>
+            </article>
+            <article class="review-card">
+              <div class="review-card__stars" aria-label="5 star review">★★★★★</div>
+              <blockquote>
+                <span class="lang-en">Had a persistent leak over our master bedroom. Two other roofers 'fixed' it and it came back. Dave found the actual source — flashing around the chimney — and fixed it properly. No leaks through an entire Missouri winter. Wish I'd called sooner.</span>
+                <span class="lang-zh">主卧室上方持续漏水。两位其他屋顶工人都'修好了'，但还是漏回来。Dave 找到了真正的原因——烟囱周围的泛水板——并彻底修好了。整个密苏里冬季滴水未漏。真希望早点打这个电话。</span>
+                <span class="lang-es">Tuvimos una gotera persistente sobre nuestro dormitorio principal. Dos techadores la 'repararon' y volvió. Dave encontró la fuente real — el tapajuntas alrededor de la chimenea — y lo reparó correctamente. Sin goteras durante todo un invierno de Missouri. Ojalá hubiera llamado antes.</span>
+                <span class="lang-vi"></span>
+              </blockquote>
+              <p class="review-card__name">— Donna M. — Ballwin</p>
+            </article>
+            <article class="review-card">
+              <div class="review-card__stars" aria-label="5 star review">★★★★★</div>
+              <blockquote>
+                <span class="lang-en">Got three quotes for a full roof replacement. STL Roofing wasn't the cheapest but Dave's explanation of what they do differently convinced me. The install crew was professional and the job passed inspection first try. Worth every penny.</span>
+                <span class="lang-zh">我询了三家全面屋顶更换的报价。STL Roofing 不是最便宜的，但 Dave 解释他们做法有何不同，说服了我。施工团队专业，一次性通过验收。物有所值。</span>
+                <span class="lang-es">Obtuve tres presupuestos para un reemplazo completo del techo. STL Roofing no era el más barato, pero la explicación de Dave sobre lo que hacen diferente me convenció. El equipo de instalación fue profesional y el trabajo pasó la inspección al primer intento. Valió cada centavo.</span>
+                <span class="lang-vi"></span>
+              </blockquote>
+              <p class="review-card__name">— Jim R. — Manchester</p>
+            </article>
+          </div>
+          <div class="reviews-footer">
+            <a class="link-arrow" href="https://www.google.com/search?q=STL+Roofing+Co+Chesterfield+MO+reviews" target="_blank" rel="noopener"><span class="lang-en">Read all reviews on Google</span><span class="lang-zh">查看 Google 上的全部评价</span><span class="lang-es">Leer todas las reseñas en Google</span><span class="lang-vi"></span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Find Us -->
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <div class="container">
+          <div class="section-header">
+            <p class="section__eyebrow">
+              <span class="lang-en">Visit Today</span>
+              <span class="lang-zh">立即咨询</span>
+              <span class="lang-es">Solicite su cotización</span>
+              <span class="lang-vi">Ghé Thăm Hôm Nay</span>
+            </p>
+            <h2 class="section__title" id="contact-title">
+              <span class="lang-en">Find Us</span>
+              <span class="lang-zh">位置与联系</span>
+              <span class="lang-es">Ubicación y contacto</span>
+              <span class="lang-vi">Tìm Chúng Tôi</span>
+            </h2>
+            <p class="section__intro"><span class="lang-en">Free inspections — usually on-site within 24 hours. Serving Chesterfield, Ballwin, Manchester, Wildwood, and Ellisville.</span><span class="lang-zh">免费检查，通常24小时内上门。服务 Chesterfield、Ballwin、Manchester、Wildwood 及 Ellisville。</span><span class="lang-es">Inspecciones gratuitas — generalmente en el sitio en 24 horas. Atendemos Chesterfield, Ballwin, Manchester, Wildwood y Ellisville.</span><span class="lang-vi"></span></p>
+          </div>
+          <div class="contact-layout">
+            <article class="contact-card">
+              <div class="contact-card__top">
+                <h3 class="contact-card__heading">
+                  <span class="lang-en">Hours &amp; Contact</span>
+                  <span class="lang-zh">营业时间与联系方式</span>
+                  <span class="lang-es">Horario y contacto</span>
+                  <span class="lang-vi">Giờ Làm Việc &amp; Liên Hệ</span>
+                </h3>
+                <span class="contact-status pill--open"><span class="lang-en">Now Booking</span><span class="lang-zh">现正接受预约</span><span class="lang-es">Agenda abierta</span><span class="lang-vi">Đang Nhận Đặt Lịch</span></span>
+              </div>
+              <p class="today-hours">
+                <span class="lang-en">Today:</span>
+                <span class="lang-zh">今日营业：</span>
+                <span class="lang-es">Hoy:</span>
+                <span class="lang-vi">Hôm Nay:</span>
+                7:00 am – 5:00 pm
+              </p>
+              <table class="hours-table" aria-label="Weekly business hours">
+                <tbody>
+                  <tr><th scope="row"><span class="lang-en">Monday</span><span class="lang-zh">周一</span><span class="lang-es">Lunes</span><span class="lang-vi">Thứ Hai</span></th><td>7:00 am – 5:00 pm</td></tr>
+                  <tr><th scope="row"><span class="lang-en">Tuesday</span><span class="lang-zh">周二</span><span class="lang-es">Martes</span><span class="lang-vi">Thứ Ba</span></th><td>7:00 am – 5:00 pm</td></tr>
+                  <tr><th scope="row"><span class="lang-en">Wednesday</span><span class="lang-zh">周三</span><span class="lang-es">Miércoles</span><span class="lang-vi">Thứ Tư</span></th><td>7:00 am – 5:00 pm</td></tr>
+                  <tr><th scope="row"><span class="lang-en">Thursday</span><span class="lang-zh">周四</span><span class="lang-es">Jueves</span><span class="lang-vi">Thứ Năm</span></th><td>7:00 am – 5:00 pm</td></tr>
+                  <tr><th scope="row"><span class="lang-en">Friday</span><span class="lang-zh">周五</span><span class="lang-es">Viernes</span><span class="lang-vi">Thứ Sáu</span></th><td>7:00 am – 5:00 pm</td></tr>
+                  <tr><th scope="row"><span class="lang-en">Saturday</span><span class="lang-zh">周六</span><span class="lang-es">Sábado</span><span class="lang-vi">Thứ Bảy</span></th><td>8:00 am – 12:00 pm</td></tr>
+                  <tr><th scope="row"><span class="lang-en">Sunday</span><span class="lang-zh">周日</span><span class="lang-es">Domingo</span><span class="lang-vi">Chủ Nhật</span></th><td><span class="lang-en">Closed</span><span class="lang-zh">休息</span><span class="lang-es">Cerrado</span><span class="lang-vi">Đóng Cửa</span></td></tr>
+                </tbody>
+              </table>
+              <ul class="contact-list" aria-label="Business contact details">
+                <li class="contact-list__item">
+                  <span class="contact-list__icon" aria-hidden="true">☎</span>
+                  <span><a href="tel:3145550163">(314) 555-0163</a></span>
+                </li>
+              </ul>
+              <div class="contact-actions">
+                <a class="button button--primary" href="tel:3145550163"><span class="lang-en">📞 Call for Free Quote</span><span class="lang-zh">📞 致电获取免费估价</span><span class="lang-es">📞 Llame para una cotización gratuita</span><span class="lang-vi">📞 Gọi Báo Giá Miễn Phí</span></a>
+              </div>
+            </article>
+            <article class="contact-card">
+              <div class="contact-card__top">
+                <h3 class="contact-card__heading">
+                  <span class="lang-en">Map &amp; Directions</span>
+                  <span class="lang-zh">地图与路线</span>
+                  <span class="lang-es">Mapa e indicaciones</span>
+                  <span class="lang-vi">Bản Đồ &amp; Chỉ Đường</span>
+                </h3>
+              </div>
+              <p class="contact-address">📍 14320 Manchester Rd, Chesterfield, MO 63017</p>
+              <div class="map-wrap">
+                <iframe
+                  src="https://maps.google.com/maps?q=Chesterfield+MO+63017&output=embed"
+                  title="Map showing STL Roofing Co at 14320 Manchester Rd, Chesterfield, MO 63017"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <div class="map-actions">
+                <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=14320+Manchester+Rd%2C+Chesterfield%2C+MO+63017" target="_blank" rel="noopener"><span class="lang-en">📍 Get Directions</span><span class="lang-zh">📍 查看路线</span><span class="lang-es">📍 Ver cómo llegar</span><span class="lang-vi">📍 Chỉ Đường</span></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span><span class="lang-en">© 2026 STL Roofing Co. All rights reserved.</span><span class="lang-zh">© 2026 STL Roofing Co。保留所有权利。</span><span class="lang-es">© 2026 STL Roofing Co. Todos los derechos reservados.</span><span class="lang-vi"></span></span>
+        <span>Chesterfield, MO</span>
+        <a href="tel:3145550163">(314) 555-0163</a>
+        <a href="#" style="color:rgba(255,255,255,0.5);font-weight:400;font-size:13px;"><span class="lang-en">Privacy Policy</span><span class="lang-zh">隐私政策</span><span class="lang-es">Política de privacidad</span><span class="lang-vi">Chính Sách Riêng Tư</span></a>
+      </div>
+    </footer>
+  </div>
+
+
+  <div class="theme-switcher" role="group" aria-label="Choose color theme">
+    <span class="theme-switcher__label">Choose Your Color</span>
+    <button class="theme-btn active" data-theme="crimson-heritage" title="Crimson Heritage"></button>
+    <button class="theme-btn" data-theme="midnight-luxe" title="Midnight Luxe"></button>
+    <button class="theme-btn" data-theme="mocha-warmth" title="Mocha Warmth"></button>
+    <button class="theme-btn" data-theme="forest-calm" title="Forest Calm"></button>
+    <button class="theme-btn" data-theme="slate-modern" title="Slate Modern"></button>
+  </div>
+
+  <div class="mobile-call-bar" role="region" aria-label="Quick business actions">
+    <a class="mobile-call-bar__phone" href="tel:3145550163">
+      <span class="mobile-call-bar__icon">📞</span>
+      <span class="mobile-call-bar__text">
+        <span class="mobile-call-bar__label"><span class="lang-en">Call for Free Quote</span><span class="lang-zh">致电获取免费估价</span><span class="lang-es">Pedir cotización</span><span class="lang-vi">Gọi Báo Giá Miễn Phí</span></span>
+        <span class="mobile-call-bar__number">(314) 555-0163</span>
+      </span>
+    </a>
+    <a class="mobile-call-bar__directions" href="https://www.google.com/maps/dir/?api=1&destination=14320+Manchester+Rd%2C+Chesterfield%2C+MO+63017" target="_blank" rel="noopener">
+      <span class="mobile-call-bar__icon">📍</span>
+      <span class="mobile-call-bar__label"><span class="lang-en">Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Cómo llegar</span><span class="lang-vi">Chỉ Đường</span></span>
+    </a>
+  </div>
+
+  <script>
+    /* Sticky mobile call bar */
+    (function () {
+      var body = document.body;
+      var contact = document.getElementById("contact");
+      function updateScroll() {
+        body.classList.toggle("show-mobile-call-bar", window.scrollY > 160);
+      }
+      updateScroll();
+      window.addEventListener("scroll", updateScroll, { passive: true });
+      if ("IntersectionObserver" in window && contact) {
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            body.classList.toggle("hide-mobile-call-bar", e.isIntersecting && e.intersectionRatio >= 0.15);
+          });
+        }, { threshold: [0, 0.15, 0.35] }).observe(contact);
+      }
+      var mq = window.matchMedia("(max-width: 767px)");
+      function syncPadding(e) {
+        if (!e.matches) body.classList.remove("show-mobile-call-bar", "hide-mobile-call-bar");
+      }
+      syncPadding(mq);
+      (mq.addEventListener || mq.addListener).call(mq, mq.addEventListener ? "change" : syncPadding, mq.addEventListener ? syncPadding : undefined);
+    })();
+
+    /* Theme switcher */
+    (function () {
+      var html = document.documentElement;
+      document.querySelectorAll(".theme-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          html.setAttribute("data-theme", btn.getAttribute("data-theme"));
+          document.querySelectorAll(".theme-btn").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+        });
+      });
+    })();
+
+    /* Language switcher */
+    (function () {
+      var html = document.documentElement;
+      document.querySelectorAll(".lang-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var lang = btn.getAttribute("data-lang");
+          html.setAttribute("data-lang", lang);
+          html.setAttribute("lang", lang === "zh" ? "zh-CN" : lang === "es" ? "es" : lang === "vi" ? "vi" : "en");
+          document.querySelectorAll(".lang-btn").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

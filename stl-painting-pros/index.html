@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>STL Painting Pros | Interior & Exterior Painting Chesterfield, MO</title>
+  <meta name="description" content="Chesterfield's trusted painting contractor. Interior, exterior, cabinet painting, and deck staining. Licensed & insured — free estimates.">
+  <meta name="theme-color" content="#6B3F2A" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#6B3F2A" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="STL Painting Pros | Interior & Exterior Painting Chesterfield, MO">
+  <meta property="og:description" content="Chesterfield's trusted painting contractor. Interior, exterior, cabinet painting, and deck staining. Licensed & insured — free estimates.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://myzhz001.github.io/stl-painting-pros/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=1200&q=80">
+  <link rel="canonical" href="https://myzhz001.github.io/stl-painting-pros/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Theme 1: Crimson Heritage (default) ── */
+    :root, [data-theme="crimson-heritage"] {
+      --color-primary: #8B1A1A;
+      --color-bg: #FAFAF7;
+      --color-text: #2C2C2C;
+      --color-accent: #C9A84C;
+      --color-section-alt: #F5F0E8;
+      --color-secondary: #2D6A4F;
+      --color-card: #FFFFFF;
+      --color-soft-warm: #FBF7F4;
+      --font-heading: "Lora", Georgia, "Times New Roman", serif;
+      --font-body: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --color-accent-contrast: #2C2C2C;
+      --shadow-card: 0 4px 16px rgba(0,0,0,0.08);
+      --radius-card: 12px;
+      --radius-button: 8px;
+      --container: 1120px;
+    }
+    [data-theme="midnight-luxe"] {
+      --color-primary: #1B2A4A; --color-bg: #F8F7F4; --color-text: #1A1A2E;
+      --color-accent: #C9A84C; --color-section-alt: #EEF0F5;
+      --color-secondary: #C0392B; --color-card: #FFFFFF; --color-soft-warm: #F4F3F0;
+    }
+    [data-theme="mocha-warmth"] {
+      --color-primary: #6B3F2A; --color-bg: #FAF7F2; --color-text: #2C1F14;
+      --color-accent: #D4A853; --color-section-alt: #F2EBE0;
+      --color-secondary: #5C7A4E; --color-card: #FFFFFF; --color-soft-warm: #F7F2EA;
+    }
+    [data-theme="forest-calm"] {
+      --color-primary: #1E4D35; --color-bg: #F7FAF8; --color-text: #1A2E1E;
+      --color-accent: #C9A84C; --color-section-alt: #EAF2EC;
+      --color-secondary: #8B1A1A; --color-card: #FFFFFF; --color-soft-warm: #F2F7F3;
+    }
+    [data-theme="slate-modern"] {
+      --color-primary: #2D3142; --color-bg: #F9F9F9; --color-text: #1C1C2E;
+      --color-accent: #E8A838; --color-section-alt: #F0F0F5;
+      --color-secondary: #2D6A4F; --color-card: #FFFFFF; --color-soft-warm: #F5F5F8;
+    }
+
+
+    /* ── Theme switcher UI ── */
+    .theme-switcher {
+      position: fixed; right: 16px; top: 78px; z-index: 8888;
+      display: flex; flex-direction: row; align-items: center; gap: 8px;
+      background: #fff; border-radius: 999px; padding: 8px 14px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18); border: 1px solid rgba(0,0,0,0.08);
+    }
+    .theme-switcher__label {
+      font-size: 10px; font-weight: 700; color: #888; letter-spacing: 0.08em;
+      text-transform: uppercase; white-space: nowrap; margin-right: 2px;
+    }
+    .theme-btn {
+      width: 26px; height: 26px; border-radius: 999px; border: 2px solid transparent;
+      cursor: pointer; transition: transform 160ms ease, border-color 160ms ease; padding: 0;
+      flex: 0 0 auto;
+    }
+    .theme-btn:hover { transform: scale(1.18); }
+    .theme-btn.active { border-color: #333; transform: scale(1.12); }
+    .theme-btn[data-theme="crimson-heritage"] { background: #8B1A1A; }
+    .theme-btn[data-theme="midnight-luxe"]    { background: #1B2A4A; }
+    .theme-btn[data-theme="mocha-warmth"]     { background: #6B3F2A; }
+    .theme-btn[data-theme="forest-calm"]      { background: #1E4D35; }
+    .theme-btn[data-theme="slate-modern"]     { background: #2D3142; }
+    @media (max-width: 767px) { .theme-switcher { top: 78px; right: 12px; gap: 6px; padding: 7px 12px; } }
+
+    /* ── Language switcher ── */
+    .lang-zh, .lang-es, .lang-vi { display: none; }
+    .vi-slot { display: none !important; }
+    [data-lang="zh"] .lang-en { display: none; }
+    [data-lang="zh"] .lang-zh { display: revert; }
+    [data-lang="es"] .lang-en { display: none; }
+    [data-lang="es"] .lang-es { display: revert; }
+    [data-lang="vi"] .lang-en { display: none; }
+    [data-lang="vi"] .lang-vi { display: revert; }
+
+    .lang-switcher { display: flex; align-items: center; gap: 4px; }
+    .lang-btn {
+      display: inline-flex; min-height: 44px; align-items: center;
+      padding: 4px 9px; border: 1px solid rgba(0,0,0,0.14); border-radius: 6px;
+      background: transparent; font-family: var(--font-body); font-size: 13px;
+      font-weight: 700; cursor: pointer; color: rgba(44,44,44,0.68);
+      transition: background 160ms, color 160ms, border-color 160ms; white-space: nowrap;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      background: var(--color-primary); color: #fff; border-color: var(--color-primary);
+    }
+
+    /* ── Global reset ── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { min-width: 0; scroll-behavior: smooth; text-size-adjust: 100%; }
+    body {
+      min-width: 0; margin: 0; color: var(--color-text); background: var(--color-bg);
+      font-family: var(--font-body); font-size: 17px; line-height: 1.6;
+      overflow-x: hidden; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    img, iframe { max-width: 100%; }
+    a { color: inherit; text-decoration-thickness: 0.08em; text-underline-offset: 0.18em; }
+    a:focus-visible, button:focus-visible { outline: 3px solid rgba(201,168,76,0.78); outline-offset: 3px; }
+
+    /* ── Layout ── */
+    .site-shell {
+      min-height: 100vh; overflow-x: clip;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(201,168,76,0.08), transparent 34%),
+        linear-gradient(180deg, var(--color-soft-warm) 0%, var(--color-bg) 48%);
+    }
+    .container { width: min(100% - 32px, var(--container)); margin: 0 auto; }
+    .section { padding: 28px 0; position: relative; }
+    .section__eyebrow {
+      margin: 0 0 10px; color: var(--color-primary); font-size: 14px;
+      font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    .section__title {
+      margin: 0; color: var(--color-text); font-family: var(--font-heading);
+      font-size: 26px; font-size: clamp(22px, 5.5vw, 30px); font-weight: 700; line-height: 1.15;
+    }
+    .section__intro { max-width: 680px; margin: 14px auto 0; color: rgba(44,44,44,0.76); font-size: 18px; }
+    .section-header { max-width: 760px; margin: 0 auto 34px; text-align: center; }
+
+    /* ── Buttons ── */
+    .button {
+      display: inline-flex; min-height: 52px; align-items: center; justify-content: center;
+      gap: 10px; padding: 0 28px; border: 0; border-radius: var(--radius-button);
+      font-family: var(--font-body); font-size: 16px; font-weight: 700; line-height: 1;
+      text-decoration: none; cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 12px 22px rgba(44,44,44,0.16); }
+    .button:active { transform: translateY(0); }
+    .button--primary { color: #fff; background: var(--color-primary); }
+    .button--secondary { color: #fff; background: var(--color-secondary); }
+    .button--light { color: var(--color-primary); background: #fff; box-shadow: inset 0 0 0 1px rgba(139,26,26,0.18); }
+    .link-arrow {
+      display: inline-flex; min-height: 44px; align-items: center; gap: 8px;
+      color: var(--color-primary); font-weight: 700; text-decoration: none;
+    }
+    .link-arrow::after { content: "→"; transition: transform 180ms ease; }
+    .link-arrow:hover::after { transform: translateX(4px); }
+
+    /* ── Nav ── */
+    .site-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,250,247,0.98); border-bottom: 1px solid rgba(139,26,26,0.12);
+    }
+    @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+      .site-nav {
+        background: rgba(250,250,247,0.94);
+        backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      }
+    }
+    .site-nav { will-change: transform; }
+    .site-nav__inner {
+      display: flex; min-height: 70px; align-items: center;
+      justify-content: space-between; gap: 18px;
+    }
+    .site-nav__brand {
+      display: inline-flex; min-width: 0; align-items: center; gap: 12px;
+      color: var(--color-primary); font-family: var(--font-heading); font-size: 22px;
+      font-weight: 700; line-height: 1.15; text-decoration: none;
+    }
+    .site-nav__mark {
+      display: inline-grid; width: 38px; height: 38px; flex: 0 0 auto;
+      place-items: center; border-radius: 999px; color: #fff;
+      background: var(--color-primary); font-size: 18px; font-weight: 700;
+    }
+    .site-nav__name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .site-nav__actions { display: none; align-items: center; gap: 14px; }
+    .site-nav__phone {
+      display: inline-flex; align-items: center; min-height: 44px;
+      color: rgba(44,44,44,0.82); font-size: 15px; font-weight: 700;
+      text-decoration: none; white-space: nowrap;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative; min-height: 320px; display: grid;
+      align-items: center; overflow: hidden; color: #fff;
+      background-image: url(https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=1600&q=80);
+      background-position: center; background-size: cover; background-repeat: no-repeat;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0; z-index: 0;
+      background:
+        linear-gradient(90deg, rgba(49,5,5,0.84) 0%, rgba(139,26,26,0.64) 48%, rgba(35,8,8,0.36) 100%),
+        radial-gradient(circle at 25% 32%, rgba(201,168,76,0.22), transparent 34%);
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: auto 0 0; z-index: 0;
+      height: 34%; background: linear-gradient(0deg, rgba(0,0,0,0.42), transparent); pointer-events: none;
+    }
+    .hero__content { position: relative; z-index: 1; max-width: 760px; padding: 24px 0 28px; }
+    .hero__kicker {
+      display: inline-flex; align-items: center; gap: 8px; margin: 0 0 10px;
+      color: #fff3d4; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    .hero__kicker::before { content: ""; width: 38px; height: 2px; background: var(--color-accent); }
+    .hero__title {
+      max-width: 11ch; margin: 0; font-family: var(--font-heading);
+      font-size: 42px; font-size: clamp(36px, 4.5vw, 58px); font-weight: 700; line-height: 1.05; overflow-wrap: break-word; text-wrap: balance;
+    }
+    .hero__tagline {
+      max-width: 620px; margin: 10px 0 0; color: rgba(255,255,255,0.92);
+      font-size: 21px; font-size: clamp(19px, 5vw, 25px); font-weight: 600; line-height: 1.35; overflow-wrap: break-word; text-wrap: pretty;
+    }
+    .hero__badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; }
+    .pill {
+      display: inline-flex; min-height: 38px; align-items: center; justify-content: center;
+      gap: 8px; padding: 7px 14px; border-radius: 999px; color: #fff;
+      background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.24);
+      font-size: 14px; font-weight: 700; background: rgba(0,0,0,0.42);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    }
+    .status--open  { background: #d4edda; color: #155724; }
+    .status--closed { background: #f8d7da; color: #721c24; }
+    .hero__ctas { display: flex; flex-direction: column; gap: 10px; margin: 16px 0 0; }
+    .hero__ctas .button { width: 100%; }
+    .hero__phone-display { margin: 8px 0 0; color: rgba(255,255,255,0.90); font-size: 17px; font-weight: 700; }
+    .hero__phone-display a {
+      display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration: none;
+    }
+
+    /* ── Section jump nav ── */
+    #services, #story, #reviews, #contact { scroll-margin-top: 86px; }
+    .section-jump-nav {
+      background: var(--color-section-alt); border-bottom: 1px solid rgba(139,26,26,0.1);
+      overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none;
+    }
+    .section-jump-nav::-webkit-scrollbar { display: none; }
+    .section-jump-nav__inner {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; padding: 12px 16px; min-width: max-content; margin: 0 auto;
+    }
+    .section-jump-nav__link {
+      display: inline-flex; min-height: 44px; align-items: center; padding: 7px 16px;
+      border-radius: 999px; color: var(--color-primary); background: var(--color-card);
+      border: 1px solid rgba(139,26,26,0.2); font-size: 14px; font-weight: 700;
+      text-decoration: none; white-space: nowrap;
+      transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+    }
+    .section-jump-nav__link:last-child { margin-right: 16px; }
+    .section-jump-nav__link:hover { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+
+    /* ── Service cards ── */
+    .services { background: var(--color-bg); }
+    .services-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 34px; }
+    .service-card {
+      position: relative; display: grid; overflow: hidden;
+      background: var(--color-card); border-radius: var(--radius-card);
+      border-top: 5px solid var(--color-secondary); box-shadow: var(--shadow-card);
+    }
+    .service-card__image {
+      width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+      border-radius: var(--radius-card) var(--radius-card) 0 0;
+      display: block; background: var(--color-section-alt);
+    }
+    .service-card__badge {
+      position: absolute; top: 12px; right: 12px; background: var(--color-accent);
+      color: var(--color-accent-contrast); font-size: 13px; font-weight: 700; padding: 4px 10px;
+      border-radius: 999px; z-index: 2; pointer-events: none;
+    }
+    .service-card__body { padding: 20px 24px 24px; display: grid; gap: 10px; }
+    .service-card__icon {
+      display: inline-grid; width: 54px; height: 54px; place-items: center;
+      border-radius: 14px; background: rgba(201,168,76,0.2); font-size: 28px; line-height: 1;
+    }
+    .service-card__title {
+      margin: 0; color: var(--color-text); font-family: var(--font-heading);
+      font-size: 24px; font-weight: 700; line-height: 1.2;
+    }
+    .service-card__description { margin: 0; color: rgba(44,44,44,0.74); }
+    .service-card__price {
+      display: inline-flex; align-items: center; padding: 5px 12px;
+      border-radius: 999px; background: rgba(45,106,79,0.1);
+      color: var(--color-secondary); font-size: 14px; font-weight: 700; align-self: start;
+    }
+    .service-card__featured { font-size: 14px; font-style: italic; font-weight: 600; color: var(--color-primary); }
+
+    /* ── Booking strip ── */
+    .book-strip { background: var(--color-primary); padding: 20px 0; }
+    .book-strip__inner {
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: 12px; text-align: center;
+    }
+    .book-strip__text { color: rgba(255,255,255,0.92); font-size: 18px; font-weight: 600; margin: 0; }
+    .book-strip__phone { display: inline-flex; align-items: center; min-height: 44px; color: #fff3d4; font-size: 20px; font-weight: 700; text-decoration: none; }
+
+    /* ── Seasonal banner (optional block) ── */
+    .seasonal-banner {
+      background: linear-gradient(90deg, #2D5016 0%, #4A7C1F 100%);
+      padding: 14px 0; color: #fff; text-align: center;
+    }
+    .seasonal-banner__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; }
+    .seasonal-banner__text { font-size: 16px; font-weight: 600; }
+    .seasonal-banner__cta { font-size: 14px; font-weight: 700; color: #fff3d4; text-decoration: none; }
+
+    /* ── Story ── */
+    .story { background: var(--color-section-alt); }
+    .story-layout { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: start; }
+    .story-copy { max-width: 720px; }
+    .story-copy .section__title { margin-bottom: 24px; }
+    .story-copy p { margin: 0 0 18px; color: rgba(44,44,44,0.82); }
+    .story-copy p:last-child { margin-bottom: 0; }
+    .signature-card {
+      position: relative; padding: 28px; overflow: hidden;
+      background: linear-gradient(145deg, #ffffff 0%, var(--color-soft-warm) 100%);
+      border-radius: var(--radius-card); box-shadow: var(--shadow-card);
+    }
+    .signature-card::before { content: none; }
+    .signature-card__badge {
+      display: inline-flex; min-height: 38px; align-items: center; padding: 7px 13px;
+      border-radius: 999px; color: #fff; background: var(--color-secondary); font-size: 14px; font-weight: 700;
+    }
+    .signature-card blockquote {
+      position: relative; z-index: 1; margin: 22px 0 0; color: var(--color-primary);
+      font-family: var(--font-heading); font-size: 26px; font-size: clamp(22px, 6vw, 32px);
+      font-style: italic; font-weight: 400; line-height: 1.3;
+    }
+    .signature-card cite {
+      display: block; margin-top: 18px; color: var(--color-text);
+      font-family: var(--font-body); font-size: 16px; font-style: normal; font-weight: 700;
+    }
+
+    /* ── Nextdoor block (optional) ── */
+    .nextdoor-block {
+      margin-top: 24px; padding: 20px 24px;
+      background: #f0f7ff; border-radius: var(--radius-card);
+      border-left: 4px solid #00B4D8;
+    }
+    .nextdoor-block__heading { margin: 0 0 8px; font-weight: 700; color: #00688B; font-size: 15px; }
+    .nextdoor-block__body { margin: 0; color: rgba(44,44,44,0.78); font-size: 15px; }
+
+    /* ── Reviews ── */
+    .reviews { background: var(--color-bg); }
+    .reviews-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 34px; }
+    .review-card {
+      display: flex; min-height: 250px; flex-direction: column; justify-content: space-between;
+      gap: 18px; padding: 24px; background: var(--color-card);
+      border-radius: var(--radius-card); box-shadow: var(--shadow-card);
+    }
+    .review-card__stars { color: var(--color-accent); font-size: 20px; letter-spacing: 0.08em; }
+    .review-card blockquote {
+      margin: 0; color: rgba(44,44,44,0.8); font-family: var(--font-heading);
+      font-size: 20px; font-style: italic; line-height: 1.45;
+    }
+    .review-card__name { margin: 0; color: var(--color-primary); font-weight: 700; }
+    .reviews-summary { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 28px; }
+    .reviews-summary__rating { font-family: var(--font-heading); font-size: 42px; font-weight: 700; color: var(--color-text); line-height: 1; }
+    .reviews-summary__stars-wrap {
+      position: relative; display: inline-block; font-size: 26px; line-height: 1; color: #ddd; letter-spacing: 0.06em;
+    }
+    .reviews-summary__stars-fill {
+      position: absolute; top: 0; left: 0; overflow: hidden; white-space: nowrap;
+      color: var(--color-accent); width: calc(var(--rating, 4.8) / 5 * 100%);
+    }
+    .reviews-summary__label { color: rgba(44,44,44,0.68); font-size: 16px; }
+    .reviews-footer { text-align: center; margin-top: 24px; }
+
+    /* ── Contact ── */
+    .contact { background: var(--color-section-alt); }
+    .contact-layout { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 34px; }
+    .contact-card { padding: 24px; background: var(--color-card); border-radius: var(--radius-card); box-shadow: var(--shadow-card); display: flex; flex-direction: column; justify-content: space-between; }
+    .contact-card__top {
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 12px; margin-bottom: 22px;
+    }
+    .contact-card__heading { margin: 0; font-family: var(--font-heading); font-size: 23px; font-size: clamp(20px, 4vw, 27px); line-height: 1.2; }
+    .contact-status { display: inline-flex; min-height: 36px; align-items: center; padding: 6px 12px; border-radius: 999px; font-size: 14px; font-weight: 700; }
+    .today-hours {
+      margin: 0 0 18px; padding: 14px 16px; border-radius: 10px;
+      color: var(--color-primary); background: rgba(139,26,26,0.07); font-weight: 700;
+    }
+    .hours-table { width: 100%; margin: 0 0 22px; border-collapse: collapse; font-size: 16px; }
+    .hours-table th, .hours-table td { padding: 10px 0; border-bottom: 1px solid rgba(44,44,44,0.1); text-align: left; vertical-align: top; }
+    .hours-table th { width: 42%; color: rgba(44,44,44,0.72); font-weight: 700; }
+    .hours-table td { color: var(--color-text); font-weight: 600; text-align: right; }
+    .contact-list { display: grid; gap: 12px; margin: 0 0 22px; padding: 0; list-style: none; }
+    .contact-list__item { display: grid; grid-template-columns: 32px 1fr; gap: 10px; align-items: center; }
+    .contact-list__icon {
+      display: inline-grid; width: 32px; height: 32px; place-items: center;
+      border-radius: 999px; background: rgba(45,106,79,0.1); font-size: 16px;
+    }
+    .contact-list a { display: inline-flex; align-items: center; min-height: 44px; color: var(--color-primary); font-weight: 700; }
+    .contact-actions { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .map-wrap { position: relative; overflow: hidden; min-height: 330px; border-radius: 10px; background: var(--color-section-alt); }
+    .map-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .map-actions { display: flex; flex-direction: column; gap: 10px; align-items: stretch; margin-top: 18px; }
+
+    /* ── Footer ── */
+    .site-footer { padding: 30px 0; color: rgba(255,255,255,0.82); background: #2a1111; font-size: 15px; }
+    .site-footer__inner { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; justify-content: space-between; }
+    .site-footer a { display: inline-flex; align-items: center; min-height: 44px; color: #fff3d4; font-weight: 700; }
+
+    /* ── Mobile call bar ── */
+    .mobile-call-bar { display: none; }
+    @media (max-width: 767px) {
+      body { padding-bottom: 86px; }
+      .mobile-call-bar {
+        position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+        display: grid; grid-template-columns: 1fr auto; gap: 10px;
+        min-height: 74px; padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+        background: var(--color-card); border-top: 1px solid rgba(139,26,26,0.16);
+        box-shadow: 0 -10px 28px rgba(44,44,44,0.18);
+        opacity: 0; transform: translateY(110%); pointer-events: none; transition: 220ms ease;
+      }
+      body.show-mobile-call-bar:not(.hide-mobile-call-bar) .mobile-call-bar {
+        opacity: 1; transform: translateY(0); pointer-events: auto;
+      }
+      .mobile-call-bar a {
+        display: inline-flex; min-height: 54px; align-items: center; justify-content: flex-start;
+        gap: 10px; border-radius: 8px; color: white; font-weight: 700; line-height: 1.1; text-decoration: none;
+      }
+      .mobile-call-bar__phone { padding: 8px 18px; background: var(--color-primary); }
+      .mobile-call-bar__directions { min-width: 116px; padding: 8px 14px; background: var(--color-secondary); }
+      .mobile-call-bar__icon { flex: 0 0 auto; font-size: 20px; }
+      .mobile-call-bar__text { display: grid; gap: 2px; min-width: 0; }
+      .mobile-call-bar__label { display: block; font-size: 13px; }
+      .mobile-call-bar__number { display: block; font-size: 16px; white-space: nowrap; }
+    }
+
+    /* ── Responsive ── */
+    @media (min-width: 768px) {
+      body { font-size: 18px; }
+      .container { width: min(100% - 56px, var(--container)); }
+      .section { padding: 44px 0; }
+      .section-header { margin-bottom: 46px; }
+      .section__title { font-size: 32px; font-size: clamp(28px, 3.2vw, 36px); }
+      .site-nav__actions { display: flex; }
+      .hero { min-height: 380px; }
+      .hero__content { padding: 40px 0 44px; }
+      .hero__ctas { flex-direction: row; align-items: center; }
+      .hero__ctas .button { width: auto; }
+      .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+      .story-layout { grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr); gap: 54px; }
+      .signature-card { padding: 36px; position: sticky; top: 110px; }
+      .reviews-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+      .review-card { padding: 28px; }
+      .contact-layout { grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); gap: 24px; }
+      .contact-card { padding: 30px; }
+      .map-wrap { min-height: 470px; }
+      .contact-actions { grid-template-columns: auto; justify-content: start; }
+      .map-actions { flex-direction: row; align-items: center; }
+      .site-footer__inner { flex-direction: row; align-items: center; }
+      .book-strip__inner { flex-direction: row; gap: 24px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important; transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
+      }
+    }
+
+    /* ── CJK typography corrections ── */
+    [data-lang="zh"] .section__eyebrow,
+    [data-lang="zh"] .hero__kicker { letter-spacing: 0.04em; }
+    [data-lang="zh"] .story-copy p { line-height: 1.75; }
+    [data-lang="zh"] .review-card blockquote { line-height: 1.65; }
+    [data-lang="zh"] .signature-card blockquote { line-height: 1.55; }
+    [data-lang="zh"] .review-card blockquote,
+    [data-lang="zh"] .signature-card blockquote { font-family: var(--font-body); font-style: normal; }
+  </style>
+
+</head>
+<body>
+  <div class="site-shell">
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <div class="container site-nav__inner">
+        <a class="site-nav__brand" href="#top" aria-label="STL Painting Pros home">
+          <span class="site-nav__mark" aria-hidden="true">🖌️</span>
+          <span class="site-nav__name">STL Painting Pros</span>
+        </a>
+        <div class="site-nav__actions" aria-label="Quick actions">
+          <div class="lang-switcher" role="group" aria-label="Language / 语言 / Idioma / Tiếng Việt">
+            <button class="lang-btn active" data-lang="en" title="English">🇺🇸 EN</button>
+            <button class="lang-btn" data-lang="zh" title="中文">🇨🇳 中文</button>
+            <button class="lang-btn" data-lang="es" title="Español">🇲🇽 ES</button>
+            
+          </div>
+          <a class="site-nav__phone" href="tel:3145550218">(314) 555-0218</a>
+          <a class="button button--primary" href="tel:3145550218"><span class="lang-en">Free Quote</span><span class="lang-zh">免费估价</span><span class="lang-es">Cotización Gratuita</span><span class="lang-vi">Báo Giá Miễn Phí</span></a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero" id="top" role="banner" aria-label="Professional interior and exterior painting in Chesterfield, MO">
+      <div class="container">
+        <div class="hero__content">
+          <p class="hero__kicker"><span class="lang-en">Chesterfield's Trusted Painters</span><span class="lang-zh">Chesterfield 信赖之选</span><span class="lang-es">Los pintores de confianza de Chesterfield</span><span class="lang-vi"></span></p>
+          <h1 class="hero__title">STL Painting Pros</h1>
+          <p class="hero__tagline">
+            <span class="lang-en">Flawless Finishes — Interior, Exterior & Cabinet Painting</span>
+            <span class="lang-zh">精工细作——室内、室外及橱柜涂装</span>
+            <span class="lang-es">Acabados perfectos — pintura interior, exterior y de gabinetes</span>
+            <span class="lang-vi"></span>
+          </p>
+          <div class="hero__badges" aria-label="Business highlights">
+            <span class="pill">📍 Chesterfield, MO</span>
+            <span class="pill"><span class="lang-en">12+ Years in West County</span><span class="lang-zh">深耕西县12余年</span><span class="lang-es">Más de 12 años en West County</span><span class="lang-vi"></span></span>
+            <span class="pill pill--open"><span class="lang-en">Now Booking</span><span class="lang-zh">现正接受预约</span><span class="lang-es">Agenda abierta</span><span class="lang-vi">Đang Nhận Đặt Lịch</span></span>
+            <span class="pill"><span class="lang-en">⭐ 4.8 Google Rating</span><span class="lang-zh">⭐ Google 评分 4.8</span><span class="lang-es">⭐ Calificación 4.8 en Google</span><span class="lang-vi"></span></span>
+            <span class="pill">
+              <span class="lang-en">Licensed & Insured</span>
+              <span class="lang-zh">持牌且已投保</span>
+              <span class="lang-es">Con licencia y asegurado</span>
+              <span class="lang-vi"></span>
+            </span>
+          </div>
+          <div class="hero__ctas" aria-label="Hero actions">
+            <a class="button button--primary" href="tel:3145550218"><span class="lang-en">📞 Call for Free Quote</span><span class="lang-zh">📞 致电获取免费估价</span><span class="lang-es">📞 Llame para una cotización gratuita</span><span class="lang-vi">📞 Gọi Báo Giá Miễn Phí</span></a>
+            <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=760+Baxter+Rd%2C+Chesterfield%2C+MO+63017" target="_blank" rel="noopener"><span class="lang-en">📍 Get Directions</span><span class="lang-zh">📍 查看路线</span><span class="lang-es">📍 Ver cómo llegar</span><span class="lang-vi">📍 Chỉ Đường</span></a>
+          </div>
+          <p class="hero__phone-display"><a href="tel:3145550218">(314) 555-0218</a></p>
+        </div>
+      </div>
+    </header>
+
+    
+
+    <nav class="section-jump-nav" aria-label="Jump to section">
+      <div class="section-jump-nav__inner">
+        <a class="section-jump-nav__link" href="#services">
+          🖌️ <span class="lang-en">Services</span><span class="lang-zh">服务项目</span><span class="lang-es">Servicios</span><span class="lang-vi">Dịch Vụ</span>
+        </a>
+        <a class="section-jump-nav__link" href="#story">
+          📖 <span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra historia</span><span class="lang-vi">Câu Chuyện</span>
+        </a>
+        <a class="section-jump-nav__link" href="#reviews">
+          ⭐ <span class="lang-en">Reviews</span><span class="lang-zh">客户评价</span><span class="lang-es">Reseñas</span><span class="lang-vi">Đánh Giá</span>
+        </a>
+        <a class="section-jump-nav__link" href="#contact">
+          📍 <span class="lang-en">Find Us</span><span class="lang-zh">位置与联系</span><span class="lang-es">Ubicación</span><span class="lang-vi">Tìm Chúng Tôi</span>
+        </a>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Services -->
+      <section class="section services" id="services" aria-labelledby="services-title">
+        <div class="container">
+          <div class="section-header">
+            <p class="section__eyebrow"><span class="lang-en">Our Services</span><span class="lang-zh">我们的服务项目</span><span class="lang-es">Nuestros servicios</span><span class="lang-vi">Dịch Vụ</span></p>
+            <h2 class="section__title" id="services-title">
+              <span class="lang-en">Our Services</span>
+              <span class="lang-zh">服务项目</span>
+              <span class="lang-es">Nuestros servicios</span>
+              <span class="lang-vi">Dịch Vụ</span>
+            </h2>
+            <p class="section__intro">
+              <span class="lang-en">Clean prep, premium paint, spotless cleanup — on every project we touch</span>
+              <span class="lang-zh">精心准备、优质涂料、完工清洁——每个项目皆如此</span>
+              <span class="lang-es">Preparación impecable, pintura premium, limpieza sin rastros — en cada proyecto que realizamos</span>
+              <span class="lang-vi"></span>
+            </p>
+          </div>
+          <div class="services-grid">
+            <article class="service-card">
+              <img class="service-card__image" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80" alt="Interior room painting with clean lines and fresh color" loading="lazy">
+              <span class="service-card__badge"><span class="lang-en">⭐ Most Requested</span><span class="lang-zh">⭐ 最受欢迎</span><span class="lang-es">⭐ Más solicitado</span><span class="lang-vi"></span></span>
+              <div class="service-card__body">
+                <h3 class="service-card__title">
+                  <span class="lang-en">Interior Painting</span>
+                  <span class="lang-zh">室内涂装</span>
+                  <span class="lang-es">Pintura interior</span>
+                  <span class="lang-vi"></span>
+                </h3>
+                <p class="service-card__description">
+                  <span class="lang-en">Walls, ceilings, trim, and doors — all masked, primed, and painted to a smooth finish. We move furniture, protect floors, and clean up completely when done.</span>
+                  <span class="lang-zh">墙面、天花板、踢脚线及门——全部遮蔽、打底，精工涂装至光滑如新。我们负责移动家具、保护地板，完工后彻底清洁。</span>
+                  <span class="lang-es">Paredes, techos, molduras y puertas — todo enmascarado, imprimado y pintado con un acabado suave. Movemos los muebles, protegemos los pisos y limpiamos completamente al terminar.</span>
+                  <span class="lang-vi"></span>
+                </p>
+                <span class="service-card__price"><span class="lang-en">Starting at $500/room</span><span class="lang-zh">$500起/间</span><span class="lang-es">Desde $500 por habitación</span><span class="lang-vi"></span></span>
+              </div>
+            </article>
+            <article class="service-card">
+              <img class="service-card__image" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80" alt="Exterior house painting with professional equipment" loading="lazy">
+              <div class="service-card__body">
+                <h3 class="service-card__title">
+                  <span class="lang-en">Exterior Painting</span>
+                  <span class="lang-zh">外墙涂装</span>
+                  <span class="lang-es">Pintura exterior</span>
+                  <span class="lang-vi"></span>
+                </h3>
+                <p class="service-card__description">
+                  <span class="lang-en">Pressure wash, scrape, prime, and paint for a finish that holds. Siding, trim, shutters, doors, and decks. We use exterior-grade paint rated for Missouri's humid summers and cold winters.</span>
+                  <span class="lang-zh">高压冲洗、刮除旧漆、打底、涂装，确保涂层持久。外墙板、装饰线条、百叶窗、门及甲板均可处理。使用适合密苏里潮湿夏季和寒冷冬季的外用级涂料。</span>
+                  <span class="lang-es">Lavado a presión, raspado, imprimación y pintura para un acabado duradero. Revestimiento, molduras, persianas, puertas y cubiertas. Usamos pintura de grado exterior diseñada para los húmedos veranos e inviernos fríos de Missouri.</span>
+                  <span class="lang-vi"></span>
+                </p>
+                <span class="service-card__price"><span class="lang-en">Starting at $2,500</span><span class="lang-zh">$2,500起</span><span class="lang-es">Desde $2,500</span><span class="lang-vi"></span></span>
+              </div>
+            </article>
+            <article class="service-card">
+              <img class="service-card__image" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Kitchen cabinet painting and refinishing transformation" loading="lazy">
+              <div class="service-card__body">
+                <h3 class="service-card__title">
+                  <span class="lang-en">Cabinet Painting & Refinishing</span>
+                  <span class="lang-zh">橱柜涂装与翻新</span>
+                  <span class="lang-es">Pintura y renovación de gabinetes</span>
+                  <span class="lang-vi"></span>
+                </h3>
+                <p class="service-card__description">
+                  <span class="lang-en">Transform dated kitchen or bathroom cabinets without a full replacement. We strip, sand, prime, and apply a smooth factory-style finish that lasts for years.</span>
+                  <span class="lang-zh">无需全套更换，即可焕新陈旧的厨房或浴室橱柜。我们刮除旧漆、打磨、打底，涂装出持久多年的光滑工厂级效果。</span>
+                  <span class="lang-es">Transforme sus gabinetes de cocina o baño sin reemplazarlos. Raspamos, lijamos, imprimamos y aplicamos un acabado liso estilo fábrica que dura años.</span>
+                  <span class="lang-vi"></span>
+                </p>
+                <span class="service-card__price"><span class="lang-en">Starting at $900</span><span class="lang-zh">$900起</span><span class="lang-es">Desde $900</span><span class="lang-vi"></span></span>
+              </div>
+            </article>
+            <article class="service-card">
+              <img class="service-card__image" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Wood deck staining and sealing work" loading="lazy">
+              <div class="service-card__body">
+                <h3 class="service-card__title">
+                  <span class="lang-en">Deck Staining & Sealing</span>
+                  <span class="lang-zh">木板油漆与密封</span>
+                  <span class="lang-es">Tinción y sellado de cubiertas</span>
+                  <span class="lang-vi"></span>
+                </h3>
+                <p class="service-card__description">
+                  <span class="lang-en">Clean, sand, and stain your deck or fence to protect against Missouri's weather. Penetrating stains that last 3–5 years with proper prep — not just surface-level color.</span>
+                  <span class="lang-zh">清洁、打磨并为您的甲板或围栏上色，抵御密苏里天气侵蚀。渗透型着色剂配合正确处理可持续3至5年——绝非表面着色。</span>
+                  <span class="lang-es">Limpie, lije y tine su cubierta o cerca para protegerla del clima de Missouri. Tintes penetrantes que duran 3 a 5 años con la preparación adecuada.</span>
+                  <span class="lang-vi"></span>
+                </p>
+                <span class="service-card__price"><span class="lang-en">Starting at $350</span><span class="lang-zh">$350起</span><span class="lang-es">Desde $350</span><span class="lang-vi"></span></span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Booking strip -->
+      <aside class="book-strip" aria-label="Ready to book">
+        <div class="container book-strip__inner">
+          <p class="book-strip__text"><span class="lang-en">Ready to transform a room or your whole home? Free estimates — we're usually on-site within 48 hours.</span><span class="lang-zh">准备好改造一个房间或整栋房子？免费估价，通常48小时内上门勘察。</span><span class="lang-es">¿Listo para transformar una habitación o toda su casa? Presupuestos gratuitos — generalmente en el sitio en 48 horas.</span><span class="lang-vi"></span></p>
+          <a class="book-strip__phone" href="tel:3145550218">(314) 555-0218</a>
+          <a class="button button--light" href="tel:3145550218"><span class="lang-en">📞 Call for Free Quote</span><span class="lang-zh">📞 致电获取免费估价</span><span class="lang-es">📞 Llame para una cotización gratuita</span><span class="lang-vi">📞 Gọi Báo Giá Miễn Phí</span></a>
+        </div>
+      </aside>
+
+      <!-- Our Story -->
+      <section class="section story" id="story" aria-labelledby="story-title">
+        <div class="container">
+          <div class="story-layout">
+            <div class="story-copy">
+              <p class="section__eyebrow"><span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra historia</span><span class="lang-vi">Câu Chuyện Của Chúng Tôi</span></p>
+              <h2 class="section__title" id="story-title">
+                <span class="lang-en">12 Years of Clean Lines and Honest Work</span>
+                <span class="lang-zh">12年精工细活，笔直线条，诚信为本</span>
+                <span class="lang-es">12 años de líneas limpias y trabajo honesto</span>
+                <span class="lang-vi"></span>
+              </h2>
+              <div class="lang-en">
+                <p>Tony started STL Painting Pros in 2012 after a decade working for a large commercial painting contractor in St. Louis. He saw firsthand how many homeowners were getting overcharged for mediocre work — heavy on roller speed, light on prep. He decided to build a company where the prep is as good as the final coat.</p>
+                <p>Today, Tony leads a four-person crew specializing in Chesterfield and West County homes. Every project starts with proper masking, priming, and sanding before any paint goes on. When they leave, you can't tell they were there — except the walls look brand new.</p>
+                <p>Interior and exterior painting, cabinet refinishing, deck staining. Licensed and insured. Free estimates for all projects. We'll show up on time, finish on schedule, and leave your home cleaner than we found it.</p>
+              </div>
+              <div class="lang-zh">
+                <p>Tony 于 2012 年创立了 STL Painting Pros，此前他在圣路易斯一家大型商业涂装公司工作了十年。他亲眼目睹许多房主为平庸的工作付出高价——刷得快，准备工作却敷衍了事。他决定创建一家把底层处理做得和面层一样扎实的公司。</p>
+                <p>如今，Tony 带领四人团队专注服务 Chesterfield 及西县住宅。每个项目在上漆前都严格进行遮蔽、底漆处理和打磨。他们离开后，您看不出施工痕迹——除了墙面焕然一新。</p>
+                <p>提供室内、室外涂装，橱柜翻新，木板油漆服务。持牌且已投保。所有项目免费估价。准时到场，按时完工，离开时房子比到来时更整洁。</p>
+              </div>
+              <div class="lang-es">
+                <p>Tony fundó STL Painting Pros en 2012, tras una década trabajando para un gran contratista de pintura comercial en St. Louis. Vio de primera mano cómo muchos propietarios pagaban demasiado por trabajos mediocres — rápidos con el rodillo, flojos con la preparación. Decidió crear una empresa donde la preparación es tan buena como la capa final.</p>
+                <p>Hoy, Tony lidera un equipo de cuatro personas especializado en hogares de Chesterfield y West County. Cada proyecto comienza con un enmascarado, imprimación y lijado adecuados antes de aplicar cualquier pintura. Cuando se van, no se nota que estuvieron — excepto que las paredes lucen como nuevas.</p>
+                <p>Pintura interior y exterior, renovación de gabinetes, tinción de cubiertas. Con licencia y asegurado. Presupuestos gratuitos para todos los proyectos.</p>
+              </div>
+              <div class="lang-vi">
+                <p></p>
+                <p></p>
+                <p></p>
+              </div>
+              
+            </div>
+            <aside class="signature-card" aria-label="Signature service highlight">
+              <span class="signature-card__badge">🏆 Best Seller</span>
+              <blockquote>
+                <span class="lang-en">Full interior repaint — walls, trim, and ceilings in one project. Our most-requested service. We handle all masking, repair, and priming so the finish lasts.</span>
+                <span class="lang-zh">全屋室内重新涂装——墙面、踢脚线和天花板一次搞定。我们最受欢迎的服务。遮蔽、修补、底漆全包，确保涂层持久耐用。</span>
+                <span class="lang-es">Repintado interior completo — paredes, molduras y techos en un solo proyecto. Nuestro servicio más solicitado. Nos encargamos de todo el enmascarado, reparación e imprimación para que el acabado dure.</span>
+                <span class="lang-vi"></span>
+                <cite>
+                  <span class="lang-en">Full Interior Repaint</span>
+                  <span class="lang-zh">全屋室内涂装</span>
+                  <span class="lang-es">Repintado interior completo</span>
+                  <span class="lang-vi"></span>
+                </cite>
+              </blockquote>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reviews -->
+      <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
+        <div class="container">
+          <div class="section-header">
+            <p class="section__eyebrow"><span class="lang-en">Client Reviews</span><span class="lang-zh">客户评价</span><span class="lang-es">Opiniones de clientes</span><span class="lang-vi">Đánh Giá Khách Hàng</span></p>
+            <h2 class="section__title" id="reviews-title">
+              <span class="lang-en">What Our Customers Say</span>
+              <span class="lang-zh">客户怎么说</span>
+              <span class="lang-es">Lo que dicen nuestros clientes</span>
+              <span class="lang-vi">Khách Hàng Nói Gì</span>
+            </h2>
+            <p class="section__intro"><span class="lang-en">Trusted by 250+ West County homeowners</span><span class="lang-zh">深受西县 250 多位业主信赖</span><span class="lang-es">Con la confianza de más de 250 propietarios en West County</span><span class="lang-vi"></span></p>
+          </div>
+          <div class="reviews-summary">
+            <span class="reviews-summary__rating">4.8</span>
+            <div class="reviews-summary__stars-wrap" style="--rating: 4.8" aria-label="4.8 out of 5 stars">
+              <span aria-hidden="true">★★★★★</span>
+              <span class="reviews-summary__stars-fill" aria-hidden="true">★★★★★</span>
+            </div>
+            <span class="reviews-summary__label"><span class="lang-en">Based on 190+ Google reviews</span><span class="lang-zh">基于 190 多条 Google 评价</span><span class="lang-es">Basado en más de 190 reseñas de Google</span><span class="lang-vi"></span></span>
+          </div>
+          <div class="reviews-grid">
+            <article class="review-card">
+              <div class="review-card__stars" aria-label="5 star review">★★★★★</div>
+              <blockquote>
+                <span class="lang-en">Tony's crew painted every room in our house before we moved in. They finished in three days and the work was flawless — perfectly straight lines, no drips, no missed spots. We will use them again without question.</span>
+                <span class="lang-zh">Tony 的团队在我们搬入前粉刷了整栋房子。三天完工，效果无懈可击——线条笔直，无滴漏，无遗漏。下次我们毫无疑问还会找他们。</span>
+                <span class="lang-es">El equipo de Tony pintó todas las habitaciones de nuestra casa antes de mudarnos. Terminaron en tres días y el trabajo fue impecable — líneas perfectamente rectas, sin chorreos, sin zonas sin cubrir. Los volveremos a contratar sin dudarlo.</span>
+                <span class="lang-vi"></span>
+              </blockquote>
+              <p class="review-card__name">— Mark & Sue H. — Chesterfield</p>
+            </article>
+            <article class="review-card">
+              <div class="review-card__stars" aria-label="5 star review">★★★★★</div>
+              <blockquote>
+                <span class="lang-en">Had my kitchen cabinets painted instead of replacing them. The transformation was unbelievable — looks like brand new cabinetry. Half the cost of new cabinets and they finished in two days.</span>
+                <span class="lang-zh">我选择重新涂装厨房橱柜而不是更换新的。效果令人难以置信——看起来就像全新橱柜。费用只有购买新橱柜的一半，而且两天就完工了。</span>
+                <span class="lang-es">Pinté mis gabinetes de cocina en lugar de reemplazarlos. La transformación fue increíble — parece cabinetería nueva. La mitad del costo de gabinetes nuevos y terminaron en dos días.</span>
+                <span class="lang-vi"></span>
+              </blockquote>
+              <p class="review-card__name">— Nancy F. — Ballwin</p>
+            </article>
+            <article class="review-card">
+              <div class="review-card__stars" aria-label="5 star review">★★★★★</div>
+              <blockquote>
+                <span class="lang-en">They repainted the exterior of our 1980s colonial. Scraped all the old peeling paint, primed everything, and left it looking like a completely different house. Neighbors keep stopping to ask who did it.</span>
+                <span class="lang-zh">他们重新粉刷了我们家1980年代的殖民地风格外墙。刮除所有剥落旧漆，全面打底，完工后看起来像一栋截然不同的房子。邻居们不断驻足询问是谁做的。</span>
+                <span class="lang-es">Repintaron el exterior de nuestra casa colonial de los 80. Rasparon toda la pintura vieja que se desprendía, imprimaron todo y lo dejaron pareciendo una casa completamente diferente. Los vecinos siguen parando para preguntar quién lo hizo.</span>
+                <span class="lang-vi"></span>
+              </blockquote>
+              <p class="review-card__name">— Greg T. — Manchester</p>
+            </article>
+          </div>
+          <div class="reviews-footer">
+            <a class="link-arrow" href="https://www.google.com/search?q=STL+Painting+Pros+Chesterfield+MO+reviews" target="_blank" rel="noopener"><span class="lang-en">Read all reviews on Google</span><span class="lang-zh">查看 Google 上的全部评价</span><span class="lang-es">Leer todas las reseñas en Google</span><span class="lang-vi"></span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Find Us -->
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <div class="container">
+          <div class="section-header">
+            <p class="section__eyebrow">
+              <span class="lang-en">Visit Today</span>
+              <span class="lang-zh">立即咨询</span>
+              <span class="lang-es">Solicite su cotización</span>
+              <span class="lang-vi">Ghé Thăm Hôm Nay</span>
+            </p>
+            <h2 class="section__title" id="contact-title">
+              <span class="lang-en">Find Us</span>
+              <span class="lang-zh">位置与联系</span>
+              <span class="lang-es">Ubicación y contacto</span>
+              <span class="lang-vi">Tìm Chúng Tôi</span>
+            </h2>
+            <p class="section__intro"><span class="lang-en">Free estimates — on-site within 48 hours. Serving Chesterfield, Ballwin, Manchester, Wildwood, and surrounding West County.</span><span class="lang-zh">免费估价，48小时内上门。服务 Chesterfield、Ballwin、Manchester、Wildwood 及西县周边地区。</span><span class="lang-es">Presupuestos gratuitos — en el sitio en 48 horas. Atendemos Chesterfield, Ballwin, Manchester, Wildwood y West County en general.</span><span class="lang-vi"></span></p>
+          </div>
+          <div class="contact-layout">
+            <article class="contact-card">
+              <div class="contact-card__top">
+                <h3 class="contact-card__heading">
+                  <span class="lang-en">Hours &amp; Contact</span>
+                  <span class="lang-zh">营业时间与联系方式</span>
+                  <span class="lang-es">Horario y contacto</span>
+                  <span class="lang-vi">Giờ Làm Việc &amp; Liên Hệ</span>
+                </h3>
+                <span class="contact-status pill--open"><span class="lang-en">Now Booking</span><span class="lang-zh">现正接受预约</span><span class="lang-es">Agenda abierta</span><span class="lang-vi">Đang Nhận Đặt Lịch</span></span>
+              </div>
+              <p class="today-hours">
+                <span class="lang-en">Today:</span>
+                <span class="lang-zh">今日营业：</span>
+                <span class="lang-es">Hoy:</span>
+                <span class="lang-vi">Hôm Nay:</span>
+                7:30 am – 5:30 pm
+              </p>
+              <table class="hours-table" aria-label="Weekly business hours">
+                <tbody>
+                  <tr><th scope="row"><span class="lang-en">Monday</span><span class="lang-zh">周一</span><span class="lang-es">Lunes</span><span class="lang-vi">Thứ Hai</span></th><td>7:30 am – 5:30 pm</td></tr>
+                  <tr><th scope="row"><span class="lang-en">Tuesday</span><span class="lang-zh">周二</span><span class="lang-es">Martes</span><span class="lang-vi">Thứ Ba</span></th><td>7:30 am – 5:30 pm</td></tr>
+                  <tr><th scope="row"><span class="lang-en">Wednesday</span><span class="lang-zh">周三</span><span class="lang-es">Miércoles</span><span class="lang-vi">Thứ Tư</span></th><td>7:30 am – 5:30 pm</td></tr>
+                  <tr><th scope="row"><span class="lang-en">Thursday</span><span class="lang-zh">周四</span><span class="lang-es">Jueves</span><span class="lang-vi">Thứ Năm</span></th><td>7:30 am – 5:30 pm</td></tr>
+                  <tr><th scope="row"><span class="lang-en">Friday</span><span class="lang-zh">周五</span><span class="lang-es">Viernes</span><span class="lang-vi">Thứ Sáu</span></th><td>7:30 am – 5:30 pm</td></tr>
+                  <tr><th scope="row"><span class="lang-en">Saturday</span><span class="lang-zh">周六</span><span class="lang-es">Sábado</span><span class="lang-vi">Thứ Bảy</span></th><td>8:00 am – 2:00 pm</td></tr>
+                  <tr><th scope="row"><span class="lang-en">Sunday</span><span class="lang-zh">周日</span><span class="lang-es">Domingo</span><span class="lang-vi">Chủ Nhật</span></th><td><span class="lang-en">Closed</span><span class="lang-zh">休息</span><span class="lang-es">Cerrado</span><span class="lang-vi">Đóng Cửa</span></td></tr>
+                </tbody>
+              </table>
+              <ul class="contact-list" aria-label="Business contact details">
+                <li class="contact-list__item">
+                  <span class="contact-list__icon" aria-hidden="true">☎</span>
+                  <span><a href="tel:3145550218">(314) 555-0218</a></span>
+                </li>
+              </ul>
+              <div class="contact-actions">
+                <a class="button button--primary" href="tel:3145550218"><span class="lang-en">📞 Call for Free Quote</span><span class="lang-zh">📞 致电获取免费估价</span><span class="lang-es">📞 Llame para una cotización gratuita</span><span class="lang-vi">📞 Gọi Báo Giá Miễn Phí</span></a>
+              </div>
+            </article>
+            <article class="contact-card">
+              <div class="contact-card__top">
+                <h3 class="contact-card__heading">
+                  <span class="lang-en">Map &amp; Directions</span>
+                  <span class="lang-zh">地图与路线</span>
+                  <span class="lang-es">Mapa e indicaciones</span>
+                  <span class="lang-vi">Bản Đồ &amp; Chỉ Đường</span>
+                </h3>
+              </div>
+              <p class="contact-address">📍 760 Baxter Rd, Chesterfield, MO 63017</p>
+              <div class="map-wrap">
+                <iframe
+                  src="https://maps.google.com/maps?q=Chesterfield+MO+63017&output=embed"
+                  title="Map showing STL Painting Pros at 760 Baxter Rd, Chesterfield, MO 63017"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <div class="map-actions">
+                <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=760+Baxter+Rd%2C+Chesterfield%2C+MO+63017" target="_blank" rel="noopener"><span class="lang-en">📍 Get Directions</span><span class="lang-zh">📍 查看路线</span><span class="lang-es">📍 Ver cómo llegar</span><span class="lang-vi">📍 Chỉ Đường</span></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span><span class="lang-en">© 2026 STL Painting Pros. All rights reserved.</span><span class="lang-zh">© 2026 STL Painting Pros。保留所有权利。</span><span class="lang-es">© 2026 STL Painting Pros. Todos los derechos reservados.</span><span class="lang-vi"></span></span>
+        <span>Chesterfield, MO</span>
+        <a href="tel:3145550218">(314) 555-0218</a>
+        <a href="#" style="color:rgba(255,255,255,0.5);font-weight:400;font-size:13px;"><span class="lang-en">Privacy Policy</span><span class="lang-zh">隐私政策</span><span class="lang-es">Política de privacidad</span><span class="lang-vi">Chính Sách Riêng Tư</span></a>
+      </div>
+    </footer>
+  </div>
+
+
+  <div class="theme-switcher" role="group" aria-label="Choose color theme">
+    <span class="theme-switcher__label">Choose Your Color</span>
+    <button class="theme-btn active" data-theme="crimson-heritage" title="Crimson Heritage"></button>
+    <button class="theme-btn" data-theme="midnight-luxe" title="Midnight Luxe"></button>
+    <button class="theme-btn" data-theme="mocha-warmth" title="Mocha Warmth"></button>
+    <button class="theme-btn" data-theme="forest-calm" title="Forest Calm"></button>
+    <button class="theme-btn" data-theme="slate-modern" title="Slate Modern"></button>
+  </div>
+
+  <div class="mobile-call-bar" role="region" aria-label="Quick business actions">
+    <a class="mobile-call-bar__phone" href="tel:3145550218">
+      <span class="mobile-call-bar__icon">📞</span>
+      <span class="mobile-call-bar__text">
+        <span class="mobile-call-bar__label"><span class="lang-en">Call for Free Quote</span><span class="lang-zh">致电获取免费估价</span><span class="lang-es">Pedir cotización</span><span class="lang-vi">Gọi Báo Giá Miễn Phí</span></span>
+        <span class="mobile-call-bar__number">(314) 555-0218</span>
+      </span>
+    </a>
+    <a class="mobile-call-bar__directions" href="https://www.google.com/maps/dir/?api=1&destination=760+Baxter+Rd%2C+Chesterfield%2C+MO+63017" target="_blank" rel="noopener">
+      <span class="mobile-call-bar__icon">📍</span>
+      <span class="mobile-call-bar__label"><span class="lang-en">Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Cómo llegar</span><span class="lang-vi">Chỉ Đường</span></span>
+    </a>
+  </div>
+
+  <script>
+    /* Sticky mobile call bar */
+    (function () {
+      var body = document.body;
+      var contact = document.getElementById("contact");
+      function updateScroll() {
+        body.classList.toggle("show-mobile-call-bar", window.scrollY > 160);
+      }
+      updateScroll();
+      window.addEventListener("scroll", updateScroll, { passive: true });
+      if ("IntersectionObserver" in window && contact) {
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            body.classList.toggle("hide-mobile-call-bar", e.isIntersecting && e.intersectionRatio >= 0.15);
+          });
+        }, { threshold: [0, 0.15, 0.35] }).observe(contact);
+      }
+      var mq = window.matchMedia("(max-width: 767px)");
+      function syncPadding(e) {
+        if (!e.matches) body.classList.remove("show-mobile-call-bar", "hide-mobile-call-bar");
+      }
+      syncPadding(mq);
+      (mq.addEventListener || mq.addListener).call(mq, mq.addEventListener ? "change" : syncPadding, mq.addEventListener ? syncPadding : undefined);
+    })();
+
+    /* Theme switcher */
+    (function () {
+      var html = document.documentElement;
+      document.querySelectorAll(".theme-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          html.setAttribute("data-theme", btn.getAttribute("data-theme"));
+          document.querySelectorAll(".theme-btn").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+        });
+      });
+    })();
+
+    /* Language switcher */
+    (function () {
+      var html = document.documentElement;
+      document.querySelectorAll(".lang-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var lang = btn.getAttribute("data-lang");
+          html.setAttribute("data-lang", lang);
+          html.setAttribute("lang", lang === "zh" ? "zh-CN" : lang === "es" ? "es" : lang === "vi" ? "vi" : "en");
+          document.querySelectorAll(".lang-btn").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

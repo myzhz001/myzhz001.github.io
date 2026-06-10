@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Green Lawn STL | Lawn Care & Landscaping Ballwin, MO</title>
+  <meta name="description" content="West County's trusted lawn care crew. Mowing, mulching, spring & fall cleanups, shrub trimming. Free quotes — call today.">
+  <meta name="theme-color" content="#1E4D35" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1E4D35" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Green Lawn STL | Lawn Care & Landscaping Ballwin, MO">
+  <meta property="og:description" content="West County's trusted lawn care crew. Mowing, mulching, spring & fall cleanups, shrub trimming. Free quotes — call today.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://myzhz001.github.io/green-lawn-stl/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1200&q=80">
+  <link rel="canonical" href="https://myzhz001.github.io/green-lawn-stl/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Theme 1: Crimson Heritage (default) ── */
+    :root, [data-theme="crimson-heritage"] {
+      --color-primary: #8B1A1A;
+      --color-bg: #FAFAF7;
+      --color-text: #2C2C2C;
+      --color-accent: #C9A84C;
+      --color-section-alt: #F5F0E8;
+      --color-secondary: #2D6A4F;
+      --color-card: #FFFFFF;
+      --color-soft-warm: #FBF7F4;
+      --font-heading: "Lora", Georgia, "Times New Roman", serif;
+      --font-body: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --color-accent-contrast: #2C2C2C;
+      --shadow-card: 0 4px 16px rgba(0,0,0,0.08);
+      --radius-card: 12px;
+      --radius-button: 8px;
+      --container: 1120px;
+    }
+    [data-theme="midnight-luxe"] {
+      --color-primary: #1B2A4A; --color-bg: #F8F7F4; --color-text: #1A1A2E;
+      --color-accent: #C9A84C; --color-section-alt: #EEF0F5;
+      --color-secondary: #C0392B; --color-card: #FFFFFF; --color-soft-warm: #F4F3F0;
+    }
+    [data-theme="mocha-warmth"] {
+      --color-primary: #6B3F2A; --color-bg: #FAF7F2; --color-text: #2C1F14;
+      --color-accent: #D4A853; --color-section-alt: #F2EBE0;
+      --color-secondary: #5C7A4E; --color-card: #FFFFFF; --color-soft-warm: #F7F2EA;
+    }
+    [data-theme="forest-calm"] {
+      --color-primary: #1E4D35; --color-bg: #F7FAF8; --color-text: #1A2E1E;
+      --color-accent: #C9A84C; --color-section-alt: #EAF2EC;
+      --color-secondary: #8B1A1A; --color-card: #FFFFFF; --color-soft-warm: #F2F7F3;
+    }
+    [data-theme="slate-modern"] {
+      --color-primary: #2D3142; --color-bg: #F9F9F9; --color-text: #1C1C2E;
+      --color-accent: #E8A838; --color-section-alt: #F0F0F5;
+      --color-secondary: #2D6A4F; --color-card: #FFFFFF; --color-soft-warm: #F5F5F8;
+    }
+
+
+    /* ── Theme switcher UI ── */
+    .theme-switcher {
+      position: fixed; right: 16px; top: 78px; z-index: 8888;
+      display: flex; flex-direction: row; align-items: center; gap: 8px;
+      background: #fff; border-radius: 999px; padding: 8px 14px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18); border: 1px solid rgba(0,0,0,0.08);
+    }
+    .theme-switcher__label {
+      font-size: 10px; font-weight: 700; color: #888; letter-spacing: 0.08em;
+      text-transform: uppercase; white-space: nowrap; margin-right: 2px;
+    }
+    .theme-btn {
+      width: 26px; height: 26px; border-radius: 999px; border: 2px solid transparent;
+      cursor: pointer; transition: transform 160ms ease, border-color 160ms ease; padding: 0;
+      flex: 0 0 auto;
+    }
+    .theme-btn:hover { transform: scale(1.18); }
+    .theme-btn.active { border-color: #333; transform: scale(1.12); }
+    .theme-btn[data-theme="crimson-heritage"] { background: #8B1A1A; }
+    .theme-btn[data-theme="midnight-luxe"]    { background: #1B2A4A; }
+    .theme-btn[data-theme="mocha-warmth"]     { background: #6B3F2A; }
+    .theme-btn[data-theme="forest-calm"]      { background: #1E4D35; }
+    .theme-btn[data-theme="slate-modern"]     { background: #2D3142; }
+    @media (max-width: 767px) { .theme-switcher { top: 78px; right: 12px; gap: 6px; padding: 7px 12px; } }
+
+    /* ── Language switcher ── */
+    .lang-zh, .lang-es, .lang-vi { display: none; }
+    .vi-slot { display: none !important; }
+    [data-lang="zh"] .lang-en { display: none; }
+    [data-lang="zh"] .lang-zh { display: revert; }
+    [data-lang="es"] .lang-en { display: none; }
+    [data-lang="es"] .lang-es { display: revert; }
+    [data-lang="vi"] .lang-en { display: none; }
+    [data-lang="vi"] .lang-vi { display: revert; }
+
+    .lang-switcher { display: flex; align-items: center; gap: 4px; }
+    .lang-btn {
+      display: inline-flex; min-height: 44px; align-items: center;
+      padding: 4px 9px; border: 1px solid rgba(0,0,0,0.14); border-radius: 6px;
+      background: transparent; font-family: var(--font-body); font-size: 13px;
+      font-weight: 700; cursor: pointer; color: rgba(44,44,44,0.68);
+      transition: background 160ms, color 160ms, border-color 160ms; white-space: nowrap;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      background: var(--color-primary); color: #fff; border-color: var(--color-primary);
+    }
+
+    /* ── Global reset ── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { min-width: 0; scroll-behavior: smooth; text-size-adjust: 100%; }
+    body {
+      min-width: 0; margin: 0; color: var(--color-text); background: var(--color-bg);
+      font-family: var(--font-body); font-size: 17px; line-height: 1.6;
+      overflow-x: hidden; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    img, iframe { max-width: 100%; }
+    a { color: inherit; text-decoration-thickness: 0.08em; text-underline-offset: 0.18em; }
+    a:focus-visible, button:focus-visible { outline: 3px solid rgba(201,168,76,0.78); outline-offset: 3px; }
+
+    /* ── Layout ── */
+    .site-shell {
+      min-height: 100vh; overflow-x: clip;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(201,168,76,0.08), transparent 34%),
+        linear-gradient(180deg, var(--color-soft-warm) 0%, var(--color-bg) 48%);
+    }
+    .container { width: min(100% - 32px, var(--container)); margin: 0 auto; }
+    .section { padding: 28px 0; position: relative; }
+    .section__eyebrow {
+      margin: 0 0 10px; color: var(--color-primary); font-size: 14px;
+      font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    .section__title {
+      margin: 0; color: var(--color-text); font-family: var(--font-heading);
+      font-size: 26px; font-size: clamp(22px, 5.5vw, 30px); font-weight: 700; line-height: 1.15;
+    }
+    .section__intro { max-width: 680px; margin: 14px auto 0; color: rgba(44,44,44,0.76); font-size: 18px; }
+    .section-header { max-width: 760px; margin: 0 auto 34px; text-align: center; }
+
+    /* ── Buttons ── */
+    .button {
+      display: inline-flex; min-height: 52px; align-items: center; justify-content: center;
+      gap: 10px; padding: 0 28px; border: 0; border-radius: var(--radius-button);
+      font-family: var(--font-body); font-size: 16px; font-weight: 700; line-height: 1;
+      text-decoration: none; cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 12px 22px rgba(44,44,44,0.16); }
+    .button:active { transform: translateY(0); }
+    .button--primary { color: #fff; background: var(--color-primary); }
+    .button--secondary { color: #fff; background: var(--color-secondary); }
+    .button--light { color: var(--color-primary); background: #fff; box-shadow: inset 0 0 0 1px rgba(139,26,26,0.18); }
+    .link-arrow {
+      display: inline-flex; min-height: 44px; align-items: center; gap: 8px;
+      color: var(--color-primary); font-weight: 700; text-decoration: none;
+    }
+    .link-arrow::after { content: "→"; transition: transform 180ms ease; }
+    .link-arrow:hover::after { transform: translateX(4px); }
+
+    /* ── Nav ── */
+    .site-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,250,247,0.98); border-bottom: 1px solid rgba(139,26,26,0.12);
+    }
+    @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+      .site-nav {
+        background: rgba(250,250,247,0.94);
+        backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      }
+    }
+    .site-nav { will-change: transform; }
+    .site-nav__inner {
+      display: flex; min-height: 70px; align-items: center;
+      justify-content: space-between; gap: 18px;
+    }
+    .site-nav__brand {
+      display: inline-flex; min-width: 0; align-items: center; gap: 12px;
+      color: var(--color-primary); font-family: var(--font-heading); font-size: 22px;
+      font-weight: 700; line-height: 1.15; text-decoration: none;
+    }
+    .site-nav__mark {
+      display: inline-grid; width: 38px; height: 38px; flex: 0 0 auto;
+      place-items: center; border-radius: 999px; color: #fff;
+      background: var(--color-primary); font-size: 18px; font-weight: 700;
+    }
+    .site-nav__name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .site-nav__actions { display: none; align-items: center; gap: 14px; }
+    .site-nav__phone {
+      display: inline-flex; align-items: center; min-height: 44px;
+      color: rgba(44,44,44,0.82); font-size: 15px; font-weight: 700;
+      text-decoration: none; white-space: nowrap;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative; min-height: 320px; display: grid;
+      align-items: center; overflow: hidden; color: #fff;
+      background-image: url(https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1600&q=80);
+      background-position: center; background-size: cover; background-repeat: no-repeat;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0; z-index: 0;
+      background:
+        linear-gradient(90deg, rgba(49,5,5,0.84) 0%, rgba(139,26,26,0.64) 48%, rgba(35,8,8,0.36) 100%),
+        radial-gradient(circle at 25% 32%, rgba(201,168,76,0.22), transparent 34%);
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: auto 0 0; z-index: 0;
+      height: 34%; background: linear-gradient(0deg, rgba(0,0,0,0.42), transparent); pointer-events: none;
+    }
+    .hero__content { position: relative; z-index: 1; max-width: 760px; padding: 24px 0 28px; }
+    .hero__kicker {
+      display: inline-flex; align-items: center; gap: 8px; margin: 0 0 10px;
+      color: #fff3d4; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    .hero__kicker::before { content: ""; width: 38px; height: 2px; background: var(--color-accent); }
+    .hero__title {
+      max-width: 11ch; margin: 0; font-family: var(--font-heading);
+      font-size: 42px; font-size: clamp(36px, 4.5vw, 58px); font-weight: 700; line-height: 1.05; overflow-wrap: break-word; text-wrap: balance;
+    }
+    .hero__tagline {
+      max-width: 620px; margin: 10px 0 0; color: rgba(255,255,255,0.92);
+      font-size: 21px; font-size: clamp(19px, 5vw, 25px); font-weight: 600; line-height: 1.35; overflow-wrap: break-word; text-wrap: pretty;
+    }
+    .hero__badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; }
+    .pill {
+      display: inline-flex; min-height: 38px; align-items: center; justify-content: center;
+      gap: 8px; padding: 7px 14px; border-radius: 999px; color: #fff;
+      background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.24);
+      font-size: 14px; font-weight: 700; background: rgba(0,0,0,0.42);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    }
+    .status--open  { background: #d4edda; color: #155724; }
+    .status--closed { background: #f8d7da; color: #721c24; }
+    .hero__ctas { display: flex; flex-direction: column; gap: 10px; margin: 16px 0 0; }
+    .hero__ctas .button { width: 100%; }
+    .hero__phone-display { margin: 8px 0 0; color: rgba(255,255,255,0.90); font-size: 17px; font-weight: 700; }
+    .hero__phone-display a {
+      display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration: none;
+    }
+
+    /* ── Section jump nav ── */
+    #services, #story, #reviews, #contact { scroll-margin-top: 86px; }
+    .section-jump-nav {
+      background: var(--color-section-alt); border-bottom: 1px solid rgba(139,26,26,0.1);
+      overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none;
+    }
+    .section-jump-nav::-webkit-scrollbar { display: none; }
+    .section-jump-nav__inner {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; padding: 12px 16px; min-width: max-content; margin: 0 auto;
+    }
+    .section-jump-nav__link {
+      display: inline-flex; min-height: 44px; align-items: center; padding: 7px 16px;
+      border-radius: 999px; color: var(--color-primary); background: var(--color-card);
+      border: 1px solid rgba(139,26,26,0.2); font-size: 14px; font-weight: 700;
+      text-decoration: none; white-space: nowrap;
+      transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+    }
+    .section-jump-nav__link:last-child { margin-right: 16px; }
+    .section-jump-nav__link:hover { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+
+    /* ── Service cards ── */
+    .services { background: var(--color-bg); }
+    .services-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 34px; }
+    .service-card {
+      position: relative; display: grid; overflow: hidden;
+      background: var(--color-card); border-radius: var(--radius-card);
+      border-top: 5px solid var(--color-secondary); box-shadow: var(--shadow-card);
+    }
+    .service-card__image {
+      width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+      border-radius: var(--radius-card) var(--radius-card) 0 0;
+      display: block; background: var(--color-section-alt);
+    }
+    .service-card__badge {
+      position: absolute; top: 12px; right: 12px; background: var(--color-accent);
+      color: var(--color-accent-contrast); font-size: 13px; font-weight: 700; padding: 4px 10px;
+      border-radius: 999px; z-index: 2; pointer-events: none;
+    }
+    .service-card__body { padding: 20px 24px 24px; display: grid; gap: 10px; }
+    .service-card__icon {
+      display: inline-grid; width: 54px; height: 54px; place-items: center;
+      border-radius: 14px; background: rgba(201,168,76,0.2); font-size: 28px; line-height: 1;
+    }
+    .service-card__title {
+      margin: 0; color: var(--color-text); font-family: var(--font-heading);
+      font-size: 24px; font-weight: 700; line-height: 1.2;
+    }
+    .service-card__description { margin: 0; color: rgba(44,44,44,0.74); }
+    .service-card__price {
+      display: inline-flex; align-items: center; padding: 5px 12px;
+      border-radius: 999px; background: rgba(45,106,79,0.1);
+      color: var(--color-secondary); font-size: 14px; font-weight: 700; align-self: start;
+    }
+    .service-card__featured { font-size: 14px; font-style: italic; font-weight: 600; color: var(--color-primary); }
+
+    /* ── Booking strip ── */
+    .book-strip { background: var(--color-primary); padding: 20px 0; }
+    .book-strip__inner {
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: 12px; text-align: center;
+    }
+    .book-strip__text { color: rgba(255,255,255,0.92); font-size: 18px; font-weight: 600; margin: 0; }
+    .book-strip__phone { display: inline-flex; align-items: center; min-height: 44px; color: #fff3d4; font-size: 20px; font-weight: 700; text-decoration: none; }
+
+    /* ── Seasonal banner (optional block) ── */
+    .seasonal-banner {
+      background: linear-gradient(90deg, #2D5016 0%, #4A7C1F 100%);
+      padding: 14px 0; color: #fff; text-align: center;
+    }
+    .seasonal-banner__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; }
+    .seasonal-banner__text { font-size: 16px; font-weight: 600; }
+    .seasonal-banner__cta { font-size: 14px; font-weight: 700; color: #fff3d4; text-decoration: none; }
+
+    /* ── Story ── */
+    .story { background: var(--color-section-alt); }
+    .story-layout { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: start; }
+    .story-copy { max-width: 720px; }
+    .story-copy .section__title { margin-bottom: 24px; }
+    .story-copy p { margin: 0 0 18px; color: rgba(44,44,44,0.82); }
+    .story-copy p:last-child { margin-bottom: 0; }
+    .signature-card {
+      position: relative; padding: 28px; overflow: hidden;
+      background: linear-gradient(145deg, #ffffff 0%, var(--color-soft-warm) 100%);
+      border-radius: var(--radius-card); box-shadow: var(--shadow-card);
+    }
+    .signature-card::before { content: none; }
+    .signature-card__badge {
+      display: inline-flex; min-height: 38px; align-items: center; padding: 7px 13px;
+      border-radius: 999px; color: #fff; background: var(--color-secondary); font-size: 14px; font-weight: 700;
+    }
+    .signature-card blockquote {
+      position: relative; z-index: 1; margin: 22px 0 0; color: var(--color-primary);
+      font-family: var(--font-heading); font-size: 26px; font-size: clamp(22px, 6vw, 32px);
+      font-style: italic; font-weight: 400; line-height: 1.3;
+    }
+    .signature-card cite {
+      display: block; margin-top: 18px; color: var(--color-text);
+      font-family: var(--font-body); font-size: 16px; font-style: normal; font-weight: 700;
+    }
+
+    /* ── Nextdoor block (optional) ── */
+    .nextdoor-block {
+      margin-top: 24px; padding: 20px 24px;
+      background: #f0f7ff; border-radius: var(--radius-card);
+      border-left: 4px solid #00B4D8;
+    }
+    .nextdoor-block__heading { margin: 0 0 8px; font-weight: 700; color: #00688B; font-size: 15px; }
+    .nextdoor-block__body { margin: 0; color: rgba(44,44,44,0.78); font-size: 15px; }
+
+    /* ── Reviews ── */
+    .reviews { background: var(--color-bg); }
+    .reviews-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 34px; }
+    .review-card {
+      display: flex; min-height: 250px; flex-direction: column; justify-content: space-between;
+      gap: 18px; padding: 24px; background: var(--color-card);
+      border-radius: var(--radius-card); box-shadow: var(--shadow-card);
+    }
+    .review-card__stars { color: var(--color-accent); font-size: 20px; letter-spacing: 0.08em; }
+    .review-card blockquote {
+      margin: 0; color: rgba(44,44,44,0.8); font-family: var(--font-heading);
+      font-size: 20px; font-style: italic; line-height: 1.45;
+    }
+    .review-card__name { margin: 0; color: var(--color-primary); font-weight: 700; }
+    .reviews-summary { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 28px; }
+    .reviews-summary__rating { font-family: var(--font-heading); font-size: 42px; font-weight: 700; color: var(--color-text); line-height: 1; }
+    .reviews-summary__stars-wrap {
+      position: relative; display: inline-block; font-size: 26px; line-height: 1; color: #ddd; letter-spacing: 0.06em;
+    }
+    .reviews-summary__stars-fill {
+      position: absolute; top: 0; left: 0; overflow: hidden; white-space: nowrap;
+      color: var(--color-accent); width: calc(var(--rating, 4.8) / 5 * 100%);
+    }
+    .reviews-summary__label { color: rgba(44,44,44,0.68); font-size: 16px; }
+    .reviews-footer { text-align: center; margin-top: 24px; }
+
+    /* ── Contact ── */
+    .contact { background: var(--color-section-alt); }
+    .contact-layout { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 34px; }
+    .contact-card { padding: 24px; background: var(--color-card); border-radius: var(--radius-card); box-shadow: var(--shadow-card); display: flex; flex-direction: column; justify-content: space-between; }
+    .contact-card__top {
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 12px; margin-bottom: 22px;
+    }
+    .contact-card__heading { margin: 0; font-family: var(--font-heading); font-size: 23px; font-size: clamp(20px, 4vw, 27px); line-height: 1.2; }
+    .contact-status { display: inline-flex; min-height: 36px; align-items: center; padding: 6px 12px; border-radius: 999px; font-size: 14px; font-weight: 700; }
+    .today-hours {
+      margin: 0 0 18px; padding: 14px 16px; border-radius: 10px;
+      color: var(--color-primary); background: rgba(139,26,26,0.07); font-weight: 700;
+    }
+    .hours-table { width: 100%; margin: 0 0 22px; border-collapse: collapse; font-size: 16px; }
+    .hours-table th, .hours-table td { padding: 10px 0; border-bottom: 1px solid rgba(44,44,44,0.1); text-align: left; vertical-align: top; }
+    .hours-table th { width: 42%; color: rgba(44,44,44,0.72); font-weight: 700; }
+    .hours-table td { color: var(--color-text); font-weight: 600; text-align: right; }
+    .contact-list { display: grid; gap: 12px; margin: 0 0 22px; padding: 0; list-style: none; }
+    .contact-list__item { display: grid; grid-template-columns: 32px 1fr; gap: 10px; align-items: center; }
+    .contact-list__icon {
+      display: inline-grid; width: 32px; height: 32px; place-items: center;
+      border-radius: 999px; background: rgba(45,106,79,0.1); font-size: 16px;
+    }
+    .contact-list a { display: inline-flex; align-items: center; min-height: 44px; color: var(--color-primary); font-weight: 700; }
+    .contact-actions { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .map-wrap { position: relative; overflow: hidden; min-height: 330px; border-radius: 10px; background: var(--color-section-alt); }
+    .map-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .map-actions { display: flex; flex-direction: column; gap: 10px; align-items: stretch; margin-top: 18px; }
+
+    /* ── Footer ── */
+    .site-footer { padding: 30px 0; color: rgba(255,255,255,0.82); background: #2a1111; font-size: 15px; }
+    .site-footer__inner { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; justify-content: space-between; }
+    .site-footer a { display: inline-flex; align-items: center; min-height: 44px; color: #fff3d4; font-weight: 700; }
+
+    /* ── Mobile call bar ── */
+    .mobile-call-bar { display: none; }
+    @media (max-width: 767px) {
+      body { padding-bottom: 86px; }
+      .mobile-call-bar {
+        position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+        display: grid; grid-template-columns: 1fr auto; gap: 10px;
+        min-height: 74px; padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+        background: var(--color-card); border-top: 1px solid rgba(139,26,26,0.16);
+        box-shadow: 0 -10px 28px rgba(44,44,44,0.18);
+        opacity: 0; transform: translateY(110%); pointer-events: none; transition: 220ms ease;
+      }
+      body.show-mobile-call-bar:not(.hide-mobile-call-bar) .mobile-call-bar {
+        opacity: 1; transform: translateY(0); pointer-events: auto;
+      }
+      .mobile-call-bar a {
+        display: inline-flex; min-height: 54px; align-items: center; justify-content: flex-start;
+        gap: 10px; border-radius: 8px; color: white; font-weight: 700; line-height: 1.1; text-decoration: none;
+      }
+      .mobile-call-bar__phone { padding: 8px 18px; background: var(--color-primary); }
+      .mobile-call-bar__directions { min-width: 116px; padding: 8px 14px; background: var(--color-secondary); }
+      .mobile-call-bar__icon { flex: 0 0 auto; font-size: 20px; }
+      .mobile-call-bar__text { display: grid; gap: 2px; min-width: 0; }
+      .mobile-call-bar__label { display: block; font-size: 13px; }
+      .mobile-call-bar__number { display: block; font-size: 16px; white-space: nowrap; }
+    }
+
+    /* ── Responsive ── */
+    @media (min-width: 768px) {
+      body { font-size: 18px; }
+      .container { width: min(100% - 56px, var(--container)); }
+      .section { padding: 44px 0; }
+      .section-header { margin-bottom: 46px; }
+      .section__title { font-size: 32px; font-size: clamp(28px, 3.2vw, 36px); }
+      .site-nav__actions { display: flex; }
+      .hero { min-height: 380px; }
+      .hero__content { padding: 40px 0 44px; }
+      .hero__ctas { flex-direction: row; align-items: center; }
+      .hero__ctas .button { width: auto; }
+      .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+      .story-layout { grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr); gap: 54px; }
+      .signature-card { padding: 36px; position: sticky; top: 110px; }
+      .reviews-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+      .review-card { padding: 28px; }
+      .contact-layout { grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); gap: 24px; }
+      .contact-card { padding: 30px; }
+      .map-wrap { min-height: 470px; }
+      .contact-actions { grid-template-columns: auto; justify-content: start; }
+      .map-actions { flex-direction: row; align-items: center; }
+      .site-footer__inner { flex-direction: row; align-items: center; }
+      .book-strip__inner { flex-direction: row; gap: 24px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important; transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
+      }
+    }
+
+    /* ── CJK typography corrections ── */
+    [data-lang="zh"] .section__eyebrow,
+    [data-lang="zh"] .hero__kicker { letter-spacing: 0.04em; }
+    [data-lang="zh"] .story-copy p { line-height: 1.75; }
+    [data-lang="zh"] .review-card blockquote { line-height: 1.65; }
+    [data-lang="zh"] .signature-card blockquote { line-height: 1.55; }
+    [data-lang="zh"] .review-card blockquote,
+    [data-lang="zh"] .signature-card blockquote { font-family: var(--font-body); font-style: normal; }
+  </style>
+
+</head>
+<body>
+  <div class="site-shell">
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <div class="container site-nav__inner">
+        <a class="site-nav__brand" href="#top" aria-label="Green Lawn STL home">
+          <span class="site-nav__mark" aria-hidden="true">🌿</span>
+          <span class="site-nav__name">Green Lawn STL</span>
+        </a>
+        <div class="site-nav__actions" aria-label="Quick actions">
+          <div class="lang-switcher" role="group" aria-label="Language / 语言 / Idioma / Tiếng Việt">
+            <button class="lang-btn active" data-lang="en" title="English">🇺🇸 EN</button>
+            <button class="lang-btn" data-lang="zh" title="中文">🇨🇳 中文</button>
+            <button class="lang-btn" data-lang="es" title="Español">🇲🇽 ES</button>
+            
+          </div>
+          <a class="site-nav__phone" href="tel:3145550192">(314) 555-0192</a>
+          <a class="button button--primary" href="tel:3145550192"><span class="lang-en">Free Quote</span><span class="lang-zh">免费估价</span><span class="lang-es">Cotización Gratuita</span><span class="lang-vi">Báo Giá Miễn Phí</span></a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero" id="top" role="banner" aria-label="Professional lawn care and landscaping in Ballwin, MO">
+      <div class="container">
+        <div class="hero__content">
+          <p class="hero__kicker"><span class="lang-en">Ballwin's Neighborhood Lawn Crew</span><span class="lang-zh">Ballwin 社区草坪团队</span><span class="lang-es">El equipo de jardines del vecindario en Ballwin</span><span class="lang-vi"></span></p>
+          <h1 class="hero__title">Green Lawn STL</h1>
+          <p class="hero__tagline">
+            <span class="lang-en">Clean Lawns, Happy Neighbors — Every Week</span>
+            <span class="lang-zh">每周草坪整洁，邻里皆欢心</span>
+            <span class="lang-es">Jardines limpios, vecinos felices — cada semana</span>
+            <span class="lang-vi"></span>
+          </p>
+          <div class="hero__badges" aria-label="Business highlights">
+            <span class="pill">📍 Ballwin, MO</span>
+            <span class="pill"><span class="lang-en">10+ Years Serving West County</span><span class="lang-zh">深耕西县10余年</span><span class="lang-es">Más de 10 años sirviendo a West County</span><span class="lang-vi"></span></span>
+            <span class="pill pill--open"><span class="lang-en">Now Booking</span><span class="lang-zh">现正接受预约</span><span class="lang-es">Agenda abierta</span><span class="lang-vi">Đang Nhận Đặt Lịch</span></span>
+            <span class="pill"><span class="lang-en">⭐ 4.9 Google Rating</span><span class="lang-zh">⭐ Google 评分 4.9</span><span class="lang-es">⭐ Calificación 4.9 en Google</span><span class="lang-vi"></span></span>
+            <span class="pill">
+              <span class="lang-en">Insured</span>
+              <span class="lang-zh">已投保</span>
+              <span class="lang-es">Asegurado</span>
+              <span class="lang-vi"></span>
+            </span>
+          </div>
+          <div class="hero__ctas" aria-label="Hero actions">
+            <a class="button button--primary" href="tel:3145550192"><span class="lang-en">📞 Call for Free Quote</span><span class="lang-zh">📞 致电获取免费估价</span><span class="lang-es">📞 Llame para una cotización gratuita</span><span class="lang-vi">📞 Gọi Báo Giá Miễn Phí</span></a>
+            <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=1847+Clarkson+Rd%2C+Ballwin%2C+MO+63021" target="_blank" rel="noopener"><span class="lang-en">📍 Get Directions</span><span class="lang-zh">📍 查看路线</span><span class="lang-es">📍 Ver cómo llegar</span><span class="lang-vi">📍 Chỉ Đường</span></a>
+          </div>
+          <p class="hero__phone-display"><a href="tel:3145550192">(314) 555-0192</a></p>
+        </div>
+      </div>
+    </header>
+
+    
+    <aside class="seasonal-banner" aria-label="Seasonal availability">
+      <div class="container seasonal-banner__inner">
+        <p class="seasonal-banner__text"><span class="lang-en">🌸 Spring Cleanups Booking Now — Limited Slots Available</span><span class="lang-zh">🌸 春季清洁现已开放预约——名额有限，先到先得</span><span class="lang-es">🌸 Limpiezas de primavera disponibles ahora — cupos limitados</span><span class="lang-vi"></span></p>
+        <a class="seasonal-banner__cta" href="tel:3145550192"><span class="lang-en">Call to Schedule →</span><span class="lang-zh">致电预约 →</span><span class="lang-es">Llame para agendar →</span><span class="lang-vi">Gọi Đặt Lịch →</span></a>
+      </div>
+    </aside>
+    
+
+    <nav class="section-jump-nav" aria-label="Jump to section">
+      <div class="section-jump-nav__inner">
+        <a class="section-jump-nav__link" href="#services">
+          🌿 <span class="lang-en">Services</span><span class="lang-zh">服务项目</span><span class="lang-es">Servicios</span><span class="lang-vi">Dịch Vụ</span>
+        </a>
+        <a class="section-jump-nav__link" href="#story">
+          📖 <span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra historia</span><span class="lang-vi">Câu Chuyện</span>
+        </a>
+        <a class="section-jump-nav__link" href="#reviews">
+          ⭐ <span class="lang-en">Reviews</span><span class="lang-zh">客户评价</span><span class="lang-es">Reseñas</span><span class="lang-vi">Đánh Giá</span>
+        </a>
+        <a class="section-jump-nav__link" href="#contact">
+          📍 <span class="lang-en">Find Us</span><span class="lang-zh">位置与联系</span><span class="lang-es">Ubicación</span><span class="lang-vi">Tìm Chúng Tôi</span>
+        </a>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Services -->
+      <section class="section services" id="services" aria-labelledby="services-title">
+        <div class="container">
+          <div class="section-header">
+            <p class="section__eyebrow"><span class="lang-en">Our Services</span><span class="lang-zh">我们的服务项目</span><span class="lang-es">Nuestros servicios</span><span class="lang-vi">Dịch Vụ</span></p>
+            <h2 class="section__title" id="services-title">
+              <span class="lang-en">Our Services</span>
+              <span class="lang-zh">服务项目</span>
+              <span class="lang-es">Nuestros servicios</span>
+              <span class="lang-vi">Dịch Vụ</span>
+            </h2>
+            <p class="section__intro">
+              <span class="lang-en">Reliable weekly mowing, one-time cleanups, and seasonal landscaping across West County</span>
+              <span class="lang-zh">可靠的每周割草、一次性清洁及季节性园艺服务，覆盖西县全区</span>
+              <span class="lang-es">Corte semanal confiable, limpiezas únicas y jardinería estacional en todo West County</span>
+              <span class="lang-vi"></span>
+            </p>
+          </div>
+          <div class="services-grid">
+            <article class="service-card">
+              <img class="service-card__image" src="https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?w=800&q=80" alt="Lawn mowing in progress on a residential yard" loading="lazy">
+              <span class="service-card__badge"><span class="lang-en">⭐ Most Popular</span><span class="lang-zh">⭐ 最受欢迎</span><span class="lang-es">⭐ Más popular</span><span class="lang-vi"></span></span>
+              <div class="service-card__body">
+                <h3 class="service-card__title">
+                  <span class="lang-en">Lawn Mowing & Maintenance</span>
+                  <span class="lang-zh">草坪割草与养护</span>
+                  <span class="lang-es">Corte y mantenimiento de césped</span>
+                  <span class="lang-vi"></span>
+                </h3>
+                <p class="service-card__description">
+                  <span class="lang-en">Weekly or bi-weekly mowing, edging, and cleanup. Same crew, same schedule, every time. Includes blowing clippings from driveways and sidewalks.</span>
+                  <span class="lang-zh">每周或隔周割草、修边及清洁。同一团队，固定时间，风雨无误。包含清除车道和人行道上的草屑。</span>
+                  <span class="lang-es">Corte semanal o quincenal, bordado y limpieza. El mismo equipo, el mismo horario, siempre. Incluye soplado de recortes de entradas y aceras.</span>
+                  <span class="lang-vi"></span>
+                </p>
+                <span class="service-card__price"><span class="lang-en">Starting at $45/visit</span><span class="lang-zh">$45起/次</span><span class="lang-es">Desde $45 por visita</span><span class="lang-vi"></span></span>
+              </div>
+            </article>
+            <article class="service-card">
+              <img class="service-card__image" src="https://images.unsplash.com/photo-1558383331-f520f2888351?w=800&q=80" alt="Garden bed mulching and edging work in progress" loading="lazy">
+              <div class="service-card__body">
+                <h3 class="service-card__title">
+                  <span class="lang-en">Mulching & Bed Work</span>
+                  <span class="lang-zh">覆盖物铺设与花圃整理</span>
+                  <span class="lang-es">Cobertura de mantillo y trabajos en canteros</span>
+                  <span class="lang-vi"></span>
+                </h3>
+                <p class="service-card__description">
+                  <span class="lang-en">Fresh mulch installation, bed edging, and weed removal. Protects roots, retains moisture, and makes your landscaping look polished all season.</span>
+                  <span class="lang-zh">新鲜覆盖物铺设、花圃修边及除草。保护根系、锁住水分，让您的园艺整个季节都光彩照人。</span>
+                  <span class="lang-es">Instalación de mantillo fresco, bordado de canteros y eliminación de malas hierbas. Protege las raíces, retiene la humedad y da un aspecto impecable toda la temporada.</span>
+                  <span class="lang-vi"></span>
+                </p>
+                <span class="service-card__price"><span class="lang-en">Starting at $150</span><span class="lang-zh">$150起</span><span class="lang-es">Desde $150</span><span class="lang-vi"></span></span>
+              </div>
+            </article>
+            <article class="service-card">
+              <img class="service-card__image" src="https://images.unsplash.com/photo-1543286386-2e659306cd6c?w=800&q=80" alt="Fall leaf cleanup and yard debris removal" loading="lazy">
+              <div class="service-card__body">
+                <h3 class="service-card__title">
+                  <span class="lang-en">Spring & Fall Cleanup</span>
+                  <span class="lang-zh">春秋季清洁</span>
+                  <span class="lang-es">Limpieza de primavera y otoño</span>
+                  <span class="lang-vi"></span>
+                </h3>
+                <p class="service-card__description">
+                  <span class="lang-en">Full-yard leaf and debris removal, bed clearing, and haul-away. Spring cleanups get your lawn ready for the season. Fall cleanups protect your turf over winter.</span>
+                  <span class="lang-zh">全院落叶及杂物清除、花圃清理及运走。春季清洁让草坪为整季做好准备，秋季清洁保护草皮安全越冬。</span>
+                  <span class="lang-es">Retiro completo de hojas y escombros, limpieza de canteros y traslado. La limpieza de primavera prepara su jardín para la temporada. La limpieza de otoño protege el césped durante el invierno.</span>
+                  <span class="lang-vi"></span>
+                </p>
+                <span class="service-card__price"><span class="lang-en">Starting at $150</span><span class="lang-zh">$150起</span><span class="lang-es">Desde $150</span><span class="lang-vi"></span></span>
+              </div>
+            </article>
+            <article class="service-card">
+              <img class="service-card__image" src="https://images.unsplash.com/photo-1509587584298-0f3b3a3a1797?w=800&q=80" alt="Tree and shrub trimming service in residential yard" loading="lazy">
+              <div class="service-card__body">
+                <h3 class="service-card__title">
+                  <span class="lang-en">Tree & Shrub Trimming</span>
+                  <span class="lang-zh">树木与灌木修剪</span>
+                  <span class="lang-es">Poda de árboles y arbustos</span>
+                  <span class="lang-vi"></span>
+                </h3>
+                <p class="service-card__description">
+                  <span class="lang-en">Shape up overgrown shrubs, trim low branches, and clear sight lines. Keeps your property looking clean and prevents damage to walkways and siding.</span>
+                  <span class="lang-zh">修整杂乱灌木、剪除低矮枝条、清理视线障碍。让您的房产保持整洁外观，防止对走道和外墙造成损坏。</span>
+                  <span class="lang-es">Dé forma a los arbustos crecidos, recorte las ramas bajas y despeje la visibilidad. Mantiene su propiedad limpia y evita daños en aceras y revestimientos.</span>
+                  <span class="lang-vi"></span>
+                </p>
+                <span class="service-card__price"><span class="lang-en">Starting at $100</span><span class="lang-zh">$100起</span><span class="lang-es">Desde $100</span><span class="lang-vi"></span></span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Booking strip -->
+      <aside class="book-strip" aria-label="Ready to book">
+        <div class="container book-strip__inner">
+          <p class="book-strip__text"><span class="lang-en">Ready for a lawn you're proud of? Get a free, no-obligation quote — we respond same day.</span><span class="lang-zh">想要一片令您骄傲的草坪？立即获取免费估价，当天回复。</span><span class="lang-es">¿Listo para un jardín del que estar orgulloso? Solicite una cotización gratuita — respondemos el mismo día.</span><span class="lang-vi"></span></p>
+          <a class="book-strip__phone" href="tel:3145550192">(314) 555-0192</a>
+          <a class="button button--light" href="tel:3145550192"><span class="lang-en">📞 Call for Free Quote</span><span class="lang-zh">📞 致电获取免费估价</span><span class="lang-es">📞 Llame para una cotización gratuita</span><span class="lang-vi">📞 Gọi Báo Giá Miễn Phí</span></a>
+        </div>
+      </aside>
+
+      <!-- Our Story -->
+      <section class="section story" id="story" aria-labelledby="story-title">
+        <div class="container">
+          <div class="story-layout">
+            <div class="story-copy">
+              <p class="section__eyebrow"><span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra historia</span><span class="lang-vi">Câu Chuyện Của Chúng Tôi</span></p>
+              <h2 class="section__title" id="story-title">
+                <span class="lang-en">Growing Up in West County — Growing Lawns for 10 Years</span>
+                <span class="lang-zh">在西县长大，服务草坪10年</span>
+                <span class="lang-es">Creciendo en West County — cuidando jardines por 10 años</span>
+                <span class="lang-vi"></span>
+              </h2>
+              <div class="lang-en">
+                <p>Carlos started Green Lawn STL in 2014 after years of helping neighbors maintain their yards in Ballwin. What began as weekend jobs for friends turned into a full crew serving over 80 regular clients across Ballwin, Chesterfield, and Manchester.</p>
+                <p>We show up every week on schedule, use commercial-grade equipment, and leave every yard cleaner than we found it. No ghosting, no excuses. Our clients stay with us year after year because they know we'll be there when we say.</p>
+                <p>Spring cleanups, fall leaf removal, mulching, and shrub trimming available. Free quotes for new properties. If your lawn needs attention, we'll take care of it — and the neighbors will notice.</p>
+              </div>
+              <div class="lang-zh">
+                <p>Carlos 于 2014 年创立了 Green Lawn STL，此前多年他一直帮助 Ballwin 的邻居打理院子。从周末帮朋友干活开始，如今已发展为服务 Ballwin、Chesterfield 和 Manchester 80 余位固定客户的专业团队。</p>
+                <p>我们每周按时到场，使用商业级设备，每次离开时院子都比我们到来时更整洁。不爽约，不找借口。客户年复一年地续签，因为他们知道我们言出必行。</p>
+                <p>春季清洁、秋季落叶清除、铺设覆盖物及修剪灌木均可提供。新客户免费估价。您的草坪需要养护，我们来打理——邻居们都会注意到。</p>
+              </div>
+              <div class="lang-es">
+                <p>Carlos fundó Green Lawn STL en 2014, después de años ayudando a vecinos de Ballwin con sus jardines. Lo que comenzó como trabajos de fin de semana para amigos se convirtió en un equipo completo que atiende a más de 80 clientes regulares en Ballwin, Chesterfield y Manchester.</p>
+                <p>Llegamos cada semana en el horario acordado, usamos equipos profesionales y dejamos cada jardín más limpio de lo que lo encontramos. Sin cancelaciones, sin excusas. Nuestros clientes se quedan con nosotros año tras año porque saben que cumplimos.</p>
+                <p>Limpieza de primavera, retiro de hojas en otoño, mulching y poda de arbustos disponibles. Cotizaciones gratuitas para nuevas propiedades.</p>
+              </div>
+              <div class="lang-vi">
+                <p></p>
+                <p></p>
+                <p></p>
+              </div>
+              
+            </div>
+            <aside class="signature-card" aria-label="Signature service highlight">
+              <span class="signature-card__badge">🌿 Most Popular</span>
+              <blockquote>
+                <span class="lang-en">Weekly mowing + edging + cleanup in one visit. Our most popular recurring service — shows up on schedule so your yard is always ready for the weekend.</span>
+                <span class="lang-zh">每周割草 + 修边 + 清洁一次完成。我们最受欢迎的定期服务——按时到场，让您的院子每到周末都整洁如新。</span>
+                <span class="lang-es">Corte semanal + bordado + limpieza en una sola visita. Nuestro servicio recurrente más popular — puntual para que su jardín siempre luzca impecable el fin de semana.</span>
+                <span class="lang-vi"></span>
+                <cite>
+                  <span class="lang-en">Weekly Lawn Package</span>
+                  <span class="lang-zh">每周草坪套餐</span>
+                  <span class="lang-es">Paquete semanal de jardín</span>
+                  <span class="lang-vi"></span>
+                </cite>
+              </blockquote>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reviews -->
+      <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
+        <div class="container">
+          <div class="section-header">
+            <p class="section__eyebrow"><span class="lang-en">Client Reviews</span><span class="lang-zh">客户评价</span><span class="lang-es">Opiniones de clientes</span><span class="lang-vi">Đánh Giá Khách Hàng</span></p>
+            <h2 class="section__title" id="reviews-title">
+              <span class="lang-en">What Our Customers Say</span>
+              <span class="lang-zh">客户怎么说</span>
+              <span class="lang-es">Lo que dicen nuestros clientes</span>
+              <span class="lang-vi">Khách Hàng Nói Gì</span>
+            </h2>
+            <p class="section__intro"><span class="lang-en">Trusted by 200+ West County homeowners</span><span class="lang-zh">深受西县 200 多位业主信赖</span><span class="lang-es">Con la confianza de más de 200 propietarios en West County</span><span class="lang-vi"></span></p>
+          </div>
+          <div class="reviews-summary">
+            <span class="reviews-summary__rating">4.9</span>
+            <div class="reviews-summary__stars-wrap" style="--rating: 4.9" aria-label="4.9 out of 5 stars">
+              <span aria-hidden="true">★★★★★</span>
+              <span class="reviews-summary__stars-fill" aria-hidden="true">★★★★★</span>
+            </div>
+            <span class="reviews-summary__label"><span class="lang-en">Based on 140+ Google reviews</span><span class="lang-zh">基于 140 多条 Google 评价</span><span class="lang-es">Basado en más de 140 reseñas de Google</span><span class="lang-vi"></span></span>
+          </div>
+          <div class="reviews-grid">
+            <article class="review-card">
+              <div class="review-card__stars" aria-label="5 star review">★★★★★</div>
+              <blockquote>
+                <span class="lang-en">Carlos and his crew have been doing our lawn for three years. They're here every Tuesday morning without fail. The yard always looks great and they clean up perfectly. Best investment we've made.</span>
+                <span class="lang-zh">Carlos 和他的团队已经帮我们打理草坪三年了。每周二早上准时到场，从不爽约。院子每次都打理得漂漂亮亮，清洁也做得很彻底。这是我们做过最值的投资。</span>
+                <span class="lang-es">Carlos y su equipo han estado haciendo nuestro jardín durante tres años. Están aquí cada martes por la mañana sin falta. El jardín siempre luce estupendo y limpian a la perfección. La mejor inversión que hemos hecho.</span>
+                <span class="lang-vi"></span>
+              </blockquote>
+              <p class="review-card__name">— Lisa M. — Ballwin</p>
+            </article>
+            <article class="review-card">
+              <div class="review-card__stars" aria-label="5 star review">★★★★★</div>
+              <blockquote>
+                <span class="lang-en">Had them do a spring cleanup and ended up signing up for weekly mowing. They hauled away three truckloads of leaves and debris in one morning. My yard looked like a park by noon.</span>
+                <span class="lang-zh">原本只是请他们做春季清洁，最后直接签了每周割草的合同。他们一个早上就拉走了三卡车的落叶和杂物。到中午，我的院子看起来就像公园一样。</span>
+                <span class="lang-es">Los contraté para una limpieza de primavera y terminé inscribiéndome para el corte semanal. Se llevaron tres camionadas de hojas y escombros en una mañana. Para el mediodía, mi jardín parecía un parque.</span>
+                <span class="lang-vi"></span>
+              </blockquote>
+              <p class="review-card__name">— Robert K. — Chesterfield</p>
+            </article>
+            <article class="review-card">
+              <div class="review-card__stars" aria-label="5 star review">★★★★★</div>
+              <blockquote>
+                <span class="lang-en">Very fair pricing and they always let you know if they're running behind. The mulching job they did in our front beds was immaculate — clean edges, consistent depth. I've recommended them to six neighbors.</span>
+                <span class="lang-zh">价格非常合理，如果有延误他们会提前通知您。他们在我家前院花圃做的覆盖物铺设简直无懈可击——边缘整齐，厚度均匀。我已经向六位邻居推荐了他们。</span>
+                <span class="lang-es">Precios muy justos y siempre avisan si van a llegar tarde. El trabajo de mulching que hicieron en nuestros canteros delanteros fue impecable — bordes limpios, profundidad uniforme. Los he recomendado a seis vecinos.</span>
+                <span class="lang-vi"></span>
+              </blockquote>
+              <p class="review-card__name">— Patricia W. — Manchester</p>
+            </article>
+          </div>
+          <div class="reviews-footer">
+            <a class="link-arrow" href="https://www.google.com/search?q=Green+Lawn+STL+Ballwin+MO+reviews" target="_blank" rel="noopener"><span class="lang-en">Read all reviews on Google</span><span class="lang-zh">查看 Google 上的全部评价</span><span class="lang-es">Leer todas las reseñas en Google</span><span class="lang-vi"></span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Find Us -->
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <div class="container">
+          <div class="section-header">
+            <p class="section__eyebrow">
+              <span class="lang-en">Visit Today</span>
+              <span class="lang-zh">立即咨询</span>
+              <span class="lang-es">Solicite su cotización</span>
+              <span class="lang-vi">Ghé Thăm Hôm Nay</span>
+            </p>
+            <h2 class="section__title" id="contact-title">
+              <span class="lang-en">Find Us</span>
+              <span class="lang-zh">位置与联系</span>
+              <span class="lang-es">Ubicación y contacto</span>
+              <span class="lang-vi">Tìm Chúng Tôi</span>
+            </h2>
+            <p class="section__intro"><span class="lang-en">Free quotes — we respond same day. Serving Ballwin, Chesterfield, Manchester, Wildwood, and Ellisville.</span><span class="lang-zh">免费估价，当天回复。服务范围：Ballwin、Chesterfield、Manchester、Wildwood 及 Ellisville。</span><span class="lang-es">Cotizaciones gratuitas — respondemos el mismo día. Atendemos Ballwin, Chesterfield, Manchester, Wildwood y Ellisville.</span><span class="lang-vi"></span></p>
+          </div>
+          <div class="contact-layout">
+            <article class="contact-card">
+              <div class="contact-card__top">
+                <h3 class="contact-card__heading">
+                  <span class="lang-en">Hours &amp; Contact</span>
+                  <span class="lang-zh">营业时间与联系方式</span>
+                  <span class="lang-es">Horario y contacto</span>
+                  <span class="lang-vi">Giờ Làm Việc &amp; Liên Hệ</span>
+                </h3>
+                <span class="contact-status pill--open"><span class="lang-en">Now Booking</span><span class="lang-zh">现正接受预约</span><span class="lang-es">Agenda abierta</span><span class="lang-vi">Đang Nhận Đặt Lịch</span></span>
+              </div>
+              <p class="today-hours">
+                <span class="lang-en">Today:</span>
+                <span class="lang-zh">今日营业：</span>
+                <span class="lang-es">Hoy:</span>
+                <span class="lang-vi">Hôm Nay:</span>
+                7:00 am – 6:00 pm
+              </p>
+              <table class="hours-table" aria-label="Weekly business hours">
+                <tbody>
+                  <tr><th scope="row"><span class="lang-en">Monday</span><span class="lang-zh">周一</span><span class="lang-es">Lunes</span><span class="lang-vi">Thứ Hai</span></th><td>7:00 am – 6:00 pm</td></tr>
+                  <tr><th scope="row"><span class="lang-en">Tuesday</span><span class="lang-zh">周二</span><span class="lang-es">Martes</span><span class="lang-vi">Thứ Ba</span></th><td>7:00 am – 6:00 pm</td></tr>
+                  <tr><th scope="row"><span class="lang-en">Wednesday</span><span class="lang-zh">周三</span><span class="lang-es">Miércoles</span><span class="lang-vi">Thứ Tư</span></th><td>7:00 am – 6:00 pm</td></tr>
+                  <tr><th scope="row"><span class="lang-en">Thursday</span><span class="lang-zh">周四</span><span class="lang-es">Jueves</span><span class="lang-vi">Thứ Năm</span></th><td>7:00 am – 6:00 pm</td></tr>
+                  <tr><th scope="row"><span class="lang-en">Friday</span><span class="lang-zh">周五</span><span class="lang-es">Viernes</span><span class="lang-vi">Thứ Sáu</span></th><td>7:00 am – 6:00 pm</td></tr>
+                  <tr><th scope="row"><span class="lang-en">Saturday</span><span class="lang-zh">周六</span><span class="lang-es">Sábado</span><span class="lang-vi">Thứ Bảy</span></th><td>7:00 am – 2:00 pm</td></tr>
+                  <tr><th scope="row"><span class="lang-en">Sunday</span><span class="lang-zh">周日</span><span class="lang-es">Domingo</span><span class="lang-vi">Chủ Nhật</span></th><td><span class="lang-en">Closed</span><span class="lang-zh">休息</span><span class="lang-es">Cerrado</span><span class="lang-vi">Đóng Cửa</span></td></tr>
+                </tbody>
+              </table>
+              <ul class="contact-list" aria-label="Business contact details">
+                <li class="contact-list__item">
+                  <span class="contact-list__icon" aria-hidden="true">☎</span>
+                  <span><a href="tel:3145550192">(314) 555-0192</a></span>
+                </li>
+              </ul>
+              <div class="contact-actions">
+                <a class="button button--primary" href="tel:3145550192"><span class="lang-en">📞 Call for Free Quote</span><span class="lang-zh">📞 致电获取免费估价</span><span class="lang-es">📞 Llame para una cotización gratuita</span><span class="lang-vi">📞 Gọi Báo Giá Miễn Phí</span></a>
+              </div>
+            </article>
+            <article class="contact-card">
+              <div class="contact-card__top">
+                <h3 class="contact-card__heading">
+                  <span class="lang-en">Map &amp; Directions</span>
+                  <span class="lang-zh">地图与路线</span>
+                  <span class="lang-es">Mapa e indicaciones</span>
+                  <span class="lang-vi">Bản Đồ &amp; Chỉ Đường</span>
+                </h3>
+              </div>
+              <p class="contact-address">📍 1847 Clarkson Rd, Ballwin, MO 63021</p>
+              <div class="map-wrap">
+                <iframe
+                  src="https://maps.google.com/maps?q=Ballwin+MO+63021&output=embed"
+                  title="Map showing Green Lawn STL at 1847 Clarkson Rd, Ballwin, MO 63021"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <div class="map-actions">
+                <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=1847+Clarkson+Rd%2C+Ballwin%2C+MO+63021" target="_blank" rel="noopener"><span class="lang-en">📍 Get Directions</span><span class="lang-zh">📍 查看路线</span><span class="lang-es">📍 Ver cómo llegar</span><span class="lang-vi">📍 Chỉ Đường</span></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span><span class="lang-en">© 2026 Green Lawn STL. All rights reserved.</span><span class="lang-zh">© 2026 Green Lawn STL。保留所有权利。</span><span class="lang-es">© 2026 Green Lawn STL. Todos los derechos reservados.</span><span class="lang-vi"></span></span>
+        <span>Ballwin, MO</span>
+        <a href="tel:3145550192">(314) 555-0192</a>
+        <a href="#" style="color:rgba(255,255,255,0.5);font-weight:400;font-size:13px;"><span class="lang-en">Privacy Policy</span><span class="lang-zh">隐私政策</span><span class="lang-es">Política de privacidad</span><span class="lang-vi">Chính Sách Riêng Tư</span></a>
+      </div>
+    </footer>
+  </div>
+
+
+  <div class="theme-switcher" role="group" aria-label="Choose color theme">
+    <span class="theme-switcher__label">Choose Your Color</span>
+    <button class="theme-btn active" data-theme="crimson-heritage" title="Crimson Heritage"></button>
+    <button class="theme-btn" data-theme="midnight-luxe" title="Midnight Luxe"></button>
+    <button class="theme-btn" data-theme="mocha-warmth" title="Mocha Warmth"></button>
+    <button class="theme-btn" data-theme="forest-calm" title="Forest Calm"></button>
+    <button class="theme-btn" data-theme="slate-modern" title="Slate Modern"></button>
+  </div>
+
+  <div class="mobile-call-bar" role="region" aria-label="Quick business actions">
+    <a class="mobile-call-bar__phone" href="tel:3145550192">
+      <span class="mobile-call-bar__icon">📞</span>
+      <span class="mobile-call-bar__text">
+        <span class="mobile-call-bar__label"><span class="lang-en">Call for Free Quote</span><span class="lang-zh">致电获取免费估价</span><span class="lang-es">Pedir cotización</span><span class="lang-vi">Gọi Báo Giá Miễn Phí</span></span>
+        <span class="mobile-call-bar__number">(314) 555-0192</span>
+      </span>
+    </a>
+    <a class="mobile-call-bar__directions" href="https://www.google.com/maps/dir/?api=1&destination=1847+Clarkson+Rd%2C+Ballwin%2C+MO+63021" target="_blank" rel="noopener">
+      <span class="mobile-call-bar__icon">📍</span>
+      <span class="mobile-call-bar__label"><span class="lang-en">Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Cómo llegar</span><span class="lang-vi">Chỉ Đường</span></span>
+    </a>
+  </div>
+
+  <script>
+    /* Sticky mobile call bar */
+    (function () {
+      var body = document.body;
+      var contact = document.getElementById("contact");
+      function updateScroll() {
+        body.classList.toggle("show-mobile-call-bar", window.scrollY > 160);
+      }
+      updateScroll();
+      window.addEventListener("scroll", updateScroll, { passive: true });
+      if ("IntersectionObserver" in window && contact) {
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            body.classList.toggle("hide-mobile-call-bar", e.isIntersecting && e.intersectionRatio >= 0.15);
+          });
+        }, { threshold: [0, 0.15, 0.35] }).observe(contact);
+      }
+      var mq = window.matchMedia("(max-width: 767px)");
+      function syncPadding(e) {
+        if (!e.matches) body.classList.remove("show-mobile-call-bar", "hide-mobile-call-bar");
+      }
+      syncPadding(mq);
+      (mq.addEventListener || mq.addListener).call(mq, mq.addEventListener ? "change" : syncPadding, mq.addEventListener ? syncPadding : undefined);
+    })();
+
+    /* Theme switcher */
+    (function () {
+      var html = document.documentElement;
+      document.querySelectorAll(".theme-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          html.setAttribute("data-theme", btn.getAttribute("data-theme"));
+          document.querySelectorAll(".theme-btn").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+        });
+      });
+    })();
+
+    /* Language switcher */
+    (function () {
+      var html = document.documentElement;
+      document.querySelectorAll(".lang-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var lang = btn.getAttribute("data-lang");
+          html.setAttribute("data-lang", lang);
+          html.setAttribute("lang", lang === "zh" ? "zh-CN" : lang === "es" ? "es" : lang === "vi" ? "vi" : "en");
+          document.querySelectorAll(".lang-btn").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
