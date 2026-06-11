@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Green Lawn STL | Lawn Care & Landscaping Ballwin, MO</title>
+  <title>Green Lawn STL | Lawn Care & Landscaping Ballwin, MO · (314) 555-0192</title>
   <meta name="description" content="West County's trusted lawn care crew. Mowing, mulching, spring & fall cleanups, shrub trimming. Free quotes — call today.">
   <meta name="theme-color" content="#1E4D35" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#1E4D35" media="(prefers-color-scheme: dark)">
@@ -11,7 +11,7 @@
   <meta property="og:description" content="West County's trusted lawn care crew. Mowing, mulching, spring & fall cleanups, shrub trimming. Free quotes — call today.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://myzhz001.github.io/green-lawn-stl/">
-  <meta property="og:image" content="assets/lawn-hero.jpg">
+  <meta property="og:image" content="assets/lawn-hero-v1.jpg">
   <link rel="canonical" href="https://myzhz001.github.io/green-lawn-stl/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,7 +69,7 @@
       text-transform: uppercase; white-space: nowrap; margin-right: 2px;
     }
     .theme-btn {
-      width: 26px; height: 26px; border-radius: 999px; border: 2px solid transparent;
+      width: 44px; min-height: 44px; border-radius: 999px; border: 2px solid transparent;
       cursor: pointer; transition: transform 160ms ease, border-color 160ms ease; padding: 0;
       flex: 0 0 auto;
     }
@@ -113,6 +113,7 @@
       overflow-x: hidden; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
     }
     img, iframe { max-width: 100%; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
     a { color: inherit; text-decoration-thickness: 0.08em; text-underline-offset: 0.18em; }
     a:focus-visible, button:focus-visible { outline: 3px solid rgba(201,168,76,0.78); outline-offset: 3px; }
 
@@ -194,7 +195,7 @@
     .hero {
       position: relative; min-height: 320px; display: grid;
       align-items: center; overflow: hidden; color: #fff;
-      background-image: url(assets/lawn-hero.jpg);
+      background-image: url(assets/lawn-hero-v1.jpg);
       background-position: center; background-size: cover; background-repeat: no-repeat;
     }
     .hero::before {
@@ -235,7 +236,7 @@
     .hero__ctas .button { width: 100%; }
     .hero__phone-display { margin: 8px 0 0; color: rgba(255,255,255,0.90); font-size: 17px; font-weight: 700; }
     .hero__phone-display a {
-      display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration: none;
+      display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration: none; white-space: nowrap;
     }
 
     /* ── Section jump nav ── */
@@ -426,7 +427,7 @@
       }
       .mobile-call-bar a {
         display: inline-flex; min-height: 54px; align-items: center; justify-content: flex-start;
-        gap: 10px; border-radius: 8px; color: white; font-weight: 700; line-height: 1.1; text-decoration: none;
+        gap: 10px; border-radius: 8px; color: white; font-weight: 700; line-height: 1.1; text-decoration: none; white-space: nowrap;
       }
       .mobile-call-bar__phone { padding: 8px 18px; background: var(--color-primary); }
       .mobile-call-bar__directions { min-width: 116px; padding: 8px 14px; background: var(--color-secondary); }
@@ -496,12 +497,13 @@
             
           </div>
           <a class="site-nav__phone" href="tel:3145550192">(314) 555-0192</a>
-          <a class="button button--primary" href="tel:3145550192"><span class="lang-en">Free Quote</span><span class="lang-zh">免费估价</span><span class="lang-es">Cotización Gratuita</span><span class="lang-vi">Báo Giá Miễn Phí</span></a>
+          <a class="button button--primary" href="tel:3145550192"><span class="lang-en">Free Quote</span><span class="lang-zh">免费估价</span><span class="lang-es">Cotización gratuita</span><span class="lang-vi">Báo Giá Miễn Phí</span></a>
         </div>
       </div>
     </nav>
 
     <header class="hero" id="top" role="banner" aria-label="Professional lawn care and landscaping in Ballwin, MO">
+      <img src="assets/lawn-hero-v1.jpg" alt="Professional lawn care and landscaping in Ballwin, MO" class="sr-only" aria-hidden="true">
       <div class="container">
         <div class="hero__content">
           <p class="hero__kicker"><span class="lang-en">Ballwin's Neighborhood Lawn Crew</span><span class="lang-zh">Ballwin 社区草坪团队</span><span class="lang-es">El equipo de jardines del vecindario en Ballwin</span><span class="lang-vi"></span></p>
@@ -537,7 +539,7 @@
     <aside class="seasonal-banner" aria-label="Seasonal availability">
       <div class="container seasonal-banner__inner">
         <p class="seasonal-banner__text"><span class="lang-en">🌸 Spring Cleanups Booking Now — Limited Slots Available</span><span class="lang-zh">🌸 春季清洁现已开放预约——名额有限，先到先得</span><span class="lang-es">🌸 Limpiezas de primavera disponibles ahora — cupos limitados</span><span class="lang-vi"></span></p>
-        <a class="seasonal-banner__cta" href="tel:3145550192"><span class="lang-en">Call to Schedule →</span><span class="lang-zh">致电预约 →</span><span class="lang-es">Llame para agendar →</span><span class="lang-vi">Gọi Đặt Lịch →</span></a>
+        <a class="seasonal-banner__cta" href="tel:3145550192"><span class="lang-en">Call to Schedule →</span><span class="lang-zh">致电预约 →</span><span class="lang-es">Llamar ahora →</span><span class="lang-vi">Gọi Đặt Lịch →</span></a>
       </div>
     </aside>
     
@@ -580,7 +582,7 @@
           </div>
           <div class="services-grid">
             <article class="service-card">
-              <img class="service-card__image" src="assets/lawn-mowing.jpg" alt="Lawn mowing in progress on a residential yard" loading="lazy">
+              <img class="service-card__image" src="assets/lawn-mowing-v1.jpg" alt="Worker actively mowing a residential front lawn on a sunny day" loading="lazy">
               <span class="service-card__badge"><span class="lang-en">⭐ Most Popular</span><span class="lang-zh">⭐ 最受欢迎</span><span class="lang-es">⭐ Más popular</span><span class="lang-vi"></span></span>
               <div class="service-card__body">
                 <h3 class="service-card__title">
@@ -599,7 +601,7 @@
               </div>
             </article>
             <article class="service-card">
-              <img class="service-card__image" src="assets/lawn-mulching.jpg" alt="Garden bed mulching and edging work in progress" loading="lazy">
+              <img class="service-card__image" src="assets/lawn-mulching-v1.jpg" alt="Landscaper spreading mulch and edging a garden bed at a residential home" loading="lazy">
               <div class="service-card__body">
                 <h3 class="service-card__title">
                   <span class="lang-en">Mulching & Bed Work</span>
@@ -617,7 +619,7 @@
               </div>
             </article>
             <article class="service-card">
-              <img class="service-card__image" src="assets/lawn-fall-cleanup.jpg" alt="Fall leaf cleanup and yard debris removal" loading="lazy">
+              <img class="service-card__image" src="assets/lawn-fall-cleanup-v1.jpg" alt="Crew member raking and bagging fall leaves in a residential backyard" loading="lazy">
               <div class="service-card__body">
                 <h3 class="service-card__title">
                   <span class="lang-en">Spring & Fall Cleanup</span>
@@ -635,7 +637,7 @@
               </div>
             </article>
             <article class="service-card">
-              <img class="service-card__image" src="assets/lawn-shrub-trimming.jpg" alt="Tree and shrub trimming service in residential yard" loading="lazy">
+              <img class="service-card__image" src="assets/lawn-shrub-trimming-v1.jpg" alt="Arborist trimming overgrown shrubs with shears at a suburban home" loading="lazy">
               <div class="service-card__body">
                 <h3 class="service-card__title">
                   <span class="lang-en">Tree & Shrub Trimming</span>
@@ -678,19 +680,19 @@
                 <span class="lang-vi"></span>
               </h2>
               <div class="lang-en">
-                <p>Carlos started Green Lawn STL in 2014 after years of helping neighbors maintain their yards in Ballwin. What began as weekend jobs for friends turned into a full crew serving over 80 regular clients across Ballwin, Chesterfield, and Manchester.</p>
+                <p>Carlos started Green Lawn STL after years of helping neighbors maintain their yards in Ballwin. What began as weekend jobs for friends turned into a full crew serving over 80 regular clients across Ballwin, Chesterfield, and Manchester.</p>
                 <p>We show up every week on schedule, use commercial-grade equipment, and leave every yard cleaner than we found it. No ghosting, no excuses. Our clients stay with us year after year because they know we'll be there when we say.</p>
                 <p>Spring cleanups, fall leaf removal, mulching, and shrub trimming available. Free quotes for new properties. If your lawn needs attention, we'll take care of it — and the neighbors will notice.</p>
               </div>
               <div class="lang-zh">
-                <p>Carlos 于 2014 年创立了 Green Lawn STL，此前多年他一直帮助 Ballwin 的邻居打理院子。从周末帮朋友干活开始，如今已发展为服务 Ballwin、Chesterfield 和 Manchester 80 余位固定客户的专业团队。</p>
+                <p>Carlos 创立了 Green Lawn STL，此前多年他一直帮助 Ballwin 的邻居打理院子。从周末帮朋友干活开始，如今已发展为服务 Ballwin、Chesterfield 和 Manchester 80 余位固定客户的专业团队。</p>
                 <p>我们每周按时到场，使用商业级设备，每次离开时院子都比我们到来时更整洁。不爽约，不找借口。客户年复一年地续签，因为他们知道我们言出必行。</p>
                 <p>春季清洁、秋季落叶清除、铺设覆盖物及修剪灌木均可提供。新客户免费估价。您的草坪需要养护，我们来打理——邻居们都会注意到。</p>
               </div>
               <div class="lang-es">
-                <p>Carlos fundó Green Lawn STL en 2014, después de años ayudando a vecinos de Ballwin con sus jardines. Lo que comenzó como trabajos de fin de semana para amigos se convirtió en un equipo completo que atiende a más de 80 clientes regulares en Ballwin, Chesterfield y Manchester.</p>
+                <p>Carlos fundó Green Lawn STL después de años ayudando a vecinos de Ballwin con sus jardines. Lo que comenzó como trabajos de fin de semana para amigos se convirtió en un equipo completo que atiende a más de 80 clientes regulares en Ballwin, Chesterfield y Manchester.</p>
                 <p>Llegamos cada semana en el horario acordado, usamos equipos profesionales y dejamos cada jardín más limpio de lo que lo encontramos. Sin cancelaciones, sin excusas. Nuestros clientes se quedan con nosotros año tras año porque saben que cumplimos.</p>
-                <p>Limpieza de primavera, retiro de hojas en otoño, mulching y poda de arbustos disponibles. Cotizaciones gratuitas para nuevas propiedades.</p>
+                <p>Limpieza de primavera, retiro de hojas en otoño, mulching y poda de arbustos disponibles. Cotizaciones gratuitas para nuevas propiedades. Si su césped necesita atención, lo cuidaremos — y los vecinos lo notarán.</p>
               </div>
               <div class="lang-vi">
                 <p></p>
@@ -785,7 +787,7 @@
               <span class="lang-en">Visit Today</span>
               <span class="lang-zh">立即咨询</span>
               <span class="lang-es">Solicite su cotización</span>
-              <span class="lang-vi">Ghé Thăm Hôm Nay</span>
+              <span class="lang-vi">Liên Hệ Ngay</span>
             </p>
             <h2 class="section__title" id="contact-title">
               <span class="lang-en">Find Us</span>
@@ -886,13 +888,13 @@
     <a class="mobile-call-bar__phone" href="tel:3145550192">
       <span class="mobile-call-bar__icon">📞</span>
       <span class="mobile-call-bar__text">
-        <span class="mobile-call-bar__label"><span class="lang-en">Call for Free Quote</span><span class="lang-zh">致电获取免费估价</span><span class="lang-es">Pedir cotización</span><span class="lang-vi">Gọi Báo Giá Miễn Phí</span></span>
+        <span class="mobile-call-bar__label"><span class="lang-en">Call for Free Quote</span><span class="lang-zh">致电获取免费估价</span><span class="lang-es">Llame para una cotización gratuita</span><span class="lang-vi">Gọi Báo Giá Miễn Phí</span></span>
         <span class="mobile-call-bar__number">(314) 555-0192</span>
       </span>
     </a>
     <a class="mobile-call-bar__directions" href="https://www.google.com/maps/dir/?api=1&destination=1847+Clarkson+Rd%2C+Ballwin%2C+MO+63021" target="_blank" rel="noopener">
       <span class="mobile-call-bar__icon">📍</span>
-      <span class="mobile-call-bar__label"><span class="lang-en">Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Cómo llegar</span><span class="lang-vi">Chỉ Đường</span></span>
+      <span class="mobile-call-bar__label"><span class="lang-en">Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Ver cómo llegar</span><span class="lang-vi">Chỉ Đường</span></span>
     </a>
   </div>
 
