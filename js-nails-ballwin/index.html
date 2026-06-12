@@ -10,7 +10,7 @@
   <meta property="og:description" content="JS Nails — 4.7★ nail salon in Ballwin, MO. Manicure, pedicure, gel & dip. 20 years serving West County. Call (636) 527-9599.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://myzhz001.github.io/js-nails-ballwin/">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=800&q=80">
+  <meta property="og:image" content="assets/nail-salon-hero-v2.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
@@ -78,14 +78,11 @@
     @media (max-width: 767px) { .theme-switcher { bottom: 104px; right: 12px; } }
 
     /* ── Language switcher ── */
-    .lang-zh, .lang-es, .lang-vi { display: none; }
-    .vi-slot { display: none !important; }
+    .lang-zh, .lang-es { display: none; }
     [data-lang="zh"] .lang-en { display: none; }
     [data-lang="zh"] .lang-zh { display: revert; }
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-es { display: revert; }
-    [data-lang="vi"] .lang-en { display: none; }
-    [data-lang="vi"] .lang-vi { display: revert; }
 
     .lang-switcher { display: flex; align-items: center; gap: 4px; }
     .lang-btn {
@@ -181,9 +178,9 @@
 
     /* ── Hero ── */
     .hero {
-      position: relative; min-height: calc(100vh - 70px); display: grid;
+      position: relative; min-height: 520px; display: grid;
       align-items: center; overflow: hidden; color: #fff;
-      background-image: url(https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1400&q=80);
+      background-image: url(assets/nail-salon-hero-v2.jpg);
       background-position: center; background-size: cover; background-repeat: no-repeat;
     }
     .hero::before {
@@ -204,7 +201,7 @@
     .hero__kicker::before { content: ""; width: 38px; height: 2px; background: var(--color-accent); }
     .hero__title {
       max-width: 11ch; margin: 0; font-family: var(--font-heading);
-      font-size: clamp(48px, 15vw, 92px); font-weight: 700; line-height: 0.96; text-wrap: balance;
+      font-size: clamp(36px, 4.5vw, 58px); font-weight: 700; line-height: 0.96; text-wrap: balance;
     }
     .hero__tagline {
       max-width: 620px; margin: 22px 0 0; color: rgba(255,255,255,0.92);
@@ -217,8 +214,8 @@
       background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.24);
       font-size: 14px; font-weight: 700; backdrop-filter: blur(10px);
     }
-    .status--open  { background: #d4edda; color: #155724; }
-    .status--closed { background: #f8d7da; color: #721c24; }
+    .status-open  { background: #d4edda; color: #155724; }
+    .status-closed { background: #f8d7da; color: #721c24; }
     .hero__ctas { display: flex; flex-direction: column; gap: 12px; margin: 34px 0 0; }
     .hero__ctas .button { width: 100%; }
     .hero__phone-display { margin: 10px 0 0; color: rgba(255,255,255,0.90); font-size: 17px; font-weight: 700; }
@@ -288,7 +285,7 @@
       justify-content: center; gap: 12px; text-align: center;
     }
     .book-strip__text { color: rgba(255,255,255,0.92); font-size: 18px; font-weight: 600; margin: 0; }
-    .book-strip__phone { display: inline-flex; align-items: center; min-height: 44px; color: #fff3d4; font-size: 20px; font-weight: 700; text-decoration: none; }
+    .book-strip__phone { color: #fff3d4; font-size: 20px; font-weight: 700; text-decoration: none; }
 
     /* ── Story ── */
     .story { background: var(--color-section-alt); }
@@ -370,7 +367,7 @@
       display: inline-grid; width: 32px; height: 32px; place-items: center;
       border-radius: 999px; background: rgba(45,106,79,0.1); font-size: 16px;
     }
-    .contact-list a { display: inline-flex; align-items: center; min-height: 44px; color: var(--color-primary); font-weight: 700; }
+    .contact-list a { color: var(--color-primary); font-weight: 700; }
     .contact-actions { display: grid; grid-template-columns: 1fr; gap: 12px; }
     .map-wrap { position: relative; overflow: hidden; min-height: 330px; border-radius: 10px; background: var(--color-section-alt); }
     .map-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
@@ -379,7 +376,7 @@
     /* ── Footer ── */
     .site-footer { padding: 30px 0; color: rgba(255,255,255,0.82); background: #2a1111; font-size: 15px; }
     .site-footer__inner { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; justify-content: space-between; }
-    .site-footer a { display: inline-flex; align-items: center; min-height: 44px; color: #fff3d4; font-weight: 700; }
+    .site-footer a { color: #fff3d4; font-weight: 700; }
 
     /* ── Mobile call bar ── */
     .mobile-call-bar { display: none; }
@@ -416,7 +413,7 @@
       .section-header { margin-bottom: 46px; }
       .section__title { font-size: clamp(42px, 5vw, 58px); }
       .site-nav__actions { display: flex; }
-      .hero { min-height: calc(92vh - 70px); }
+      .hero { min-height: 640px; }
       .hero__content { padding: 112px 0 116px; }
       .hero__ctas { flex-direction: row; align-items: center; }
       .hero__ctas .button { width: auto; }
@@ -440,7 +437,6 @@
       }
     }
   </style>
-  
 </head>
 <body>
   <div class="site-shell">
@@ -452,11 +448,10 @@
           <span class="site-nav__name">JS Nails</span>
         </a>
         <div class="site-nav__actions" aria-label="Quick actions">
-          <div class="lang-switcher" role="group" aria-label="Language / 语言 / Idioma / Tiếng Việt">
+          <div class="lang-switcher" role="group" aria-label="Language / 语言 / Idioma">
             <button class="lang-btn active" data-lang="en" title="English">🇺🇸 EN</button>
             <button class="lang-btn" data-lang="zh" title="中文">🇨🇳 中文</button>
             <button class="lang-btn" data-lang="es" title="Español">🇲🇽 ES</button>
-            <button class="lang-btn vi-slot" data-lang="vi" title="Tiếng Việt">🇻🇳 VI</button>
           </div>
           <a class="site-nav__phone" href="tel:+16365279599">(636) 527-9599</a>
           <a class="button button--primary" href="tel:+16365279599">Call to Book</a>
@@ -473,9 +468,8 @@
             <span class="lang-en">Twenty years of trust, skill, and beautiful nails in West County.</span>
             <span class="lang-zh">二十年的信任、技艺与美丽指甲，服务西县社区。</span>
             <span class="lang-es">Veinte años de confianza, habilidad y uñas hermosas en West County.</span>
-            <span class="lang-vi"></span>
           </p>
-          <div class="hero__badges" aria-label="Business highlights">
+          <div class="hero__badges" aria-label="Salon highlights">
             <span class="pill">📍 Ballwin</span>
             <span class="pill">💅 20 Years Serving</span>
             <span class="pill status--open">Open Now</span>
@@ -484,7 +478,6 @@
               <span class="lang-en">Walk-ins Welcome</span>
               <span class="lang-zh">欢迎直接到访</span>
               <span class="lang-es">Se Aceptan Sin Cita</span>
-              <span class="lang-vi"></span>
             </span>
           </div>
           <div class="hero__ctas" aria-label="Hero actions">
@@ -499,15 +492,9 @@
     <nav class="section-jump-nav" aria-label="Jump to section">
       <div class="section-jump-nav__inner">
         <a class="section-jump-nav__link" href="#services">💅 Our Services</a>
-        <a class="section-jump-nav__link" href="#story">
-          📖 <span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra Historia</span><span class="lang-vi">Câu Chuyện</span>
-        </a>
-        <a class="section-jump-nav__link" href="#reviews">
-          ⭐ <span class="lang-en">Reviews</span><span class="lang-zh">评价</span><span class="lang-es">Reseñas</span><span class="lang-vi">Đánh Giá</span>
-        </a>
-        <a class="section-jump-nav__link" href="#contact">
-          📍 <span class="lang-en">Find Us</span><span class="lang-zh">找到我们</span><span class="lang-es">Encuéntrenos</span><span class="lang-vi">Tìm Chúng Tôi</span>
-        </a>
+        <a class="section-jump-nav__link" href="#story">📖 Our Story</a>
+        <a class="section-jump-nav__link" href="#reviews">⭐ Reviews</a>
+        <a class="section-jump-nav__link" href="#contact">📍 Find Us</a>
       </div>
     </nav>
 
@@ -516,23 +503,21 @@
       <section class="section services" id="services" aria-labelledby="services-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow"><span class="lang-en">Our Services</span><span class="lang-zh">我们的服务</span><span class="lang-es">Nuestros Servicios</span><span class="lang-vi">Dịch Vụ</span></p>
+            <p class="section__eyebrow">Our Services</p>
             <h2 class="section__title" id="services-title">
               <span class="lang-en">Trusted Services, Beautiful Results</span>
               <span class="lang-zh">值得信赖的服务，美丽的效果</span>
               <span class="lang-es">Servicios de Confianza, Resultados Hermosos</span>
-              <span class="lang-vi"></span>
             </h2>
             <p class="section__intro">
               <span class="lang-en">Two decades of nail care expertise — manicure, pedicure, gel, dip, and more — all done right.</span>
               <span class="lang-zh">二十年美甲护理经验——美甲、足护、凝胶、晶石粉等，每项都精益求精。</span>
               <span class="lang-es">Dos décadas de experiencia en cuidado de uñas — manicura, pedicura, gel, dip y más — todo bien hecho.</span>
-              <span class="lang-vi"></span>
             </p>
           </div>
           <div class="services-grid">
             <article class="service-card">
-              <img class="service-card__image" src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=800&q=80" alt="Manicure" loading="lazy">
+              <img class="service-card__image" src="assets/nail-salon-card-1-v2.jpg" alt="Manicure" loading="lazy">
               <span class="service-card__badge">⭐ Most Popular</span>
               <div class="service-card__body">
                 <span class="service-card__icon" aria-hidden="true">💅</span>
@@ -540,73 +525,65 @@
                   <span class="lang-en">Manicure</span>
                   <span class="lang-zh">美甲</span>
                   <span class="lang-es">Manicura</span>
-                  <span class="lang-vi"></span>
                 </h3>
                 <p class="service-card__description">
                   <span class="lang-en">Expertly shaped nails, cuticle care, and a flawless color finish — classic or gel, your choice.</span>
                   <span class="lang-zh">专业修形、死皮护理及完美上色——经典或凝胶，任君选择。</span>
                   <span class="lang-es">Uñas perfectamente moldeadas, cuidado de cutículas y acabado de color impecable — clásico o gel, tú eliges.</span>
-                  <span class="lang-vi"></span>
                 </p>
                 <span class="service-card__price">From $20</span>
                 <span class="service-card__featured">✨ Classic & gel options</span>
               </div>
             </article>
             <article class="service-card">
-              <img class="service-card__image" src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&q=80" alt="Pedicure" loading="lazy">
+              <img class="service-card__image" src="assets/nail-salon-card-2-v2.jpg" alt="Pedicure" loading="lazy">
               <div class="service-card__body">
                 <span class="service-card__icon" aria-hidden="true">🦶</span>
                 <h3 class="service-card__title">
                   <span class="lang-en">Pedicure</span>
                   <span class="lang-zh">足部护理</span>
                   <span class="lang-es">Pedicura</span>
-                  <span class="lang-vi"></span>
                 </h3>
                 <p class="service-card__description">
                   <span class="lang-en">Soothing foot soaks, callus treatment, massage, and a perfect polish — your feet deserve the best.</span>
                   <span class="lang-zh">舒缓泡脚、去茧护理、按摩及完美上色——您的双足值得最好的呵护。</span>
                   <span class="lang-es">Baños de pies relajantes, tratamiento de callos, masaje y esmalte perfecto — tus pies merecen lo mejor.</span>
-                  <span class="lang-vi"></span>
                 </p>
                 <span class="service-card__price">From $30</span>
                 <span class="service-card__featured">✨ Spa & deluxe options</span>
               </div>
             </article>
             <article class="service-card">
-              <img class="service-card__image" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80" alt="Gel & Dip" loading="lazy">
+              <img class="service-card__image" src="assets/nail-salon-card-3-v2.jpg" alt="Gel & Dip" loading="lazy">
               <div class="service-card__body">
                 <span class="service-card__icon" aria-hidden="true">✨</span>
                 <h3 class="service-card__title">
                   <span class="lang-en">Gel & Dip</span>
                   <span class="lang-zh">凝胶与晶石粉</span>
                   <span class="lang-es">Gel y Dip</span>
-                  <span class="lang-vi"></span>
                 </h3>
                 <p class="service-card__description">
                   <span class="lang-en">Chip-resistant gel polish and dip powder systems for nails that look salon-fresh for weeks on end.</span>
                   <span class="lang-zh">抗崩裂凝胶指甲油和晶石粉系统，让指甲保持数周如刚出沙龙的光泽。</span>
                   <span class="lang-es">Sistemas de gel y dip resistentes a las astillas para uñas que lucen como recién salidas del salón por semanas.</span>
-                  <span class="lang-vi"></span>
                 </p>
                 <span class="service-card__price">From $40</span>
                 <span class="service-card__featured">✨ Lasts 3–4 weeks</span>
               </div>
             </article>
             <article class="service-card">
-              <img class="service-card__image" src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=800&q=80" alt="Waxing & Spa" loading="lazy">
+              <img class="service-card__image" src="assets/nail-salon-card-4-v2.jpg" alt="Waxing & Spa" loading="lazy">
               <div class="service-card__body">
                 <span class="service-card__icon" aria-hidden="true">🌸</span>
                 <h3 class="service-card__title">
                   <span class="lang-en">Waxing & Spa</span>
                   <span class="lang-zh">脱毛与水疗</span>
                   <span class="lang-es">Cera y Spa</span>
-                  <span class="lang-vi"></span>
                 </h3>
                 <p class="service-card__description">
                   <span class="lang-en">Smooth waxing services and spa treatments to round out your visit with a complete beauty experience.</span>
                   <span class="lang-zh">顺滑脱毛服务和水疗护理，让您的到访体验更加完整美好。</span>
                   <span class="lang-es">Servicios de cera suaves y tratamientos de spa para completar tu visita con una experiencia de belleza completa.</span>
-                  <span class="lang-vi"></span>
                 </p>
                 <span class="service-card__price">Prices vary — call</span>
                 <span class="service-card__featured">✨ Brow shaping included</span>
@@ -630,12 +607,11 @@
         <div class="container">
           <div class="story-layout">
             <div class="story-copy">
-              <p class="section__eyebrow"><span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra Historia</span><span class="lang-vi">Câu Chuyện Của Chúng Tôi</span></p>
+              <p class="section__eyebrow">Our Story</p>
               <h2 class="section__title" id="story-title">
                 <span class="lang-en">Twenty Years of Beautiful Nails in Ballwin</span>
                 <span class="lang-zh">二十年扎根鲍尔温的美甲之道</span>
                 <span class="lang-es">Veinte Años de Uñas Hermosas en Ballwin</span>
-                <span class="lang-vi"></span>
               </h2>
               <div class="lang-en">
                 <p>JS Nails has been a fixture on Manchester Road for two decades, earning the loyalty of West County clients who come back not just for the nails — but for the people. The Vietnamese-owned salon has built a following on a simple promise: do the work right, treat every client with warmth, and the results speak for themselves. "They are by far the best in my opinion," one long-time client wrote, after years of returning visits.</p>
@@ -652,11 +628,6 @@
                 <p>Las familias han crecido con JS Nails — las mamás traen a sus hijas, y los visitantes primerizos se convierten en fans devotos. "Llevo a mis hijas a hacerse las uñas de vez en cuando", compartió una clienta, capturando la calidez de un salón que se siente menos como un negocio y más como una tradición del barrio.</p>
                 <p>Pase cuando quiera — se aceptan sin cita, y el equipo de JS Nails está listo para brindar el trabajo preciso y cuidadoso que ha mantenido a esta institución de Ballwin funcionando durante veinte años. Gran selección de colores, calidad consistente y un equipo que genuinamente se preocupa: esa es la diferencia de JS Nails.</p>
               </div>
-              <div class="lang-vi">
-                <p></p>
-                <p></p>
-                <p></p>
-              </div>
             </div>
             <aside class="signature-card" aria-label="Signature service highlight">
               <span class="signature-card__badge">20 Years Serving Ballwin</span>
@@ -664,12 +635,10 @@
                 <span class="lang-en">Incredible job, every single time. That is why clients keep coming back.</span>
                 <span class="lang-zh">每一次都做得无比出色。这就是客户一再回来的原因。</span>
                 <span class="lang-es">Un trabajo increíble, cada vez. Por eso los clientes siguen volviendo.</span>
-                <span class="lang-vi"></span>
                 <cite>
                   <span class="lang-en">JS Nails — Ballwin, West County</span>
                   <span class="lang-zh">JS美甲 — 鲍尔温，西县</span>
                   <span class="lang-es">JS Nails — Ballwin, West County</span>
-                  <span class="lang-vi"></span>
                 </cite>
               </blockquote>
             </aside>
@@ -681,12 +650,11 @@
       <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow"><span class="lang-en">Client Reviews</span><span class="lang-zh">客户评价</span><span class="lang-es">Reseñas de Clientes</span><span class="lang-vi">Đánh Giá Khách Hàng</span></p>
+            <p class="section__eyebrow">Client Reviews</p>
             <h2 class="section__title" id="reviews-title">
               <span class="lang-en">What Clients Are Saying</span>
               <span class="lang-zh">客户心声</span>
               <span class="lang-es">Lo Que Dicen los Clientes</span>
-              <span class="lang-vi"></span>
             </h2>
             <p class="section__intro">Clean, welcoming, and skilled — what clients mention most.</p>
           </div>
@@ -705,7 +673,6 @@
                 <span class="lang-en">Have always done an incredible job. I take my daughters to get their nails done every once in a while and JS Nails never disappoints.</span>
                 <span class="lang-zh">每次都做得无比出色。我时不时带女儿们来做美甲，JS美甲从未让我们失望。</span>
                 <span class="lang-es">Siempre hacen un trabajo increíble. Llevo a mis hijas a hacerse las uñas de vez en cuando y JS Nails nunca decepciona.</span>
-                <span class="lang-vi"></span>
               </blockquote>
               <p class="review-card__name">— Jess Mattingly</p>
             </article>
@@ -715,7 +682,6 @@
                 <span class="lang-en">I've been going to JS for YEARS and they are by far the best in my opinion. Consistent, skilled, and always welcoming.</span>
                 <span class="lang-zh">我去JS美甲已经好多年了，在我看来他们是绝对最好的。技术稳定、专业，而且永远热情迎客。</span>
                 <span class="lang-es">He ido a JS durante AÑOS y son con diferencia los mejores en mi opinión. Consistentes, hábiles y siempre acogedores.</span>
-                <span class="lang-vi"></span>
               </blockquote>
               <p class="review-card__name">— Lynn Stromsdorfer</p>
             </article>
@@ -725,7 +691,6 @@
                 <span class="lang-en">I went for the first time today and had a stellar experience. Great color selection and my nails turned out perfect!</span>
                 <span class="lang-zh">今天是我第一次去，体验极佳。颜色选择丰富，我的指甲效果完美！</span>
                 <span class="lang-es">Fui por primera vez hoy y tuve una experiencia estelar. Gran selección de colores y mis uñas quedaron perfectas.</span>
-                <span class="lang-vi"></span>
               </blockquote>
               <p class="review-card__name">— Paige Rodgers</p>
             </article>
@@ -740,39 +705,18 @@
       <section class="section contact" id="contact" aria-labelledby="contact-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">
-              <span class="lang-en">Visit Today</span>
-              <span class="lang-zh">立即到访</span>
-              <span class="lang-es">Visítenos Hoy</span>
-              <span class="lang-vi">Ghé Thăm Hôm Nay</span>
-            </p>
-            <h2 class="section__title" id="contact-title">
-              <span class="lang-en">Find Us</span>
-              <span class="lang-zh">找到我们</span>
-              <span class="lang-es">Encuéntrenos</span>
-              <span class="lang-vi">Tìm Chúng Tôi</span>
-            </h2>
+            <p class="section__eyebrow">Visit Today</p>
+            <h2 class="section__title" id="contact-title">Find Us</h2>
             <p class="section__intro">Walk-ins welcome. Call ahead to confirm availability.</p>
           </div>
           <div class="contact-layout">
             <article class="contact-card">
               <div class="contact-card__top">
-                <h3 class="contact-card__heading">
-                  <span class="lang-en">Hours &amp; Contact</span>
-                  <span class="lang-zh">营业时间与联系方式</span>
-                  <span class="lang-es">Horarios y Contacto</span>
-                  <span class="lang-vi">Giờ Làm Việc &amp; Liên Hệ</span>
-                </h3>
+                <h3 class="contact-card__heading">Hours &amp; Contact</h3>
                 <span class="contact-status status--open">Open Now</span>
               </div>
-              <p class="today-hours">
-                <span class="lang-en">Today:</span>
-                <span class="lang-zh">今日：</span>
-                <span class="lang-es">Hoy:</span>
-                <span class="lang-vi">Hôm Nay:</span>
-                9:30 AM – 7:00 PM
-              </p>
-              <table class="hours-table" aria-label="Weekly business hours">
+              <p class="today-hours">Today: 9:30 AM – 7:00 PM</p>
+              <table class="hours-table" aria-label="Weekly salon hours">
                 <tbody>
                   <tr><th scope="row">Monday</th><td>9:30 AM – 7:00 PM</td></tr>
                   <tr><th scope="row">Tuesday</th><td>9:30 AM – 7:00 PM</td></tr>
@@ -783,7 +727,7 @@
                   <tr><th scope="row">Sunday</th><td>Closed</td></tr>
                 </tbody>
               </table>
-              <ul class="contact-list" aria-label="Business contact details">
+              <ul class="contact-list" aria-label="Salon contact details">
                 <li class="contact-list__item">
                   <span class="contact-list__icon" aria-hidden="true">☎</span>
                   <span><a href="tel:+16365279599">(636) 527-9599</a></span>
@@ -799,12 +743,7 @@
             </article>
             <article class="contact-card">
               <div class="contact-card__top">
-                <h3 class="contact-card__heading">
-                  <span class="lang-en">Map &amp; Directions</span>
-                  <span class="lang-zh">地图与路线</span>
-                  <span class="lang-es">Mapa y Direcciones</span>
-                  <span class="lang-vi">Bản Đồ &amp; Chỉ Đường</span>
-                </h3>
+                <h3 class="contact-card__heading">Map &amp; Directions</h3>
               </div>
               <div class="map-wrap">
                 <iframe
@@ -843,7 +782,7 @@
     <button class="theme-btn" data-theme="slate-modern" title="Slate Modern"></button>
   </div>
 
-  <div class="mobile-call-bar" role="region" aria-label="Quick business actions">
+  <div class="mobile-call-bar" role="region" aria-label="Quick salon actions">
     <a class="mobile-call-bar__phone" href="tel:+16365279599">
       <span class="mobile-call-bar__icon">📞</span>
       <span class="mobile-call-bar__text">
@@ -901,7 +840,7 @@
         btn.addEventListener("click", function () {
           var lang = btn.getAttribute("data-lang");
           html.setAttribute("data-lang", lang);
-          html.setAttribute("lang", lang === "zh" ? "zh-CN" : lang === "es" ? "es" : lang === "vi" ? "vi" : "en");
+          html.setAttribute("lang", lang === "zh" ? "zh-CN" : lang === "es" ? "es" : "en");
           document.querySelectorAll(".lang-btn").forEach(function (b) { b.classList.remove("active"); });
           btn.classList.add("active");
         });
