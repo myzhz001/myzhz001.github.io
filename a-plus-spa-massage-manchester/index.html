@@ -55,18 +55,19 @@
 
     /* ── Theme switcher UI ── */
     .theme-switcher {
-      position: fixed; right: 18px; bottom: 100px; z-index: 8888;
-      display: flex; flex-direction: column; align-items: center; gap: 8px;
-      background: #fff; border-radius: 999px; padding: 10px 8px;
+      position: fixed; right: 16px; top: 78px; z-index: 8888;
+      display: flex; flex-direction: row; align-items: center; gap: 8px;
+      background: #fff; border-radius: 999px; padding: 8px 14px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.18); border: 1px solid rgba(0,0,0,0.08);
     }
     .theme-switcher__label {
       font-size: 10px; font-weight: 700; color: #888; letter-spacing: 0.08em;
-      text-transform: uppercase; writing-mode: vertical-rl; transform: rotate(180deg); margin-bottom: 4px;
+      text-transform: uppercase; white-space: nowrap; margin-right: 2px;
     }
     .theme-btn {
       width: 44px; min-height: 44px; border-radius: 999px; border: 2px solid transparent;
       cursor: pointer; transition: transform 160ms ease, border-color 160ms ease; padding: 0;
+      flex: 0 0 auto;
     }
     .theme-btn:hover { transform: scale(1.18); }
     .theme-btn.active { border-color: #333; transform: scale(1.12); }
@@ -75,7 +76,7 @@
     .theme-btn[data-theme="mocha-warmth"]     { background: #6B3F2A; }
     .theme-btn[data-theme="forest-calm"]      { background: #1E4D35; }
     .theme-btn[data-theme="slate-modern"]     { background: #2D3142; }
-    @media (max-width: 767px) { .theme-switcher { bottom: 104px; right: 12px; } }
+    @media (max-width: 767px) { .theme-switcher { top: 78px; right: 12px; gap: 6px; padding: 7px 12px; } }
 
     /* ── Language switcher ── */
     .lang-zh, .lang-es, .lang-vi { display: none; }
@@ -365,7 +366,7 @@
     .hours-table th { width: 42%; color: rgba(44,44,44,0.72); font-weight: 700; }
     .hours-table td { color: var(--color-text); font-weight: 600; text-align: right; }
     .contact-list { display: grid; gap: 12px; margin: 0 0 22px; padding: 0; list-style: none; }
-    .contact-list__item { display: grid; grid-template-columns: 32px 1fr; gap: 10px; align-items: start; }
+    .contact-list__item { display: grid; grid-template-columns: 32px 1fr; gap: 10px; align-items: center; }
     .contact-list__icon {
       display: inline-grid; width: 32px; height: 32px; place-items: center;
       border-radius: 999px; background: rgba(45,106,79,0.1); font-size: 16px;
@@ -414,10 +415,10 @@
       .container { width: min(100% - 56px, var(--container)); }
       .section { padding: 90px 0; }
       .section-header { margin-bottom: 46px; }
-      .section__title { font-size: clamp(42px, 5vw, 58px); }
+      .section__title { font-size: clamp(28px, 3.2vw, 36px); }
       .site-nav__actions { display: flex; }
-      .hero { min-height: 640px; }
-      .hero__content { padding: 112px 0 116px; }
+      .hero { min-height: 520px; }
+      .hero__content { padding: 56px 0 60px; }
       .hero__ctas { flex-direction: row; align-items: center; }
       .hero__ctas .button { width: auto; }
       .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
@@ -835,7 +836,7 @@
 
   <!-- Theme switcher -->
   <div class="theme-switcher" role="group" aria-label="Choose color theme">
-    <span class="theme-switcher__label">Theme</span>
+    <span class="theme-switcher__label">Choose Your Color</span>
     <button class="theme-btn active" data-theme="crimson-heritage" title="Crimson Heritage"></button>
     <button class="theme-btn" data-theme="midnight-luxe" title="Midnight Luxe"></button>
     <button class="theme-btn" data-theme="mocha-warmth" title="Mocha Warmth"></button>
