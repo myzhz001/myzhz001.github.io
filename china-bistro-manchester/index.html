@@ -783,30 +783,15 @@
     }
 
     .contact-actions {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 12px;
     }
 
-    .contact-card__footer {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    @media (min-width: 768px) {
-      .contact-card__footer {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-      }
-      .contact-card__footer > .contact-list__item {
-        flex: 1 1 auto;
-      }
-      .contact-card__footer .contact-actions {
-        flex: 0 0 auto;
-      }
+    .contact-address {
+      font-size: 15px;
+      color: var(--color-text);
+      margin: 0 0 14px;
     }
 
     .map-wrap {
@@ -1400,20 +1385,15 @@
                   <span><a href="tel:+16362203144">(636) 220-3144</a></span>
                 </li>
               </ul>
-              <div class="contact-card__footer">
-                <div class="contact-list__item">
-                  <span class="contact-list__icon" aria-hidden="true">⌖</span>
-                  <span>14246 Manchester Rd, Manchester, MO 63011</span>
-                </div>
-                <div class="contact-actions">
-                  <a class="button button--primary" href="tel:+16362203144">Call to Order</a>
-                </div>
+              <div class="contact-actions">
+                <a class="button button--primary" href="tel:+16362203144">Call to Order</a>
               </div>
             </article>
             <article class="contact-card">
               <div class="contact-card__top">
                 <h3 class="contact-card__heading">Map & Directions</h3>
               </div>
+              <p class="contact-address">📍 14246 Manchester Rd, Manchester, MO 63011</p>
               <div class="map-wrap">
                 <iframe
                   src="https://maps.google.com/maps?q=China+Bistro+14246+Manchester+Rd+Manchester+MO+63011&t=&z=15&ie=UTF8&iwloc=B&output=embed"
