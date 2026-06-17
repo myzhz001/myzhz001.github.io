@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pho Vietnamese — Authentic Pho & Boba Tea in Ballwin, MO | (314) 332-8799</title>
-  <meta name="description" content="Pho Vietnamese — 14628 Manchester Rd, Ballwin MO 63021. Authentic Vietnamese pho, egg rolls, and boba tea made fresh daily. Call (314) 332-8799.">
+  <title>Pho Vietnamese — Authentic Vietnamese Cuisine in Ballwin, MO | (636) 220-3688</title>
+  <meta name="description" content="Pho Vietnamese — 15480 Clayton Rd, Ballwin MO 63011. Traditional pho, banh mi, rice plates, Vietnamese coffee. Best Vietnamese in West County. Call (636) 220-3688.">
   <meta name="theme-color" content="#8B1A1A">
-  <meta property="og:title" content="Pho Vietnamese — Authentic Pho & Boba Tea in Ballwin, MO | (314) 332-8799">
-  <meta property="og:description" content="Pho Vietnamese — 14628 Manchester Rd, Ballwin MO 63021. Authentic Vietnamese pho, egg rolls, and boba tea made fresh daily. Call (314) 332-8799.">
+  <meta property="og:title" content="Pho Vietnamese — Authentic Vietnamese Cuisine in Ballwin, MO | (636) 220-3688">
+  <meta property="og:description" content="Pho Vietnamese — 15480 Clayton Rd, Ballwin MO 63011. Traditional pho, banh mi, rice plates, Vietnamese coffee. Best Vietnamese in West County. Call (636) 220-3688.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://myzhz001.github.io/pho-vietnamese-ballwin">
   <meta property="og:image" content="assets/pho-vietnamese-hero.jpg">
@@ -84,38 +84,19 @@
 
     /* ── Theme switcher UI ── */
     .theme-switcher {
-      position: fixed;
-      right: 18px;
-      bottom: 100px;
-      z-index: 8888;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      background: #fff;
-      border-radius: 999px;
-      padding: 10px 8px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-      border: 1px solid rgba(0,0,0,0.08);
+      position: fixed; right: 18px; top: 78px; z-index: 8888;
+      display: flex; flex-direction: row; align-items: center; gap: 8px;
+      background: #fff; border-radius: 999px; padding: 8px 14px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18); border: 1px solid rgba(0,0,0,0.08);
     }
     .theme-switcher__label {
-      font-size: 10px;
-      font-weight: 700;
-      color: #888;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      margin-bottom: 4px;
+      font-size: 10px; font-weight: 700; color: #888; letter-spacing: 0.08em;
+      text-transform: uppercase; white-space: nowrap; margin-right: 2px;
     }
     .theme-btn {
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
-      border: 2px solid transparent;
-      cursor: pointer;
-      transition: transform 160ms ease, border-color 160ms ease;
-      padding: 0;
+      width: 26px; height: 26px; border-radius: 999px; border: 2px solid transparent;
+      cursor: pointer; transition: transform 160ms ease, border-color 160ms ease; padding: 0;
+      flex: 0 0 auto;
     }
     .theme-btn:hover { transform: scale(1.18); }
     .theme-btn.active { border-color: #333; transform: scale(1.12); }
@@ -124,8 +105,25 @@
     .theme-btn[data-theme="mocha-warmth"]     { background: #6B3F2A; }
     .theme-btn[data-theme="forest-calm"]      { background: #1E4D35; }
     .theme-btn[data-theme="slate-modern"]     { background: #2D3142; }
-    @media (max-width: 767px) {
-      .theme-switcher { bottom: 104px; right: 12px; }
+    @media (max-width: 767px) { .theme-switcher { top: 78px; right: 12px; gap: 6px; padding: 7px 12px; } }
+
+    /* ── Language switcher ── */
+    .lang-zh, .lang-es { display: none; }
+    [data-lang="zh"] .lang-en { display: none; }
+    [data-lang="zh"] .lang-zh { display: revert; }
+    [data-lang="es"] .lang-en { display: none; }
+    [data-lang="es"] .lang-es { display: revert; }
+
+    .lang-switcher { display: flex; align-items: center; gap: 4px; }
+    .lang-btn {
+      display: inline-flex; min-height: 44px; align-items: center;
+      padding: 4px 9px; border: 1px solid rgba(0,0,0,0.14); border-radius: 6px;
+      background: transparent; font-family: var(--font-body); font-size: 13px;
+      font-weight: 700; cursor: pointer; color: rgba(44,44,44,0.68);
+      transition: background 160ms, color 160ms, border-color 160ms; white-space: nowrap;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      background: var(--color-primary); color: #fff; border-color: var(--color-primary);
     }
 
     *,
@@ -605,7 +603,7 @@
     }
 
     .signature-card::before {
-      content: "“";
+      content: "\201C";
       position: absolute;
       top: -24px;
       right: 22px;
@@ -785,7 +783,7 @@
       display: grid;
       grid-template-columns: 32px 1fr;
       gap: 10px;
-      align-items: start;
+      align-items: center;
     }
 
     .contact-list__icon {
@@ -807,6 +805,12 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 12px;
+    }
+
+    .contact-address {
+      font-size: 15px;
+      color: var(--color-text);
+      margin: 0 0 14px;
     }
 
     .map-wrap {
@@ -953,7 +957,7 @@
       }
 
       .section__title {
-        font-size: clamp(42px, 5vw, 58px);
+        font-size: clamp(28px, 3.2vw, 36px);
       }
 
       .site-nav__actions {
@@ -961,11 +965,11 @@
       }
 
       .hero {
-        min-height: 640px;
+        min-height: 520px;
       }
 
       .hero__content {
-        padding: 112px 0 116px;
+        padding: 56px 0 60px;
       }
 
       .hero__title {
@@ -1193,6 +1197,15 @@
     @media (min-width: 768px) {
       .menu-card__image { width: calc(100% + 60px); margin: -30px -30px 18px; }
     }
+
+    /* ── CJK typography adjustments ── */
+    [data-lang="zh"] .section__eyebrow,
+    [data-lang="zh"] .hero__kicker { letter-spacing: 0.04em; }
+    [data-lang="zh"] .story-copy p { line-height: 1.75; }
+    [data-lang="zh"] .review-card blockquote { line-height: 1.65; }
+    [data-lang="zh"] .signature-card blockquote { line-height: 1.55; }
+    [data-lang="zh"] .review-card blockquote,
+    [data-lang="zh"] .signature-card blockquote { font-family: var(--font-body); font-style: normal; }
   </style>
 </head>
 <body>
@@ -1203,40 +1216,45 @@
           <span class="site-nav__mark" aria-hidden="true">R</span>
           <span class="site-nav__name">Pho Vietnamese</span>
         </a>
+        <div class="lang-switcher" role="group" aria-label="Language / 语言 / Idioma">
+          <button class="lang-btn active" data-lang="en" title="English">🇺🇸 EN</button>
+          <button class="lang-btn" data-lang="zh" title="中文">🇨🇳 中文</button>
+          <button class="lang-btn" data-lang="es" title="Español">🇲🇽 ES</button>
+        </div>
         <div class="site-nav__actions" aria-label="Quick actions">
-          <a class="site-nav__phone" href="tel:+13143328799">(314) 332-8799</a>
-          <a class="button button--primary" href="tel:+13143328799">Call Now</a>
+          <a class="site-nav__phone" href="tel:+16362203688">(636) 220-3688</a>
+          <a class="button button--primary" href="tel:+16362203688"><span class="lang-en">Call Now</span><span class="lang-zh">立即致电</span><span class="lang-es">Llamar ahora</span></a>
         </div>
       </div>
     </nav>
 
-    <header class="hero" id="top" role="banner" aria-label="Pho Vietnamese — authentic Vietnamese pho noodle soup in Ballwin, MO">
+    <header class="hero" id="top" role="banner" aria-label="Pho Vietnamese — authentic Vietnamese pho and cuisine in Ballwin, MO">
       <div class="container">
         <div class="hero__content">
-          <p class="hero__kicker">Ballwin Restaurant</p>
+          <p class="hero__kicker"><span class="lang-en">Ballwin Restaurant</span><span class="lang-zh">Ballwin 餐厅</span><span class="lang-es">Restaurante en Ballwin</span></p>
           <h1 class="hero__title">Pho Vietnamese</h1>
-          <p class="hero__tagline">Authentic Vietnamese Pho & Boba Tea in Ballwin</p>
+          <p class="hero__tagline"><span class="lang-en">Ballwin's Hidden Gem for Authentic Vietnamese Pho</span><span class="lang-zh">Ballwin 的越南粉隐藏宝藏</span><span class="lang-es">La joya escondida de Ballwin para pho vietnamita auténtico</span></p>
           <div class="hero__badges" aria-label="Restaurant highlights">
             <span class="pill">📍 Ballwin</span>
-            <span class="pill">🍽 5 Years Serving</span>
+            <span class="pill"><span class="lang-en">🍽 5 Years Serving</span><span class="lang-zh">🍽 5 年老店</span><span class="lang-es">🍽 5 Años sirviendo</span></span>
             <span class="pill status--open">Open Now</span>
           </div>
           <div class="hero__ctas" aria-label="Hero actions">
-            <a class="button button--primary" href="tel:+13143328799">Call to Order</a>
-            <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=14628+Manchester+Rd+Ballwin+MO+63021" target="_blank" rel="noopener">Get Directions</a>
+            <a class="button button--primary" href="tel:+16362203688"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
+            <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=15480+Clayton+Rd+Ballwin+MO+63011" target="_blank" rel="noopener"><span class="lang-en">Get Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Ver cómo llegar</span></a>
           </div>
-          <p class="hero__phone-display"><a href="tel:+13143328799">(314) 332-8799</a></p>
-          <a class="link-arrow hero__menu-link" href="#menu-highlights">View Full Menu</a>
+          <p class="hero__phone-display"><a href="tel:+16362203688">(636) 220-3688</a></p>
+          <a class="link-arrow hero__menu-link" href="#menu-highlights"><span class="lang-en">View Full Menu</span><span class="lang-zh">查看完整菜单</span><span class="lang-es">Ver menú completo</span></a>
         </div>
       </div>
     </header>
 
     <nav class="section-jump-nav" aria-label="Jump to section">
       <div class="section-jump-nav__inner">
-        <a class="section-jump-nav__link" href="#menu-highlights">🍽 Our Menu</a>
-        <a class="section-jump-nav__link" href="#story">📖 Our Story</a>
-        <a class="section-jump-nav__link" href="#reviews">⭐ Reviews</a>
-        <a class="section-jump-nav__link" href="#contact">📍 Find Us</a>
+        <a class="section-jump-nav__link" href="#menu-highlights">🍽 <span class="lang-en">Our Menu</span><span class="lang-zh">菜单精选</span><span class="lang-es">Nuestro Menú</span></a>
+        <a class="section-jump-nav__link" href="#story">📖 <span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra Historia</span></a>
+        <a class="section-jump-nav__link" href="#reviews">⭐ <span class="lang-en">Reviews</span><span class="lang-zh">客户评价</span><span class="lang-es">Reseñas</span></a>
+        <a class="section-jump-nav__link" href="#contact">📍 <span class="lang-en">Find Us</span><span class="lang-zh">位置与联系</span><span class="lang-es">Ubicación</span></a>
       </div>
     </nav>
 
@@ -1244,48 +1262,48 @@
       <section class="section menu" id="menu-highlights" aria-labelledby="menu-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Menu Highlights</p>
-            <h2 class="section__title" id="menu-title">Classic Vietnamese, Made Fresh Every Day</h2>
-            <p class="section__intro">A concise look at the guest favorites people come back for, from a quick weeknight meal to a long table with friends.</p>
+            <p class="section__eyebrow"><span class="lang-en">Menu Highlights</span><span class="lang-zh">菜单精选</span><span class="lang-es">Selección del Menú</span></p>
+            <h2 class="section__title" id="menu-title"><span class="lang-en">The Vietnamese Flavors Ballwin Keeps Coming Back For</span><span class="lang-zh">Ballwin 居民一再光顾的越南风味</span><span class="lang-es">Los sabores vietnamitas por los que Ballwin sigue regresando</span></h2>
+            <p class="section__intro"><span class="lang-en">A concise look at the guest favorites people come back for, from a quick weeknight meal to a long table with friends.</span><span class="lang-zh">从家常便饭到聚餐佳选，这些是客人一再光顾的必点之选。</span><span class="lang-es">Un vistazo a los favoritos que los clientes piden una y otra vez, para una cena rápida o una gran mesa con amigos.</span></p>
           </div>
           <div class="menu-grid">
             <article class="menu-card">
-              <img class="menu-card__image" src="assets/pho-vietnamese-card-1.jpg" alt="Beef Pho" loading="lazy">
-              <span class="menu-card__badge">Fan Favorite</span>
-              <h3 class="menu-card__title">Beef Pho</h3>
-              <p class="menu-card__description">Slow-simmered bone broth with rice noodles, sliced beef, bean sprouts, and fresh herbs. Customers call it one of the best pho in Missouri — the broth alone is worth the drive.</p>
-              <span class="menu-card__featured">Try: Try the Beef Pho</span>
+              <img class="menu-card__image" src="assets/pho-vietnamese-card-1.jpg" alt="Pho" loading="lazy">
+              <span class="menu-card__badge"><span class="lang-en">Fan Favorite</span><span class="lang-zh">人气之选</span><span class="lang-es">Favorito</span></span>
+              <h3 class="menu-card__title"><span class="lang-en">Pho</span><span class="lang-zh">越南牛肉粉</span><span class="lang-es">Pho</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Traditional Vietnamese pho with rich beef broth simmered for hours, fresh rice noodles, and your choice of protein — served with bean sprouts, Thai basil, and lime. The dish that gives this restaurant its name.</span><span class="lang-zh">传统越南牛肉粉，浓郁牛骨汤慢炖数小时，搭配新鲜河粉和自选蛋白质——配豆芽、泰国罗勒和青柠上桌。这道菜就是这家店的招牌。</span><span class="lang-es">Pho vietnamita tradicional con caldo de res cocido a fuego lento durante horas, fideos de arroz frescos y su elección de proteína — servido con brotes de soja, albahaca tailandesa y limón. El plato que le da nombre a este restaurante.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the house pho</span><span class="lang-zh">推荐：推荐招牌牛肉粉</span><span class="lang-es">Pruebe: Pruebe el pho de la casa</span></span>
             </article>
             <article class="menu-card">
-              <img class="menu-card__image" src="assets/pho-vietnamese-card-2.jpg" alt="Vietnamese Egg Rolls" loading="lazy">
-              <h3 class="menu-card__title">Vietnamese Egg Rolls</h3>
-              <p class="menu-card__description">Crispy handmade egg rolls packed with seasoned pork, vegetables, and glass noodles. Served with house dipping sauce — a perfect starter before your pho.</p>
-              <span class="menu-card__featured">Try: Try the egg rolls</span>
+              <img class="menu-card__image" src="assets/pho-vietnamese-card-2.jpg" alt="Banh Mi Sandwiches" loading="lazy">
+              <h3 class="menu-card__title"><span class="lang-en">Banh Mi Sandwiches</span><span class="lang-zh">越式法棍三明治</span><span class="lang-es">Bánh Mì</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Crispy baguette loaded with your choice of grilled pork, chicken, or tofu — topped with pickled daikon, carrots, cilantro, jalapeno, and house-made pate. Crunchy, fresh, and bold.</span><span class="lang-zh">酥脆法棍夹自选烤猪肉、鸡肉或豆腐——配腌萝卜、胡萝卜丝、香菜、墨西哥辣椒和自制肉酱。酥脆、新鲜、味道浓郁。</span><span class="lang-es">Baguette crujiente relleno con su elección de cerdo a la parrilla, pollo o tofu — cubierto con daikon encurtido, zanahorias, cilantro, jalapeño y paté de la casa. Crujiente, fresco y audaz.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the banh mi</span><span class="lang-zh">推荐：推荐越式法棍</span><span class="lang-es">Pruebe: Pruebe el bánh mì</span></span>
             </article>
             <article class="menu-card">
-              <img class="menu-card__image" src="assets/pho-vietnamese-card-3.jpg" alt="Boba & Smoothies" loading="lazy">
-              <h3 class="menu-card__title">Boba & Smoothies</h3>
-              <p class="menu-card__description">Fresh boba tea and fruit smoothies made to order. The staff customizes sweetness and toppings exactly how you like — regulars come back for both the pho and the drinks.</p>
-              <span class="menu-card__featured">Try: Try the boba tea</span>
+              <img class="menu-card__image" src="assets/pho-vietnamese-card-3.jpg" alt="Rice Plates" loading="lazy">
+              <h3 class="menu-card__title"><span class="lang-en">Rice Plates</span><span class="lang-zh">越式饭</span><span class="lang-es">Platos de arroz</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Broken rice plates with lemongrass chicken, grilled pork chops, or shrimp — served with a fried egg, pickled vegetables, and fish sauce. Generous portions that keep families coming back.</span><span class="lang-zh">碎米饭配香茅鸡、烤猪排或虾——搭配煎蛋、腌菜和鱼露。分量十足，让全家人都爱回来。</span><span class="lang-es">Platos de arroz quebrado con pollo al limoncillo, chuletas de cerdo a la parrilla o camarones — servidos con huevo frito, vegetales encurtidos y salsa de pescado. Porciones generosas que hacen que las familias regresen.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the lemongrass chicken</span><span class="lang-zh">推荐：推荐香茅鸡</span><span class="lang-es">Pruebe: Pruebe el pollo al limoncillo</span></span>
             </article>
             <article class="menu-card">
-              <img class="menu-card__image" src="assets/pho-vietnamese-card-4.jpg" alt="Pho Specialties" loading="lazy">
-              <h3 class="menu-card__title">Pho Specialties</h3>
-              <p class="menu-card__description">Chicken pho, vegetable pho, and combo bowls with premium toppings. The kitchen adjusts spice level, broth richness, and portion size — nothing is one-size-fits-all here.</p>
-              <span class="menu-card__featured">Try: Try the specialty bowls</span>
+              <img class="menu-card__image" src="assets/pho-vietnamese-card-4.jpg" alt="Vietnamese Coffee & Drinks" loading="lazy">
+              <h3 class="menu-card__title"><span class="lang-en">Vietnamese Coffee & Drinks</span><span class="lang-zh">越南咖啡与饮品</span><span class="lang-es">Café vietnamita y bebidas</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Traditional Vietnamese iced coffee with condensed milk, Thai tea, fresh coconut water, and smoothies — the perfect complement to any meal or a refreshing standalone treat.</span><span class="lang-zh">传统越南冰咖啡配炼乳、泰式奶茶、新鲜椰子水和奶昔——完美搭配任何餐点，或单独享用的清爽饮品。</span><span class="lang-es">Café helado vietnamita tradicional con leche condensada, té tailandés, agua de coco fresca y batidos — el complemento perfecto para cualquier comida o un refrescante antojo por sí solo.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the Vietnamese coffee</span><span class="lang-zh">推荐：推荐越南咖啡</span><span class="lang-es">Pruebe: Pruebe el café vietnamita</span></span>
             </article>
           </div>
           <div class="menu__footer">
-            <a class="link-arrow" href="#menu-highlights">See the Full Menu</a>
+            <a class="link-arrow" href="#menu-highlights"><span class="lang-en">See the Full Menu</span><span class="lang-zh">查看完整菜单</span><span class="lang-es">Ver el menú completo</span></a>
           </div>
         </div>
       </section>
 
       <aside class="order-strip" aria-label="Ready to order">
         <div class="container order-strip__inner">
-          <p class="order-strip__text">Hungry? Give us a call.</p>
-          <a class="order-strip__phone" href="tel:+13143328799">(314) 332-8799</a>
-          <a class="button button--light" href="tel:+13143328799">📞 Call to Order</a>
+          <p class="order-strip__text"><span class="lang-en">Hungry? Give us a call.</span><span class="lang-zh">饿了？给我们打个电话吧。</span><span class="lang-es">¿Tiene hambre? Llámenos.</span></p>
+          <a class="order-strip__phone" href="tel:+16362203688">(636) 220-3688</a>
+          <a class="button button--light" href="tel:+16362203688">📞 <span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
         </div>
       </aside>
 
@@ -1293,17 +1311,17 @@
         <div class="container">
           <div class="story-layout">
             <div class="story-copy">
-              <p class="section__eyebrow">Our Story</p>
-              <h2 class="section__title" id="story-title">A Local Favorite in Ballwin</h2>
-              <p>Tucked inside a Manchester Road strip mall, Pho Vietnamese has been serving some of the most talked-about pho in the St. Louis area. The broth is simmered for hours — not minutes — which is exactly what regulars notice the moment they take the first sip.</p>
-              <p>The menu stays focused on what they do best: Vietnamese pho, fresh egg rolls, and made-to-order boba teas and smoothies. The staff takes time to customize every drink order, and they remember their regulars.</p>
-              <p>With a 4.3-star rating and customers calling it one of the best pho spots in Missouri, Pho Vietnamese earns loyal fans without advertising — because the food does the talking. Open Monday through Friday and Sunday for lunch and dinner.</p>
+              <p class="section__eyebrow"><span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra Historia</span></p>
+              <h2 class="section__title" id="story-title"><span class="lang-en">Ballwin's Hidden Gem for Vietnamese Pho</span><span class="lang-zh">Ballwin 的越南粉隐藏宝藏</span><span class="lang-es">La joya escondida de Ballwin para pho vietnamita</span></h2>
+              <p><span class="lang-en">Pho Vietnamese has been quietly earning its reputation on Clayton Road for five years. In a stretch of Ballwin known mostly for chain restaurants, it's the independent kitchen that locals seek out when they want the real thing — traditional Vietnamese cooking with no shortcuts.</span><span class="lang-zh">Pho Vietnamese 在 Clayton Road 默默经营了五年，口碑越来越好。在 Ballwin 这段以连锁餐厅为主的路段，它是本地人想吃正宗越南菜时专程寻找的独立厨房——传统越南烹饪，绝不偷工减料。</span><span class="lang-es">Pho Vietnamese ha estado ganando silenciosamente su reputación en Clayton Road durante cinco años. En un tramo de Ballwin conocido principalmente por restaurantes de cadena, es la cocina independiente que los locales buscan cuando quieren algo auténtico — cocina vietnamita tradicional sin atajos.</span></p>
+              <p><span class="lang-en">The pho broth is the foundation — simmered for hours with beef bones and traditional spices, served exactly the way it should be. The banh mi is built on fresh-baked baguettes with house-made pate, and the rice plates come with portions that could easily feed two. Regulars say the quality hasn't changed since day one.</span><span class="lang-zh">牛骨汤底是根基——用牛骨和传统香料慢炖数小时，按最正宗的方式上桌。越式法棍用新鲜烤制的面包搭配自制肉酱，饭类分量大到两个人分都够。老客说品质从开店第一天起就没变过。</span><span class="lang-es">El caldo de pho es la base — cocido a fuego lento durante horas con huesos de res y especias tradicionales, servido exactamente como debe ser. El bánh mì se prepara con baguettes recién horneados y paté de la casa, y los platos de arroz vienen con porciones que fácilmente alimentan a dos. Los clientes frecuentes dicen que la calidad no ha cambiado desde el primer día.</span></p>
+              <p><span class="lang-en">For Ballwin families who've found it, Pho Vietnamese is the go-to Vietnamese kitchen in West County — the kind of place where you bring friends when you want to show them something good. Open Tuesday through Sunday.</span><span class="lang-zh">对于发现这家店的 Ballwin 家庭来说，Pho Vietnamese 是 West County 的首选越南厨房——是那种你想带朋友去吃好东西时会选的店。周二至周日营业。</span><span class="lang-es">Para las familias de Ballwin que lo han descubierto, Pho Vietnamese es la cocina vietnamita de referencia en West County — el tipo de lugar al que llevas amigos cuando quieres mostrarles algo bueno. Abierto de martes a domingo.</span></p>
             </div>
             <aside class="signature-card" aria-label="Signature dish highlight">
-              <span class="signature-card__badge">5 Years Serving Ballwin</span>
+              <span class="signature-card__badge"><span class="lang-en">5 Years Serving Ballwin</span><span class="lang-zh">扎根Ballwin 5年</span><span class="lang-es">5 Años sirviendo a Ballwin</span></span>
               <blockquote>
-                The flavor of the broth was amazing. One of the best pho in Missouri.
-                <cite>Beef Pho</cite>
+                <span class="lang-en">The pho broth is rich and flavorful — you can tell it's been simmered for hours. Best Vietnamese food I've found in West County.</span><span class="lang-zh">牛肉粉的汤底浓郁鲜美——一口就知道炖了好几个小时。West County 我找到的最好越南菜。</span><span class="lang-es">El caldo de pho es rico y lleno de sabor — se nota que se cocinó durante horas. La mejor comida vietnamita que he encontrado en West County.</span>
+                <cite><span class="lang-en">House Pho</span><span class="lang-zh">招牌牛肉粉</span><span class="lang-es">Pho de la casa</span></cite>
               </blockquote>
             </aside>
           </div>
@@ -1313,37 +1331,37 @@
       <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Guest Notes</p>
-            <h2 class="section__title" id="reviews-title">What Ballwin Regulars Say</h2>
-            <p class="section__intro">Warm service, dependable cooking, and meals that feel personal are what regulars mention most.</p>
+            <p class="section__eyebrow"><span class="lang-en">Guest Notes</span><span class="lang-zh">食客心声</span><span class="lang-es">Opiniones</span></p>
+            <h2 class="section__title" id="reviews-title"><span class="lang-en">What Ballwin Regulars Say</span><span class="lang-zh">Ballwin 老顾客怎么说</span><span class="lang-es">Lo que dicen los clientes frecuentes de Ballwin</span></h2>
+            <p class="section__intro"><span class="lang-en">Warm service, dependable cooking, and meals that feel personal are what regulars mention most.</span><span class="lang-zh">热情的服务、可靠的厨艺、让人倍感亲切的每一餐——这是老顾客们最常提到的。</span><span class="lang-es">Servicio cálido, cocina confiable y comidas que se sienten personales — eso es lo que más mencionan los clientes frecuentes.</span></p>
           </div>
           <div class="reviews-summary">
-            <span class="reviews-summary__rating">4.3</span>
-            <div class="reviews-summary__stars-wrap" style="--rating: 4.3" aria-label="4.3 out of 5 stars">
+            <span class="reviews-summary__rating">4.2</span>
+            <div class="reviews-summary__stars-wrap" style="--rating: 4.2" aria-label="4.2 out of 5 stars">
               <span aria-hidden="true">★★★★★</span>
               <span class="reviews-summary__stars-fill" aria-hidden="true">★★★★★</span>
             </div>
-            <span class="reviews-summary__label">Based on 119 Google reviews</span>
+            <span class="reviews-summary__label"><span class="lang-en">Based on 145 Google reviews</span><span class="lang-zh">基于 145 条 Google 评价</span><span class="lang-es">Basado en 145 reseñas de Google</span></span>
           </div>
           <div class="reviews-grid">
             <article class="review-card">
               <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
-              <blockquote>The flavor of the broth was amazing. Definitely one of the best pho spots in Missouri.</blockquote>
+              <blockquote><span class="lang-en">The pho broth is rich and flavorful — you can tell it's been simmered for hours. Best Vietnamese food I've found in West County.</span><span class="lang-zh">牛肉粉的汤底浓郁鲜美——一口就知道炖了好几个小时。West County 我找到的最好越南菜。</span><span class="lang-es">El caldo de pho es rico y lleno de sabor — se nota que se cocinó durante horas. La mejor comida vietnamita que he encontrado en West County.</span></blockquote>
+              <p class="review-card__name">Yelp Reviewer</p>
+            </article>
+            <article class="review-card">
+              <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
+              <blockquote><span class="lang-en">Banh mi is incredible — fresh bread, great pate, and generous fillings. The Vietnamese coffee is also a must-try.</span><span class="lang-zh">越式法棍太赞了——面包新鲜、肉酱地道、馅料十足。越南咖啡也一定要试。</span><span class="lang-es">El bánh mì es increíble — pan fresco, excelente paté y rellenos generosos. El café vietnamita también es imperdible.</span></blockquote>
               <p class="review-card__name">Google Reviewer</p>
             </article>
             <article class="review-card">
               <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
-              <blockquote>Vietnam egg rolls and beef noodle pho that were both well made. The staff is friendly and will customize your order.</blockquote>
-              <p class="review-card__name">Google Reviewer</p>
-            </article>
-            <article class="review-card">
-              <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
-              <blockquote>They have boba and smoothies which are great. The small dining room was kept clean and staff was readily available.</blockquote>
-              <p class="review-card__name">Google Reviewer</p>
+              <blockquote><span class="lang-en">Hidden gem on Clayton Road. The portions are huge, prices are fair, and everything tastes authentic. We drive from Chesterfield just for this place.</span><span class="lang-zh">Clayton Road 上的隐藏宝藏。分量超大，价格公道，每道菜都地道。我们专门从 Chesterfield 开车过来吃。</span><span class="lang-es">Joya escondida en Clayton Road. Las porciones son enormes, los precios justos, y todo sabe auténtico. Venimos desde Chesterfield solo por este lugar.</span></blockquote>
+              <p class="review-card__name">Yelp Reviewer</p>
             </article>
           </div>
           <div class="reviews-footer">
-            <a class="link-arrow" href="https://www.google.com/maps/search/Pho+Vietnamese+14628+Manchester+Rd+Ballwin+MO+63021" target="_blank" rel="noopener">Read all 119 reviews on Google</a>
+            <a class="link-arrow" href="https://www.google.com/maps/search/Pho+Vietnamese+15480+Clayton+Rd+Ballwin+MO+63011" target="_blank" rel="noopener"><span class="lang-en">Read all 145 reviews on Google</span><span class="lang-zh">查看全部 145 条 Google 评价</span><span class="lang-es">Leer las 145 reseñas en Google</span></a>
           </div>
         </div>
       </section>
@@ -1351,79 +1369,76 @@
       <section class="section contact" id="contact" aria-labelledby="contact-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Visit Today</p>
-            <h2 class="section__title" id="contact-title">Find Us</h2>
-            <p class="section__intro">Call ahead, check today's hours, or get directions straight to the restaurant.</p>
+            <p class="section__eyebrow"><span class="lang-en">Visit Today</span><span class="lang-zh">欢迎光临</span><span class="lang-es">Visítenos hoy</span></p>
+            <h2 class="section__title" id="contact-title"><span class="lang-en">Find Us</span><span class="lang-zh">位置与联系</span><span class="lang-es">Ubicación y contacto</span></h2>
+            <p class="section__intro"><span class="lang-en">Call ahead, check today's hours, or get directions straight to the restaurant.</span><span class="lang-zh">提前致电、查询营业时间，或直接导航到店。</span><span class="lang-es">Llame con anticipación, consulte el horario o encuentre las indicaciones al restaurante.</span></p>
           </div>
           <div class="contact-layout">
             <article class="contact-card">
               <div class="contact-card__top">
-                <h3 class="contact-card__heading">Hours & Contact</h3>
+                <h3 class="contact-card__heading"><span class="lang-en">Hours &amp; Contact</span><span class="lang-zh">营业时间</span><span class="lang-es">Horario y contacto</span></h3>
                 <span class="contact-status status--open">Open Now</span>
               </div>
-              <p class="today-hours">Today: 11:00 AM – 8:30 PM</p>
+              <p class="today-hours"><span class="lang-en">Today: </span><span class="lang-zh">今日：</span><span class="lang-es">Hoy: </span>10:00 AM – 9:00 PM</p>
               <table class="hours-table" aria-label="Weekly restaurant hours">
                 <tbody>
                   <tr>
-                    <th scope="row">Monday</th>
-                    <td>11:00 AM – 8:30 PM</td>
+                    <th scope="row"><span class="lang-en">Monday</span><span class="lang-zh">星期一</span><span class="lang-es">Lunes</span></th>
+                    <td>Closed</td>
                   </tr>
                   <tr>
-                    <th scope="row">Tuesday</th>
-                    <td>11:00 AM – 8:30 PM</td>
+                    <th scope="row"><span class="lang-en">Tuesday</span><span class="lang-zh">星期二</span><span class="lang-es">Martes</span></th>
+                    <td>10:00 AM – 9:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Wednesday</th>
-                    <td>11:00 AM – 8:30 PM</td>
+                    <th scope="row"><span class="lang-en">Wednesday</span><span class="lang-zh">星期三</span><span class="lang-es">Miércoles</span></th>
+                    <td>10:00 AM – 9:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Thursday</th>
-                    <td>11:00 AM – 8:30 PM</td>
+                    <th scope="row"><span class="lang-en">Thursday</span><span class="lang-zh">星期四</span><span class="lang-es">Jueves</span></th>
+                    <td>10:00 AM – 9:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Friday</th>
-                    <td>11:00 AM – 8:30 PM</td>
+                    <th scope="row"><span class="lang-en">Friday</span><span class="lang-zh">星期五</span><span class="lang-es">Viernes</span></th>
+                    <td>10:00 AM – 9:30 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Saturday</th>
-                    <td>Call for hours</td>
+                    <th scope="row"><span class="lang-en">Saturday</span><span class="lang-zh">星期六</span><span class="lang-es">Sábado</span></th>
+                    <td>10:00 AM – 9:30 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Sunday</th>
-                    <td>11:00 AM – 2:00 PM, 4:00 PM – 8:00 PM</td>
+                    <th scope="row"><span class="lang-en">Sunday</span><span class="lang-zh">星期日</span><span class="lang-es">Domingo</span></th>
+                    <td>10:00 AM – 8:30 PM</td>
                   </tr>
                 </tbody>
               </table>
               <ul class="contact-list" aria-label="Restaurant contact details">
                 <li class="contact-list__item">
                   <span class="contact-list__icon" aria-hidden="true">☎</span>
-                  <span><a href="tel:+13143328799">(314) 332-8799</a></span>
-                </li>
-                <li class="contact-list__item">
-                  <span class="contact-list__icon" aria-hidden="true">⌖</span>
-                  <span>14628 Manchester Rd, Ballwin, MO 63021</span>
+                  <span><a href="tel:+16362203688">(636) 220-3688</a></span>
                 </li>
               </ul>
               <div class="contact-actions">
-                <a class="button button--primary" href="tel:+13143328799">Call to Order</a>
+                <a class="button button--primary" href="tel:+16362203688"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
               </div>
             </article>
             <article class="contact-card">
               <div class="contact-card__top">
-                <h3 class="contact-card__heading">Map & Directions</h3>
+                <h3 class="contact-card__heading"><span class="lang-en">Map &amp; Directions</span><span class="lang-zh">地图导航</span><span class="lang-es">Mapa e indicaciones</span></h3>
               </div>
+              <p class="contact-address">📍 15480 Clayton Rd, Ballwin, MO 63011</p>
               <div class="map-wrap">
                 <iframe
-                  src="https://maps.google.com/maps?q=Pho+Vietnamese+14628+Manchester+Rd+Ballwin+MO+63021&t=&z=15&ie=UTF8&iwloc=B&output=embed"
-                  title="Map showing Pho Vietnamese at 14628 Manchester Rd, Ballwin, MO 63021"
+                  src="https://maps.google.com/maps?q=Pho+Vietnamese+15480+Clayton+Rd+Ballwin+MO+63011&t=&z=15&ie=UTF8&iwloc=B&output=embed"
+                  title="Map showing Pho Vietnamese at 15480 Clayton Rd, Ballwin, MO 63011"
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
                   allowfullscreen>
                 </iframe>
               </div>
               <div class="map-actions">
-                <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=14628+Manchester+Rd+Ballwin+MO+63021" target="_blank" rel="noopener">Get Directions</a>
-                <a class="link-arrow" href="#menu-highlights">View Full Menu</a>
+                <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=15480+Clayton+Rd+Ballwin+MO+63011" target="_blank" rel="noopener"><span class="lang-en">Get Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Ver cómo llegar</span></a>
+                <a class="link-arrow" href="#menu-highlights"><span class="lang-en">View Full Menu</span><span class="lang-zh">查看完整菜单</span><span class="lang-es">Ver menú completo</span></a>
               </div>
             </article>
           </div>
@@ -1433,9 +1448,9 @@
 
     <footer class="site-footer">
       <div class="container site-footer__inner">
-        <span>© 2026 Pho Vietnamese. All rights reserved.</span>
-        <span>14628 Manchester Rd, Ballwin, MO 63021</span>
-        <a href="tel:+13143328799">(314) 332-8799</a>
+        <span><span class="lang-en">© 2026 Pho Vietnamese. All rights reserved.</span><span class="lang-zh">© 2026 Pho Vietnamese 版权所有</span><span class="lang-es">© 2026 Pho Vietnamese. Todos los derechos reservados.</span></span>
+        <span>15480 Clayton Rd, Ballwin, MO 63011</span>
+        <a href="tel:+16362203688">(636) 220-3688</a>
       </div>
     </footer>
   </div>
@@ -1495,7 +1510,7 @@
 
 <!-- DEMO ONLY: Theme switcher — remove before client handoff -->
 <div class="theme-switcher" role="group" aria-label="Choose color theme">
-  <span class="theme-switcher__label">Theme</span>
+  <span class="theme-switcher__label">Choose Your Color</span>
   <button class="theme-btn active" data-theme="crimson-heritage" title="Crimson Heritage"></button>
   <button class="theme-btn" data-theme="midnight-luxe" title="Midnight Luxe"></button>
   <button class="theme-btn" data-theme="mocha-warmth" title="Mocha Warmth"></button>
@@ -1504,16 +1519,16 @@
 </div>
 
 <div class="mobile-call-bar" role="region" aria-label="Quick restaurant actions">
-  <a class="mobile-call-bar__phone" href="tel:+13143328799">
+  <a class="mobile-call-bar__phone" href="tel:+16362203688">
     <span class="mobile-call-bar__icon">📞</span>
     <span class="mobile-call-bar__text">
-      <span class="mobile-call-bar__label">Call to Order</span>
-      <span class="mobile-call-bar__number">(314) 332-8799</span>
+      <span class="mobile-call-bar__label"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></span>
+      <span class="mobile-call-bar__number">(636) 220-3688</span>
     </span>
   </a>
-  <a class="mobile-call-bar__directions" href="https://www.google.com/maps/dir/?api=1&destination=14628+Manchester+Rd+Ballwin+MO+63021" target="_blank" rel="noopener">
+  <a class="mobile-call-bar__directions" href="https://www.google.com/maps/dir/?api=1&destination=15480+Clayton+Rd+Ballwin+MO+63011" target="_blank" rel="noopener">
     <span class="mobile-call-bar__icon">📍</span>
-    <span class="mobile-call-bar__label">Directions</span>
+    <span class="mobile-call-bar__label"><span class="lang-en">Directions</span><span class="lang-zh">导航</span><span class="lang-es">Cómo llegar</span></span>
   </a>
 </div>
 
@@ -1527,6 +1542,21 @@
           html.setAttribute('data-theme', theme);
           buttons.forEach(function (b) { b.classList.remove('active'); });
           btn.classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var html = document.documentElement;
+      document.querySelectorAll(".lang-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var lang = btn.getAttribute("data-lang");
+          html.setAttribute("data-lang", lang);
+          html.setAttribute("lang", lang === "zh" ? "zh-CN" : lang === "es" ? "es" : "en");
+          document.querySelectorAll(".lang-btn").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
         });
       });
     })();

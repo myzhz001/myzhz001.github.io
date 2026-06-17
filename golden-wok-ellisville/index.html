@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -106,6 +106,25 @@
     .theme-btn[data-theme="forest-calm"]      { background: #1E4D35; }
     .theme-btn[data-theme="slate-modern"]     { background: #2D3142; }
     @media (max-width: 767px) { .theme-switcher { top: 78px; right: 12px; gap: 6px; padding: 7px 12px; } }
+
+    /* ── Language switcher ── */
+    .lang-zh, .lang-es { display: none; }
+    [data-lang="zh"] .lang-en { display: none; }
+    [data-lang="zh"] .lang-zh { display: revert; }
+    [data-lang="es"] .lang-en { display: none; }
+    [data-lang="es"] .lang-es { display: revert; }
+
+    .lang-switcher { display: flex; align-items: center; gap: 4px; }
+    .lang-btn {
+      display: inline-flex; min-height: 44px; align-items: center;
+      padding: 4px 9px; border: 1px solid rgba(0,0,0,0.14); border-radius: 6px;
+      background: transparent; font-family: var(--font-body); font-size: 13px;
+      font-weight: 700; cursor: pointer; color: rgba(44,44,44,0.68);
+      transition: background 160ms, color 160ms, border-color 160ms; white-space: nowrap;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      background: var(--color-primary); color: #fff; border-color: var(--color-primary);
+    }
 
     *,
     *::before,
@@ -584,7 +603,7 @@
     }
 
     .signature-card::before {
-      content: "“";
+      content: "\201C";
       position: absolute;
       top: -24px;
       right: 22px;
@@ -1178,6 +1197,15 @@
     @media (min-width: 768px) {
       .menu-card__image { width: calc(100% + 60px); margin: -30px -30px 18px; }
     }
+
+    /* ── CJK typography adjustments ── */
+    [data-lang="zh"] .section__eyebrow,
+    [data-lang="zh"] .hero__kicker { letter-spacing: 0.04em; }
+    [data-lang="zh"] .story-copy p { line-height: 1.75; }
+    [data-lang="zh"] .review-card blockquote { line-height: 1.65; }
+    [data-lang="zh"] .signature-card blockquote { line-height: 1.55; }
+    [data-lang="zh"] .review-card blockquote,
+    [data-lang="zh"] .signature-card blockquote { font-family: var(--font-body); font-style: normal; }
   </style>
 </head>
 <body>
@@ -1188,9 +1216,14 @@
           <span class="site-nav__mark" aria-hidden="true">R</span>
           <span class="site-nav__name">Golden Wok</span>
         </a>
+        <div class="lang-switcher" role="group" aria-label="Language / 语言 / Idioma">
+          <button class="lang-btn active" data-lang="en" title="English">🇺🇸 EN</button>
+          <button class="lang-btn" data-lang="zh" title="中文">🇨🇳 中文</button>
+          <button class="lang-btn" data-lang="es" title="Español">🇲🇽 ES</button>
+        </div>
         <div class="site-nav__actions" aria-label="Quick actions">
           <a class="site-nav__phone" href="tel:+16362308966">(636) 230-8966</a>
-          <a class="button button--primary" href="tel:+16362308966">Call Now</a>
+          <a class="button button--primary" href="tel:+16362308966"><span class="lang-en">Call Now</span><span class="lang-zh">立即致电</span><span class="lang-es">Llamar ahora</span></a>
         </div>
       </div>
     </nav>
@@ -1198,30 +1231,30 @@
     <header class="hero" id="top" role="banner" aria-label="Golden Wok pan-Asian cuisine — fresh noodle dishes made to order in Ellisville">
       <div class="container">
         <div class="hero__content">
-          <p class="hero__kicker">Ellisville Restaurant</p>
+          <p class="hero__kicker"><span class="lang-en">Ellisville Restaurant</span><span class="lang-zh">Ellisville 餐厅</span><span class="lang-es">Restaurante en Ellisville</span></p>
           <h1 class="hero__title">Golden Wok</h1>
-          <p class="hero__tagline">Fresh Pan-Asian Cuisine Made to Order Since 1991</p>
+          <p class="hero__tagline"><span class="lang-en">Fresh Pan-Asian Cuisine Made to Order Since 1991</span><span class="lang-zh">自1991年起，新鲜泛亚料理现点现做</span><span class="lang-es">Cocina pan-asiática fresca hecha al momento desde 1991</span></p>
           <div class="hero__badges" aria-label="Restaurant highlights">
             <span class="pill">📍 Ellisville</span>
-            <span class="pill">🍽 35 Years Serving</span>
+            <span class="pill"><span class="lang-en">🍽 35 Years Serving</span><span class="lang-zh">🍽 35 年老店</span><span class="lang-es">🍽 35 Años sirviendo</span></span>
             <span class="pill status--open">Open Now</span>
           </div>
           <div class="hero__ctas" aria-label="Hero actions">
-            <a class="button button--primary" href="tel:+16362308966">Call to Order</a>
-            <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=15941+Manchester+Rd+Ellisville+MO+63011" target="_blank" rel="noopener">Get Directions</a>
+            <a class="button button--primary" href="tel:+16362308966"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
+            <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=15941+Manchester+Rd+Ellisville+MO+63011" target="_blank" rel="noopener"><span class="lang-en">Get Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Ver cómo llegar</span></a>
           </div>
           <p class="hero__phone-display"><a href="tel:+16362308966">(636) 230-8966</a></p>
-          <a class="link-arrow hero__menu-link" href="#menu-highlights">View Full Menu</a>
+          <a class="link-arrow hero__menu-link" href="#menu-highlights"><span class="lang-en">View Full Menu</span><span class="lang-zh">查看完整菜单</span><span class="lang-es">Ver menú completo</span></a>
         </div>
       </div>
     </header>
 
     <nav class="section-jump-nav" aria-label="Jump to section">
       <div class="section-jump-nav__inner">
-        <a class="section-jump-nav__link" href="#menu-highlights">🍽 Our Menu</a>
-        <a class="section-jump-nav__link" href="#story">📖 Our Story</a>
-        <a class="section-jump-nav__link" href="#reviews">⭐ Reviews</a>
-        <a class="section-jump-nav__link" href="#contact">📍 Find Us</a>
+        <a class="section-jump-nav__link" href="#menu-highlights">🍽 <span class="lang-en">Our Menu</span><span class="lang-zh">菜单精选</span><span class="lang-es">Nuestro Menú</span></a>
+        <a class="section-jump-nav__link" href="#story">📖 <span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra Historia</span></a>
+        <a class="section-jump-nav__link" href="#reviews">⭐ <span class="lang-en">Reviews</span><span class="lang-zh">客户评价</span><span class="lang-es">Reseñas</span></a>
+        <a class="section-jump-nav__link" href="#contact">📍 <span class="lang-en">Find Us</span><span class="lang-zh">位置与联系</span><span class="lang-es">Ubicación</span></a>
       </div>
     </nav>
 
@@ -1229,48 +1262,48 @@
       <section class="section menu" id="menu-highlights" aria-labelledby="menu-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Menu Highlights</p>
-            <h2 class="section__title" id="menu-title">Made Fresh to Order, Every Time</h2>
-            <p class="section__intro">A concise look at the guest favorites people come back for, from a quick weeknight meal to a long table with friends.</p>
+            <p class="section__eyebrow"><span class="lang-en">Menu Highlights</span><span class="lang-zh">菜单精选</span><span class="lang-es">Selección del Menú</span></p>
+            <h2 class="section__title" id="menu-title"><span class="lang-en">Made Fresh to Order, Every Time</span><span class="lang-zh">每一道菜，现点现做</span><span class="lang-es">Hecho fresco al momento, siempre</span></h2>
+            <p class="section__intro"><span class="lang-en">A concise look at the guest favorites people come back for, from a quick weeknight meal to a long table with friends.</span><span class="lang-zh">从家常便饭到聚餐佳选，这些是客人一再光顾的必点之选。</span><span class="lang-es">Un vistazo a los favoritos que los clientes piden una y otra vez, para una cena rápida o una gran mesa con amigos.</span></p>
           </div>
           <div class="menu-grid">
             <article class="menu-card">
               <img class="menu-card__image" src="assets/golden-wok-noodles.jpg" alt="Noodle Dishes" loading="lazy">
-              <span class="menu-card__badge">Fan Favorite</span>
-              <h3 class="menu-card__title">Noodle Dishes</h3>
-              <p class="menu-card__description">Pad Thai, lo mein, chow fun, and pan-fried noodles — wok-tossed fresh for every order. The Pad Thai is the one regulars drive across town for.</p>
-              <span class="menu-card__featured">Try: Try the Pad Thai</span>
+              <span class="menu-card__badge"><span class="lang-en">Fan Favorite</span><span class="lang-zh">人气之选</span><span class="lang-es">Favorito</span></span>
+              <h3 class="menu-card__title"><span class="lang-en">Noodle Dishes</span><span class="lang-zh">面食</span><span class="lang-es">Fideos</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Pad Thai, lo mein, chow fun, and pan-fried noodles — wok-tossed fresh for every order. The Pad Thai is the one regulars drive across town for.</span><span class="lang-zh">泰式炒河粉、捞面、炒河粉、煎面——每份现炒出锅。招牌泰式炒河粉是回头客专程驱车来吃的那一道。</span><span class="lang-es">Pad Thai, lo mein, chow fun y fideos fritos — salteados frescos en cada orden. El Pad Thai es el plato por el que los clientes cruzan la ciudad.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the Pad Thai</span><span class="lang-zh">推荐：推荐泰式炒河粉</span><span class="lang-es">Pruebe: Pruebe el Pad Thai</span></span>
             </article>
             <article class="menu-card">
               <img class="menu-card__image" src="assets/golden-wok-card-1.jpg" alt="Starters & Rolls" loading="lazy">
-              <h3 class="menu-card__title">Starters & Rolls</h3>
-              <p class="menu-card__description">Handmade spring rolls, fresh salad rolls, crab rangoon, and pot stickers — all made fresh, never frozen, with huge portions that surprise first-timers.</p>
-              <span class="menu-card__featured">Try: Try the fresh salad rolls</span>
+              <h3 class="menu-card__title"><span class="lang-en">Starters & Rolls</span><span class="lang-zh">开胃小食</span><span class="lang-es">Entradas y rollos</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Handmade spring rolls, fresh salad rolls, crab rangoon, and pot stickers — all made fresh, never frozen, with huge portions that surprise first-timers.</span><span class="lang-zh">手工春卷、鲜蔬卷、炸蟹角、锅贴——全部手工现做，绝不冷冻，分量大到让初次来的客人惊喜。</span><span class="lang-es">Rollos primavera hechos a mano, rollos de ensalada fresca, crab rangoon y potstickers — todo hecho fresco, nunca congelado, con porciones enormes.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the fresh salad rolls</span><span class="lang-zh">推荐：推荐鲜蔬卷</span><span class="lang-es">Pruebe: Pruebe los rollos de ensalada</span></span>
             </article>
             <article class="menu-card">
               <img class="menu-card__image" src="assets/golden-wok-soup.jpg" alt="Soups" loading="lazy">
-              <h3 class="menu-card__title">Soups</h3>
-              <p class="menu-card__description">Hot and sour, egg drop, wonton, and Thai coconut soup — all made from scratch daily. Gluten-free options available across the soup menu.</p>
-              <span class="menu-card__featured">Try: Try the hot and sour soup</span>
+              <h3 class="menu-card__title"><span class="lang-en">Soups</span><span class="lang-zh">汤品</span><span class="lang-es">Sopas</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Hot and sour, egg drop, wonton, and Thai coconut soup — all made from scratch daily. Gluten-free options available across the soup menu.</span><span class="lang-zh">酸辣汤、蛋花汤、馄饨汤、泰式椰汁汤——每天现熬。汤品菜单提供无麸质选项。</span><span class="lang-es">Sopa agripicante, sopa de huevo, wonton y sopa tailandesa de coco — todas hechas desde cero a diario. Opciones sin gluten disponibles.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the hot and sour soup</span><span class="lang-zh">推荐：推荐酸辣汤</span><span class="lang-es">Pruebe: Pruebe la sopa agripicante</span></span>
             </article>
             <article class="menu-card">
               <img class="menu-card__image" src="assets/golden-wok-card-4.jpg" alt="Main Dishes" loading="lazy">
-              <h3 class="menu-card__title">Main Dishes</h3>
-              <p class="menu-card__description">Orange chicken, beef with broccoli, pad see ew, Thai curry, and Vietnamese-style stir-fries — enormous portions that Jake and Diana make personally.</p>
-              <span class="menu-card__featured">Try: Try the orange chicken</span>
+              <h3 class="menu-card__title"><span class="lang-en">Main Dishes</span><span class="lang-zh">主菜</span><span class="lang-es">Platos principales</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Orange chicken, beef with broccoli, pad see ew, Thai curry, and Vietnamese-style stir-fries — enormous portions that Jake and Diana make personally.</span><span class="lang-zh">陈皮鸡、西兰花牛肉、泰式宽粉、泰式咖喱、越式快炒——超大分量，由Jake和Diana亲手烹制。</span><span class="lang-es">Pollo a la naranja, carne con brócoli, pad see ew, curry tailandés y salteados vietnamitas — porciones enormes preparadas personalmente por Jake y Diana.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the orange chicken</span><span class="lang-zh">推荐：推荐陈皮鸡</span><span class="lang-es">Pruebe: Pruebe el pollo a la naranja</span></span>
             </article>
           </div>
           <div class="menu__footer">
-            <a class="link-arrow" href="#menu-highlights">See the Full Menu</a>
+            <a class="link-arrow" href="#menu-highlights"><span class="lang-en">See the Full Menu</span><span class="lang-zh">查看完整菜单</span><span class="lang-es">Ver el menú completo</span></a>
           </div>
         </div>
       </section>
 
       <aside class="order-strip" aria-label="Ready to order">
         <div class="container order-strip__inner">
-          <p class="order-strip__text">Hungry? Give us a call.</p>
+          <p class="order-strip__text"><span class="lang-en">Hungry? Give us a call.</span><span class="lang-zh">饿了？给我们打个电话吧。</span><span class="lang-es">¿Tiene hambre? Llámenos.</span></p>
           <a class="order-strip__phone" href="tel:+16362308966">(636) 230-8966</a>
-          <a class="button button--light" href="tel:+16362308966">📞 Call to Order</a>
+          <a class="button button--light" href="tel:+16362308966">📞 <span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
         </div>
       </aside>
 
@@ -1278,17 +1311,17 @@
         <div class="container">
           <div class="story-layout">
             <div class="story-copy">
-              <p class="section__eyebrow">Our Story</p>
-              <h2 class="section__title" id="story-title">A Local Favorite in Ellisville</h2>
-              <p>Golden Wok has been a fixture on Manchester Road since 1991 — long before the strip became the restaurant corridor it is today. Jake and Diana opened the kitchen with a simple rule that still holds 35 years later: every dish goes out fresh, made to order, with no shortcuts.</p>
-              <p>What started as a traditional Chinese menu has grown to include Thai and Vietnamese dishes, driven by customer requests and the owners' passion for the broader pan-Asian kitchen. The Pad Thai became the most-talked-about dish in the neighborhood — and the soups are made from scratch every single morning.</p>
-              <p>"The owners make everyone feel like family," is something regulars say time and again. Golden Wok is the rare restaurant where the same customers have been coming in for 20 years — and where gluten-free diners can eat without worry, because Jake and Diana take every request seriously.</p>
+              <p class="section__eyebrow"><span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra Historia</span></p>
+              <h2 class="section__title" id="story-title"><span class="lang-en">A Local Favorite in Ellisville</span><span class="lang-zh">Ellisville 的街坊老店</span><span class="lang-es">Un favorito local en Ellisville</span></h2>
+              <p><span class="lang-en">Golden Wok has been a fixture on Manchester Road since 1991 — long before the strip became the restaurant corridor it is today. Jake and Diana opened the kitchen with a simple rule that still holds 35 years later: every dish goes out fresh, made to order, with no shortcuts.</span><span class="lang-zh">Golden Wok 自1991年起便扎根 Manchester Road——远早于这条路成为今天的餐饮长廊。Jake 和 Diana 开店时立下一条至今不变的规矩：每道菜现点现做，绝不偷工减料。</span><span class="lang-es">Golden Wok ha sido un pilar en Manchester Road desde 1991 — mucho antes de que la franja se convirtiera en el corredor gastronómico que es hoy. Jake y Diana abrieron la cocina con una regla sencilla que sigue vigente 35 años después: cada plato sale fresco, hecho al momento, sin atajos.</span></p>
+              <p><span class="lang-en">What started as a traditional Chinese menu has grown to include Thai and Vietnamese dishes, driven by customer requests and the owners' passion for the broader pan-Asian kitchen. The Pad Thai became the most-talked-about dish in the neighborhood — and the soups are made from scratch every single morning.</span><span class="lang-zh">从最初的传统中餐菜单，到如今融合泰式和越式菜品——这一切源于客人的需求和老板对泛亚料理的热爱。泰式炒河粉成了街坊间最受热议的一道菜，而汤品每天清晨从头熬制。</span><span class="lang-es">Lo que empezó como un menú chino tradicional ha crecido para incluir platos tailandeses y vietnamitas, impulsado por los pedidos de los clientes y la pasión de los dueños por la cocina pan-asiática. El Pad Thai se convirtió en el plato más comentado del vecindario — y las sopas se preparan desde cero cada mañana.</span></p>
+              <p><span class="lang-en">"The owners make everyone feel like family," is something regulars say time and again. Golden Wok is the rare restaurant where the same customers have been coming in for 20 years — and where gluten-free diners can eat without worry, because Jake and Diana take every request seriously.</span><span class="lang-zh">「老板让每个人都有回家的感觉」——这是回头客们反复提到的。Golden Wok 是那种同一批客人光顾了20年的稀有餐厅；无麸质饮食的客人也能放心用餐，因为 Jake 和 Diana 认真对待每一个需求。</span><span class="lang-es">"Los dueños hacen que todos se sientan en familia" es algo que los clientes frecuentes dicen una y otra vez. Golden Wok es ese restaurante especial donde los mismos clientes llevan 20 años viniendo — y donde los comensales sin gluten pueden comer sin preocupaciones, porque Jake y Diana toman cada solicitud en serio.</span></p>
             </div>
             <aside class="signature-card" aria-label="Signature dish highlight">
-              <span class="signature-card__badge">35 Years Serving Ellisville</span>
+              <span class="signature-card__badge"><span class="lang-en">35 Years Serving Ellisville</span><span class="lang-zh">扎根Ellisville 35年</span><span class="lang-es">35 Años sirviendo a Ellisville</span></span>
               <blockquote>
-                Made fresh to order. Pad Thai is outstanding. Huge portions, very friendly staff.
-                <cite>Pad Thai</cite>
+                <span class="lang-en">Made fresh to order. Pad Thai is outstanding. Huge portions, very friendly staff.</span><span class="lang-zh">现点现做。泰式炒河粉太棒了。分量超大，店员非常友善。</span><span class="lang-es">Hecho fresco al momento. El Pad Thai es excepcional. Porciones enormes, personal muy amable.</span>
+                <cite><span class="lang-en">Pad Thai</span><span class="lang-zh">泰式炒河粉</span><span class="lang-es">Pad Thai</span></cite>
               </blockquote>
             </aside>
           </div>
@@ -1298,9 +1331,9 @@
       <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Guest Notes</p>
-            <h2 class="section__title" id="reviews-title">What Ellisville Regulars Say</h2>
-            <p class="section__intro">Warm service, dependable cooking, and meals that feel personal are what regulars mention most.</p>
+            <p class="section__eyebrow"><span class="lang-en">Guest Notes</span><span class="lang-zh">食客心声</span><span class="lang-es">Opiniones</span></p>
+            <h2 class="section__title" id="reviews-title"><span class="lang-en">What Ellisville Regulars Say</span><span class="lang-zh">Ellisville 老顾客怎么说</span><span class="lang-es">Lo que dicen los clientes frecuentes de Ellisville</span></h2>
+            <p class="section__intro"><span class="lang-en">Warm service, dependable cooking, and meals that feel personal are what regulars mention most.</span><span class="lang-zh">热情的服务、可靠的厨艺、让人倍感亲切的每一餐——这是老顾客们最常提到的。</span><span class="lang-es">Servicio cálido, cocina confiable y comidas que se sienten personales — eso es lo que más mencionan los clientes frecuentes.</span></p>
           </div>
           <div class="reviews-summary">
             <span class="reviews-summary__rating">4.6</span>
@@ -1308,27 +1341,27 @@
               <span aria-hidden="true">★★★★★</span>
               <span class="reviews-summary__stars-fill" aria-hidden="true">★★★★★</span>
             </div>
-            <span class="reviews-summary__label">Based on 321 Google reviews</span>
+            <span class="reviews-summary__label"><span class="lang-en">Based on 321 Google reviews</span><span class="lang-zh">基于 321 条 Google 评价</span><span class="lang-es">Basado en 321 reseñas de Google</span></span>
           </div>
           <div class="reviews-grid">
             <article class="review-card">
               <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
-              <blockquote>Large portions of the most delicious and healthy food EVER!! The owners make everyone feel like family.</blockquote>
+              <blockquote><span class="lang-en">Large portions of the most delicious and healthy food EVER!! The owners make everyone feel like family.</span><span class="lang-zh">分量超大，是我吃过的最好吃、最健康的食物！老板让每个人都有回家的感觉。</span><span class="lang-es">¡Porciones enormes de la comida más deliciosa y saludable que he probado! Los dueños hacen que todos se sientan en familia.</span></blockquote>
               <p class="review-card__name">Gail L.</p>
             </article>
             <article class="review-card">
               <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
-              <blockquote>Made fresh to order. Pad Thai is outstanding. Huge portions, very friendly staff.</blockquote>
+              <blockquote><span class="lang-en">Made fresh to order. Pad Thai is outstanding. Huge portions, very friendly staff.</span><span class="lang-zh">现点现做。泰式炒河粉太棒了。分量超大，店员非常友善。</span><span class="lang-es">Hecho fresco al momento. El Pad Thai es excepcional. Porciones enormes, personal muy amable.</span></blockquote>
               <p class="review-card__name">Sandy P.</p>
             </article>
             <article class="review-card">
               <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
-              <blockquote>Jake and Diana are two of the most awesome people! Great for celiac/gluten free people too!</blockquote>
+              <blockquote><span class="lang-en">Jake and Diana are two of the most awesome people! Great for celiac/gluten free people too!</span><span class="lang-zh">Jake 和 Diana 是最棒的老板！对乳糜泻和无麸质饮食的客人也特别友好！</span><span class="lang-es">¡Jake y Diana son dos de las personas más increíbles! ¡También es excelente para personas celíacas o sin gluten!</span></blockquote>
               <p class="review-card__name">Lisa B.</p>
             </article>
           </div>
           <div class="reviews-footer">
-            <a class="link-arrow" href="https://www.google.com/maps?cid=12109610747587722318" target="_blank" rel="noopener">Read all 321 reviews on Google</a>
+            <a class="link-arrow" href="https://www.google.com/maps?cid=12109610747587722318" target="_blank" rel="noopener"><span class="lang-en">Read all 321 reviews on Google</span><span class="lang-zh">查看全部 321 条 Google 评价</span><span class="lang-es">Leer las 321 reseñas en Google</span></a>
           </div>
         </div>
       </section>
@@ -1336,45 +1369,45 @@
       <section class="section contact" id="contact" aria-labelledby="contact-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Visit Today</p>
-            <h2 class="section__title" id="contact-title">Find Us</h2>
-            <p class="section__intro">Call ahead, check today's hours, or get directions straight to the restaurant.</p>
+            <p class="section__eyebrow"><span class="lang-en">Visit Today</span><span class="lang-zh">欢迎光临</span><span class="lang-es">Visítenos hoy</span></p>
+            <h2 class="section__title" id="contact-title"><span class="lang-en">Find Us</span><span class="lang-zh">位置与联系</span><span class="lang-es">Ubicación y contacto</span></h2>
+            <p class="section__intro"><span class="lang-en">Call ahead, check today's hours, or get directions straight to the restaurant.</span><span class="lang-zh">提前致电、查询营业时间，或直接导航到店。</span><span class="lang-es">Llame con anticipación, consulte el horario o encuentre las indicaciones al restaurante.</span></p>
           </div>
           <div class="contact-layout">
             <article class="contact-card">
               <div class="contact-card__top">
-                <h3 class="contact-card__heading">Hours & Contact</h3>
+                <h3 class="contact-card__heading"><span class="lang-en">Hours &amp; Contact</span><span class="lang-zh">营业时间</span><span class="lang-es">Horario y contacto</span></h3>
                 <span class="contact-status status--open">Open Now</span>
               </div>
-              <p class="today-hours">Today: 11:30 AM – 8:30 PM</p>
+              <p class="today-hours"><span class="lang-en">Today: </span><span class="lang-zh">今日：</span><span class="lang-es">Hoy: </span>11:30 AM – 8:30 PM</p>
               <table class="hours-table" aria-label="Weekly restaurant hours">
                 <tbody>
                   <tr>
-                    <th scope="row">Monday</th>
+                    <th scope="row"><span class="lang-en">Monday</span><span class="lang-zh">星期一</span><span class="lang-es">Lunes</span></th>
                     <td>11:30 AM – 8:30 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Tuesday</th>
+                    <th scope="row"><span class="lang-en">Tuesday</span><span class="lang-zh">星期二</span><span class="lang-es">Martes</span></th>
                     <td>11:30 AM – 8:30 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Wednesday</th>
+                    <th scope="row"><span class="lang-en">Wednesday</span><span class="lang-zh">星期三</span><span class="lang-es">Miércoles</span></th>
                     <td>11:30 AM – 8:30 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Thursday</th>
+                    <th scope="row"><span class="lang-en">Thursday</span><span class="lang-zh">星期四</span><span class="lang-es">Jueves</span></th>
                     <td>11:30 AM – 8:30 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Friday</th>
+                    <th scope="row"><span class="lang-en">Friday</span><span class="lang-zh">星期五</span><span class="lang-es">Viernes</span></th>
                     <td>11:30 AM – 8:30 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Saturday</th>
+                    <th scope="row"><span class="lang-en">Saturday</span><span class="lang-zh">星期六</span><span class="lang-es">Sábado</span></th>
                     <td>12:00 PM – 8:30 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Sunday</th>
+                    <th scope="row"><span class="lang-en">Sunday</span><span class="lang-zh">星期日</span><span class="lang-es">Domingo</span></th>
                     <td>Closed</td>
                   </tr>
                 </tbody>
@@ -1386,12 +1419,12 @@
                 </li>
               </ul>
               <div class="contact-actions">
-                <a class="button button--primary" href="tel:+16362308966">Call to Order</a>
+                <a class="button button--primary" href="tel:+16362308966"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
               </div>
             </article>
             <article class="contact-card">
               <div class="contact-card__top">
-                <h3 class="contact-card__heading">Map & Directions</h3>
+                <h3 class="contact-card__heading"><span class="lang-en">Map &amp; Directions</span><span class="lang-zh">地图导航</span><span class="lang-es">Mapa e indicaciones</span></h3>
               </div>
               <p class="contact-address">📍 15941 Manchester Rd, Ellisville, MO 63011</p>
               <div class="map-wrap">
@@ -1404,8 +1437,8 @@
                 </iframe>
               </div>
               <div class="map-actions">
-                <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=15941+Manchester+Rd+Ellisville+MO+63011" target="_blank" rel="noopener">Get Directions</a>
-                <a class="link-arrow" href="#menu-highlights">View Full Menu</a>
+                <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=15941+Manchester+Rd+Ellisville+MO+63011" target="_blank" rel="noopener"><span class="lang-en">Get Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Ver cómo llegar</span></a>
+                <a class="link-arrow" href="#menu-highlights"><span class="lang-en">View Full Menu</span><span class="lang-zh">查看完整菜单</span><span class="lang-es">Ver menú completo</span></a>
               </div>
             </article>
           </div>
@@ -1415,7 +1448,7 @@
 
     <footer class="site-footer">
       <div class="container site-footer__inner">
-        <span>© 2026 Golden Wok. All rights reserved.</span>
+        <span><span class="lang-en">© 2026 Golden Wok. All rights reserved.</span><span class="lang-zh">© 2026 Golden Wok 版权所有</span><span class="lang-es">© 2026 Golden Wok. Todos los derechos reservados.</span></span>
         <span>15941 Manchester Rd, Ellisville, MO 63011</span>
         <a href="tel:+16362308966">(636) 230-8966</a>
       </div>
@@ -1489,13 +1522,13 @@
   <a class="mobile-call-bar__phone" href="tel:+16362308966">
     <span class="mobile-call-bar__icon">📞</span>
     <span class="mobile-call-bar__text">
-      <span class="mobile-call-bar__label">Call to Order</span>
+      <span class="mobile-call-bar__label"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></span>
       <span class="mobile-call-bar__number">(636) 230-8966</span>
     </span>
   </a>
   <a class="mobile-call-bar__directions" href="https://www.google.com/maps/dir/?api=1&destination=15941+Manchester+Rd+Ellisville+MO+63011" target="_blank" rel="noopener">
     <span class="mobile-call-bar__icon">📍</span>
-    <span class="mobile-call-bar__label">Directions</span>
+    <span class="mobile-call-bar__label"><span class="lang-en">Directions</span><span class="lang-zh">导航</span><span class="lang-es">Cómo llegar</span></span>
   </a>
 </div>
 
@@ -1509,6 +1542,21 @@
           html.setAttribute('data-theme', theme);
           buttons.forEach(function (b) { b.classList.remove('active'); });
           btn.classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var html = document.documentElement;
+      document.querySelectorAll(".lang-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var lang = btn.getAttribute("data-lang");
+          html.setAttribute("data-lang", lang);
+          html.setAttribute("lang", lang === "zh" ? "zh-CN" : lang === "es" ? "es" : "en");
+          document.querySelectorAll(".lang-btn").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
         });
       });
     })();

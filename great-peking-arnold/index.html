@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -84,38 +84,19 @@
 
     /* ── Theme switcher UI ── */
     .theme-switcher {
-      position: fixed;
-      right: 18px;
-      bottom: 100px;
-      z-index: 8888;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      background: #fff;
-      border-radius: 999px;
-      padding: 10px 8px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-      border: 1px solid rgba(0,0,0,0.08);
+      position: fixed; right: 18px; top: 78px; z-index: 8888;
+      display: flex; flex-direction: row; align-items: center; gap: 8px;
+      background: #fff; border-radius: 999px; padding: 8px 14px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18); border: 1px solid rgba(0,0,0,0.08);
     }
     .theme-switcher__label {
-      font-size: 10px;
-      font-weight: 700;
-      color: #888;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      margin-bottom: 4px;
+      font-size: 10px; font-weight: 700; color: #888; letter-spacing: 0.08em;
+      text-transform: uppercase; white-space: nowrap; margin-right: 2px;
     }
     .theme-btn {
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
-      border: 2px solid transparent;
-      cursor: pointer;
-      transition: transform 160ms ease, border-color 160ms ease;
-      padding: 0;
+      width: 26px; height: 26px; border-radius: 999px; border: 2px solid transparent;
+      cursor: pointer; transition: transform 160ms ease, border-color 160ms ease; padding: 0;
+      flex: 0 0 auto;
     }
     .theme-btn:hover { transform: scale(1.18); }
     .theme-btn.active { border-color: #333; transform: scale(1.12); }
@@ -124,8 +105,25 @@
     .theme-btn[data-theme="mocha-warmth"]     { background: #6B3F2A; }
     .theme-btn[data-theme="forest-calm"]      { background: #1E4D35; }
     .theme-btn[data-theme="slate-modern"]     { background: #2D3142; }
-    @media (max-width: 767px) {
-      .theme-switcher { bottom: 104px; right: 12px; }
+    @media (max-width: 767px) { .theme-switcher { top: 78px; right: 12px; gap: 6px; padding: 7px 12px; } }
+
+    /* ── Language switcher ── */
+    .lang-zh, .lang-es { display: none; }
+    [data-lang="zh"] .lang-en { display: none; }
+    [data-lang="zh"] .lang-zh { display: revert; }
+    [data-lang="es"] .lang-en { display: none; }
+    [data-lang="es"] .lang-es { display: revert; }
+
+    .lang-switcher { display: flex; align-items: center; gap: 4px; }
+    .lang-btn {
+      display: inline-flex; min-height: 44px; align-items: center;
+      padding: 4px 9px; border: 1px solid rgba(0,0,0,0.14); border-radius: 6px;
+      background: transparent; font-family: var(--font-body); font-size: 13px;
+      font-weight: 700; cursor: pointer; color: rgba(44,44,44,0.68);
+      transition: background 160ms, color 160ms, border-color 160ms; white-space: nowrap;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      background: var(--color-primary); color: #fff; border-color: var(--color-primary);
     }
 
     *,
@@ -605,7 +603,7 @@
     }
 
     .signature-card::before {
-      content: "“";
+      content: "\201C";
       position: absolute;
       top: -24px;
       right: 22px;
@@ -785,7 +783,7 @@
       display: grid;
       grid-template-columns: 32px 1fr;
       gap: 10px;
-      align-items: start;
+      align-items: center;
     }
 
     .contact-list__icon {
@@ -807,6 +805,12 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 12px;
+    }
+
+    .contact-address {
+      font-size: 15px;
+      color: var(--color-text);
+      margin: 0 0 14px;
     }
 
     .map-wrap {
@@ -953,7 +957,7 @@
       }
 
       .section__title {
-        font-size: clamp(42px, 5vw, 58px);
+        font-size: clamp(28px, 3.2vw, 36px);
       }
 
       .site-nav__actions {
@@ -961,11 +965,11 @@
       }
 
       .hero {
-        min-height: 640px;
+        min-height: 520px;
       }
 
       .hero__content {
-        padding: 112px 0 116px;
+        padding: 56px 0 60px;
       }
 
       .hero__title {
@@ -1193,6 +1197,15 @@
     @media (min-width: 768px) {
       .menu-card__image { width: calc(100% + 60px); margin: -30px -30px 18px; }
     }
+
+    /* ── CJK typography adjustments ── */
+    [data-lang="zh"] .section__eyebrow,
+    [data-lang="zh"] .hero__kicker { letter-spacing: 0.04em; }
+    [data-lang="zh"] .story-copy p { line-height: 1.75; }
+    [data-lang="zh"] .review-card blockquote { line-height: 1.65; }
+    [data-lang="zh"] .signature-card blockquote { line-height: 1.55; }
+    [data-lang="zh"] .review-card blockquote,
+    [data-lang="zh"] .signature-card blockquote { font-family: var(--font-body); font-style: normal; }
   </style>
 </head>
 <body>
@@ -1203,9 +1216,14 @@
           <span class="site-nav__mark" aria-hidden="true">R</span>
           <span class="site-nav__name">Great Peking</span>
         </a>
+        <div class="lang-switcher" role="group" aria-label="Language / 语言 / Idioma">
+          <button class="lang-btn active" data-lang="en" title="English">🇺🇸 EN</button>
+          <button class="lang-btn" data-lang="zh" title="中文">🇨🇳 中文</button>
+          <button class="lang-btn" data-lang="es" title="Español">🇲🇽 ES</button>
+        </div>
         <div class="site-nav__actions" aria-label="Quick actions">
           <a class="site-nav__phone" href="tel:+16363333198">(636) 333-3198</a>
-          <a class="button button--primary" href="tel:+16363333198">Call Now</a>
+          <a class="button button--primary" href="tel:+16363333198"><span class="lang-en">Call Now</span><span class="lang-zh">立即致电</span><span class="lang-es">Llamar ahora</span></a>
         </div>
       </div>
     </nav>
@@ -1213,30 +1231,30 @@
     <header class="hero" id="top" role="banner" aria-label="Great Peking — fresh Chinese cuisine on Jeffco Blvd in Arnold, MO">
       <div class="container">
         <div class="hero__content">
-          <p class="hero__kicker">Arnold Restaurant</p>
+          <p class="hero__kicker"><span class="lang-en">Arnold Restaurant</span><span class="lang-zh">Arnold 餐厅</span><span class="lang-es">Restaurante en Arnold</span></p>
           <h1 class="hero__title">Great Peking</h1>
-          <p class="hero__tagline">Arnold's Favorite Chinese Restaurant — Serving Fresh for Over 20 Years</p>
+          <p class="hero__tagline"><span class="lang-en">Arnold's Favorite Chinese Restaurant — Serving Fresh for Over 20 Years</span><span class="lang-zh">Arnold 最受欢迎的中餐馆——新鲜出品超过20年</span><span class="lang-es">El restaurante chino favorito de Arnold — sirviendo fresco por más de 20 años</span></p>
           <div class="hero__badges" aria-label="Restaurant highlights">
             <span class="pill">📍 Arnold</span>
-            <span class="pill">🍽 20 Years Serving</span>
+            <span class="pill"><span class="lang-en">🍽 20 Years Serving</span><span class="lang-zh">🍽 20 年老店</span><span class="lang-es">🍽 20 Años sirviendo</span></span>
             <span class="pill status--open">Open Now</span>
           </div>
           <div class="hero__ctas" aria-label="Hero actions">
-            <a class="button button--primary" href="tel:+16363333198">Call to Order</a>
-            <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=669+Jeffco+Blvd+Arnold+MO+63010" target="_blank" rel="noopener">Get Directions</a>
+            <a class="button button--primary" href="tel:+16363333198"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
+            <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=669+Jeffco+Blvd+Arnold+MO+63010" target="_blank" rel="noopener"><span class="lang-en">Get Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Ver cómo llegar</span></a>
           </div>
           <p class="hero__phone-display"><a href="tel:+16363333198">(636) 333-3198</a></p>
-          <a class="link-arrow hero__menu-link" href="#menu-highlights">View Full Menu</a>
+          <a class="link-arrow hero__menu-link" href="#menu-highlights"><span class="lang-en">View Full Menu</span><span class="lang-zh">查看完整菜单</span><span class="lang-es">Ver menú completo</span></a>
         </div>
       </div>
     </header>
 
     <nav class="section-jump-nav" aria-label="Jump to section">
       <div class="section-jump-nav__inner">
-        <a class="section-jump-nav__link" href="#menu-highlights">🍽 Our Menu</a>
-        <a class="section-jump-nav__link" href="#story">📖 Our Story</a>
-        <a class="section-jump-nav__link" href="#reviews">⭐ Reviews</a>
-        <a class="section-jump-nav__link" href="#contact">📍 Find Us</a>
+        <a class="section-jump-nav__link" href="#menu-highlights">🍽 <span class="lang-en">Our Menu</span><span class="lang-zh">菜单精选</span><span class="lang-es">Nuestro Menú</span></a>
+        <a class="section-jump-nav__link" href="#story">📖 <span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra Historia</span></a>
+        <a class="section-jump-nav__link" href="#reviews">⭐ <span class="lang-en">Reviews</span><span class="lang-zh">客户评价</span><span class="lang-es">Reseñas</span></a>
+        <a class="section-jump-nav__link" href="#contact">📍 <span class="lang-en">Find Us</span><span class="lang-zh">位置与联系</span><span class="lang-es">Ubicación</span></a>
       </div>
     </nav>
 
@@ -1244,48 +1262,48 @@
       <section class="section menu" id="menu-highlights" aria-labelledby="menu-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Menu Highlights</p>
-            <h2 class="section__title" id="menu-title">The Chinese Food Arnold Comes Back to Again and Again</h2>
-            <p class="section__intro">A concise look at the guest favorites people come back for, from a quick weeknight meal to a long table with friends.</p>
+            <p class="section__eyebrow"><span class="lang-en">Menu Highlights</span><span class="lang-zh">菜单精选</span><span class="lang-es">Selección del Menú</span></p>
+            <h2 class="section__title" id="menu-title"><span class="lang-en">The Chinese Food Arnold Comes Back to Again and Again</span><span class="lang-zh">Arnold 居民一再回购的中餐</span><span class="lang-es">La comida china a la que Arnold vuelve una y otra vez</span></h2>
+            <p class="section__intro"><span class="lang-en">A concise look at the guest favorites people come back for, from a quick weeknight meal to a long table with friends.</span><span class="lang-zh">从家常便饭到聚餐佳选，这些是客人一再光顾的必点之选。</span><span class="lang-es">Un vistazo a los favoritos que los clientes piden una y otra vez, para una cena rápida o una gran mesa con amigos.</span></p>
           </div>
           <div class="menu-grid">
             <article class="menu-card">
               <img class="menu-card__image" src="assets/great-peking-card-1.jpg" alt="Fried Rice" loading="lazy">
-              <span class="menu-card__badge">Fan Favorite</span>
-              <h3 class="menu-card__title">Fried Rice</h3>
-              <p class="menu-card__description">Wok-tossed fried rice with fresh vegetables and your choice of protein — always fresh, never pre-cooked. Customers say it's the best fried rice they've had, and they keep coming back to prove it.</p>
-              <span class="menu-card__featured">Try: Try the fried rice</span>
+              <span class="menu-card__badge"><span class="lang-en">Fan Favorite</span><span class="lang-zh">人气之选</span><span class="lang-es">Favorito</span></span>
+              <h3 class="menu-card__title"><span class="lang-en">Fried Rice</span><span class="lang-zh">炒饭</span><span class="lang-es">Arroz frito</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Wok-tossed fried rice with fresh vegetables and your choice of protein — always fresh, never pre-cooked. Customers say it's the best fried rice they've had, and they keep coming back to prove it.</span><span class="lang-zh">新鲜蔬菜和自选蛋白质大火翻炒——始终新鲜，从不预制。客人们说这是他们吃过最好的炒饭，用行动反复验证。</span><span class="lang-es">Arroz frito al wok con vegetales frescos y su elección de proteína — siempre fresco, nunca precocido. Los clientes dicen que es el mejor arroz frito que han probado, y siguen regresando para comprobarlo.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the fried rice</span><span class="lang-zh">推荐：推荐炒饭</span><span class="lang-es">Pruebe: Pruebe el arroz frito</span></span>
             </article>
             <article class="menu-card">
               <img class="menu-card__image" src="assets/great-peking-card-2.jpg" alt="Potstickers" loading="lazy">
-              <h3 class="menu-card__title">Potstickers</h3>
-              <p class="menu-card__description">Pan-fried dumplings with a crispy bottom and juicy filling — made in-house with the same care as every dish. Regulars order these every visit alongside fried rice for good reason.</p>
-              <span class="menu-card__featured">Try: Try the potstickers</span>
+              <h3 class="menu-card__title"><span class="lang-en">Potstickers</span><span class="lang-zh">锅贴</span><span class="lang-es">Potstickers</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Pan-fried dumplings with a crispy bottom and juicy filling — made in-house with the same care as every dish. Regulars order these every visit alongside fried rice for good reason.</span><span class="lang-zh">底部金黄酥脆、馅料多汁的煎饺——和每道菜一样用心手工制作。回头客每次来都必点锅贴配炒饭，绝非偶然。</span><span class="lang-es">Dumplings fritos con fondo crujiente y relleno jugoso — hechos en casa con el mismo cuidado que cada plato. Los clientes frecuentes los piden en cada visita junto con arroz frito por una buena razón.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the potstickers</span><span class="lang-zh">推荐：推荐锅贴</span><span class="lang-es">Pruebe: Pruebe los potstickers</span></span>
             </article>
             <article class="menu-card">
               <img class="menu-card__image" src="assets/great-peking-card-3.jpg" alt="Egg Foo Young" loading="lazy">
-              <h3 class="menu-card__title">Egg Foo Young</h3>
-              <p class="menu-card__description">Traditional egg foo young patties served with a rich, flavorful gravy — a house specialty that reviewers highlight as a standout dish. Generous portions at prices that make this an incredible value.</p>
-              <span class="menu-card__featured">Try: Try the egg foo young</span>
+              <h3 class="menu-card__title"><span class="lang-en">Egg Foo Young</span><span class="lang-zh">芙蓉蛋</span><span class="lang-es">Egg Foo Young</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Traditional egg foo young patties served with a rich, flavorful gravy — a house specialty that reviewers highlight as a standout dish. Generous portions at prices that make this an incredible value.</span><span class="lang-zh">传统芙蓉蛋饼配浓郁鲜美的酱汁——食客们特别推荐的招牌菜。分量慷慨，价格超值。</span><span class="lang-es">Tortillas tradicionales de egg foo young servidas con una salsa rica y sabrosa — una especialidad de la casa que los clientes destacan como plato estrella. Porciones generosas a precios que lo hacen increíblemente valioso.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the egg foo young</span><span class="lang-zh">推荐：推荐芙蓉蛋</span><span class="lang-es">Pruebe: Pruebe el egg foo young</span></span>
             </article>
             <article class="menu-card">
               <img class="menu-card__image" src="assets/great-peking-card-4.jpg" alt="House Specialties" loading="lazy">
-              <h3 class="menu-card__title">House Specialties</h3>
-              <p class="menu-card__description">Orange chicken, beef with broccoli, Kung Pao, and Mongolian dishes — all made fresh with generous portions. The owner knows every item on the menu and makes sure every plate reflects Great Peking's standard.</p>
-              <span class="menu-card__featured">Try: Ask the owner for recommendations</span>
+              <h3 class="menu-card__title"><span class="lang-en">House Specialties</span><span class="lang-zh">招牌特色菜</span><span class="lang-es">Especialidades de la casa</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Orange chicken, beef with broccoli, Kung Pao, and Mongolian dishes — all made fresh with generous portions. The owner knows every item on the menu and makes sure every plate reflects Great Peking's standard.</span><span class="lang-zh">陈皮鸡、西兰花牛肉、宫保鸡丁、蒙古菜——全部新鲜制作、分量十足。老板对每道菜了如指掌，确保每一盘都达到 Great Peking 的标准。</span><span class="lang-es">Pollo a la naranja, carne con brócoli, Kung Pao y platos al estilo mongol — todos hechos frescos con porciones generosas. El dueño conoce cada plato del menú y se asegura de que cada orden refleje el estándar de Great Peking.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Ask the owner for recommendations</span><span class="lang-zh">推荐：请老板推荐</span><span class="lang-es">Pruebe: Pida recomendaciones al dueño</span></span>
             </article>
           </div>
           <div class="menu__footer">
-            <a class="link-arrow" href="#menu-highlights">See the Full Menu</a>
+            <a class="link-arrow" href="#menu-highlights"><span class="lang-en">See the Full Menu</span><span class="lang-zh">查看完整菜单</span><span class="lang-es">Ver el menú completo</span></a>
           </div>
         </div>
       </section>
 
       <aside class="order-strip" aria-label="Ready to order">
         <div class="container order-strip__inner">
-          <p class="order-strip__text">Hungry? Give us a call.</p>
+          <p class="order-strip__text"><span class="lang-en">Hungry? Give us a call.</span><span class="lang-zh">饿了？给我们打个电话吧。</span><span class="lang-es">¿Tiene hambre? Llámenos.</span></p>
           <a class="order-strip__phone" href="tel:+16363333198">(636) 333-3198</a>
-          <a class="button button--light" href="tel:+16363333198">📞 Call to Order</a>
+          <a class="button button--light" href="tel:+16363333198">📞 <span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
         </div>
       </aside>
 
@@ -1293,17 +1311,17 @@
         <div class="container">
           <div class="story-layout">
             <div class="story-copy">
-              <p class="section__eyebrow">Our Story</p>
-              <h2 class="section__title" id="story-title">A Local Favorite in Arnold</h2>
-              <p>Great Peking has been a fixture on Jeffco Boulevard for over two decades. The kind of restaurant where regulars have been coming for years — and where first-timers become regulars after their first visit. With a 4.0-star Yelp rating and 196 reviews, the community has spoken.</p>
-              <p>The owner works the counter personally, knows the menu cold, and takes time to give recommendations to every new customer. The kitchen delivers generous portions at prices that make Great Peking one of the best values in the Arnold area.</p>
-              <p>"Still serving the best Chinese food in Arnold" is how regulars describe it — and one reviewer called it the best Chinese food they'd had in 35 years of eating out. That kind of loyalty is built one plate of fried rice at a time. Open Tuesday through Sunday.</p>
+              <p class="section__eyebrow"><span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra Historia</span></p>
+              <h2 class="section__title" id="story-title"><span class="lang-en">20+ Years of the Best Chinese Food in Arnold</span><span class="lang-zh">Arnold 最好的中餐，超过20年</span><span class="lang-es">Más de 20 años de la mejor comida china en Arnold</span></h2>
+              <p><span class="lang-en">Great Peking has been a fixture on Jeffco Boulevard for over two decades. The kind of restaurant where regulars have been coming for years — and where first-timers become regulars after their first visit. With a 4.0-star Yelp rating and 196 reviews, the community has spoken.</span><span class="lang-zh">Great Peking 在 Jeffco Boulevard 已是二十多年的地标。这是那种老客光顾多年、新客一来就变回头客的餐厅。Yelp 4.0星评分和196条评价，社区已经给出了答案。</span><span class="lang-es">Great Peking ha sido un pilar en Jeffco Boulevard por más de dos décadas. El tipo de restaurante donde los clientes frecuentes llevan años viniendo — y donde los primerizos se convierten en habituales después de su primera visita. Con una calificación de 4.0 estrellas en Yelp y 196 reseñas, la comunidad ha hablado.</span></p>
+              <p><span class="lang-en">The owner works the counter personally, knows the menu cold, and takes time to give recommendations to every new customer. The kitchen delivers generous portions at prices that make Great Peking one of the best values in the Arnold area.</span><span class="lang-zh">老板亲自站台，对菜单烂熟于心，对每位新客人都会花时间推荐菜品。厨房出品分量十足、价格实惠，让 Great Peking 成为 Arnold 地区性价比最高的餐厅之一。</span><span class="lang-es">El dueño atiende personalmente en el mostrador, conoce el menú de memoria y se toma el tiempo de dar recomendaciones a cada cliente nuevo. La cocina ofrece porciones generosas a precios que hacen de Great Peking uno de los mejores valores en el área de Arnold.</span></p>
+              <p><span class="lang-en">"Still serving the best Chinese food in Arnold" is how regulars describe it — and one reviewer called it the best Chinese food they'd had in 35 years of eating out. That kind of loyalty is built one plate of fried rice at a time. Open Tuesday through Sunday.</span><span class="lang-zh">「Arnold 最好的中餐，一直都是」——这是老客们的评价。有位食客说这是他35年外食经历中吃过最好的中餐。这种忠诚是一盘一盘炒饭攒出来的。周二至周日营业。</span><span class="lang-es">"Sigue sirviendo la mejor comida china en Arnold" es como lo describen los habituales — y un cliente dijo que era la mejor comida china que había probado en 35 años comiendo fuera. Ese tipo de lealtad se construye un plato de arroz frito a la vez. Abierto de martes a domingo.</span></p>
             </div>
             <aside class="signature-card" aria-label="Signature dish highlight">
-              <span class="signature-card__badge">20 Years Serving Arnold</span>
+              <span class="signature-card__badge"><span class="lang-en">20 Years Serving Arnold</span><span class="lang-zh">扎根Arnold 20年</span><span class="lang-es">20 Años sirviendo a Arnold</span></span>
               <blockquote>
-                Still serving the best Chinese food in Arnold, MO! The fried rice and potstickers are always fresh and delicious.
-                <cite>Fried Rice</cite>
+                <span class="lang-en">Still serving the best Chinese food in Arnold, MO! The fried rice and potstickers are always fresh and delicious.</span><span class="lang-zh">Arnold 最好的中餐，一直都是！炒饭和锅贴始终新鲜可口。</span><span class="lang-es">¡Sigue sirviendo la mejor comida china en Arnold, MO! El arroz frito y los potstickers siempre están frescos y deliciosos.</span>
+                <cite><span class="lang-en">Fried Rice</span><span class="lang-zh">炒饭</span><span class="lang-es">Arroz frito</span></cite>
               </blockquote>
             </aside>
           </div>
@@ -1313,9 +1331,9 @@
       <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Guest Notes</p>
-            <h2 class="section__title" id="reviews-title">What Arnold Regulars Say</h2>
-            <p class="section__intro">Warm service, dependable cooking, and meals that feel personal are what regulars mention most.</p>
+            <p class="section__eyebrow"><span class="lang-en">Guest Notes</span><span class="lang-zh">食客心声</span><span class="lang-es">Opiniones</span></p>
+            <h2 class="section__title" id="reviews-title"><span class="lang-en">What Arnold Regulars Say</span><span class="lang-zh">Arnold 老顾客怎么说</span><span class="lang-es">Lo que dicen los clientes frecuentes de Arnold</span></h2>
+            <p class="section__intro"><span class="lang-en">Warm service, dependable cooking, and meals that feel personal are what regulars mention most.</span><span class="lang-zh">热情的服务、可靠的厨艺、让人倍感亲切的每一餐——这是老顾客们最常提到的。</span><span class="lang-es">Servicio cálido, cocina confiable y comidas que se sienten personales — eso es lo que más mencionan los clientes frecuentes.</span></p>
           </div>
           <div class="reviews-summary">
             <span class="reviews-summary__rating">4.0</span>
@@ -1323,27 +1341,27 @@
               <span aria-hidden="true">★★★★★</span>
               <span class="reviews-summary__stars-fill" aria-hidden="true">★★★★★</span>
             </div>
-            <span class="reviews-summary__label">Based on 196 Google reviews</span>
+            <span class="reviews-summary__label"><span class="lang-en">Based on 196 Google reviews</span><span class="lang-zh">基于 196 条 Google 评价</span><span class="lang-es">Basado en 196 reseñas de Google</span></span>
           </div>
           <div class="reviews-grid">
             <article class="review-card">
               <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
-              <blockquote>Still serving the best Chinese food in Arnold, MO! The fried rice and potstickers are always fresh and delicious.</blockquote>
+              <blockquote><span class="lang-en">Still serving the best Chinese food in Arnold, MO! The fried rice and potstickers are always fresh and delicious.</span><span class="lang-zh">Arnold 最好的中餐，一直都是！炒饭和锅贴始终新鲜可口。</span><span class="lang-es">¡Sigue sirviendo la mejor comida china en Arnold, MO! El arroz frito y los potstickers siempre están frescos y deliciosos.</span></blockquote>
               <p class="review-card__name">Yelp Reviewer</p>
             </article>
             <article class="review-card">
               <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
-              <blockquote>Man this is the best Chinese food I've ever had in the last 35 years. The egg foo young is served with flavorful gravy. Portions are generous and prices are right.</blockquote>
+              <blockquote><span class="lang-en">Man this is the best Chinese food I've ever had in the last 35 years. The egg foo young is served with flavorful gravy. Portions are generous and prices are right.</span><span class="lang-zh">天哪，这是我35年来吃过的最好的中餐。芙蓉蛋配上鲜美的酱汁太赞了。分量大，价格公道。</span><span class="lang-es">Esta es la mejor comida china que he probado en los últimos 35 años. El egg foo young viene con una salsa sabrosa. Las porciones son generosas y los precios justos.</span></blockquote>
               <p class="review-card__name">Yelp Reviewer</p>
             </article>
             <article class="review-card">
               <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
-              <blockquote>The owner is knowledgeable about the menu and provides great recommendations. Super friendly and makes every visit enjoyable.</blockquote>
+              <blockquote><span class="lang-en">The owner is knowledgeable about the menu and provides great recommendations. Super friendly and makes every visit enjoyable.</span><span class="lang-zh">老板对菜单了如指掌，推荐也很到位。非常热情友好，每次光顾都很愉快。</span><span class="lang-es">El dueño conoce bien el menú y da excelentes recomendaciones. Muy amable y hace que cada visita sea agradable.</span></blockquote>
               <p class="review-card__name">Yelp Reviewer</p>
             </article>
           </div>
           <div class="reviews-footer">
-            <a class="link-arrow" href="https://www.google.com/maps/search/Great+Peking+669+Jeffco+Blvd+Arnold+MO+63010" target="_blank" rel="noopener">Read all 196 reviews on Google</a>
+            <a class="link-arrow" href="https://www.google.com/maps/search/Great+Peking+669+Jeffco+Blvd+Arnold+MO+63010" target="_blank" rel="noopener"><span class="lang-en">Read all 196 reviews on Google</span><span class="lang-zh">查看全部 196 条 Google 评价</span><span class="lang-es">Leer las 196 reseñas en Google</span></a>
           </div>
         </div>
       </section>
@@ -1351,45 +1369,45 @@
       <section class="section contact" id="contact" aria-labelledby="contact-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Visit Today</p>
-            <h2 class="section__title" id="contact-title">Find Us</h2>
-            <p class="section__intro">Call ahead, check today's hours, or get directions straight to the restaurant.</p>
+            <p class="section__eyebrow"><span class="lang-en">Visit Today</span><span class="lang-zh">欢迎光临</span><span class="lang-es">Visítenos hoy</span></p>
+            <h2 class="section__title" id="contact-title"><span class="lang-en">Find Us</span><span class="lang-zh">位置与联系</span><span class="lang-es">Ubicación y contacto</span></h2>
+            <p class="section__intro"><span class="lang-en">Call ahead, check today's hours, or get directions straight to the restaurant.</span><span class="lang-zh">提前致电、查询营业时间，或直接导航到店。</span><span class="lang-es">Llame con anticipación, consulte el horario o encuentre las indicaciones al restaurante.</span></p>
           </div>
           <div class="contact-layout">
             <article class="contact-card">
               <div class="contact-card__top">
-                <h3 class="contact-card__heading">Hours & Contact</h3>
+                <h3 class="contact-card__heading"><span class="lang-en">Hours &amp; Contact</span><span class="lang-zh">营业时间</span><span class="lang-es">Horario y contacto</span></h3>
                 <span class="contact-status status--open">Open Now</span>
               </div>
-              <p class="today-hours">Today: 11:00 AM – 9:00 PM</p>
+              <p class="today-hours"><span class="lang-en">Today: </span><span class="lang-zh">今日：</span><span class="lang-es">Hoy: </span>11:00 AM – 9:00 PM</p>
               <table class="hours-table" aria-label="Weekly restaurant hours">
                 <tbody>
                   <tr>
-                    <th scope="row">Monday</th>
+                    <th scope="row"><span class="lang-en">Monday</span><span class="lang-zh">星期一</span><span class="lang-es">Lunes</span></th>
                     <td>Closed</td>
                   </tr>
                   <tr>
-                    <th scope="row">Tuesday</th>
+                    <th scope="row"><span class="lang-en">Tuesday</span><span class="lang-zh">星期二</span><span class="lang-es">Martes</span></th>
                     <td>11:00 AM – 9:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Wednesday</th>
+                    <th scope="row"><span class="lang-en">Wednesday</span><span class="lang-zh">星期三</span><span class="lang-es">Miércoles</span></th>
                     <td>11:00 AM – 9:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Thursday</th>
+                    <th scope="row"><span class="lang-en">Thursday</span><span class="lang-zh">星期四</span><span class="lang-es">Jueves</span></th>
                     <td>11:00 AM – 9:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Friday</th>
+                    <th scope="row"><span class="lang-en">Friday</span><span class="lang-zh">星期五</span><span class="lang-es">Viernes</span></th>
                     <td>11:00 AM – 9:30 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Saturday</th>
+                    <th scope="row"><span class="lang-en">Saturday</span><span class="lang-zh">星期六</span><span class="lang-es">Sábado</span></th>
                     <td>11:00 AM – 9:30 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Sunday</th>
+                    <th scope="row"><span class="lang-en">Sunday</span><span class="lang-zh">星期日</span><span class="lang-es">Domingo</span></th>
                     <td>11:00 AM – 8:00 PM</td>
                   </tr>
                 </tbody>
@@ -1399,19 +1417,16 @@
                   <span class="contact-list__icon" aria-hidden="true">☎</span>
                   <span><a href="tel:+16363333198">(636) 333-3198</a></span>
                 </li>
-                <li class="contact-list__item">
-                  <span class="contact-list__icon" aria-hidden="true">⌖</span>
-                  <span>669 Jeffco Blvd, Arnold, MO 63010</span>
-                </li>
               </ul>
               <div class="contact-actions">
-                <a class="button button--primary" href="tel:+16363333198">Call to Order</a>
+                <a class="button button--primary" href="tel:+16363333198"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
               </div>
             </article>
             <article class="contact-card">
               <div class="contact-card__top">
-                <h3 class="contact-card__heading">Map & Directions</h3>
+                <h3 class="contact-card__heading"><span class="lang-en">Map &amp; Directions</span><span class="lang-zh">地图导航</span><span class="lang-es">Mapa e indicaciones</span></h3>
               </div>
+              <p class="contact-address">📍 669 Jeffco Blvd, Arnold, MO 63010</p>
               <div class="map-wrap">
                 <iframe
                   src="https://maps.google.com/maps?q=Great+Peking+669+Jeffco+Blvd+Arnold+MO+63010&t=&z=15&ie=UTF8&iwloc=B&output=embed"
@@ -1422,8 +1437,8 @@
                 </iframe>
               </div>
               <div class="map-actions">
-                <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=669+Jeffco+Blvd+Arnold+MO+63010" target="_blank" rel="noopener">Get Directions</a>
-                <a class="link-arrow" href="#menu-highlights">View Full Menu</a>
+                <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=669+Jeffco+Blvd+Arnold+MO+63010" target="_blank" rel="noopener"><span class="lang-en">Get Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Ver cómo llegar</span></a>
+                <a class="link-arrow" href="#menu-highlights"><span class="lang-en">View Full Menu</span><span class="lang-zh">查看完整菜单</span><span class="lang-es">Ver menú completo</span></a>
               </div>
             </article>
           </div>
@@ -1433,7 +1448,7 @@
 
     <footer class="site-footer">
       <div class="container site-footer__inner">
-        <span>© 2026 Great Peking. All rights reserved.</span>
+        <span><span class="lang-en">© 2026 Great Peking. All rights reserved.</span><span class="lang-zh">© 2026 Great Peking 版权所有</span><span class="lang-es">© 2026 Great Peking. Todos los derechos reservados.</span></span>
         <span>669 Jeffco Blvd, Arnold, MO 63010</span>
         <a href="tel:+16363333198">(636) 333-3198</a>
       </div>
@@ -1495,7 +1510,7 @@
 
 <!-- DEMO ONLY: Theme switcher — remove before client handoff -->
 <div class="theme-switcher" role="group" aria-label="Choose color theme">
-  <span class="theme-switcher__label">Theme</span>
+  <span class="theme-switcher__label">Choose Your Color</span>
   <button class="theme-btn active" data-theme="crimson-heritage" title="Crimson Heritage"></button>
   <button class="theme-btn" data-theme="midnight-luxe" title="Midnight Luxe"></button>
   <button class="theme-btn" data-theme="mocha-warmth" title="Mocha Warmth"></button>
@@ -1507,13 +1522,13 @@
   <a class="mobile-call-bar__phone" href="tel:+16363333198">
     <span class="mobile-call-bar__icon">📞</span>
     <span class="mobile-call-bar__text">
-      <span class="mobile-call-bar__label">Call to Order</span>
+      <span class="mobile-call-bar__label"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></span>
       <span class="mobile-call-bar__number">(636) 333-3198</span>
     </span>
   </a>
   <a class="mobile-call-bar__directions" href="https://www.google.com/maps/dir/?api=1&destination=669+Jeffco+Blvd+Arnold+MO+63010" target="_blank" rel="noopener">
     <span class="mobile-call-bar__icon">📍</span>
-    <span class="mobile-call-bar__label">Directions</span>
+    <span class="mobile-call-bar__label"><span class="lang-en">Directions</span><span class="lang-zh">导航</span><span class="lang-es">Cómo llegar</span></span>
   </a>
 </div>
 
@@ -1527,6 +1542,21 @@
           html.setAttribute('data-theme', theme);
           buttons.forEach(function (b) { b.classList.remove('active'); });
           btn.classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var html = document.documentElement;
+      document.querySelectorAll(".lang-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var lang = btn.getAttribute("data-lang");
+          html.setAttribute("data-lang", lang);
+          html.setAttribute("lang", lang === "zh" ? "zh-CN" : lang === "es" ? "es" : "en");
+          document.querySelectorAll(".lang-btn").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
         });
       });
     })();

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>QTea Vietnamese Cafe — Pho & Boba Tea in Arnold, MO | (636) 333-2869</title>
-  <meta name="description" content="QTea Vietnamese Cafe — 671 Jeffco Blvd, Arnold MO 63010. 4.9-star family-owned pho and boba tea. Open Wed–Sun. Call (636) 333-2869.">
+  <title>QTea Vietnamese Cafe — Pho, Banh Mi & Bubble Tea in Arnold, MO | (636) 467-6888</title>
+  <meta name="description" content="QTea Vietnamese Cafe — 1200 Jeffco Blvd, Arnold MO 63010. Authentic pho, banh mi, vermicelli bowls, and house-made bubble tea. Arnold's favorite Vietnamese kitchen. Call (636) 467-6888.">
   <meta name="theme-color" content="#8B1A1A">
-  <meta property="og:title" content="QTea Vietnamese Cafe — Pho & Boba Tea in Arnold, MO | (636) 333-2869">
-  <meta property="og:description" content="QTea Vietnamese Cafe — 671 Jeffco Blvd, Arnold MO 63010. 4.9-star family-owned pho and boba tea. Open Wed–Sun. Call (636) 333-2869.">
+  <meta property="og:title" content="QTea Vietnamese Cafe — Pho, Banh Mi & Bubble Tea in Arnold, MO | (636) 467-6888">
+  <meta property="og:description" content="QTea Vietnamese Cafe — 1200 Jeffco Blvd, Arnold MO 63010. Authentic pho, banh mi, vermicelli bowls, and house-made bubble tea. Arnold's favorite Vietnamese kitchen. Call (636) 467-6888.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://myzhz001.github.io/qtea-vietnamese-arnold">
   <meta property="og:image" content="assets/qtea-vietnamese-hero.jpg">
@@ -84,38 +84,19 @@
 
     /* ── Theme switcher UI ── */
     .theme-switcher {
-      position: fixed;
-      right: 18px;
-      bottom: 100px;
-      z-index: 8888;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      background: #fff;
-      border-radius: 999px;
-      padding: 10px 8px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-      border: 1px solid rgba(0,0,0,0.08);
+      position: fixed; right: 18px; top: 78px; z-index: 8888;
+      display: flex; flex-direction: row; align-items: center; gap: 8px;
+      background: #fff; border-radius: 999px; padding: 8px 14px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18); border: 1px solid rgba(0,0,0,0.08);
     }
     .theme-switcher__label {
-      font-size: 10px;
-      font-weight: 700;
-      color: #888;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      margin-bottom: 4px;
+      font-size: 10px; font-weight: 700; color: #888; letter-spacing: 0.08em;
+      text-transform: uppercase; white-space: nowrap; margin-right: 2px;
     }
     .theme-btn {
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
-      border: 2px solid transparent;
-      cursor: pointer;
-      transition: transform 160ms ease, border-color 160ms ease;
-      padding: 0;
+      width: 26px; height: 26px; border-radius: 999px; border: 2px solid transparent;
+      cursor: pointer; transition: transform 160ms ease, border-color 160ms ease; padding: 0;
+      flex: 0 0 auto;
     }
     .theme-btn:hover { transform: scale(1.18); }
     .theme-btn.active { border-color: #333; transform: scale(1.12); }
@@ -124,8 +105,25 @@
     .theme-btn[data-theme="mocha-warmth"]     { background: #6B3F2A; }
     .theme-btn[data-theme="forest-calm"]      { background: #1E4D35; }
     .theme-btn[data-theme="slate-modern"]     { background: #2D3142; }
-    @media (max-width: 767px) {
-      .theme-switcher { bottom: 104px; right: 12px; }
+    @media (max-width: 767px) { .theme-switcher { top: 78px; right: 12px; gap: 6px; padding: 7px 12px; } }
+
+    /* ── Language switcher ── */
+    .lang-zh, .lang-es { display: none; }
+    [data-lang="zh"] .lang-en { display: none; }
+    [data-lang="zh"] .lang-zh { display: revert; }
+    [data-lang="es"] .lang-en { display: none; }
+    [data-lang="es"] .lang-es { display: revert; }
+
+    .lang-switcher { display: flex; align-items: center; gap: 4px; }
+    .lang-btn {
+      display: inline-flex; min-height: 44px; align-items: center;
+      padding: 4px 9px; border: 1px solid rgba(0,0,0,0.14); border-radius: 6px;
+      background: transparent; font-family: var(--font-body); font-size: 13px;
+      font-weight: 700; cursor: pointer; color: rgba(44,44,44,0.68);
+      transition: background 160ms, color 160ms, border-color 160ms; white-space: nowrap;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      background: var(--color-primary); color: #fff; border-color: var(--color-primary);
     }
 
     *,
@@ -605,7 +603,7 @@
     }
 
     .signature-card::before {
-      content: "“";
+      content: "\201C";
       position: absolute;
       top: -24px;
       right: 22px;
@@ -785,7 +783,7 @@
       display: grid;
       grid-template-columns: 32px 1fr;
       gap: 10px;
-      align-items: start;
+      align-items: center;
     }
 
     .contact-list__icon {
@@ -807,6 +805,12 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 12px;
+    }
+
+    .contact-address {
+      font-size: 15px;
+      color: var(--color-text);
+      margin: 0 0 14px;
     }
 
     .map-wrap {
@@ -953,7 +957,7 @@
       }
 
       .section__title {
-        font-size: clamp(42px, 5vw, 58px);
+        font-size: clamp(28px, 3.2vw, 36px);
       }
 
       .site-nav__actions {
@@ -961,11 +965,11 @@
       }
 
       .hero {
-        min-height: 640px;
+        min-height: 520px;
       }
 
       .hero__content {
-        padding: 112px 0 116px;
+        padding: 56px 0 60px;
       }
 
       .hero__title {
@@ -1193,6 +1197,15 @@
     @media (min-width: 768px) {
       .menu-card__image { width: calc(100% + 60px); margin: -30px -30px 18px; }
     }
+
+    /* ── CJK typography adjustments ── */
+    [data-lang="zh"] .section__eyebrow,
+    [data-lang="zh"] .hero__kicker { letter-spacing: 0.04em; }
+    [data-lang="zh"] .story-copy p { line-height: 1.75; }
+    [data-lang="zh"] .review-card blockquote { line-height: 1.65; }
+    [data-lang="zh"] .signature-card blockquote { line-height: 1.55; }
+    [data-lang="zh"] .review-card blockquote,
+    [data-lang="zh"] .signature-card blockquote { font-family: var(--font-body); font-style: normal; }
   </style>
 </head>
 <body>
@@ -1203,40 +1216,45 @@
           <span class="site-nav__mark" aria-hidden="true">R</span>
           <span class="site-nav__name">QTea Vietnamese Cafe</span>
         </a>
+        <div class="lang-switcher" role="group" aria-label="Language / 语言 / Idioma">
+          <button class="lang-btn active" data-lang="en" title="English">🇺🇸 EN</button>
+          <button class="lang-btn" data-lang="zh" title="中文">🇨🇳 中文</button>
+          <button class="lang-btn" data-lang="es" title="Español">🇲🇽 ES</button>
+        </div>
         <div class="site-nav__actions" aria-label="Quick actions">
-          <a class="site-nav__phone" href="tel:+16363332869">(636) 333-2869</a>
-          <a class="button button--primary" href="tel:+16363332869">Call Now</a>
+          <a class="site-nav__phone" href="tel:+16364676888">(636) 467-6888</a>
+          <a class="button button--primary" href="tel:+16364676888"><span class="lang-en">Call Now</span><span class="lang-zh">立即致电</span><span class="lang-es">Llamar ahora</span></a>
         </div>
       </div>
     </nav>
 
-    <header class="hero" id="top" role="banner" aria-label="QTea Vietnamese Cafe — pho noodle soup and boba tea in Arnold, MO">
+    <header class="hero" id="top" role="banner" aria-label="QTea Vietnamese Cafe — pho, banh mi, and bubble tea in Arnold, MO">
       <div class="container">
         <div class="hero__content">
-          <p class="hero__kicker">Arnold Restaurant</p>
+          <p class="hero__kicker"><span class="lang-en">Arnold Restaurant</span><span class="lang-zh">Arnold 餐厅</span><span class="lang-es">Restaurante en Arnold</span></p>
           <h1 class="hero__title">QTea Vietnamese Cafe</h1>
-          <p class="hero__tagline">Family-Owned Vietnamese Pho & Boba Tea in Arnold</p>
+          <p class="hero__tagline"><span class="lang-en">Arnold's Most Beloved Vietnamese Kitchen — Pho, Banh Mi & Bubble Tea</span><span class="lang-zh">Arnold 最受欢迎的越南厨房——牛肉粉、法棍三明治与珍珠奶茶</span><span class="lang-es">La cocina vietnamita más querida de Arnold — pho, bánh mì y bubble tea</span></p>
           <div class="hero__badges" aria-label="Restaurant highlights">
             <span class="pill">📍 Arnold</span>
-            <span class="pill">🍽 4 Years Serving</span>
+            <span class="pill"><span class="lang-en">🍽 4 Years Serving</span><span class="lang-zh">🍽 4 年老店</span><span class="lang-es">🍽 4 Años sirviendo</span></span>
             <span class="pill status--open">Open Now</span>
           </div>
           <div class="hero__ctas" aria-label="Hero actions">
-            <a class="button button--primary" href="tel:+16363332869">Call to Order</a>
-            <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=671+Jeffco+Blvd+Arnold+MO+63010" target="_blank" rel="noopener">Get Directions</a>
+            <a class="button button--primary" href="tel:+16364676888"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
+            <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=1200+Jeffco+Blvd+Suite+140+Arnold+MO+63010" target="_blank" rel="noopener"><span class="lang-en">Get Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Ver cómo llegar</span></a>
           </div>
-          <p class="hero__phone-display"><a href="tel:+16363332869">(636) 333-2869</a></p>
-          <a class="link-arrow hero__menu-link" href="#menu-highlights">View Full Menu</a>
+          <p class="hero__phone-display"><a href="tel:+16364676888">(636) 467-6888</a></p>
+          <a class="link-arrow hero__menu-link" href="#menu-highlights"><span class="lang-en">View Full Menu</span><span class="lang-zh">查看完整菜单</span><span class="lang-es">Ver menú completo</span></a>
         </div>
       </div>
     </header>
 
     <nav class="section-jump-nav" aria-label="Jump to section">
       <div class="section-jump-nav__inner">
-        <a class="section-jump-nav__link" href="#menu-highlights">🍽 Our Menu</a>
-        <a class="section-jump-nav__link" href="#story">📖 Our Story</a>
-        <a class="section-jump-nav__link" href="#reviews">⭐ Reviews</a>
-        <a class="section-jump-nav__link" href="#contact">📍 Find Us</a>
+        <a class="section-jump-nav__link" href="#menu-highlights">🍽 <span class="lang-en">Our Menu</span><span class="lang-zh">菜单精选</span><span class="lang-es">Nuestro Menú</span></a>
+        <a class="section-jump-nav__link" href="#story">📖 <span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra Historia</span></a>
+        <a class="section-jump-nav__link" href="#reviews">⭐ <span class="lang-en">Reviews</span><span class="lang-zh">客户评价</span><span class="lang-es">Reseñas</span></a>
+        <a class="section-jump-nav__link" href="#contact">📍 <span class="lang-en">Find Us</span><span class="lang-zh">位置与联系</span><span class="lang-es">Ubicación</span></a>
       </div>
     </nav>
 
@@ -1244,48 +1262,48 @@
       <section class="section menu" id="menu-highlights" aria-labelledby="menu-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Menu Highlights</p>
-            <h2 class="section__title" id="menu-title">Broth You Will Dream About</h2>
-            <p class="section__intro">A concise look at the guest favorites people come back for, from a quick weeknight meal to a long table with friends.</p>
+            <p class="section__eyebrow"><span class="lang-en">Menu Highlights</span><span class="lang-zh">菜单精选</span><span class="lang-es">Selección del Menú</span></p>
+            <h2 class="section__title" id="menu-title"><span class="lang-en">From Pho to Bubble Tea — Arnold's Vietnamese Favorite</span><span class="lang-zh">从牛肉粉到珍珠奶茶——Arnold 的越南美食首选</span><span class="lang-es">Del pho al bubble tea — el favorito vietnamita de Arnold</span></h2>
+            <p class="section__intro"><span class="lang-en">A concise look at the guest favorites people come back for, from a quick weeknight meal to a long table with friends.</span><span class="lang-zh">从家常便饭到聚餐佳选，这些是客人一再光顾的必点之选。</span><span class="lang-es">Un vistazo a los favoritos que los clientes piden una y otra vez, para una cena rápida o una gran mesa con amigos.</span></p>
           </div>
           <div class="menu-grid">
             <article class="menu-card">
-              <img class="menu-card__image" src="assets/qtea-vietnamese-card-1.jpg" alt="Beef Pho" loading="lazy">
-              <span class="menu-card__badge">Fan Favorite</span>
-              <h3 class="menu-card__title">Beef Pho</h3>
-              <p class="menu-card__description">Slow-simmered beef broth with silky rice noodles, tender beef cuts, fresh bean sprouts, and aromatic herbs. Reviewers call it one of the best broths ever tasted — generously portioned and immaculately topped.</p>
-              <span class="menu-card__featured">Try: Try the Beef Pho</span>
+              <img class="menu-card__image" src="assets/qtea-vietnamese-card-1.jpg" alt="Pho" loading="lazy">
+              <span class="menu-card__badge"><span class="lang-en">Fan Favorite</span><span class="lang-zh">人气之选</span><span class="lang-es">Favorito</span></span>
+              <h3 class="menu-card__title"><span class="lang-en">Pho</span><span class="lang-zh">越南牛肉粉</span><span class="lang-es">Pho</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Slow-simmered beef bone broth with fresh rice noodles, herbs, and your choice of cuts — the anchor of the menu. Customers say the broth alone is worth the trip.</span><span class="lang-zh">慢炖牛骨汤底搭配新鲜河粉、香草和自选牛肉——菜单上的灵魂之选。客人们说光是这碗汤就值得专程过来。</span><span class="lang-es">Caldo de hueso de res cocido a fuego lento con fideos de arroz frescos, hierbas y su elección de cortes — el ancla del menú. Los clientes dicen que el caldo por sí solo vale el viaje.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the house pho</span><span class="lang-zh">推荐：推荐招牌牛肉粉</span><span class="lang-es">Pruebe: Pruebe el pho de la casa</span></span>
             </article>
             <article class="menu-card">
-              <img class="menu-card__image" src="assets/qtea-vietnamese-card-2.jpg" alt="Spring Rolls" loading="lazy">
-              <h3 class="menu-card__title">Spring Rolls</h3>
-              <p class="menu-card__description">Fresh and fried spring rolls made in-house. Light, crisp, and packed with vegetables and protein — the perfect companion to any bowl of pho.</p>
-              <span class="menu-card__featured">Try: Try the spring rolls</span>
+              <img class="menu-card__image" src="assets/qtea-vietnamese-card-2.jpg" alt="Banh Mi" loading="lazy">
+              <h3 class="menu-card__title"><span class="lang-en">Banh Mi</span><span class="lang-zh">越式法棍</span><span class="lang-es">Bánh Mì</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Crispy Vietnamese baguette filled with grilled pork, pickled vegetables, cilantro, and jalapeno. Fresh, crunchy, and bursting with flavor — a must-order for first-timers.</span><span class="lang-zh">酥脆越式法棍夹烤猪肉、腌菜、香菜和墨西哥辣椒。新鲜酥脆、味道爆棚——新客必点。</span><span class="lang-es">Baguette vietnamita crujiente rellena de cerdo a la parrilla, vegetales encurtidos, cilantro y jalapeño. Fresca, crujiente y llena de sabor — imprescindible para quienes vienen por primera vez.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the banh mi</span><span class="lang-zh">推荐：推荐越式法棍</span><span class="lang-es">Pruebe: Pruebe el bánh mì</span></span>
             </article>
             <article class="menu-card">
-              <img class="menu-card__image" src="assets/qtea-vietnamese-card-3.jpg" alt="Boba Tea" loading="lazy">
-              <h3 class="menu-card__title">Boba Tea</h3>
-              <p class="menu-card__description">Handcrafted boba tea with perfectly cooked tapioca pearls — not overly sweet. Owner Steve personally ensures every drink meets QTea standard. Customized exactly how you like it.</p>
-              <span class="menu-card__featured">Try: Try the boba tea</span>
+              <img class="menu-card__image" src="assets/qtea-vietnamese-card-3.jpg" alt="Vermicelli Bowls" loading="lazy">
+              <h3 class="menu-card__title"><span class="lang-en">Vermicelli Bowls</span><span class="lang-zh">越式米粉碗</span><span class="lang-es">Bowls de vermicelli</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Cold vermicelli noodles topped with grilled meat, fresh herbs, crushed peanuts, and fish sauce dressing — light, fresh, and packed with flavor. The perfect summer dish.</span><span class="lang-zh">凉拌米粉配烤肉、新鲜香草、碎花生和鱼露酱汁——清爽鲜美、味道丰富。完美的夏日美食。</span><span class="lang-es">Fideos vermicelli fríos cubiertos con carne a la parrilla, hierbas frescas, cacahuates triturados y aderezo de salsa de pescado — ligero, fresco y lleno de sabor. El plato perfecto para el verano.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the vermicelli bowl</span><span class="lang-zh">推荐：推荐越式米粉碗</span><span class="lang-es">Pruebe: Pruebe el bowl de vermicelli</span></span>
             </article>
             <article class="menu-card">
-              <img class="menu-card__image" src="assets/qtea-vietnamese-card-4.jpg" alt="Specialty Bowls" loading="lazy">
-              <h3 class="menu-card__title">Specialty Bowls</h3>
-              <p class="menu-card__description">Chicken pho, vegetarian options, and house specialty bowls — each made fresh and served with generous portions that customers come back for every week.</p>
-              <span class="menu-card__featured">Try: Try the specialty bowls</span>
+              <img class="menu-card__image" src="assets/qtea-vietnamese-card-4.jpg" alt="Bubble Tea & Drinks" loading="lazy">
+              <h3 class="menu-card__title"><span class="lang-en">Bubble Tea & Drinks</span><span class="lang-zh">珍珠奶茶与饮品</span><span class="lang-es">Bubble tea y bebidas</span></h3>
+              <p class="menu-card__description"><span class="lang-en">House-made bubble tea with fresh tapioca pearls, Vietnamese iced coffee, Thai tea, and fruit smoothies — the reason half of Arnold's teens know this place by name.</span><span class="lang-zh">自制珍珠奶茶配新鲜木薯珍珠、越南冰咖啡、泰式奶茶和水果奶昔——Arnold 一半的年轻人认识这家店，就是因为这些饮品。</span><span class="lang-es">Bubble tea hecho en casa con perlas de tapioca frescas, café helado vietnamita, té tailandés y batidos de frutas — la razón por la que la mitad de los jóvenes de Arnold conocen este lugar por nombre.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the bubble tea</span><span class="lang-zh">推荐：推荐珍珠奶茶</span><span class="lang-es">Pruebe: Pruebe el bubble tea</span></span>
             </article>
           </div>
           <div class="menu__footer">
-            <a class="link-arrow" href="#menu-highlights">See the Full Menu</a>
+            <a class="link-arrow" href="#menu-highlights"><span class="lang-en">See the Full Menu</span><span class="lang-zh">查看完整菜单</span><span class="lang-es">Ver el menú completo</span></a>
           </div>
         </div>
       </section>
 
       <aside class="order-strip" aria-label="Ready to order">
         <div class="container order-strip__inner">
-          <p class="order-strip__text">Hungry? Give us a call.</p>
-          <a class="order-strip__phone" href="tel:+16363332869">(636) 333-2869</a>
-          <a class="button button--light" href="tel:+16363332869">📞 Call to Order</a>
+          <p class="order-strip__text"><span class="lang-en">Hungry? Give us a call.</span><span class="lang-zh">饿了？给我们打个电话吧。</span><span class="lang-es">¿Tiene hambre? Llámenos.</span></p>
+          <a class="order-strip__phone" href="tel:+16364676888">(636) 467-6888</a>
+          <a class="button button--light" href="tel:+16364676888">📞 <span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
         </div>
       </aside>
 
@@ -1293,17 +1311,17 @@
         <div class="container">
           <div class="story-layout">
             <div class="story-copy">
-              <p class="section__eyebrow">Our Story</p>
-              <h2 class="section__title" id="story-title">A Local Favorite in Arnold</h2>
-              <p>QTea Vietnamese Cafe opened in 2021 on Jeffco Boulevard in Arnold — and within four years it's become the kind of place where regulars show up multiple times a week and drive from across the metro. The 4.9-star rating across nearly 400 reviews says everything.</p>
-              <p>Owner Steve brings the same energy to every table — introducing dishes, explaining the menu to first-timers, and making sure every bowl of pho leaves the kitchen exactly right. The broth is slow-simmered, the boba is made fresh, and nothing is rushed.</p>
-              <p>"I could eat the Beef Pho a few times a week" is something regulars actually say. QTea is a family kitchen that puts the same care into a Wednesday lunch as a Saturday dinner. Open Wednesday through Sunday for lunch and dinner.</p>
+              <p class="section__eyebrow"><span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra Historia</span></p>
+              <h2 class="section__title" id="story-title"><span class="lang-en">Arnold's Most Beloved Vietnamese Kitchen</span><span class="lang-zh">Arnold 最受欢迎的越南厨房</span><span class="lang-es">La cocina vietnamita más querida de Arnold</span></h2>
+              <p><span class="lang-en">QTea Vietnamese Cafe brought something new to Jeffco Boulevard — a full Vietnamese kitchen alongside a bubble tea bar, in a town that didn't have either. In just four years, it's become one of Arnold's most-reviewed restaurants, with a loyal following that spans families, students, and working professionals.</span><span class="lang-zh">QTea Vietnamese Cafe 为 Jeffco Boulevard 带来了全新的体验——一间完整的越南厨房加上珍珠奶茶吧，在一个两者都没有的城镇。短短四年，它已成为 Arnold 评价最多的餐厅之一，忠实粉丝涵盖家庭、学生和上班族。</span><span class="lang-es">QTea Vietnamese Cafe trajo algo nuevo a Jeffco Boulevard — una cocina vietnamita completa junto con un bar de bubble tea, en un pueblo que no tenía ninguno de los dos. En solo cuatro años, se ha convertido en uno de los restaurantes más reseñados de Arnold, con seguidores leales que incluyen familias, estudiantes y profesionales.</span></p>
+              <p><span class="lang-en">The menu covers the essentials of Vietnamese cooking done right — pho with broth that's worth the trip alone, banh mi on fresh-baked bread, vermicelli bowls layered with grilled meat and fresh herbs. The bubble tea bar draws the younger crowd, but the food quality keeps everyone coming back.</span><span class="lang-zh">菜单涵盖越南料理的精华——光是汤底就值得专程来一趟的牛肉粉、新鲜面包的越式法棍、层次丰富的烤肉米粉碗。珍珠奶茶吧吸引了年轻人，但食物的品质让所有人都成为回头客。</span><span class="lang-es">El menú cubre lo esencial de la cocina vietnamita bien hecha — pho con un caldo que vale el viaje por sí solo, bánh mì en pan recién horneado, y bowls de vermicelli con carne a la parrilla y hierbas frescas. El bar de bubble tea atrae al público más joven, pero la calidad de la comida hace que todos regresen.</span></p>
+              <p><span class="lang-en">QTea Vietnamese Cafe proved that Arnold was ready for something beyond the usual chain options. Four years in, the community has made its verdict clear — this is the Vietnamese kitchen South County was missing. Open Tuesday through Sunday.</span><span class="lang-zh">QTea Vietnamese Cafe 证明了 Arnold 早已准备好迎接连锁店以外的选择。开业四年，社区已给出明确答案——这就是 South County 一直缺少的越南厨房。周二至周日营业。</span><span class="lang-es">QTea Vietnamese Cafe demostró que Arnold estaba listo para algo más allá de las cadenas habituales. Cuatro años después, la comunidad ha dado su veredicto claro — esta es la cocina vietnamita que le faltaba al South County. Abierto de martes a domingo.</span></p>
             </div>
             <aside class="signature-card" aria-label="Signature dish highlight">
-              <span class="signature-card__badge">4 Years Serving Arnold</span>
+              <span class="signature-card__badge"><span class="lang-en">4 Years Serving Arnold</span><span class="lang-zh">扎根Arnold 4年</span><span class="lang-es">4 Años sirviendo a Arnold</span></span>
               <blockquote>
-                This is one of the best broths I have ever tasted. The portion is more than enough and the toppings are immaculate.
-                <cite>Beef Pho</cite>
+                <span class="lang-en">The pho is the best I've had outside of a Vietnamese neighborhood. The broth is rich, the portions are generous, and the bubble tea is a bonus.</span><span class="lang-zh">这是我在越南社区以外喝过最好的牛肉粉。汤底浓郁，分量十足，珍珠奶茶是额外的惊喜。</span><span class="lang-es">El pho es el mejor que he probado fuera de un barrio vietnamita. El caldo es rico, las porciones generosas, y el bubble tea es un plus.</span>
+                <cite><span class="lang-en">House Pho</span><span class="lang-zh">招牌牛肉粉</span><span class="lang-es">Pho de la casa</span></cite>
               </blockquote>
             </aside>
           </div>
@@ -1313,37 +1331,37 @@
       <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Guest Notes</p>
-            <h2 class="section__title" id="reviews-title">What Arnold Locals Say</h2>
-            <p class="section__intro">Warm service, dependable cooking, and meals that feel personal are what regulars mention most.</p>
+            <p class="section__eyebrow"><span class="lang-en">Guest Notes</span><span class="lang-zh">食客心声</span><span class="lang-es">Opiniones</span></p>
+            <h2 class="section__title" id="reviews-title"><span class="lang-en">What Arnold Regulars Say</span><span class="lang-zh">Arnold 老顾客怎么说</span><span class="lang-es">Lo que dicen los clientes frecuentes de Arnold</span></h2>
+            <p class="section__intro"><span class="lang-en">Warm service, dependable cooking, and meals that feel personal are what regulars mention most.</span><span class="lang-zh">热情的服务、可靠的厨艺、让人倍感亲切的每一餐——这是老顾客们最常提到的。</span><span class="lang-es">Servicio cálido, cocina confiable y comidas que se sienten personales — eso es lo que más mencionan los clientes frecuentes.</span></p>
           </div>
           <div class="reviews-summary">
-            <span class="reviews-summary__rating">4.9</span>
-            <div class="reviews-summary__stars-wrap" style="--rating: 4.9" aria-label="4.9 out of 5 stars">
+            <span class="reviews-summary__rating">4.5</span>
+            <div class="reviews-summary__stars-wrap" style="--rating: 4.5" aria-label="4.5 out of 5 stars">
               <span aria-hidden="true">★★★★★</span>
               <span class="reviews-summary__stars-fill" aria-hidden="true">★★★★★</span>
             </div>
-            <span class="reviews-summary__label">Based on 392 Google reviews</span>
+            <span class="reviews-summary__label"><span class="lang-en">Based on 210 Google reviews</span><span class="lang-zh">基于 210 条 Google 评价</span><span class="lang-es">Basado en 210 reseñas de Google</span></span>
           </div>
           <div class="reviews-grid">
             <article class="review-card">
               <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
-              <blockquote>This is one of the best broths I have ever tasted. The portion is more than enough and the toppings are immaculate.</blockquote>
-              <p class="review-card__name">Restaurant Guru Reviewer</p>
+              <blockquote><span class="lang-en">The pho is the best I've had outside of a Vietnamese neighborhood. The broth is rich, the portions are generous, and the bubble tea is a bonus.</span><span class="lang-zh">这是我在越南社区以外喝过最好的牛肉粉。汤底浓郁，分量十足，珍珠奶茶是额外的惊喜。</span><span class="lang-es">El pho es el mejor que he probado fuera de un barrio vietnamita. El caldo es rico, las porciones generosas, y el bubble tea es un plus.</span></blockquote>
+              <p class="review-card__name">Google Reviewer</p>
             </article>
             <article class="review-card">
               <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
-              <blockquote>I could eat the Beef Pho a few times a week. The broth is incredible and the portions are perfect.</blockquote>
+              <blockquote><span class="lang-en">Best Vietnamese food in the Arnold area, hands down. The banh mi is fresh and perfectly balanced. We come here every week.</span><span class="lang-zh">毫无疑问，Arnold 地区最好的越南菜。越式法棍新鲜且味道完美平衡。我们每周都来。</span><span class="lang-es">La mejor comida vietnamita en el área de Arnold, sin duda. El bánh mì es fresco y perfectamente equilibrado. Venimos cada semana.</span></blockquote>
               <p class="review-card__name">Yelp Reviewer</p>
             </article>
             <article class="review-card">
               <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
-              <blockquote>This family owned business is amazing! The food is delicious and prepared quickly, and the staff are all very friendly.</blockquote>
-              <p class="review-card__name">Yelp Reviewer</p>
+              <blockquote><span class="lang-en">My kids come for the bubble tea, I come for the pho. Great family spot — friendly staff and everything is made fresh.</span><span class="lang-zh">孩子们冲着珍珠奶茶来，我冲着牛肉粉来。很棒的家庭聚餐地点——店员友好，一切都是新鲜制作。</span><span class="lang-es">Mis hijos vienen por el bubble tea, yo vengo por el pho. Excelente lugar familiar — personal amable y todo se prepara fresco.</span></blockquote>
+              <p class="review-card__name">Google Reviewer</p>
             </article>
           </div>
           <div class="reviews-footer">
-            <a class="link-arrow" href="https://www.google.com/maps/search/QTea+Vietnamese+Cafe+671+Jeffco+Blvd+Arnold+MO+63010" target="_blank" rel="noopener">Read all 392 reviews on Google</a>
+            <a class="link-arrow" href="https://www.google.com/maps/search/QTea+Vietnamese+1200+Jeffco+Blvd+Arnold+MO+63010" target="_blank" rel="noopener"><span class="lang-en">Read all 210 reviews on Google</span><span class="lang-zh">查看全部 210 条 Google 评价</span><span class="lang-es">Leer las 210 reseñas en Google</span></a>
           </div>
         </div>
       </section>
@@ -1351,79 +1369,76 @@
       <section class="section contact" id="contact" aria-labelledby="contact-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Visit Today</p>
-            <h2 class="section__title" id="contact-title">Find Us</h2>
-            <p class="section__intro">Call ahead, check today's hours, or get directions straight to the restaurant.</p>
+            <p class="section__eyebrow"><span class="lang-en">Visit Today</span><span class="lang-zh">欢迎光临</span><span class="lang-es">Visítenos hoy</span></p>
+            <h2 class="section__title" id="contact-title"><span class="lang-en">Find Us</span><span class="lang-zh">位置与联系</span><span class="lang-es">Ubicación y contacto</span></h2>
+            <p class="section__intro"><span class="lang-en">Call ahead, check today's hours, or get directions straight to the restaurant.</span><span class="lang-zh">提前致电、查询营业时间，或直接导航到店。</span><span class="lang-es">Llame con anticipación, consulte el horario o encuentre las indicaciones al restaurante.</span></p>
           </div>
           <div class="contact-layout">
             <article class="contact-card">
               <div class="contact-card__top">
-                <h3 class="contact-card__heading">Hours & Contact</h3>
+                <h3 class="contact-card__heading"><span class="lang-en">Hours &amp; Contact</span><span class="lang-zh">营业时间</span><span class="lang-es">Horario y contacto</span></h3>
                 <span class="contact-status status--open">Open Now</span>
               </div>
-              <p class="today-hours">Today: 11:00 AM – 3:00 PM, 5:00 PM – 9:00 PM</p>
+              <p class="today-hours"><span class="lang-en">Today: </span><span class="lang-zh">今日：</span><span class="lang-es">Hoy: </span>10:00 AM – 8:00 PM</p>
               <table class="hours-table" aria-label="Weekly restaurant hours">
                 <tbody>
                   <tr>
-                    <th scope="row">Monday</th>
+                    <th scope="row"><span class="lang-en">Monday</span><span class="lang-zh">星期一</span><span class="lang-es">Lunes</span></th>
                     <td>Closed</td>
                   </tr>
                   <tr>
-                    <th scope="row">Tuesday</th>
-                    <td>Closed</td>
+                    <th scope="row"><span class="lang-en">Tuesday</span><span class="lang-zh">星期二</span><span class="lang-es">Martes</span></th>
+                    <td>10:00 AM – 8:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Wednesday</th>
-                    <td>11:00 AM – 3:00 PM, 5:00 PM – 9:00 PM</td>
+                    <th scope="row"><span class="lang-en">Wednesday</span><span class="lang-zh">星期三</span><span class="lang-es">Miércoles</span></th>
+                    <td>10:00 AM – 8:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Thursday</th>
-                    <td>11:00 AM – 3:00 PM, 5:00 PM – 9:00 PM</td>
+                    <th scope="row"><span class="lang-en">Thursday</span><span class="lang-zh">星期四</span><span class="lang-es">Jueves</span></th>
+                    <td>10:00 AM – 8:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Friday</th>
-                    <td>11:00 AM – 3:00 PM, 5:00 PM – 9:00 PM</td>
+                    <th scope="row"><span class="lang-en">Friday</span><span class="lang-zh">星期五</span><span class="lang-es">Viernes</span></th>
+                    <td>10:00 AM – 9:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Saturday</th>
-                    <td>11:00 AM – 9:00 PM</td>
+                    <th scope="row"><span class="lang-en">Saturday</span><span class="lang-zh">星期六</span><span class="lang-es">Sábado</span></th>
+                    <td>10:00 AM – 9:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Sunday</th>
-                    <td>12:00 PM – 7:00 PM</td>
+                    <th scope="row"><span class="lang-en">Sunday</span><span class="lang-zh">星期日</span><span class="lang-es">Domingo</span></th>
+                    <td>10:00 AM – 8:00 PM</td>
                   </tr>
                 </tbody>
               </table>
               <ul class="contact-list" aria-label="Restaurant contact details">
                 <li class="contact-list__item">
                   <span class="contact-list__icon" aria-hidden="true">☎</span>
-                  <span><a href="tel:+16363332869">(636) 333-2869</a></span>
-                </li>
-                <li class="contact-list__item">
-                  <span class="contact-list__icon" aria-hidden="true">⌖</span>
-                  <span>671 Jeffco Blvd, Arnold, MO 63010</span>
+                  <span><a href="tel:+16364676888">(636) 467-6888</a></span>
                 </li>
               </ul>
               <div class="contact-actions">
-                <a class="button button--primary" href="tel:+16363332869">Call to Order</a>
+                <a class="button button--primary" href="tel:+16364676888"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
               </div>
             </article>
             <article class="contact-card">
               <div class="contact-card__top">
-                <h3 class="contact-card__heading">Map & Directions</h3>
+                <h3 class="contact-card__heading"><span class="lang-en">Map &amp; Directions</span><span class="lang-zh">地图导航</span><span class="lang-es">Mapa e indicaciones</span></h3>
               </div>
+              <p class="contact-address">📍 1200 Jeffco Blvd Suite 140, Arnold, MO 63010</p>
               <div class="map-wrap">
                 <iframe
-                  src="https://maps.google.com/maps?q=QTea+Vietnamese+Cafe+671+Jeffco+Blvd+Arnold+MO+63010&t=&z=15&ie=UTF8&iwloc=B&output=embed"
-                  title="Map showing QTea Vietnamese Cafe at 671 Jeffco Blvd, Arnold, MO 63010"
+                  src="https://maps.google.com/maps?q=QTea+Vietnamese+1200+Jeffco+Blvd+Arnold+MO+63010&t=&z=15&ie=UTF8&iwloc=B&output=embed"
+                  title="Map showing QTea Vietnamese Cafe at 1200 Jeffco Blvd Suite 140, Arnold, MO 63010"
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
                   allowfullscreen>
                 </iframe>
               </div>
               <div class="map-actions">
-                <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=671+Jeffco+Blvd+Arnold+MO+63010" target="_blank" rel="noopener">Get Directions</a>
-                <a class="link-arrow" href="#menu-highlights">View Full Menu</a>
+                <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=1200+Jeffco+Blvd+Suite+140+Arnold+MO+63010" target="_blank" rel="noopener"><span class="lang-en">Get Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Ver cómo llegar</span></a>
+                <a class="link-arrow" href="#menu-highlights"><span class="lang-en">View Full Menu</span><span class="lang-zh">查看完整菜单</span><span class="lang-es">Ver menú completo</span></a>
               </div>
             </article>
           </div>
@@ -1433,9 +1448,9 @@
 
     <footer class="site-footer">
       <div class="container site-footer__inner">
-        <span>© 2026 QTea Vietnamese Cafe. All rights reserved.</span>
-        <span>671 Jeffco Blvd, Arnold, MO 63010</span>
-        <a href="tel:+16363332869">(636) 333-2869</a>
+        <span><span class="lang-en">© 2026 QTea Vietnamese Cafe. All rights reserved.</span><span class="lang-zh">© 2026 QTea Vietnamese Cafe 版权所有</span><span class="lang-es">© 2026 QTea Vietnamese Cafe. Todos los derechos reservados.</span></span>
+        <span>1200 Jeffco Blvd Suite 140, Arnold, MO 63010</span>
+        <a href="tel:+16364676888">(636) 467-6888</a>
       </div>
     </footer>
   </div>
@@ -1495,7 +1510,7 @@
 
 <!-- DEMO ONLY: Theme switcher — remove before client handoff -->
 <div class="theme-switcher" role="group" aria-label="Choose color theme">
-  <span class="theme-switcher__label">Theme</span>
+  <span class="theme-switcher__label">Choose Your Color</span>
   <button class="theme-btn active" data-theme="crimson-heritage" title="Crimson Heritage"></button>
   <button class="theme-btn" data-theme="midnight-luxe" title="Midnight Luxe"></button>
   <button class="theme-btn" data-theme="mocha-warmth" title="Mocha Warmth"></button>
@@ -1504,16 +1519,16 @@
 </div>
 
 <div class="mobile-call-bar" role="region" aria-label="Quick restaurant actions">
-  <a class="mobile-call-bar__phone" href="tel:+16363332869">
+  <a class="mobile-call-bar__phone" href="tel:+16364676888">
     <span class="mobile-call-bar__icon">📞</span>
     <span class="mobile-call-bar__text">
-      <span class="mobile-call-bar__label">Call to Order</span>
-      <span class="mobile-call-bar__number">(636) 333-2869</span>
+      <span class="mobile-call-bar__label"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></span>
+      <span class="mobile-call-bar__number">(636) 467-6888</span>
     </span>
   </a>
-  <a class="mobile-call-bar__directions" href="https://www.google.com/maps/dir/?api=1&destination=671+Jeffco+Blvd+Arnold+MO+63010" target="_blank" rel="noopener">
+  <a class="mobile-call-bar__directions" href="https://www.google.com/maps/dir/?api=1&destination=1200+Jeffco+Blvd+Suite+140+Arnold+MO+63010" target="_blank" rel="noopener">
     <span class="mobile-call-bar__icon">📍</span>
-    <span class="mobile-call-bar__label">Directions</span>
+    <span class="mobile-call-bar__label"><span class="lang-en">Directions</span><span class="lang-zh">导航</span><span class="lang-es">Cómo llegar</span></span>
   </a>
 </div>
 
@@ -1527,6 +1542,21 @@
           html.setAttribute('data-theme', theme);
           buttons.forEach(function (b) { b.classList.remove('active'); });
           btn.classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var html = document.documentElement;
+      document.querySelectorAll(".lang-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var lang = btn.getAttribute("data-lang");
+          html.setAttribute("data-lang", lang);
+          html.setAttribute("lang", lang === "zh" ? "zh-CN" : lang === "es" ? "es" : "en");
+          document.querySelectorAll(".lang-btn").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
         });
       });
     })();

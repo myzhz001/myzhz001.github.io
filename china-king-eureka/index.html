@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -84,38 +84,19 @@
 
     /* ── Theme switcher UI ── */
     .theme-switcher {
-      position: fixed;
-      right: 18px;
-      bottom: 100px;
-      z-index: 8888;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      background: #fff;
-      border-radius: 999px;
-      padding: 10px 8px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-      border: 1px solid rgba(0,0,0,0.08);
+      position: fixed; right: 18px; top: 78px; z-index: 8888;
+      display: flex; flex-direction: row; align-items: center; gap: 8px;
+      background: #fff; border-radius: 999px; padding: 8px 14px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18); border: 1px solid rgba(0,0,0,0.08);
     }
     .theme-switcher__label {
-      font-size: 10px;
-      font-weight: 700;
-      color: #888;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      margin-bottom: 4px;
+      font-size: 10px; font-weight: 700; color: #888; letter-spacing: 0.08em;
+      text-transform: uppercase; white-space: nowrap; margin-right: 2px;
     }
     .theme-btn {
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
-      border: 2px solid transparent;
-      cursor: pointer;
-      transition: transform 160ms ease, border-color 160ms ease;
-      padding: 0;
+      width: 26px; height: 26px; border-radius: 999px; border: 2px solid transparent;
+      cursor: pointer; transition: transform 160ms ease, border-color 160ms ease; padding: 0;
+      flex: 0 0 auto;
     }
     .theme-btn:hover { transform: scale(1.18); }
     .theme-btn.active { border-color: #333; transform: scale(1.12); }
@@ -124,8 +105,25 @@
     .theme-btn[data-theme="mocha-warmth"]     { background: #6B3F2A; }
     .theme-btn[data-theme="forest-calm"]      { background: #1E4D35; }
     .theme-btn[data-theme="slate-modern"]     { background: #2D3142; }
-    @media (max-width: 767px) {
-      .theme-switcher { bottom: 104px; right: 12px; }
+    @media (max-width: 767px) { .theme-switcher { top: 78px; right: 12px; gap: 6px; padding: 7px 12px; } }
+
+    /* ── Language switcher ── */
+    .lang-zh, .lang-es { display: none; }
+    [data-lang="zh"] .lang-en { display: none; }
+    [data-lang="zh"] .lang-zh { display: revert; }
+    [data-lang="es"] .lang-en { display: none; }
+    [data-lang="es"] .lang-es { display: revert; }
+
+    .lang-switcher { display: flex; align-items: center; gap: 4px; }
+    .lang-btn {
+      display: inline-flex; min-height: 44px; align-items: center;
+      padding: 4px 9px; border: 1px solid rgba(0,0,0,0.14); border-radius: 6px;
+      background: transparent; font-family: var(--font-body); font-size: 13px;
+      font-weight: 700; cursor: pointer; color: rgba(44,44,44,0.68);
+      transition: background 160ms, color 160ms, border-color 160ms; white-space: nowrap;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      background: var(--color-primary); color: #fff; border-color: var(--color-primary);
     }
 
     *,
@@ -605,7 +603,7 @@
     }
 
     .signature-card::before {
-      content: "“";
+      content: "\201C";
       position: absolute;
       top: -24px;
       right: 22px;
@@ -785,7 +783,7 @@
       display: grid;
       grid-template-columns: 32px 1fr;
       gap: 10px;
-      align-items: start;
+      align-items: center;
     }
 
     .contact-list__icon {
@@ -807,6 +805,12 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 12px;
+    }
+
+    .contact-address {
+      font-size: 15px;
+      color: var(--color-text);
+      margin: 0 0 14px;
     }
 
     .map-wrap {
@@ -953,7 +957,7 @@
       }
 
       .section__title {
-        font-size: clamp(42px, 5vw, 58px);
+        font-size: clamp(28px, 3.2vw, 36px);
       }
 
       .site-nav__actions {
@@ -961,11 +965,11 @@
       }
 
       .hero {
-        min-height: 640px;
+        min-height: 520px;
       }
 
       .hero__content {
-        padding: 112px 0 116px;
+        padding: 56px 0 60px;
       }
 
       .hero__title {
@@ -1193,6 +1197,15 @@
     @media (min-width: 768px) {
       .menu-card__image { width: calc(100% + 60px); margin: -30px -30px 18px; }
     }
+
+    /* ── CJK typography adjustments ── */
+    [data-lang="zh"] .section__eyebrow,
+    [data-lang="zh"] .hero__kicker { letter-spacing: 0.04em; }
+    [data-lang="zh"] .story-copy p { line-height: 1.75; }
+    [data-lang="zh"] .review-card blockquote { line-height: 1.65; }
+    [data-lang="zh"] .signature-card blockquote { line-height: 1.55; }
+    [data-lang="zh"] .review-card blockquote,
+    [data-lang="zh"] .signature-card blockquote { font-family: var(--font-body); font-style: normal; }
   </style>
 </head>
 <body>
@@ -1203,9 +1216,14 @@
           <span class="site-nav__mark" aria-hidden="true">R</span>
           <span class="site-nav__name">China King</span>
         </a>
+        <div class="lang-switcher" role="group" aria-label="Language / 语言 / Idioma">
+          <button class="lang-btn active" data-lang="en" title="English">🇺🇸 EN</button>
+          <button class="lang-btn" data-lang="zh" title="中文">🇨🇳 中文</button>
+          <button class="lang-btn" data-lang="es" title="Español">🇲🇽 ES</button>
+        </div>
         <div class="site-nav__actions" aria-label="Quick actions">
           <a class="site-nav__phone" href="tel:+16365877888">(636) 587-7888</a>
-          <a class="button button--primary" href="tel:+16365877888">Call Now</a>
+          <a class="button button--primary" href="tel:+16365877888"><span class="lang-en">Call Now</span><span class="lang-zh">立即致电</span><span class="lang-es">Llamar ahora</span></a>
         </div>
       </div>
     </nav>
@@ -1213,30 +1231,30 @@
     <header class="hero" id="top" role="banner" aria-label="China King — fresh Chinese cuisine at Eureka Towne Center, MO">
       <div class="container">
         <div class="hero__content">
-          <p class="hero__kicker">Eureka Restaurant</p>
+          <p class="hero__kicker"><span class="lang-en">Eureka Restaurant</span><span class="lang-zh">Eureka 餐厅</span><span class="lang-es">Restaurante en Eureka</span></p>
           <h1 class="hero__title">China King</h1>
-          <p class="hero__tagline">Fresh Chinese Cuisine in the Heart of Eureka</p>
+          <p class="hero__tagline"><span class="lang-en">Fresh Chinese Cuisine in the Heart of Eureka</span><span class="lang-zh">Eureka 中心的新鲜中式料理</span><span class="lang-es">Cocina china fresca en el corazón de Eureka</span></p>
           <div class="hero__badges" aria-label="Restaurant highlights">
             <span class="pill">📍 Eureka</span>
-            <span class="pill">🍽 15 Years Serving</span>
+            <span class="pill"><span class="lang-en">🍽 15 Years Serving</span><span class="lang-zh">🍽 15 年老店</span><span class="lang-es">🍽 15 Años sirviendo</span></span>
             <span class="pill status--open">Open Now</span>
           </div>
           <div class="hero__ctas" aria-label="Hero actions">
-            <a class="button button--primary" href="tel:+16365877888">Call to Order</a>
-            <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=185+Eureka+Towne+Center+Dr+Eureka+MO+63025" target="_blank" rel="noopener">Get Directions</a>
+            <a class="button button--primary" href="tel:+16365877888"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
+            <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=185+Eureka+Towne+Center+Dr+Eureka+MO+63025" target="_blank" rel="noopener"><span class="lang-en">Get Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Ver cómo llegar</span></a>
           </div>
           <p class="hero__phone-display"><a href="tel:+16365877888">(636) 587-7888</a></p>
-          <a class="link-arrow hero__menu-link" href="#menu-highlights">View Full Menu</a>
+          <a class="link-arrow hero__menu-link" href="#menu-highlights"><span class="lang-en">View Full Menu</span><span class="lang-zh">查看完整菜单</span><span class="lang-es">Ver menú completo</span></a>
         </div>
       </div>
     </header>
 
     <nav class="section-jump-nav" aria-label="Jump to section">
       <div class="section-jump-nav__inner">
-        <a class="section-jump-nav__link" href="#menu-highlights">🍽 Our Menu</a>
-        <a class="section-jump-nav__link" href="#story">📖 Our Story</a>
-        <a class="section-jump-nav__link" href="#reviews">⭐ Reviews</a>
-        <a class="section-jump-nav__link" href="#contact">📍 Find Us</a>
+        <a class="section-jump-nav__link" href="#menu-highlights">🍽 <span class="lang-en">Our Menu</span><span class="lang-zh">菜单精选</span><span class="lang-es">Nuestro Menú</span></a>
+        <a class="section-jump-nav__link" href="#story">📖 <span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra Historia</span></a>
+        <a class="section-jump-nav__link" href="#reviews">⭐ <span class="lang-en">Reviews</span><span class="lang-zh">客户评价</span><span class="lang-es">Reseñas</span></a>
+        <a class="section-jump-nav__link" href="#contact">📍 <span class="lang-en">Find Us</span><span class="lang-zh">位置与联系</span><span class="lang-es">Ubicación</span></a>
       </div>
     </nav>
 
@@ -1244,48 +1262,48 @@
       <section class="section menu" id="menu-highlights" aria-labelledby="menu-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Menu Highlights</p>
-            <h2 class="section__title" id="menu-title">Authentic Chinese Flavors, Fresh Every Day</h2>
-            <p class="section__intro">A concise look at the guest favorites people come back for, from a quick weeknight meal to a long table with friends.</p>
+            <p class="section__eyebrow"><span class="lang-en">Menu Highlights</span><span class="lang-zh">菜单精选</span><span class="lang-es">Selección del Menú</span></p>
+            <h2 class="section__title" id="menu-title"><span class="lang-en">Authentic Chinese Flavors, Fresh Every Day</span><span class="lang-zh">正宗中式味道，每天新鲜出锅</span><span class="lang-es">Sabores chinos auténticos, frescos cada día</span></h2>
+            <p class="section__intro"><span class="lang-en">A concise look at the guest favorites people come back for, from a quick weeknight meal to a long table with friends.</span><span class="lang-zh">从家常便饭到聚餐佳选，这些是客人一再光顾的必点之选。</span><span class="lang-es">Un vistazo a los favoritos que los clientes piden una y otra vez, para una cena rápida o una gran mesa con amigos.</span></p>
           </div>
           <div class="menu-grid">
             <article class="menu-card">
               <img class="menu-card__image" src="assets/china-king-card-1.jpg" alt="Crab Rangoon" loading="lazy">
-              <span class="menu-card__badge">Fan Favorite</span>
-              <h3 class="menu-card__title">Crab Rangoon</h3>
-              <p class="menu-card__description">Golden-fried wontons filled with creamy crab and cream cheese. Reviewers call them "awesome" — a fan favorite that disappears fast. Perfect starter or a shareable snack.</p>
-              <span class="menu-card__featured">Try: Try the Crab Rangoon</span>
+              <span class="menu-card__badge"><span class="lang-en">Fan Favorite</span><span class="lang-zh">人气之选</span><span class="lang-es">Favorito</span></span>
+              <h3 class="menu-card__title"><span class="lang-en">Crab Rangoon</span><span class="lang-zh">炸蟹角</span><span class="lang-es">Crab Rangoon</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Golden-fried wontons filled with creamy crab and cream cheese. Reviewers call them "awesome" — a fan favorite that disappears fast. Perfect starter or a shareable snack.</span><span class="lang-zh">金黄酥脆的馄饨皮包裹奶油蟹肉和奶酪。食客们称赞「太棒了」——人气之选，上桌就秒光。最佳开胃小食。</span><span class="lang-es">Wontons fritos dorados rellenos de cangrejo cremoso y queso crema. Los clientes los llaman "increíbles" — un favorito que desaparece rápido. Perfecto como entrada o para compartir.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the Crab Rangoon</span><span class="lang-zh">推荐：推荐炸蟹角</span><span class="lang-es">Pruebe: Pruebe el Crab Rangoon</span></span>
             </article>
             <article class="menu-card">
               <img class="menu-card__image" src="assets/china-king-card-2.jpg" alt="Fried Rice" loading="lazy">
-              <h3 class="menu-card__title">Fried Rice</h3>
-              <p class="menu-card__description">Wok-tossed fried rice with fresh vegetables and your choice of protein. Customers call it the freshest fried rice they've had — made to order, every time, never pre-cooked.</p>
-              <span class="menu-card__featured">Try: Try the fried rice</span>
+              <h3 class="menu-card__title"><span class="lang-en">Fried Rice</span><span class="lang-zh">炒饭</span><span class="lang-es">Arroz frito</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Wok-tossed fried rice with fresh vegetables and your choice of protein. Customers call it the freshest fried rice they've had — made to order, every time, never pre-cooked.</span><span class="lang-zh">新鲜蔬菜和自选蛋白质一起大火翻炒。客人们说这是他们吃过最新鲜的炒饭——每份现点现炒，从不预制。</span><span class="lang-es">Arroz salteado al wok con vegetales frescos y su elección de proteína. Los clientes dicen que es el arroz frito más fresco que han probado — hecho al momento, siempre, nunca precocido.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the fried rice</span><span class="lang-zh">推荐：推荐炒饭</span><span class="lang-es">Pruebe: Pruebe el arroz frito</span></span>
             </article>
             <article class="menu-card">
               <img class="menu-card__image" src="assets/china-king-card-3.jpg" alt="General Tso's Chicken" loading="lazy">
-              <h3 class="menu-card__title">General Tso's Chicken</h3>
-              <p class="menu-card__description">Crispy chicken in a savory-sweet General Tso sauce — the dish that keeps regulars coming back. The sauce is house-made with a depth of flavor that sets it apart from typical takeout.</p>
-              <span class="menu-card__featured">Try: Try the General Tso</span>
+              <h3 class="menu-card__title"><span class="lang-en">General Tso's Chicken</span><span class="lang-zh">左宗棠鸡</span><span class="lang-es">Pollo General Tso</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Crispy chicken in a savory-sweet General Tso sauce — the dish that keeps regulars coming back. The sauce is house-made with a depth of flavor that sets it apart from typical takeout.</span><span class="lang-zh">酥脆鸡块裹上咸甜适口的左宗棠酱汁——这道菜让回头客一再光顾。酱汁由店家自制，层次丰富，远超一般外卖水准。</span><span class="lang-es">Pollo crujiente en salsa agridulce General Tso — el plato que hace que los clientes regresen. La salsa es hecha en casa con una profundidad de sabor que lo distingue de la comida para llevar típica.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the General Tso</span><span class="lang-zh">推荐：推荐左宗棠鸡</span><span class="lang-es">Pruebe: Pruebe el General Tso</span></span>
             </article>
             <article class="menu-card">
               <img class="menu-card__image" src="assets/china-king-card-4.jpg" alt="Lunch Specials" loading="lazy">
-              <h3 class="menu-card__title">Lunch Specials</h3>
-              <p class="menu-card__description">Daily lunch specials available Tuesday through Friday starting at 10:30 AM. Includes your choice of entree with fried rice or lo mein — great value with the same quality as the dinner menu.</p>
-              <span class="menu-card__featured">Try: Ask about lunch specials</span>
+              <h3 class="menu-card__title"><span class="lang-en">Lunch Specials</span><span class="lang-zh">午餐特惠</span><span class="lang-es">Especiales del almuerzo</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Daily lunch specials available Tuesday through Friday starting at 10:30 AM. Includes your choice of entree with fried rice or lo mein — great value with the same quality as the dinner menu.</span><span class="lang-zh">每日午餐特惠，周二至周五上午10:30起供应。含自选主菜搭配炒饭或捞面——超值午餐，品质与正餐一致。</span><span class="lang-es">Especiales diarios de almuerzo disponibles de martes a viernes desde las 10:30 AM. Incluye su elección de plato principal con arroz frito o lo mein — gran valor con la misma calidad del menú de cena.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Ask about lunch specials</span><span class="lang-zh">推荐：了解午餐特惠</span><span class="lang-es">Pruebe: Pregunte por los especiales</span></span>
             </article>
           </div>
           <div class="menu__footer">
-            <a class="link-arrow" href="#menu-highlights">See the Full Menu</a>
+            <a class="link-arrow" href="#menu-highlights"><span class="lang-en">See the Full Menu</span><span class="lang-zh">查看完整菜单</span><span class="lang-es">Ver el menú completo</span></a>
           </div>
         </div>
       </section>
 
       <aside class="order-strip" aria-label="Ready to order">
         <div class="container order-strip__inner">
-          <p class="order-strip__text">Hungry? Give us a call.</p>
+          <p class="order-strip__text"><span class="lang-en">Hungry? Give us a call.</span><span class="lang-zh">饿了？给我们打个电话吧。</span><span class="lang-es">¿Tiene hambre? Llámenos.</span></p>
           <a class="order-strip__phone" href="tel:+16365877888">(636) 587-7888</a>
-          <a class="button button--light" href="tel:+16365877888">📞 Call to Order</a>
+          <a class="button button--light" href="tel:+16365877888">📞 <span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
         </div>
       </aside>
 
@@ -1293,17 +1311,17 @@
         <div class="container">
           <div class="story-layout">
             <div class="story-copy">
-              <p class="section__eyebrow">Our Story</p>
-              <h2 class="section__title" id="story-title">A Local Favorite in Eureka</h2>
-              <p>China King has been the Chinese restaurant of choice in Eureka Towne Center for over 15 years. With a 4.4-star rating and nearly 60 Yelp reviews, it's earned the loyalty of families and regulars who know the difference between fresh and reheated.</p>
-              <p>The kitchen stays consistent where it counts: fresh fried rice, hand-folded crab Rangoon, and a General Tso's chicken that reviewers describe as savory and better than competitors. The staff greets every customer with a smile and gets orders right the first time.</p>
-              <p>Open six days a week starting at 10:30 AM — one of the few Chinese restaurants in the area serving lunch before 11 AM. Whether it's a quick Tuesday lunch or a Saturday dinner with family, the quality stays the same.</p>
+              <p class="section__eyebrow"><span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra Historia</span></p>
+              <h2 class="section__title" id="story-title"><span class="lang-en">Eureka's Go-To for Fresh Chinese</span><span class="lang-zh">Eureka 居民的首选中餐</span><span class="lang-es">El restaurante chino preferido de Eureka</span></h2>
+              <p><span class="lang-en">China King has been the Chinese restaurant of choice in Eureka Towne Center for over 15 years. With a 4.4-star rating and nearly 60 Yelp reviews, it's earned the loyalty of families and regulars who know the difference between fresh and reheated.</span><span class="lang-zh">China King 在 Eureka Towne Center 已是首选中餐馆超过15年。凭借4.4星评分和近60条 Yelp 评价，赢得了懂得「新鲜」和「加热」区别的家庭和回头客的忠实拥护。</span><span class="lang-es">China King ha sido el restaurante chino favorito en Eureka Towne Center por más de 15 años. Con una calificación de 4.4 estrellas y casi 60 reseñas en Yelp, se ha ganado la lealtad de familias y clientes frecuentes que saben distinguir entre fresco y recalentado.</span></p>
+              <p><span class="lang-en">The kitchen stays consistent where it counts: fresh fried rice, hand-folded crab Rangoon, and a General Tso's chicken that reviewers describe as savory and better than competitors. The staff greets every customer with a smile and gets orders right the first time.</span><span class="lang-zh">厨房在关键处始终如一：新鲜炒饭、手工炸蟹角，以及食客们称赞比竞争对手更鲜美的左宗棠鸡。店员笑迎每一位顾客，点单一次到位。</span><span class="lang-es">La cocina se mantiene consistente donde importa: arroz frito fresco, crab rangoon doblado a mano, y un pollo General Tso que los clientes describen como sabroso y mejor que la competencia. El personal recibe a cada cliente con una sonrisa y los pedidos salen bien a la primera.</span></p>
+              <p><span class="lang-en">Open six days a week starting at 10:30 AM — one of the few Chinese restaurants in the area serving lunch before 11 AM. Whether it's a quick Tuesday lunch or a Saturday dinner with family, the quality stays the same.</span><span class="lang-zh">每周营业六天，上午10:30开门——是该地区少数11点前就供应午餐的中餐馆之一。无论是周二快速午餐还是周六家庭聚餐，品质始终如一。</span><span class="lang-es">Abierto seis días a la semana desde las 10:30 AM — uno de los pocos restaurantes chinos de la zona que sirve almuerzo antes de las 11 AM. Ya sea un almuerzo rápido el martes o una cena familiar el sábado, la calidad siempre es la misma.</span></p>
             </div>
             <aside class="signature-card" aria-label="Signature dish highlight">
-              <span class="signature-card__badge">15 Years Serving Eureka</span>
+              <span class="signature-card__badge"><span class="lang-en">15 Years Serving Eureka</span><span class="lang-zh">扎根Eureka 15年</span><span class="lang-es">15 Años sirviendo a Eureka</span></span>
               <blockquote>
-                Their crab Rangoon was awesome and general tso was savory. Fried rice is very fresh and delicious.
-                <cite>Crab Rangoon</cite>
+                <span class="lang-en">Their crab Rangoon was awesome and general tso was savory. Fried rice is very fresh and delicious.</span><span class="lang-zh">他们的炸蟹角太棒了，左宗棠鸡很鲜美。炒饭非常新鲜好吃。</span><span class="lang-es">Su crab rangoon es increíble y el General Tso es muy sabroso. El arroz frito es muy fresco y delicioso.</span>
+                <cite><span class="lang-en">Crab Rangoon</span><span class="lang-zh">炸蟹角</span><span class="lang-es">Crab Rangoon</span></cite>
               </blockquote>
             </aside>
           </div>
@@ -1313,9 +1331,9 @@
       <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Guest Notes</p>
-            <h2 class="section__title" id="reviews-title">What Eureka Regulars Say</h2>
-            <p class="section__intro">Warm service, dependable cooking, and meals that feel personal are what regulars mention most.</p>
+            <p class="section__eyebrow"><span class="lang-en">Guest Notes</span><span class="lang-zh">食客心声</span><span class="lang-es">Opiniones</span></p>
+            <h2 class="section__title" id="reviews-title"><span class="lang-en">What Eureka Regulars Say</span><span class="lang-zh">Eureka 老顾客怎么说</span><span class="lang-es">Lo que dicen los clientes frecuentes de Eureka</span></h2>
+            <p class="section__intro"><span class="lang-en">Warm service, dependable cooking, and meals that feel personal are what regulars mention most.</span><span class="lang-zh">热情的服务、可靠的厨艺、让人倍感亲切的每一餐——这是老顾客们最常提到的。</span><span class="lang-es">Servicio cálido, cocina confiable y comidas que se sienten personales — eso es lo que más mencionan los clientes frecuentes.</span></p>
           </div>
           <div class="reviews-summary">
             <span class="reviews-summary__rating">4.4</span>
@@ -1323,27 +1341,27 @@
               <span aria-hidden="true">★★★★★</span>
               <span class="reviews-summary__stars-fill" aria-hidden="true">★★★★★</span>
             </div>
-            <span class="reviews-summary__label">Based on 203 Google reviews</span>
+            <span class="reviews-summary__label"><span class="lang-en">Based on 203 Google reviews</span><span class="lang-zh">基于 203 条 Google 评价</span><span class="lang-es">Basado en 203 reseñas de Google</span></span>
           </div>
           <div class="reviews-grid">
             <article class="review-card">
               <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
-              <blockquote>Their crab Rangoon was awesome and general tso was savory. Service is better than their competitors.</blockquote>
+              <blockquote><span class="lang-en">Their crab Rangoon was awesome and general tso was savory. Service is better than their competitors.</span><span class="lang-zh">他们的炸蟹角太棒了，左宗棠鸡很鲜美。服务比其他竞争对手好。</span><span class="lang-es">Su crab rangoon es increíble y el General Tso es muy sabroso. El servicio es mejor que el de la competencia.</span></blockquote>
               <p class="review-card__name">Yelp Reviewer</p>
             </article>
             <article class="review-card">
               <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
-              <blockquote>The fried rice is very fresh and delicious. Friendly staff who always greet you with a smile — order is accurate every time.</blockquote>
+              <blockquote><span class="lang-en">The fried rice is very fresh and delicious. Friendly staff who always greet you with a smile — order is accurate every time.</span><span class="lang-zh">炒饭非常新鲜好吃。店员很友好，总是笑脸相迎——每次点单都准确无误。</span><span class="lang-es">El arroz frito es muy fresco y delicioso. Personal amable que siempre te recibe con una sonrisa — el pedido es preciso cada vez.</span></blockquote>
               <p class="review-card__name">Yelp Reviewer</p>
             </article>
             <article class="review-card">
               <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
-              <blockquote>Nice greeting when you walk in, orders prepared in a timely manner. One of the better Chinese restaurants in the Eureka area.</blockquote>
+              <blockquote><span class="lang-en">Nice greeting when you walk in, orders prepared in a timely manner. One of the better Chinese restaurants in the Eureka area.</span><span class="lang-zh">一进门就有热情的招呼，出餐也很及时。是 Eureka 地区最好的中餐馆之一。</span><span class="lang-es">Te reciben amablemente al entrar, los pedidos se preparan a tiempo. Uno de los mejores restaurantes chinos en el área de Eureka.</span></blockquote>
               <p class="review-card__name">Google Reviewer</p>
             </article>
           </div>
           <div class="reviews-footer">
-            <a class="link-arrow" href="https://www.google.com/maps/search/China+King+185+Eureka+Towne+Center+Dr+Eureka+MO+63025" target="_blank" rel="noopener">Read all 203 reviews on Google</a>
+            <a class="link-arrow" href="https://www.google.com/maps/search/China+King+185+Eureka+Towne+Center+Dr+Eureka+MO+63025" target="_blank" rel="noopener"><span class="lang-en">Read all 203 reviews on Google</span><span class="lang-zh">查看全部 203 条 Google 评价</span><span class="lang-es">Leer las 203 reseñas en Google</span></a>
           </div>
         </div>
       </section>
@@ -1351,45 +1369,45 @@
       <section class="section contact" id="contact" aria-labelledby="contact-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Visit Today</p>
-            <h2 class="section__title" id="contact-title">Find Us</h2>
-            <p class="section__intro">Call ahead, check today's hours, or get directions straight to the restaurant.</p>
+            <p class="section__eyebrow"><span class="lang-en">Visit Today</span><span class="lang-zh">欢迎光临</span><span class="lang-es">Visítenos hoy</span></p>
+            <h2 class="section__title" id="contact-title"><span class="lang-en">Find Us</span><span class="lang-zh">位置与联系</span><span class="lang-es">Ubicación y contacto</span></h2>
+            <p class="section__intro"><span class="lang-en">Call ahead, check today's hours, or get directions straight to the restaurant.</span><span class="lang-zh">提前致电、查询营业时间，或直接导航到店。</span><span class="lang-es">Llame con anticipación, consulte el horario o encuentre las indicaciones al restaurante.</span></p>
           </div>
           <div class="contact-layout">
             <article class="contact-card">
               <div class="contact-card__top">
-                <h3 class="contact-card__heading">Hours & Contact</h3>
+                <h3 class="contact-card__heading"><span class="lang-en">Hours &amp; Contact</span><span class="lang-zh">营业时间</span><span class="lang-es">Horario y contacto</span></h3>
                 <span class="contact-status status--open">Open Now</span>
               </div>
-              <p class="today-hours">Today: 10:30 AM – 8:30 PM</p>
+              <p class="today-hours"><span class="lang-en">Today: </span><span class="lang-zh">今日：</span><span class="lang-es">Hoy: </span>10:30 AM – 8:30 PM</p>
               <table class="hours-table" aria-label="Weekly restaurant hours">
                 <tbody>
                   <tr>
-                    <th scope="row">Monday</th>
+                    <th scope="row"><span class="lang-en">Monday</span><span class="lang-zh">星期一</span><span class="lang-es">Lunes</span></th>
                     <td>Closed</td>
                   </tr>
                   <tr>
-                    <th scope="row">Tuesday</th>
+                    <th scope="row"><span class="lang-en">Tuesday</span><span class="lang-zh">星期二</span><span class="lang-es">Martes</span></th>
                     <td>10:30 AM – 8:30 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Wednesday</th>
+                    <th scope="row"><span class="lang-en">Wednesday</span><span class="lang-zh">星期三</span><span class="lang-es">Miércoles</span></th>
                     <td>10:30 AM – 8:30 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Thursday</th>
+                    <th scope="row"><span class="lang-en">Thursday</span><span class="lang-zh">星期四</span><span class="lang-es">Jueves</span></th>
                     <td>10:30 AM – 8:30 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Friday</th>
+                    <th scope="row"><span class="lang-en">Friday</span><span class="lang-zh">星期五</span><span class="lang-es">Viernes</span></th>
                     <td>10:30 AM – 9:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Saturday</th>
+                    <th scope="row"><span class="lang-en">Saturday</span><span class="lang-zh">星期六</span><span class="lang-es">Sábado</span></th>
                     <td>10:30 AM – 9:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Sunday</th>
+                    <th scope="row"><span class="lang-en">Sunday</span><span class="lang-zh">星期日</span><span class="lang-es">Domingo</span></th>
                     <td>11:30 AM – 8:30 PM</td>
                   </tr>
                 </tbody>
@@ -1399,19 +1417,16 @@
                   <span class="contact-list__icon" aria-hidden="true">☎</span>
                   <span><a href="tel:+16365877888">(636) 587-7888</a></span>
                 </li>
-                <li class="contact-list__item">
-                  <span class="contact-list__icon" aria-hidden="true">⌖</span>
-                  <span>185 Eureka Towne Center Dr, Eureka, MO 63025</span>
-                </li>
               </ul>
               <div class="contact-actions">
-                <a class="button button--primary" href="tel:+16365877888">Call to Order</a>
+                <a class="button button--primary" href="tel:+16365877888"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
               </div>
             </article>
             <article class="contact-card">
               <div class="contact-card__top">
-                <h3 class="contact-card__heading">Map & Directions</h3>
+                <h3 class="contact-card__heading"><span class="lang-en">Map &amp; Directions</span><span class="lang-zh">地图导航</span><span class="lang-es">Mapa e indicaciones</span></h3>
               </div>
+              <p class="contact-address">📍 185 Eureka Towne Center Dr, Eureka, MO 63025</p>
               <div class="map-wrap">
                 <iframe
                   src="https://maps.google.com/maps?q=China+King+185+Eureka+Towne+Center+Dr+Eureka+MO+63025&t=&z=15&ie=UTF8&iwloc=B&output=embed"
@@ -1422,8 +1437,8 @@
                 </iframe>
               </div>
               <div class="map-actions">
-                <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=185+Eureka+Towne+Center+Dr+Eureka+MO+63025" target="_blank" rel="noopener">Get Directions</a>
-                <a class="link-arrow" href="#menu-highlights">View Full Menu</a>
+                <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=185+Eureka+Towne+Center+Dr+Eureka+MO+63025" target="_blank" rel="noopener"><span class="lang-en">Get Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Ver cómo llegar</span></a>
+                <a class="link-arrow" href="#menu-highlights"><span class="lang-en">View Full Menu</span><span class="lang-zh">查看完整菜单</span><span class="lang-es">Ver menú completo</span></a>
               </div>
             </article>
           </div>
@@ -1433,7 +1448,7 @@
 
     <footer class="site-footer">
       <div class="container site-footer__inner">
-        <span>© 2026 China King. All rights reserved.</span>
+        <span><span class="lang-en">© 2026 China King. All rights reserved.</span><span class="lang-zh">© 2026 China King 版权所有</span><span class="lang-es">© 2026 China King. Todos los derechos reservados.</span></span>
         <span>185 Eureka Towne Center Dr, Eureka, MO 63025</span>
         <a href="tel:+16365877888">(636) 587-7888</a>
       </div>
@@ -1495,7 +1510,7 @@
 
 <!-- DEMO ONLY: Theme switcher — remove before client handoff -->
 <div class="theme-switcher" role="group" aria-label="Choose color theme">
-  <span class="theme-switcher__label">Theme</span>
+  <span class="theme-switcher__label">Choose Your Color</span>
   <button class="theme-btn active" data-theme="crimson-heritage" title="Crimson Heritage"></button>
   <button class="theme-btn" data-theme="midnight-luxe" title="Midnight Luxe"></button>
   <button class="theme-btn" data-theme="mocha-warmth" title="Mocha Warmth"></button>
@@ -1507,13 +1522,13 @@
   <a class="mobile-call-bar__phone" href="tel:+16365877888">
     <span class="mobile-call-bar__icon">📞</span>
     <span class="mobile-call-bar__text">
-      <span class="mobile-call-bar__label">Call to Order</span>
+      <span class="mobile-call-bar__label"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></span>
       <span class="mobile-call-bar__number">(636) 587-7888</span>
     </span>
   </a>
   <a class="mobile-call-bar__directions" href="https://www.google.com/maps/dir/?api=1&destination=185+Eureka+Towne+Center+Dr+Eureka+MO+63025" target="_blank" rel="noopener">
     <span class="mobile-call-bar__icon">📍</span>
-    <span class="mobile-call-bar__label">Directions</span>
+    <span class="mobile-call-bar__label"><span class="lang-en">Directions</span><span class="lang-zh">导航</span><span class="lang-es">Cómo llegar</span></span>
   </a>
 </div>
 
@@ -1527,6 +1542,21 @@
           html.setAttribute('data-theme', theme);
           buttons.forEach(function (b) { b.classList.remove('active'); });
           btn.classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var html = document.documentElement;
+      document.querySelectorAll(".lang-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var lang = btn.getAttribute("data-lang");
+          html.setAttribute("data-lang", lang);
+          html.setAttribute("lang", lang === "zh" ? "zh-CN" : lang === "es" ? "es" : "en");
+          document.querySelectorAll(".lang-btn").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
         });
       });
     })();

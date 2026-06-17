@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -106,6 +106,25 @@
     .theme-btn[data-theme="forest-calm"]      { background: #1E4D35; }
     .theme-btn[data-theme="slate-modern"]     { background: #2D3142; }
     @media (max-width: 767px) { .theme-switcher { top: 78px; right: 12px; gap: 6px; padding: 7px 12px; } }
+
+    /* ── Language switcher ── */
+    .lang-zh, .lang-es { display: none; }
+    [data-lang="zh"] .lang-en { display: none; }
+    [data-lang="zh"] .lang-zh { display: revert; }
+    [data-lang="es"] .lang-en { display: none; }
+    [data-lang="es"] .lang-es { display: revert; }
+
+    .lang-switcher { display: flex; align-items: center; gap: 4px; }
+    .lang-btn {
+      display: inline-flex; min-height: 44px; align-items: center;
+      padding: 4px 9px; border: 1px solid rgba(0,0,0,0.14); border-radius: 6px;
+      background: transparent; font-family: var(--font-body); font-size: 13px;
+      font-weight: 700; cursor: pointer; color: rgba(44,44,44,0.68);
+      transition: background 160ms, color 160ms, border-color 160ms; white-space: nowrap;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      background: var(--color-primary); color: #fff; border-color: var(--color-primary);
+    }
 
     *,
     *::before,
@@ -584,7 +603,7 @@
     }
 
     .signature-card::before {
-      content: "“";
+      content: "\201C";
       position: absolute;
       top: -24px;
       right: 22px;
@@ -1178,6 +1197,15 @@
     @media (min-width: 768px) {
       .menu-card__image { width: calc(100% + 60px); margin: -30px -30px 18px; }
     }
+
+    /* ── CJK typography adjustments ── */
+    [data-lang="zh"] .section__eyebrow,
+    [data-lang="zh"] .hero__kicker { letter-spacing: 0.04em; }
+    [data-lang="zh"] .story-copy p { line-height: 1.75; }
+    [data-lang="zh"] .review-card blockquote { line-height: 1.65; }
+    [data-lang="zh"] .signature-card blockquote { line-height: 1.55; }
+    [data-lang="zh"] .review-card blockquote,
+    [data-lang="zh"] .signature-card blockquote { font-family: var(--font-body); font-style: normal; }
   </style>
 </head>
 <body>
@@ -1188,9 +1216,14 @@
           <span class="site-nav__mark" aria-hidden="true">R</span>
           <span class="site-nav__name">China Bistro</span>
         </a>
+        <div class="lang-switcher" role="group" aria-label="Language / 语言 / Idioma">
+          <button class="lang-btn active" data-lang="en" title="English">🇺🇸 EN</button>
+          <button class="lang-btn" data-lang="zh" title="中文">🇨🇳 中文</button>
+          <button class="lang-btn" data-lang="es" title="Español">🇲🇽 ES</button>
+        </div>
         <div class="site-nav__actions" aria-label="Quick actions">
           <a class="site-nav__phone" href="tel:+16362203144">(636) 220-3144</a>
-          <a class="button button--primary" href="tel:+16362203144">Call Now</a>
+          <a class="button button--primary" href="tel:+16362203144"><span class="lang-en">Call Now</span><span class="lang-zh">立即致电</span><span class="lang-es">Llamar ahora</span></a>
         </div>
       </div>
     </nav>
@@ -1198,30 +1231,30 @@
     <header class="hero" id="top" role="banner" aria-label="China Bistro Manchester — authentic Chinese and Vietnamese cuisine on Manchester Rd">
       <div class="container">
         <div class="hero__content">
-          <p class="hero__kicker">Manchester Restaurant</p>
+          <p class="hero__kicker"><span class="lang-en">Manchester Restaurant</span><span class="lang-zh">Manchester 餐厅</span><span class="lang-es">Restaurante en Manchester</span></p>
           <h1 class="hero__title">China Bistro</h1>
-          <p class="hero__tagline">Authentic Chinese & Vietnamese — Best Value in St. Louis</p>
+          <p class="hero__tagline"><span class="lang-en">Authentic Chinese & Vietnamese — Best Value in St. Louis</span><span class="lang-zh">正宗中越料理——圣路易斯性价比之王</span><span class="lang-es">Cocina china y vietnamita auténtica — la mejor relación calidad-precio en St. Louis</span></p>
           <div class="hero__badges" aria-label="Restaurant highlights">
             <span class="pill">📍 Manchester</span>
-            <span class="pill">🍽 10 Years Serving</span>
+            <span class="pill"><span class="lang-en">🍽 10 Years Serving</span><span class="lang-zh">🍽 10 年老店</span><span class="lang-es">🍽 10 Años sirviendo</span></span>
             <span class="pill status--open">Open Now</span>
           </div>
           <div class="hero__ctas" aria-label="Hero actions">
-            <a class="button button--primary" href="tel:+16362203144">Call to Order</a>
-            <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=14246+Manchester+Rd+Manchester+MO+63011" target="_blank" rel="noopener">Get Directions</a>
+            <a class="button button--primary" href="tel:+16362203144"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
+            <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=14246+Manchester+Rd+Manchester+MO+63011" target="_blank" rel="noopener"><span class="lang-en">Get Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Ver cómo llegar</span></a>
           </div>
           <p class="hero__phone-display"><a href="tel:+16362203144">(636) 220-3144</a></p>
-          <a class="link-arrow hero__menu-link" href="#menu-highlights">View Full Menu</a>
+          <a class="link-arrow hero__menu-link" href="#menu-highlights"><span class="lang-en">View Full Menu</span><span class="lang-zh">查看完整菜单</span><span class="lang-es">Ver menú completo</span></a>
         </div>
       </div>
     </header>
 
     <nav class="section-jump-nav" aria-label="Jump to section">
       <div class="section-jump-nav__inner">
-        <a class="section-jump-nav__link" href="#menu-highlights">🍽 Our Menu</a>
-        <a class="section-jump-nav__link" href="#story">📖 Our Story</a>
-        <a class="section-jump-nav__link" href="#reviews">⭐ Reviews</a>
-        <a class="section-jump-nav__link" href="#contact">📍 Find Us</a>
+        <a class="section-jump-nav__link" href="#menu-highlights">🍽 <span class="lang-en">Our Menu</span><span class="lang-zh">菜单精选</span><span class="lang-es">Nuestro Menú</span></a>
+        <a class="section-jump-nav__link" href="#story">📖 <span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra Historia</span></a>
+        <a class="section-jump-nav__link" href="#reviews">⭐ <span class="lang-en">Reviews</span><span class="lang-zh">客户评价</span><span class="lang-es">Reseñas</span></a>
+        <a class="section-jump-nav__link" href="#contact">📍 <span class="lang-en">Find Us</span><span class="lang-zh">位置与联系</span><span class="lang-es">Ubicación</span></a>
       </div>
     </nav>
 
@@ -1229,48 +1262,48 @@
       <section class="section menu" id="menu-highlights" aria-labelledby="menu-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Menu Highlights</p>
-            <h2 class="section__title" id="menu-title">Authentic Flavors, Every Dish</h2>
-            <p class="section__intro">A concise look at the guest favorites people come back for, from a quick weeknight meal to a long table with friends.</p>
+            <p class="section__eyebrow"><span class="lang-en">Menu Highlights</span><span class="lang-zh">菜单精选</span><span class="lang-es">Selección del Menú</span></p>
+            <h2 class="section__title" id="menu-title"><span class="lang-en">Authentic Flavors, Every Dish</span><span class="lang-zh">每一道菜，都是正宗味道</span><span class="lang-es">Sabores auténticos en cada plato</span></h2>
+            <p class="section__intro"><span class="lang-en">A concise look at the guest favorites people come back for, from a quick weeknight meal to a long table with friends.</span><span class="lang-zh">从家常便饭到聚餐佳选，这些是客人一再光顾的必点之选。</span><span class="lang-es">Un vistazo a los favoritos que los clientes piden una y otra vez, para una cena rápida o una gran mesa con amigos.</span></p>
           </div>
           <div class="menu-grid">
             <article class="menu-card">
               <img class="menu-card__image" src="assets/china-bistro-card-1.jpg" alt="Pho & Vietnamese Soups" loading="lazy">
-              <span class="menu-card__badge">Fan Favorite</span>
-              <h3 class="menu-card__title">Pho & Vietnamese Soups</h3>
-              <p class="menu-card__description">Traditional beef pho, chicken pho, and Vietnamese-style noodle soups — rich broth simmered for hours, served with fresh herbs and bean sprouts.</p>
-              <span class="menu-card__featured">Try: Try the beef pho</span>
+              <span class="menu-card__badge"><span class="lang-en">Fan Favorite</span><span class="lang-zh">人气之选</span><span class="lang-es">Favorito</span></span>
+              <h3 class="menu-card__title"><span class="lang-en">Pho & Vietnamese Soups</span><span class="lang-zh">越式牛肉粉与汤品</span><span class="lang-es">Pho y sopas vietnamitas</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Traditional beef pho, chicken pho, and Vietnamese-style noodle soups — rich broth simmered for hours, served with fresh herbs and bean sprouts.</span><span class="lang-zh">传统牛肉粉、鸡肉粉和越式汤面——浓郁高汤慢炖数小时，配新鲜香草和豆芽上桌。</span><span class="lang-es">Pho de res tradicional, pho de pollo y sopas vietnamitas — caldo rico cocido a fuego lento por horas, servido con hierbas frescas y brotes de soja.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the beef pho</span><span class="lang-zh">推荐：推荐牛肉粉</span><span class="lang-es">Pruebe: Pruebe el pho de res</span></span>
             </article>
             <article class="menu-card">
               <img class="menu-card__image" src="assets/china-bistro-card-2.jpg" alt="Chinese Stir-Fry" loading="lazy">
-              <h3 class="menu-card__title">Chinese Stir-Fry</h3>
-              <p class="menu-card__description">Kung pao chicken, General Tso's, beef with broccoli, and Szechuan-spiced dishes — authentic wok cooking with flavors Manchester regulars say remind them of home.</p>
-              <span class="menu-card__featured">Try: Try the kung pao chicken</span>
+              <h3 class="menu-card__title"><span class="lang-en">Chinese Stir-Fry</span><span class="lang-zh">中式炒菜</span><span class="lang-es">Salteados chinos</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Kung pao chicken, General Tso's, beef with broccoli, and Szechuan-spiced dishes — authentic wok cooking with flavors Manchester regulars say remind them of home.</span><span class="lang-zh">宫保鸡丁、左宗棠鸡、西兰花牛肉、四川风味菜——正宗镬气炒菜，Manchester 老客说这味道让他们想起家。</span><span class="lang-es">Pollo kung pao, General Tso, carne con brócoli y platos al estilo Szechuan — cocina auténtica al wok con sabores que los clientes de Manchester dicen que les recuerdan a casa.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the kung pao chicken</span><span class="lang-zh">推荐：推荐宫保鸡丁</span><span class="lang-es">Pruebe: Pruebe el pollo kung pao</span></span>
             </article>
             <article class="menu-card">
               <img class="menu-card__image" src="assets/china-bistro-card-3.jpg" alt="Rice & Noodle Dishes" loading="lazy">
-              <h3 class="menu-card__title">Rice & Noodle Dishes</h3>
-              <p class="menu-card__description">House fried rice, lo mein, pan-fried noodles, and BBQ pork rice plates — generous portions that the St. Louis Asian food community calls the best value around.</p>
-              <span class="menu-card__featured">Try: Try the BBQ pork fried rice</span>
+              <h3 class="menu-card__title"><span class="lang-en">Rice & Noodle Dishes</span><span class="lang-zh">米饭与面食</span><span class="lang-es">Arroz y fideos</span></h3>
+              <p class="menu-card__description"><span class="lang-en">House fried rice, lo mein, pan-fried noodles, and BBQ pork rice plates — generous portions that the St. Louis Asian food community calls the best value around.</span><span class="lang-zh">招牌炒饭、捞面、煎面、叉烧饭——分量十足，被圣路易斯亚洲美食圈公认为最超值的选择。</span><span class="lang-es">Arroz frito de la casa, lo mein, fideos fritos y platos de arroz con cerdo BBQ — porciones generosas que la comunidad gastronómica asiática de St. Louis considera la mejor relación calidad-precio.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the BBQ pork fried rice</span><span class="lang-zh">推荐：推荐叉烧炒饭</span><span class="lang-es">Pruebe: Pruebe el arroz frito con cerdo BBQ</span></span>
             </article>
             <article class="menu-card">
               <img class="menu-card__image" src="assets/china-bistro-card-4.jpg" alt="Dumplings & Dim Sum" loading="lazy">
-              <h3 class="menu-card__title">Dumplings & Dim Sum</h3>
-              <p class="menu-card__description">Steamed pork dumplings, pan-fried potstickers, spring rolls, and egg rolls — handmade in the traditional style, available fresh every day.</p>
-              <span class="menu-card__featured">Try: Try the pork potstickers</span>
+              <h3 class="menu-card__title"><span class="lang-en">Dumplings & Dim Sum</span><span class="lang-zh">饺子与点心</span><span class="lang-es">Dumplings y dim sum</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Steamed pork dumplings, pan-fried potstickers, spring rolls, and egg rolls — handmade in the traditional style, available fresh every day.</span><span class="lang-zh">猪肉蒸饺、煎锅贴、春卷、蛋卷——传统手工制作，每天新鲜供应。</span><span class="lang-es">Dumplings de cerdo al vapor, potstickers fritos, rollos primavera y rollos de huevo — hechos a mano de forma tradicional, disponibles frescos cada día.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the pork potstickers</span><span class="lang-zh">推荐：推荐猪肉锅贴</span><span class="lang-es">Pruebe: Pruebe los potstickers de cerdo</span></span>
             </article>
           </div>
           <div class="menu__footer">
-            <a class="link-arrow" href="#menu-highlights">See the Full Menu</a>
+            <a class="link-arrow" href="#menu-highlights"><span class="lang-en">See the Full Menu</span><span class="lang-zh">查看完整菜单</span><span class="lang-es">Ver el menú completo</span></a>
           </div>
         </div>
       </section>
 
       <aside class="order-strip" aria-label="Ready to order">
         <div class="container order-strip__inner">
-          <p class="order-strip__text">Hungry? Give us a call.</p>
+          <p class="order-strip__text"><span class="lang-en">Hungry? Give us a call.</span><span class="lang-zh">饿了？给我们打个电话吧。</span><span class="lang-es">¿Tiene hambre? Llámenos.</span></p>
           <a class="order-strip__phone" href="tel:+16362203144">(636) 220-3144</a>
-          <a class="button button--light" href="tel:+16362203144">📞 Call to Order</a>
+          <a class="button button--light" href="tel:+16362203144">📞 <span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
         </div>
       </aside>
 
@@ -1278,17 +1311,17 @@
         <div class="container">
           <div class="story-layout">
             <div class="story-copy">
-              <p class="section__eyebrow">Our Story</p>
-              <h2 class="section__title" id="story-title">A Local Favorite in Manchester</h2>
-              <p>China Bistro is the kind of place that loyal customers keep to themselves — tucked inside Pan Asia Supermarket on Manchester Rd, it serves some of the most authentic Chinese and Vietnamese food in St. Louis at prices that feel like 2005. The kitchen has been quietly feeding Manchester for a decade.</p>
-              <p>The menu spans two cuisines with equal mastery: traditional Chinese stir-fries and dim sum prepared the old-fashioned way, alongside Vietnamese pho with broth that simmers for hours. "The traditional, delicious Asian cuisine reminds you of home," regulars say — because it's made by people who grew up eating this food.</p>
-              <p>"This is easily the best for its combination of quality and price" — that's the verdict from customers who've traveled across St. Louis to compare. China Bistro doesn't need a flashy storefront or an online marketing budget. In Manchester, word of mouth has kept the tables full for ten years.</p>
+              <p class="section__eyebrow"><span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra Historia</span></p>
+              <h2 class="section__title" id="story-title"><span class="lang-en">The Hidden Gem of Manchester</span><span class="lang-zh">Manchester 的隐藏宝藏</span><span class="lang-es">La joya escondida de Manchester</span></h2>
+              <p><span class="lang-en">China Bistro is the kind of place that loyal customers keep to themselves — tucked inside Pan Asia Supermarket on Manchester Rd, it serves some of the most authentic Chinese and Vietnamese food in St. Louis at prices that feel like 2005. The kitchen has been quietly feeding Manchester for a decade.</span><span class="lang-zh">China Bistro 是那种老客自己珍藏的好店——藏在 Manchester Rd 的泛亚超市里，供应圣路易斯最正宗的中越美食，价格实惠得像回到了2005年。这间厨房已经默默服务 Manchester 十年了。</span><span class="lang-es">China Bistro es ese tipo de lugar que los clientes fieles guardan como secreto — escondido dentro del supermercado Pan Asia en Manchester Rd, sirve la comida china y vietnamita más auténtica de St. Louis a precios que parecen de 2005. La cocina ha alimentado a Manchester en silencio durante una década.</span></p>
+              <p><span class="lang-en">The menu spans two cuisines with equal mastery: traditional Chinese stir-fries and dim sum prepared the old-fashioned way, alongside Vietnamese pho with broth that simmers for hours. "The traditional, delicious Asian cuisine reminds you of home," regulars say — because it's made by people who grew up eating this food.</span><span class="lang-zh">菜单横跨两大菜系、功力均等：传统中式炒菜和老派手工点心，搭配慢炖数小时的越式牛肉粉。老客们说：「传统美味的亚洲料理让人想起家的味道」——因为做菜的人，从小就是吃这些长大的。</span><span class="lang-es">El menú abarca dos cocinas con igual maestría: salteados chinos tradicionales y dim sum preparado a la antigua, junto con pho vietnamita con caldo que se cocina a fuego lento durante horas. "La cocina asiática tradicional y deliciosa te recuerda a casa," dicen los clientes frecuentes — porque está hecha por personas que crecieron comiendo esta comida.</span></p>
+              <p><span class="lang-en">"This is easily the best for its combination of quality and price" — that's the verdict from customers who've traveled across St. Louis to compare. China Bistro doesn't need a flashy storefront or an online marketing budget. In Manchester, word of mouth has kept the tables full for ten years.</span><span class="lang-zh">「论品质和价格的组合，这里绝对是最好的」——这是专程从圣路易斯各处赶来比较的食客给出的评价。China Bistro 不需要华丽的门面，也不需要网络推广预算。在 Manchester，口碑让这里客满了十年。</span><span class="lang-es">"Esta es fácilmente la mejor por su combinación de calidad y precio" — ese es el veredicto de clientes que han recorrido todo St. Louis para comparar. China Bistro no necesita una fachada llamativa ni un presupuesto de marketing digital. En Manchester, el boca a boca ha mantenido las mesas llenas durante diez años.</span></p>
             </div>
             <aside class="signature-card" aria-label="Signature dish highlight">
-              <span class="signature-card__badge">10 Years Serving Manchester</span>
+              <span class="signature-card__badge"><span class="lang-en">10 Years Serving Manchester</span><span class="lang-zh">扎根Manchester 10年</span><span class="lang-es">10 Años sirviendo a Manchester</span></span>
               <blockquote>
-                The traditional, delicious Asian cuisine reminds you of home. The price is extremely reasonable for the portion size.
-                <cite>Beef Pho</cite>
+                <span class="lang-en">The traditional, delicious Asian cuisine reminds you of home. The price is extremely reasonable for the portion size.</span><span class="lang-zh">传统美味的亚洲料理让人想起家的味道。以这个分量来说，价格非常实惠。</span><span class="lang-es">La cocina asiática tradicional y deliciosa te recuerda a casa. El precio es muy razonable para el tamaño de las porciones.</span>
+                <cite><span class="lang-en">Beef Pho</span><span class="lang-zh">牛肉粉</span><span class="lang-es">Pho de res</span></cite>
               </blockquote>
             </aside>
           </div>
@@ -1298,9 +1331,9 @@
       <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Guest Notes</p>
-            <h2 class="section__title" id="reviews-title">What Manchester Regulars Say</h2>
-            <p class="section__intro">Warm service, dependable cooking, and meals that feel personal are what regulars mention most.</p>
+            <p class="section__eyebrow"><span class="lang-en">Guest Notes</span><span class="lang-zh">食客心声</span><span class="lang-es">Opiniones</span></p>
+            <h2 class="section__title" id="reviews-title"><span class="lang-en">What Manchester Regulars Say</span><span class="lang-zh">Manchester 老顾客怎么说</span><span class="lang-es">Lo que dicen los clientes frecuentes de Manchester</span></h2>
+            <p class="section__intro"><span class="lang-en">Warm service, dependable cooking, and meals that feel personal are what regulars mention most.</span><span class="lang-zh">热情的服务、可靠的厨艺、让人倍感亲切的每一餐——这是老顾客们最常提到的。</span><span class="lang-es">Servicio cálido, cocina confiable y comidas que se sienten personales — eso es lo que más mencionan los clientes frecuentes.</span></p>
           </div>
           <div class="reviews-summary">
             <span class="reviews-summary__rating">4.3</span>
@@ -1308,27 +1341,27 @@
               <span aria-hidden="true">★★★★★</span>
               <span class="reviews-summary__stars-fill" aria-hidden="true">★★★★★</span>
             </div>
-            <span class="reviews-summary__label">Based on 170 Google reviews</span>
+            <span class="reviews-summary__label"><span class="lang-en">Based on 170 Google reviews</span><span class="lang-zh">基于 170 条 Google 评价</span><span class="lang-es">Basado en 170 reseñas de Google</span></span>
           </div>
           <div class="reviews-grid">
             <article class="review-card">
               <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
-              <blockquote>This is easily the best for its combination of quality and price in the St. Louis area. Nothing else comes close.</blockquote>
+              <blockquote><span class="lang-en">This is easily the best for its combination of quality and price in the St. Louis area. Nothing else comes close.</span><span class="lang-zh">论品质和价格的组合，这里绝对是圣路易斯地区最好的。没有其他地方能比。</span><span class="lang-es">Esta es fácilmente la mejor por su combinación de calidad y precio en el área de St. Louis. Nada más se le acerca.</span></blockquote>
               <p class="review-card__name">Nathaniel M.</p>
             </article>
             <article class="review-card">
               <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
-              <blockquote>The traditional, delicious Asian cuisine reminds you of home. The price is extremely reasonable for the portion size.</blockquote>
+              <blockquote><span class="lang-en">The traditional, delicious Asian cuisine reminds you of home. The price is extremely reasonable for the portion size.</span><span class="lang-zh">传统美味的亚洲料理让人想起家的味道。以这个分量来说，价格非常实惠。</span><span class="lang-es">La cocina asiática tradicional y deliciosa te recuerda a casa. El precio es muy razonable para el tamaño de las porciones.</span></blockquote>
               <p class="review-card__name">Yat Y.</p>
             </article>
             <article class="review-card">
               <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
-              <blockquote>The menu variety is insane, and every time I come I know I am going to eat good. A hidden gem on Manchester Rd.</blockquote>
+              <blockquote><span class="lang-en">The menu variety is insane, and every time I come I know I am going to eat good. A hidden gem on Manchester Rd.</span><span class="lang-zh">菜品种类多到难以置信，每次来都知道一定能吃好。Manchester Rd 上的隐藏宝藏。</span><span class="lang-es">La variedad del menú es increíble, y cada vez que vengo sé que voy a comer bien. Una joya escondida en Manchester Rd.</span></blockquote>
               <p class="review-card__name">Yat Y.</p>
             </article>
           </div>
           <div class="reviews-footer">
-            <a class="link-arrow" href="https://maps.google.com/?q=China+Bistro+Manchester+MO+14246+Manchester+Rd" target="_blank" rel="noopener">Read all 170 reviews on Google</a>
+            <a class="link-arrow" href="https://maps.google.com/?q=China+Bistro+Manchester+MO+14246+Manchester+Rd" target="_blank" rel="noopener"><span class="lang-en">Read all 170 reviews on Google</span><span class="lang-zh">查看全部 170 条 Google 评价</span><span class="lang-es">Leer las 170 reseñas en Google</span></a>
           </div>
         </div>
       </section>
@@ -1336,45 +1369,45 @@
       <section class="section contact" id="contact" aria-labelledby="contact-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Visit Today</p>
-            <h2 class="section__title" id="contact-title">Find Us</h2>
-            <p class="section__intro">Call ahead, check today's hours, or get directions straight to the restaurant.</p>
+            <p class="section__eyebrow"><span class="lang-en">Visit Today</span><span class="lang-zh">欢迎光临</span><span class="lang-es">Visítenos hoy</span></p>
+            <h2 class="section__title" id="contact-title"><span class="lang-en">Find Us</span><span class="lang-zh">位置与联系</span><span class="lang-es">Ubicación y contacto</span></h2>
+            <p class="section__intro"><span class="lang-en">Call ahead, check today's hours, or get directions straight to the restaurant.</span><span class="lang-zh">提前致电、查询营业时间，或直接导航到店。</span><span class="lang-es">Llame con anticipación, consulte el horario o encuentre las indicaciones al restaurante.</span></p>
           </div>
           <div class="contact-layout">
             <article class="contact-card">
               <div class="contact-card__top">
-                <h3 class="contact-card__heading">Hours & Contact</h3>
+                <h3 class="contact-card__heading"><span class="lang-en">Hours &amp; Contact</span><span class="lang-zh">营业时间</span><span class="lang-es">Horario y contacto</span></h3>
                 <span class="contact-status status--open">Open Now</span>
               </div>
-              <p class="today-hours">Today: 10:30 AM – 7:00 PM</p>
+              <p class="today-hours"><span class="lang-en">Today: </span><span class="lang-zh">今日：</span><span class="lang-es">Hoy: </span>10:30 AM – 7:00 PM</p>
               <table class="hours-table" aria-label="Weekly restaurant hours">
                 <tbody>
                   <tr>
-                    <th scope="row">Monday</th>
+                    <th scope="row"><span class="lang-en">Monday</span><span class="lang-zh">星期一</span><span class="lang-es">Lunes</span></th>
                     <td>10:30 AM – 7:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Tuesday</th>
+                    <th scope="row"><span class="lang-en">Tuesday</span><span class="lang-zh">星期二</span><span class="lang-es">Martes</span></th>
                     <td>10:30 AM – 7:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Wednesday</th>
+                    <th scope="row"><span class="lang-en">Wednesday</span><span class="lang-zh">星期三</span><span class="lang-es">Miércoles</span></th>
                     <td>10:30 AM – 7:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Thursday</th>
+                    <th scope="row"><span class="lang-en">Thursday</span><span class="lang-zh">星期四</span><span class="lang-es">Jueves</span></th>
                     <td>10:30 AM – 7:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Friday</th>
+                    <th scope="row"><span class="lang-en">Friday</span><span class="lang-zh">星期五</span><span class="lang-es">Viernes</span></th>
                     <td>10:30 AM – 7:30 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Saturday</th>
+                    <th scope="row"><span class="lang-en">Saturday</span><span class="lang-zh">星期六</span><span class="lang-es">Sábado</span></th>
                     <td>10:30 AM – 7:30 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Sunday</th>
+                    <th scope="row"><span class="lang-en">Sunday</span><span class="lang-zh">星期日</span><span class="lang-es">Domingo</span></th>
                     <td>10:30 AM – 7:00 PM</td>
                   </tr>
                 </tbody>
@@ -1386,12 +1419,12 @@
                 </li>
               </ul>
               <div class="contact-actions">
-                <a class="button button--primary" href="tel:+16362203144">Call to Order</a>
+                <a class="button button--primary" href="tel:+16362203144"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
               </div>
             </article>
             <article class="contact-card">
               <div class="contact-card__top">
-                <h3 class="contact-card__heading">Map & Directions</h3>
+                <h3 class="contact-card__heading"><span class="lang-en">Map &amp; Directions</span><span class="lang-zh">地图导航</span><span class="lang-es">Mapa e indicaciones</span></h3>
               </div>
               <p class="contact-address">📍 14246 Manchester Rd, Manchester, MO 63011</p>
               <div class="map-wrap">
@@ -1404,8 +1437,8 @@
                 </iframe>
               </div>
               <div class="map-actions">
-                <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=14246+Manchester+Rd+Manchester+MO+63011" target="_blank" rel="noopener">Get Directions</a>
-                <a class="link-arrow" href="#menu-highlights">View Full Menu</a>
+                <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=14246+Manchester+Rd+Manchester+MO+63011" target="_blank" rel="noopener"><span class="lang-en">Get Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Ver cómo llegar</span></a>
+                <a class="link-arrow" href="#menu-highlights"><span class="lang-en">View Full Menu</span><span class="lang-zh">查看完整菜单</span><span class="lang-es">Ver menú completo</span></a>
               </div>
             </article>
           </div>
@@ -1415,7 +1448,7 @@
 
     <footer class="site-footer">
       <div class="container site-footer__inner">
-        <span>© 2026 China Bistro. All rights reserved.</span>
+        <span><span class="lang-en">© 2026 China Bistro. All rights reserved.</span><span class="lang-zh">© 2026 China Bistro 版权所有</span><span class="lang-es">© 2026 China Bistro. Todos los derechos reservados.</span></span>
         <span>14246 Manchester Rd, Manchester, MO 63011</span>
         <a href="tel:+16362203144">(636) 220-3144</a>
       </div>
@@ -1489,13 +1522,13 @@
   <a class="mobile-call-bar__phone" href="tel:+16362203144">
     <span class="mobile-call-bar__icon">📞</span>
     <span class="mobile-call-bar__text">
-      <span class="mobile-call-bar__label">Call to Order</span>
+      <span class="mobile-call-bar__label"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></span>
       <span class="mobile-call-bar__number">(636) 220-3144</span>
     </span>
   </a>
   <a class="mobile-call-bar__directions" href="https://www.google.com/maps/dir/?api=1&destination=14246+Manchester+Rd+Manchester+MO+63011" target="_blank" rel="noopener">
     <span class="mobile-call-bar__icon">📍</span>
-    <span class="mobile-call-bar__label">Directions</span>
+    <span class="mobile-call-bar__label"><span class="lang-en">Directions</span><span class="lang-zh">导航</span><span class="lang-es">Cómo llegar</span></span>
   </a>
 </div>
 
@@ -1509,6 +1542,21 @@
           html.setAttribute('data-theme', theme);
           buttons.forEach(function (b) { b.classList.remove('active'); });
           btn.classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var html = document.documentElement;
+      document.querySelectorAll(".lang-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var lang = btn.getAttribute("data-lang");
+          html.setAttribute("data-lang", lang);
+          html.setAttribute("lang", lang === "zh" ? "zh-CN" : lang === "es" ? "es" : "en");
+          document.querySelectorAll(".lang-btn").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
         });
       });
     })();

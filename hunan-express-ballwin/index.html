@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -84,38 +84,19 @@
 
     /* ── Theme switcher UI ── */
     .theme-switcher {
-      position: fixed;
-      right: 18px;
-      bottom: 100px;
-      z-index: 8888;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      background: #fff;
-      border-radius: 999px;
-      padding: 10px 8px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-      border: 1px solid rgba(0,0,0,0.08);
+      position: fixed; right: 18px; top: 78px; z-index: 8888;
+      display: flex; flex-direction: row; align-items: center; gap: 8px;
+      background: #fff; border-radius: 999px; padding: 8px 14px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18); border: 1px solid rgba(0,0,0,0.08);
     }
     .theme-switcher__label {
-      font-size: 10px;
-      font-weight: 700;
-      color: #888;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      margin-bottom: 4px;
+      font-size: 10px; font-weight: 700; color: #888; letter-spacing: 0.08em;
+      text-transform: uppercase; white-space: nowrap; margin-right: 2px;
     }
     .theme-btn {
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
-      border: 2px solid transparent;
-      cursor: pointer;
-      transition: transform 160ms ease, border-color 160ms ease;
-      padding: 0;
+      width: 26px; height: 26px; border-radius: 999px; border: 2px solid transparent;
+      cursor: pointer; transition: transform 160ms ease, border-color 160ms ease; padding: 0;
+      flex: 0 0 auto;
     }
     .theme-btn:hover { transform: scale(1.18); }
     .theme-btn.active { border-color: #333; transform: scale(1.12); }
@@ -124,8 +105,25 @@
     .theme-btn[data-theme="mocha-warmth"]     { background: #6B3F2A; }
     .theme-btn[data-theme="forest-calm"]      { background: #1E4D35; }
     .theme-btn[data-theme="slate-modern"]     { background: #2D3142; }
-    @media (max-width: 767px) {
-      .theme-switcher { bottom: 104px; right: 12px; }
+    @media (max-width: 767px) { .theme-switcher { top: 78px; right: 12px; gap: 6px; padding: 7px 12px; } }
+
+    /* ── Language switcher ── */
+    .lang-zh, .lang-es { display: none; }
+    [data-lang="zh"] .lang-en { display: none; }
+    [data-lang="zh"] .lang-zh { display: revert; }
+    [data-lang="es"] .lang-en { display: none; }
+    [data-lang="es"] .lang-es { display: revert; }
+
+    .lang-switcher { display: flex; align-items: center; gap: 4px; }
+    .lang-btn {
+      display: inline-flex; min-height: 44px; align-items: center;
+      padding: 4px 9px; border: 1px solid rgba(0,0,0,0.14); border-radius: 6px;
+      background: transparent; font-family: var(--font-body); font-size: 13px;
+      font-weight: 700; cursor: pointer; color: rgba(44,44,44,0.68);
+      transition: background 160ms, color 160ms, border-color 160ms; white-space: nowrap;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      background: var(--color-primary); color: #fff; border-color: var(--color-primary);
     }
 
     *,
@@ -605,7 +603,7 @@
     }
 
     .signature-card::before {
-      content: "“";
+      content: "\201C";
       position: absolute;
       top: -24px;
       right: 22px;
@@ -785,7 +783,7 @@
       display: grid;
       grid-template-columns: 32px 1fr;
       gap: 10px;
-      align-items: start;
+      align-items: center;
     }
 
     .contact-list__icon {
@@ -807,6 +805,12 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 12px;
+    }
+
+    .contact-address {
+      font-size: 15px;
+      color: var(--color-text);
+      margin: 0 0 14px;
     }
 
     .map-wrap {
@@ -953,7 +957,7 @@
       }
 
       .section__title {
-        font-size: clamp(42px, 5vw, 58px);
+        font-size: clamp(28px, 3.2vw, 36px);
       }
 
       .site-nav__actions {
@@ -961,11 +965,11 @@
       }
 
       .hero {
-        min-height: 640px;
+        min-height: 520px;
       }
 
       .hero__content {
-        padding: 112px 0 116px;
+        padding: 56px 0 60px;
       }
 
       .hero__title {
@@ -1193,6 +1197,15 @@
     @media (min-width: 768px) {
       .menu-card__image { width: calc(100% + 60px); margin: -30px -30px 18px; }
     }
+
+    /* ── CJK typography adjustments ── */
+    [data-lang="zh"] .section__eyebrow,
+    [data-lang="zh"] .hero__kicker { letter-spacing: 0.04em; }
+    [data-lang="zh"] .story-copy p { line-height: 1.75; }
+    [data-lang="zh"] .review-card blockquote { line-height: 1.65; }
+    [data-lang="zh"] .signature-card blockquote { line-height: 1.55; }
+    [data-lang="zh"] .review-card blockquote,
+    [data-lang="zh"] .signature-card blockquote { font-family: var(--font-body); font-style: normal; }
   </style>
 </head>
 <body>
@@ -1203,9 +1216,14 @@
           <span class="site-nav__mark" aria-hidden="true">R</span>
           <span class="site-nav__name">Hunan Express</span>
         </a>
+        <div class="lang-switcher" role="group" aria-label="Language / 语言 / Idioma">
+          <button class="lang-btn active" data-lang="en" title="English">🇺🇸 EN</button>
+          <button class="lang-btn" data-lang="zh" title="中文">🇨🇳 中文</button>
+          <button class="lang-btn" data-lang="es" title="Español">🇲🇽 ES</button>
+        </div>
         <div class="site-nav__actions" aria-label="Quick actions">
           <a class="site-nav__phone" href="tel:+16362278288">(636) 227-8288</a>
-          <a class="button button--primary" href="tel:+16362278288">Call Now</a>
+          <a class="button button--primary" href="tel:+16362278288"><span class="lang-en">Call Now</span><span class="lang-zh">立即致电</span><span class="lang-es">Llamar ahora</span></a>
         </div>
       </div>
     </nav>
@@ -1213,30 +1231,30 @@
     <header class="hero" id="top" role="banner" aria-label="Hunan Express — bold Hunan-style Chinese cuisine in Ballwin, MO">
       <div class="container">
         <div class="hero__content">
-          <p class="hero__kicker">Ballwin Restaurant</p>
+          <p class="hero__kicker"><span class="lang-en">Ballwin Restaurant</span><span class="lang-zh">Ballwin 餐厅</span><span class="lang-es">Restaurante en Ballwin</span></p>
           <h1 class="hero__title">Hunan Express</h1>
-          <p class="hero__tagline">Bold Hunan Flavors, Fast and Fresh in Ballwin</p>
+          <p class="hero__tagline"><span class="lang-en">Bold Hunan Flavors, Fast and Fresh in Ballwin</span><span class="lang-zh">地道湖南风味，快速新鲜，就在 Ballwin</span><span class="lang-es">Sabores audaces de Hunan, rápidos y frescos en Ballwin</span></p>
           <div class="hero__badges" aria-label="Restaurant highlights">
             <span class="pill">📍 Ballwin</span>
-            <span class="pill">🍽 15 Years Serving</span>
+            <span class="pill"><span class="lang-en">🍽 15 Years Serving</span><span class="lang-zh">🍽 15 年老店</span><span class="lang-es">🍽 15 Años sirviendo</span></span>
             <span class="pill status--open">Open Now</span>
           </div>
           <div class="hero__ctas" aria-label="Hero actions">
-            <a class="button button--primary" href="tel:+16362278288">Call to Order</a>
-            <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=127+Baxter+Rd+Ballwin+MO+63011" target="_blank" rel="noopener">Get Directions</a>
+            <a class="button button--primary" href="tel:+16362278288"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
+            <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=127+Baxter+Rd+Ballwin+MO+63011" target="_blank" rel="noopener"><span class="lang-en">Get Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Ver cómo llegar</span></a>
           </div>
           <p class="hero__phone-display"><a href="tel:+16362278288">(636) 227-8288</a></p>
-          <a class="link-arrow hero__menu-link" href="#menu-highlights">View Full Menu</a>
+          <a class="link-arrow hero__menu-link" href="#menu-highlights"><span class="lang-en">View Full Menu</span><span class="lang-zh">查看完整菜单</span><span class="lang-es">Ver menú completo</span></a>
         </div>
       </div>
     </header>
 
     <nav class="section-jump-nav" aria-label="Jump to section">
       <div class="section-jump-nav__inner">
-        <a class="section-jump-nav__link" href="#menu-highlights">🍽 Our Menu</a>
-        <a class="section-jump-nav__link" href="#story">📖 Our Story</a>
-        <a class="section-jump-nav__link" href="#reviews">⭐ Reviews</a>
-        <a class="section-jump-nav__link" href="#contact">📍 Find Us</a>
+        <a class="section-jump-nav__link" href="#menu-highlights">🍽 <span class="lang-en">Our Menu</span><span class="lang-zh">菜单精选</span><span class="lang-es">Nuestro Menú</span></a>
+        <a class="section-jump-nav__link" href="#story">📖 <span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra Historia</span></a>
+        <a class="section-jump-nav__link" href="#reviews">⭐ <span class="lang-en">Reviews</span><span class="lang-zh">客户评价</span><span class="lang-es">Reseñas</span></a>
+        <a class="section-jump-nav__link" href="#contact">📍 <span class="lang-en">Find Us</span><span class="lang-zh">位置与联系</span><span class="lang-es">Ubicación</span></a>
       </div>
     </nav>
 
@@ -1244,48 +1262,48 @@
       <section class="section menu" id="menu-highlights" aria-labelledby="menu-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Menu Highlights</p>
-            <h2 class="section__title" id="menu-title">Bold Flavors, Fast Every Time</h2>
-            <p class="section__intro">A concise look at the guest favorites people come back for, from a quick weeknight meal to a long table with friends.</p>
+            <p class="section__eyebrow"><span class="lang-en">Menu Highlights</span><span class="lang-zh">菜单精选</span><span class="lang-es">Selección del Menú</span></p>
+            <h2 class="section__title" id="menu-title"><span class="lang-en">Bold Flavors, Fast Every Time</span><span class="lang-zh">浓郁风味，次次快捷</span><span class="lang-es">Sabores intensos, rápidos siempre</span></h2>
+            <p class="section__intro"><span class="lang-en">A concise look at the guest favorites people come back for, from a quick weeknight meal to a long table with friends.</span><span class="lang-zh">从家常便饭到聚餐佳选，这些是客人一再光顾的必点之选。</span><span class="lang-es">Un vistazo a los favoritos que los clientes piden una y otra vez, para una cena rápida o una gran mesa con amigos.</span></p>
           </div>
           <div class="menu-grid">
             <article class="menu-card">
               <img class="menu-card__image" src="assets/hunan-express-card-1.jpg" alt="Appetizers" loading="lazy">
-              <span class="menu-card__badge">Fan Favorite</span>
-              <h3 class="menu-card__title">Appetizers</h3>
-              <p class="menu-card__description">Crispy egg rolls, handmade crab rangoon, and golden spring rolls — the starters Ballwin regulars order every single time. "Egg rolls are superb."</p>
-              <span class="menu-card__featured">Try: Try the crab rangoon</span>
+              <span class="menu-card__badge"><span class="lang-en">Fan Favorite</span><span class="lang-zh">人气之选</span><span class="lang-es">Favorito</span></span>
+              <h3 class="menu-card__title"><span class="lang-en">Appetizers</span><span class="lang-zh">开胃小食</span><span class="lang-es">Entradas</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Crispy egg rolls, handmade crab rangoon, and golden spring rolls — the starters Ballwin regulars order every single time. "Egg rolls are superb."</span><span class="lang-zh">酥脆蛋卷、手工炸蟹角、金黄春卷——Ballwin 回头客每次必点的开胃菜。「蛋卷太棒了。」</span><span class="lang-es">Rollos de huevo crujientes, crab rangoon hecho a mano y rollos primavera dorados — las entradas que los clientes de Ballwin piden cada vez. "Los rollos de huevo son magníficos."</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the crab rangoon</span><span class="lang-zh">推荐：推荐炸蟹角</span><span class="lang-es">Pruebe: Pruebe el crab rangoon</span></span>
             </article>
             <article class="menu-card">
               <img class="menu-card__image" src="assets/hunan-express-card-2.jpg" alt="Chicken Favorites" loading="lazy">
-              <h3 class="menu-card__title">Chicken Favorites</h3>
-              <p class="menu-card__description">Boneless hot braised chicken, General Tso's, kung pao, and Springfield-style cashew chicken — the boldest, most-ordered dishes on the menu.</p>
-              <span class="menu-card__featured">Try: Try the hot braised chicken</span>
+              <h3 class="menu-card__title"><span class="lang-en">Chicken Favorites</span><span class="lang-zh">人气鸡肉菜</span><span class="lang-es">Favoritos de pollo</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Boneless hot braised chicken, General Tso's, kung pao, and Springfield-style cashew chicken — the boldest, most-ordered dishes on the menu.</span><span class="lang-zh">无骨红烧鸡、左宗棠鸡、宫保鸡丁、Springfield 风味腰果鸡——菜单上最大胆、点单率最高的菜品。</span><span class="lang-es">Pollo estofado sin hueso, General Tso, kung pao y pollo con anacardos estilo Springfield — los platos más audaces y pedidos del menú.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the hot braised chicken</span><span class="lang-zh">推荐：推荐无骨红烧鸡</span><span class="lang-es">Pruebe: Pruebe el pollo estofado</span></span>
             </article>
             <article class="menu-card">
               <img class="menu-card__image" src="assets/hunan-express-card-3.jpg" alt="Beef & Pork" loading="lazy">
-              <h3 class="menu-card__title">Beef & Pork</h3>
-              <p class="menu-card__description">Hunan beef, beef with broccoli, Mongolian beef, and twice-cooked pork — authentic regional preparations with that signature Hunan heat and depth.</p>
-              <span class="menu-card__featured">Try: Try the Hunan beef</span>
+              <h3 class="menu-card__title"><span class="lang-en">Beef & Pork</span><span class="lang-zh">牛肉与猪肉</span><span class="lang-es">Carne de res y cerdo</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Hunan beef, beef with broccoli, Mongolian beef, and twice-cooked pork — authentic regional preparations with that signature Hunan heat and depth.</span><span class="lang-zh">湖南牛肉、西兰花牛肉、蒙古牛肉、回锅肉——正宗地方做法，带着湖南菜标志性的辣度和层次感。</span><span class="lang-es">Carne Hunan, carne con brócoli, carne mongol y cerdo dos veces cocido — preparaciones regionales auténticas con el calor y profundidad característicos de Hunan.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the Hunan beef</span><span class="lang-zh">推荐：推荐湖南牛肉</span><span class="lang-es">Pruebe: Pruebe la carne Hunan</span></span>
             </article>
             <article class="menu-card">
               <img class="menu-card__image" src="assets/hunan-express-card-4.jpg" alt="Noodles & Fried Rice" loading="lazy">
-              <h3 class="menu-card__title">Noodles & Fried Rice</h3>
-              <p class="menu-card__description">Lo mein, chow mein, mei fun, and house fried rice — wok-tossed over high heat. Always hot when it reaches you, always exactly right.</p>
-              <span class="menu-card__featured">Try: Try the house fried rice</span>
+              <h3 class="menu-card__title"><span class="lang-en">Noodles & Fried Rice</span><span class="lang-zh">面食与炒饭</span><span class="lang-es">Fideos y arroz frito</span></h3>
+              <p class="menu-card__description"><span class="lang-en">Lo mein, chow mein, mei fun, and house fried rice — wok-tossed over high heat. Always hot when it reaches you, always exactly right.</span><span class="lang-zh">捞面、炒面、米粉、招牌炒饭——大火猛炒。到手时永远滚烫，味道永远刚好。</span><span class="lang-es">Lo mein, chow mein, mei fun y arroz frito de la casa — salteados al wok a fuego alto. Siempre caliente cuando llega a usted, siempre perfecto.</span></p>
+              <span class="menu-card__featured"><span class="lang-en">Try: Try the house fried rice</span><span class="lang-zh">推荐：推荐招牌炒饭</span><span class="lang-es">Pruebe: Pruebe el arroz frito de la casa</span></span>
             </article>
           </div>
           <div class="menu__footer">
-            <a class="link-arrow" href="#menu-highlights">See the Full Menu</a>
+            <a class="link-arrow" href="#menu-highlights"><span class="lang-en">See the Full Menu</span><span class="lang-zh">查看完整菜单</span><span class="lang-es">Ver el menú completo</span></a>
           </div>
         </div>
       </section>
 
       <aside class="order-strip" aria-label="Ready to order">
         <div class="container order-strip__inner">
-          <p class="order-strip__text">Hungry? Give us a call.</p>
+          <p class="order-strip__text"><span class="lang-en">Hungry? Give us a call.</span><span class="lang-zh">饿了？给我们打个电话吧。</span><span class="lang-es">¿Tiene hambre? Llámenos.</span></p>
           <a class="order-strip__phone" href="tel:+16362278288">(636) 227-8288</a>
-          <a class="button button--light" href="tel:+16362278288">📞 Call to Order</a>
+          <a class="button button--light" href="tel:+16362278288">📞 <span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
         </div>
       </aside>
 
@@ -1293,17 +1311,17 @@
         <div class="container">
           <div class="story-layout">
             <div class="story-copy">
-              <p class="section__eyebrow">Our Story</p>
-              <h2 class="section__title" id="story-title">A Local Favorite in Ballwin</h2>
-              <p>Hunan Express has been feeding Ballwin families for over 15 years from its home in Baxter Shops. It's not a big restaurant — it's a focused kitchen that does one thing exceptionally well: traditional Hunan-style Chinese cooking, fast, hot, and consistent every time.</p>
-              <p>The menu was built around the dishes that keep customers coming back — boneless hot braised chicken, hand-crimped crab rangoon, and the Springfield-style cashew chicken that regulars say they can't find anywhere else in West County. Every order goes out hot, and long-time customers say the quality never changes.</p>
-              <p>Hunan Express is the kind of place that doesn't need fancy decor or a flashy website — the food speaks for itself. For over a decade, Ballwin families have been placing the same order every Friday night. That kind of loyalty is built one meal at a time.</p>
+              <p class="section__eyebrow"><span class="lang-en">Our Story</span><span class="lang-zh">我们的故事</span><span class="lang-es">Nuestra Historia</span></p>
+              <h2 class="section__title" id="story-title"><span class="lang-en">Ballwin's Go-To Chinese Carryout</span><span class="lang-zh">Ballwin 居民的首选中餐外卖</span><span class="lang-es">El restaurante chino para llevar favorito de Ballwin</span></h2>
+              <p><span class="lang-en">Hunan Express has been feeding Ballwin families for over 15 years from its home in Baxter Shops. It's not a big restaurant — it's a focused kitchen that does one thing exceptionally well: traditional Hunan-style Chinese cooking, fast, hot, and consistent every time.</span><span class="lang-zh">Hunan Express 在 Baxter Shops 已为 Ballwin 家庭供餐超过15年。它不是大餐厅——而是一间专注的厨房，把一件事做到极致：传统湖南式中餐，快速、滚烫、每次如一。</span><span class="lang-es">Hunan Express ha alimentado a las familias de Ballwin por más de 15 años desde su hogar en Baxter Shops. No es un restaurante grande — es una cocina enfocada que hace una cosa excepcionalmente bien: cocina china tradicional estilo Hunan, rápida, caliente y consistente cada vez.</span></p>
+              <p><span class="lang-en">The menu was built around the dishes that keep customers coming back — boneless hot braised chicken, hand-crimped crab rangoon, and the Springfield-style cashew chicken that regulars say they can't find anywhere else in West County. Every order goes out hot, and long-time customers say the quality never changes.</span><span class="lang-zh">菜单围绕让客人不断回来的菜品打造——无骨红烧鸡、手工炸蟹角，以及老客们说在 West County 别处找不到的 Springfield 风味腰果鸡。每单出品都是滚烫的，多年老客说品质从未改变。</span><span class="lang-es">El menú fue construido alrededor de los platos que hacen que los clientes regresen — pollo estofado sin hueso, crab rangoon hecho a mano, y el pollo con anacardos estilo Springfield que los habituales dicen que no encuentran en ningún otro lugar de West County. Cada pedido sale caliente, y los clientes de años dicen que la calidad nunca cambia.</span></p>
+              <p><span class="lang-en">Hunan Express is the kind of place that doesn't need fancy decor or a flashy website — the food speaks for itself. For over a decade, Ballwin families have been placing the same order every Friday night. That kind of loyalty is built one meal at a time.</span><span class="lang-zh">Hunan Express 是那种不需要花哨装修或炫酷网站的店——食物本身会说话。十多年来，Ballwin 的家庭每个周五晚上都在下同样的订单。这种忠诚是一餐一餐积累起来的。</span><span class="lang-es">Hunan Express es ese tipo de lugar que no necesita decoración elegante ni un sitio web llamativo — la comida habla por sí misma. Por más de una década, las familias de Ballwin han hecho el mismo pedido cada viernes por la noche. Ese tipo de lealtad se construye una comida a la vez.</span></p>
             </div>
             <aside class="signature-card" aria-label="Signature dish highlight">
-              <span class="signature-card__badge">15 Years Serving Ballwin</span>
+              <span class="signature-card__badge"><span class="lang-en">15 Years Serving Ballwin</span><span class="lang-zh">扎根Ballwin 15年</span><span class="lang-es">15 Años sirviendo a Ballwin</span></span>
               <blockquote>
-                I highly recommend the boneless hot braised chicken, kung pao chicken, and the general tsao chicken.
-                <cite>Boneless Hot Braised Chicken</cite>
+                <span class="lang-en">I highly recommend the boneless hot braised chicken, kung pao chicken, and the general tsao chicken.</span><span class="lang-zh">强烈推荐无骨红烧鸡、宫保鸡丁和左宗棠鸡。</span><span class="lang-es">Recomiendo mucho el pollo estofado sin hueso, el pollo kung pao y el pollo General Tso.</span>
+                <cite><span class="lang-en">Boneless Hot Braised Chicken</span><span class="lang-zh">无骨红烧鸡</span><span class="lang-es">Pollo estofado sin hueso</span></cite>
               </blockquote>
             </aside>
           </div>
@@ -1313,9 +1331,9 @@
       <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Guest Notes</p>
-            <h2 class="section__title" id="reviews-title">What Ballwin Regulars Say</h2>
-            <p class="section__intro">Warm service, dependable cooking, and meals that feel personal are what regulars mention most.</p>
+            <p class="section__eyebrow"><span class="lang-en">Guest Notes</span><span class="lang-zh">食客心声</span><span class="lang-es">Opiniones</span></p>
+            <h2 class="section__title" id="reviews-title"><span class="lang-en">What Ballwin Regulars Say</span><span class="lang-zh">Ballwin 老顾客怎么说</span><span class="lang-es">Lo que dicen los clientes frecuentes de Ballwin</span></h2>
+            <p class="section__intro"><span class="lang-en">Warm service, dependable cooking, and meals that feel personal are what regulars mention most.</span><span class="lang-zh">热情的服务、可靠的厨艺、让人倍感亲切的每一餐——这是老顾客们最常提到的。</span><span class="lang-es">Servicio cálido, cocina confiable y comidas que se sienten personales — eso es lo que más mencionan los clientes frecuentes.</span></p>
           </div>
           <div class="reviews-summary">
             <span class="reviews-summary__rating">4.1</span>
@@ -1323,27 +1341,27 @@
               <span aria-hidden="true">★★★★★</span>
               <span class="reviews-summary__stars-fill" aria-hidden="true">★★★★★</span>
             </div>
-            <span class="reviews-summary__label">Based on 127 Google reviews</span>
+            <span class="reviews-summary__label"><span class="lang-en">Based on 127 Google reviews</span><span class="lang-zh">基于 127 条 Google 评价</span><span class="lang-es">Basado en 127 reseñas de Google</span></span>
           </div>
           <div class="reviews-grid">
             <article class="review-card">
               <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
-              <blockquote>Egg rolls are superb as are the crab rangoons. Good flavor on the meals and always hot.</blockquote>
+              <blockquote><span class="lang-en">Egg rolls are superb as are the crab rangoons. Good flavor on the meals and always hot.</span><span class="lang-zh">蛋卷太棒了，炸蟹角也一样。菜品味道很好，出品始终滚烫。</span><span class="lang-es">Los rollos de huevo son magníficos al igual que los crab rangoon. Buen sabor en las comidas y siempre calientes.</span></blockquote>
               <p class="review-card__name">Gateway G.</p>
             </article>
             <article class="review-card">
               <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
-              <blockquote>I highly recommend the boneless hot braised chicken, kung pao chicken, and the general tsao chicken.</blockquote>
+              <blockquote><span class="lang-en">I highly recommend the boneless hot braised chicken, kung pao chicken, and the general tsao chicken.</span><span class="lang-zh">强烈推荐无骨红烧鸡、宫保鸡丁和左宗棠鸡。</span><span class="lang-es">Recomiendo mucho el pollo estofado sin hueso, el pollo kung pao y el pollo General Tso.</span></blockquote>
               <p class="review-card__name">J.B.</p>
             </article>
             <article class="review-card">
               <div class="review-card__stars" aria-label="Five star rating">★★★★★</div>
-              <blockquote>It is some of the best Chinese around. When you get the food home it is always still hot and fresh.</blockquote>
+              <blockquote><span class="lang-en">It is some of the best Chinese around. When you get the food home it is always still hot and fresh.</span><span class="lang-zh">这是周边最好的中餐之一。把餐带回家时，菜还是滚烫新鲜的。</span><span class="lang-es">Es de la mejor comida china de la zona. Cuando llegas a casa con la comida, siempre está caliente y fresca.</span></blockquote>
               <p class="review-card__name">Justjaneth</p>
             </article>
           </div>
           <div class="reviews-footer">
-            <a class="link-arrow" href="https://maps.google.com/?q=Hunan+Express+127+Baxter+Rd+Ballwin+MO" target="_blank" rel="noopener">Read all 127 reviews on Google</a>
+            <a class="link-arrow" href="https://maps.google.com/?q=Hunan+Express+127+Baxter+Rd+Ballwin+MO" target="_blank" rel="noopener"><span class="lang-en">Read all 127 reviews on Google</span><span class="lang-zh">查看全部 127 条 Google 评价</span><span class="lang-es">Leer las 127 reseñas en Google</span></a>
           </div>
         </div>
       </section>
@@ -1351,45 +1369,45 @@
       <section class="section contact" id="contact" aria-labelledby="contact-title">
         <div class="container">
           <div class="section-header">
-            <p class="section__eyebrow">Visit Today</p>
-            <h2 class="section__title" id="contact-title">Find Us</h2>
-            <p class="section__intro">Call ahead, check today's hours, or get directions straight to the restaurant.</p>
+            <p class="section__eyebrow"><span class="lang-en">Visit Today</span><span class="lang-zh">欢迎光临</span><span class="lang-es">Visítenos hoy</span></p>
+            <h2 class="section__title" id="contact-title"><span class="lang-en">Find Us</span><span class="lang-zh">位置与联系</span><span class="lang-es">Ubicación y contacto</span></h2>
+            <p class="section__intro"><span class="lang-en">Call ahead, check today's hours, or get directions straight to the restaurant.</span><span class="lang-zh">提前致电、查询营业时间，或直接导航到店。</span><span class="lang-es">Llame con anticipación, consulte el horario o encuentre las indicaciones al restaurante.</span></p>
           </div>
           <div class="contact-layout">
             <article class="contact-card">
               <div class="contact-card__top">
-                <h3 class="contact-card__heading">Hours & Contact</h3>
+                <h3 class="contact-card__heading"><span class="lang-en">Hours &amp; Contact</span><span class="lang-zh">营业时间</span><span class="lang-es">Horario y contacto</span></h3>
                 <span class="contact-status status--open">Open Now</span>
               </div>
-              <p class="today-hours">Today: 11:00 AM – 9:00 PM</p>
+              <p class="today-hours"><span class="lang-en">Today: </span><span class="lang-zh">今日：</span><span class="lang-es">Hoy: </span>11:00 AM – 9:00 PM</p>
               <table class="hours-table" aria-label="Weekly restaurant hours">
                 <tbody>
                   <tr>
-                    <th scope="row">Monday</th>
+                    <th scope="row"><span class="lang-en">Monday</span><span class="lang-zh">星期一</span><span class="lang-es">Lunes</span></th>
                     <td>11:00 AM – 9:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Tuesday</th>
+                    <th scope="row"><span class="lang-en">Tuesday</span><span class="lang-zh">星期二</span><span class="lang-es">Martes</span></th>
                     <td>11:00 AM – 9:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Wednesday</th>
+                    <th scope="row"><span class="lang-en">Wednesday</span><span class="lang-zh">星期三</span><span class="lang-es">Miércoles</span></th>
                     <td>11:00 AM – 9:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Thursday</th>
+                    <th scope="row"><span class="lang-en">Thursday</span><span class="lang-zh">星期四</span><span class="lang-es">Jueves</span></th>
                     <td>11:00 AM – 9:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Friday</th>
+                    <th scope="row"><span class="lang-en">Friday</span><span class="lang-zh">星期五</span><span class="lang-es">Viernes</span></th>
                     <td>11:00 AM – 9:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Saturday</th>
+                    <th scope="row"><span class="lang-en">Saturday</span><span class="lang-zh">星期六</span><span class="lang-es">Sábado</span></th>
                     <td>4:00 PM – 9:00 PM</td>
                   </tr>
                   <tr>
-                    <th scope="row">Sunday</th>
+                    <th scope="row"><span class="lang-en">Sunday</span><span class="lang-zh">星期日</span><span class="lang-es">Domingo</span></th>
                     <td>4:00 PM – 9:00 PM</td>
                   </tr>
                 </tbody>
@@ -1399,19 +1417,16 @@
                   <span class="contact-list__icon" aria-hidden="true">☎</span>
                   <span><a href="tel:+16362278288">(636) 227-8288</a></span>
                 </li>
-                <li class="contact-list__item">
-                  <span class="contact-list__icon" aria-hidden="true">⌖</span>
-                  <span>127 Baxter Rd, Ballwin, MO 63011</span>
-                </li>
               </ul>
               <div class="contact-actions">
-                <a class="button button--primary" href="tel:+16362278288">Call to Order</a>
+                <a class="button button--primary" href="tel:+16362278288"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
               </div>
             </article>
             <article class="contact-card">
               <div class="contact-card__top">
-                <h3 class="contact-card__heading">Map & Directions</h3>
+                <h3 class="contact-card__heading"><span class="lang-en">Map &amp; Directions</span><span class="lang-zh">地图导航</span><span class="lang-es">Mapa e indicaciones</span></h3>
               </div>
+              <p class="contact-address">📍 127 Baxter Rd, Ballwin, MO 63011</p>
               <div class="map-wrap">
                 <iframe
                   src="https://maps.google.com/maps?q=Hunan+Express+127+Baxter+Rd+Ballwin+MO+63011&t=&z=15&ie=UTF8&iwloc=B&output=embed"
@@ -1422,8 +1437,8 @@
                 </iframe>
               </div>
               <div class="map-actions">
-                <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=127+Baxter+Rd+Ballwin+MO+63011" target="_blank" rel="noopener">Get Directions</a>
-                <a class="link-arrow" href="#menu-highlights">View Full Menu</a>
+                <a class="button button--secondary" href="https://www.google.com/maps/dir/?api=1&destination=127+Baxter+Rd+Ballwin+MO+63011" target="_blank" rel="noopener"><span class="lang-en">Get Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Ver cómo llegar</span></a>
+                <a class="link-arrow" href="#menu-highlights"><span class="lang-en">View Full Menu</span><span class="lang-zh">查看完整菜单</span><span class="lang-es">Ver menú completo</span></a>
               </div>
             </article>
           </div>
@@ -1433,7 +1448,7 @@
 
     <footer class="site-footer">
       <div class="container site-footer__inner">
-        <span>© 2026 Hunan Express. All rights reserved.</span>
+        <span><span class="lang-en">© 2026 Hunan Express. All rights reserved.</span><span class="lang-zh">© 2026 Hunan Express 版权所有</span><span class="lang-es">© 2026 Hunan Express. Todos los derechos reservados.</span></span>
         <span>127 Baxter Rd, Ballwin, MO 63011</span>
         <a href="tel:+16362278288">(636) 227-8288</a>
       </div>
@@ -1495,7 +1510,7 @@
 
 <!-- DEMO ONLY: Theme switcher — remove before client handoff -->
 <div class="theme-switcher" role="group" aria-label="Choose color theme">
-  <span class="theme-switcher__label">Theme</span>
+  <span class="theme-switcher__label">Choose Your Color</span>
   <button class="theme-btn active" data-theme="crimson-heritage" title="Crimson Heritage"></button>
   <button class="theme-btn" data-theme="midnight-luxe" title="Midnight Luxe"></button>
   <button class="theme-btn" data-theme="mocha-warmth" title="Mocha Warmth"></button>
@@ -1507,13 +1522,13 @@
   <a class="mobile-call-bar__phone" href="tel:+16362278288">
     <span class="mobile-call-bar__icon">📞</span>
     <span class="mobile-call-bar__text">
-      <span class="mobile-call-bar__label">Call to Order</span>
+      <span class="mobile-call-bar__label"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></span>
       <span class="mobile-call-bar__number">(636) 227-8288</span>
     </span>
   </a>
   <a class="mobile-call-bar__directions" href="https://www.google.com/maps/dir/?api=1&destination=127+Baxter+Rd+Ballwin+MO+63011" target="_blank" rel="noopener">
     <span class="mobile-call-bar__icon">📍</span>
-    <span class="mobile-call-bar__label">Directions</span>
+    <span class="mobile-call-bar__label"><span class="lang-en">Directions</span><span class="lang-zh">导航</span><span class="lang-es">Cómo llegar</span></span>
   </a>
 </div>
 
@@ -1527,6 +1542,21 @@
           html.setAttribute('data-theme', theme);
           buttons.forEach(function (b) { b.classList.remove('active'); });
           btn.classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var html = document.documentElement;
+      document.querySelectorAll(".lang-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var lang = btn.getAttribute("data-lang");
+          html.setAttribute("data-lang", lang);
+          html.setAttribute("lang", lang === "zh" ? "zh-CN" : lang === "es" ? "es" : "en");
+          document.querySelectorAll(".lang-btn").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
         });
       });
     })();
