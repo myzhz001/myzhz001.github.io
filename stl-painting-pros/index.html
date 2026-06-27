@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>STL Painting Pros | Interior & Exterior Painting Chesterfield, MO</title>
+  <title>STL Painting Pros | Interior & Exterior Painting Chesterfield, MO · (314) 555-0218</title>
   <meta name="description" content="Chesterfield's trusted painting contractor. Interior, exterior, cabinet painting, and deck staining. Licensed & insured — free estimates.">
   <meta name="theme-color" content="#6B3F2A" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#6B3F2A" media="(prefers-color-scheme: dark)">
@@ -11,7 +11,7 @@
   <meta property="og:description" content="Chesterfield's trusted painting contractor. Interior, exterior, cabinet painting, and deck staining. Licensed & insured — free estimates.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://myzhz001.github.io/stl-painting-pros/">
-  <meta property="og:image" content="assets/painting-hero.jpg">
+  <meta property="og:image" content="assets/painting-hero-v1.jpg">
   <link rel="canonical" href="https://myzhz001.github.io/stl-painting-pros/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,7 +69,7 @@
       text-transform: uppercase; white-space: nowrap; margin-right: 2px;
     }
     .theme-btn {
-      width: 26px; height: 26px; border-radius: 999px; border: 2px solid transparent;
+      width: 44px; min-height: 44px; border-radius: 999px; border: 2px solid transparent;
       cursor: pointer; transition: transform 160ms ease, border-color 160ms ease; padding: 0;
       flex: 0 0 auto;
     }
@@ -113,6 +113,7 @@
       overflow-x: hidden; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
     }
     img, iframe { max-width: 100%; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
     a { color: inherit; text-decoration-thickness: 0.08em; text-underline-offset: 0.18em; }
     a:focus-visible, button:focus-visible { outline: 3px solid rgba(201,168,76,0.78); outline-offset: 3px; }
 
@@ -194,7 +195,7 @@
     .hero {
       position: relative; min-height: 320px; display: grid;
       align-items: center; overflow: hidden; color: #fff;
-      background-image: url(assets/painting-hero.jpg);
+      background-image: url(assets/painting-hero-v1.jpg);
       background-position: center; background-size: cover; background-repeat: no-repeat;
     }
     .hero::before {
@@ -235,7 +236,7 @@
     .hero__ctas .button { width: 100%; }
     .hero__phone-display { margin: 8px 0 0; color: rgba(255,255,255,0.90); font-size: 17px; font-weight: 700; }
     .hero__phone-display a {
-      display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration: none;
+      display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration: none; white-space: nowrap;
     }
 
     /* ── Section jump nav ── */
@@ -404,6 +405,12 @@
     .map-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .map-actions { display: flex; flex-direction: column; gap: 10px; align-items: stretch; margin-top: 18px; }
 
+    /* ── QR Codes ── */
+    .qr-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; margin-top: 24px; }
+    .qr-block { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .qr-block__img { width: 120px; height: 120px; border: 3px solid var(--color-primary); border-radius: 10px; padding: 5px; background: #fff; display: block; }
+    .qr-block__label { font-size: 12px; font-weight: 700; color: var(--color-primary); letter-spacing: 0.06em; text-transform: uppercase; text-align: center; }
+
     /* ── Footer ── */
     .site-footer { padding: 30px 0; color: rgba(255,255,255,0.82); background: #2a1111; font-size: 15px; }
     .site-footer__inner { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; justify-content: space-between; }
@@ -426,7 +433,7 @@
       }
       .mobile-call-bar a {
         display: inline-flex; min-height: 54px; align-items: center; justify-content: flex-start;
-        gap: 10px; border-radius: 8px; color: white; font-weight: 700; line-height: 1.1; text-decoration: none;
+        gap: 10px; border-radius: 8px; color: white; font-weight: 700; line-height: 1.1; text-decoration: none; white-space: nowrap;
       }
       .mobile-call-bar__phone { padding: 8px 18px; background: var(--color-primary); }
       .mobile-call-bar__directions { min-width: 116px; padding: 8px 14px; background: var(--color-secondary); }
@@ -496,12 +503,13 @@
             
           </div>
           <a class="site-nav__phone" href="tel:3145550218">(314) 555-0218</a>
-          <a class="button button--primary" href="tel:3145550218"><span class="lang-en">Free Quote</span><span class="lang-zh">免费估价</span><span class="lang-es">Cotización Gratuita</span><span class="lang-vi">Báo Giá Miễn Phí</span></a>
+          <a class="button button--primary" href="tel:3145550218"><span class="lang-en">Free Quote</span><span class="lang-zh">免费估价</span><span class="lang-es">Cotización gratuita</span><span class="lang-vi">Báo Giá Miễn Phí</span></a>
         </div>
       </div>
     </nav>
 
     <header class="hero" id="top" role="banner" aria-label="Professional interior and exterior painting in Chesterfield, MO">
+      <img src="assets/painting-hero-v1.jpg" alt="Professional interior and exterior painting in Chesterfield, MO" class="sr-only" aria-hidden="true">
       <div class="container">
         <div class="hero__content">
           <p class="hero__kicker"><span class="lang-en">Chesterfield's Trusted Painters</span><span class="lang-zh">Chesterfield 信赖之选</span><span class="lang-es">Los pintores de confianza de Chesterfield</span><span class="lang-vi"></span></p>
@@ -573,7 +581,7 @@
           </div>
           <div class="services-grid">
             <article class="service-card">
-              <img class="service-card__image" src="assets/painting-interior.jpg" alt="Interior room painting with clean lines and fresh color" loading="lazy">
+              <img class="service-card__image" src="assets/painting-interior-v1.jpg" alt="Painter rolling fresh paint on a residential living room wall" loading="lazy">
               <span class="service-card__badge"><span class="lang-en">⭐ Most Requested</span><span class="lang-zh">⭐ 最受欢迎</span><span class="lang-es">⭐ Más solicitado</span><span class="lang-vi"></span></span>
               <div class="service-card__body">
                 <h3 class="service-card__title">
@@ -592,7 +600,7 @@
               </div>
             </article>
             <article class="service-card">
-              <img class="service-card__image" src="assets/painting-exterior.jpg" alt="Exterior house painting with professional equipment" loading="lazy">
+              <img class="service-card__image" src="assets/painting-exterior-v1.jpg" alt="Painter on a ladder applying exterior paint to a two-story residential home" loading="lazy">
               <div class="service-card__body">
                 <h3 class="service-card__title">
                   <span class="lang-en">Exterior Painting</span>
@@ -610,7 +618,7 @@
               </div>
             </article>
             <article class="service-card">
-              <img class="service-card__image" src="assets/painting-cabinets.jpg" alt="Kitchen cabinet painting and refinishing transformation" loading="lazy">
+              <img class="service-card__image" src="assets/painting-cabinets-v1.jpg" alt="Painter brushing cabinet doors with fresh white paint in a residential kitchen" loading="lazy">
               <div class="service-card__body">
                 <h3 class="service-card__title">
                   <span class="lang-en">Cabinet Painting & Refinishing</span>
@@ -628,18 +636,18 @@
               </div>
             </article>
             <article class="service-card">
-              <img class="service-card__image" src="assets/painting-deck-stain.jpg" alt="Wood deck staining and sealing work" loading="lazy">
+              <img class="service-card__image" src="assets/painting-deck-stain-v1.jpg" alt="Worker applying stain to a wooden deck with a brush at a suburban home" loading="lazy">
               <div class="service-card__body">
                 <h3 class="service-card__title">
                   <span class="lang-en">Deck Staining & Sealing</span>
-                  <span class="lang-zh">木板油漆与密封</span>
+                  <span class="lang-zh">露台木板染色与密封</span>
                   <span class="lang-es">Tinción y sellado de cubiertas</span>
                   <span class="lang-vi"></span>
                 </h3>
                 <p class="service-card__description">
                   <span class="lang-en">Clean, sand, and stain your deck or fence to protect against Missouri's weather. Penetrating stains that last 3–5 years with proper prep — not just surface-level color.</span>
                   <span class="lang-zh">清洁、打磨并为您的甲板或围栏上色，抵御密苏里天气侵蚀。渗透型着色剂配合正确处理可持续3至5年——绝非表面着色。</span>
-                  <span class="lang-es">Limpie, lije y tine su cubierta o cerca para protegerla del clima de Missouri. Tintes penetrantes que duran 3 a 5 años con la preparación adecuada.</span>
+                  <span class="lang-es">Limpie, lije y tine su cubierta o cerca para protegerla del clima de Missouri. Tintes penetrantes que duran 3 a 5 años con la preparación adecuada — no solo color superficial.</span>
                   <span class="lang-vi"></span>
                 </p>
                 <span class="service-card__price"><span class="lang-en">Starting at $350</span><span class="lang-zh">$350起</span><span class="lang-es">Desde $350</span><span class="lang-vi"></span></span>
@@ -671,19 +679,19 @@
                 <span class="lang-vi"></span>
               </h2>
               <div class="lang-en">
-                <p>Tony started STL Painting Pros in 2012 after a decade working for a large commercial painting contractor in St. Louis. He saw firsthand how many homeowners were getting overcharged for mediocre work — heavy on roller speed, light on prep. He decided to build a company where the prep is as good as the final coat.</p>
+                <p>Tony started STL Painting Pros after a decade working for a large commercial painting contractor in St. Louis. He saw firsthand how many homeowners were getting overcharged for mediocre work — heavy on roller speed, light on prep. He decided to build a company where the prep is as good as the final coat.</p>
                 <p>Today, Tony leads a four-person crew specializing in Chesterfield and West County homes. Every project starts with proper masking, priming, and sanding before any paint goes on. When they leave, you can't tell they were there — except the walls look brand new.</p>
                 <p>Interior and exterior painting, cabinet refinishing, deck staining. Licensed and insured. Free estimates for all projects. We'll show up on time, finish on schedule, and leave your home cleaner than we found it.</p>
               </div>
               <div class="lang-zh">
-                <p>Tony 于 2012 年创立了 STL Painting Pros，此前他在圣路易斯一家大型商业涂装公司工作了十年。他亲眼目睹许多房主为平庸的工作付出高价——刷得快，准备工作却敷衍了事。他决定创建一家把底层处理做得和面层一样扎实的公司。</p>
+                <p>Tony 创立 STL Painting Pros 前，曾在圣路易斯一家大型商业涂装公司工作多年。他亲眼目睹许多房主为平庸的工作付出高价——刷得快，准备工作却敷衍了事。他决定创建一家把底层处理做得和面层一样扎实的公司。</p>
                 <p>如今，Tony 带领四人团队专注服务 Chesterfield 及西县住宅。每个项目在上漆前都严格进行遮蔽、底漆处理和打磨。他们离开后，您看不出施工痕迹——除了墙面焕然一新。</p>
                 <p>提供室内、室外涂装，橱柜翻新，木板油漆服务。持牌且已投保。所有项目免费估价。准时到场，按时完工，离开时房子比到来时更整洁。</p>
               </div>
               <div class="lang-es">
-                <p>Tony fundó STL Painting Pros en 2012, tras una década trabajando para un gran contratista de pintura comercial en St. Louis. Vio de primera mano cómo muchos propietarios pagaban demasiado por trabajos mediocres — rápidos con el rodillo, flojos con la preparación. Decidió crear una empresa donde la preparación es tan buena como la capa final.</p>
+                <p>Tony fundó STL Painting Pros tras una década trabajando para un gran contratista de pintura comercial en St. Louis. Vio de primera mano cómo muchos propietarios pagaban demasiado por trabajos mediocres — rápidos con el rodillo, flojos con la preparación. Decidió crear una empresa donde la preparación es tan buena como la capa final.</p>
                 <p>Hoy, Tony lidera un equipo de cuatro personas especializado en hogares de Chesterfield y West County. Cada proyecto comienza con un enmascarado, imprimación y lijado adecuados antes de aplicar cualquier pintura. Cuando se van, no se nota que estuvieron — excepto que las paredes lucen como nuevas.</p>
-                <p>Pintura interior y exterior, renovación de gabinetes, tinción de cubiertas. Con licencia y asegurado. Presupuestos gratuitos para todos los proyectos.</p>
+                <p>Pintura interior y exterior, renovación de gabinetes, tinción de cubiertas. Con licencia y asegurado. Presupuestos gratuitos para todos los proyectos. Llegaremos a tiempo, terminaremos según lo programado y dejaremos su hogar más limpio de lo que lo encontramos.</p>
               </div>
               <div class="lang-vi">
                 <p></p>
@@ -748,7 +756,7 @@
               <blockquote>
                 <span class="lang-en">Had my kitchen cabinets painted instead of replacing them. The transformation was unbelievable — looks like brand new cabinetry. Half the cost of new cabinets and they finished in two days.</span>
                 <span class="lang-zh">我选择重新涂装厨房橱柜而不是更换新的。效果令人难以置信——看起来就像全新橱柜。费用只有购买新橱柜的一半，而且两天就完工了。</span>
-                <span class="lang-es">Pinté mis gabinetes de cocina en lugar de reemplazarlos. La transformación fue increíble — parece cabinetería nueva. La mitad del costo de gabinetes nuevos y terminaron en dos días.</span>
+                <span class="lang-es">Me renovaron los gabinetes de cocina en lugar de reemplazarlos. La transformación fue increíble — parecen cabinetería nueva. La mitad del costo de gabinetes nuevos y terminaron en dos días.</span>
                 <span class="lang-vi"></span>
               </blockquote>
               <p class="review-card__name">— Nancy F. — Ballwin</p>
@@ -778,7 +786,7 @@
               <span class="lang-en">Visit Today</span>
               <span class="lang-zh">立即咨询</span>
               <span class="lang-es">Solicite su cotización</span>
-              <span class="lang-vi">Ghé Thăm Hôm Nay</span>
+              <span class="lang-vi">Liên Hệ Ngay</span>
             </p>
             <h2 class="section__title" id="contact-title">
               <span class="lang-en">Find Us</span>
@@ -817,14 +825,22 @@
                   <tr><th scope="row"><span class="lang-en">Sunday</span><span class="lang-zh">周日</span><span class="lang-es">Domingo</span><span class="lang-vi">Chủ Nhật</span></th><td><span class="lang-en">Closed</span><span class="lang-zh">休息</span><span class="lang-es">Cerrado</span><span class="lang-vi">Đóng Cửa</span></td></tr>
                 </tbody>
               </table>
-              <ul class="contact-list" aria-label="Business contact details">
-                <li class="contact-list__item">
-                  <span class="contact-list__icon" aria-hidden="true">☎</span>
-                  <span><a href="tel:3145550218">(314) 555-0218</a></span>
-                </li>
-              </ul>
-              <div class="contact-actions">
-                <a class="button button--primary" href="tel:3145550218"><span class="lang-en">📞 Call for Free Quote</span><span class="lang-zh">📞 致电获取免费估价</span><span class="lang-es">📞 Llame para una cotización gratuita</span><span class="lang-vi">📞 Gọi Báo Giá Miễn Phí</span></a>
+              <div style="display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;">
+                <div style="flex:1; min-width:180px; display:flex; flex-direction:column; gap:8px;">
+                  <ul class="contact-list" aria-label="Business contact details">
+                                  <li class="contact-list__item">
+                                    <span class="contact-list__icon" aria-hidden="true">☎</span>
+                                    <span><a href="tel:3145550218">(314) 555-0218</a></span>
+                                  </li>
+                                </ul>
+                  <div class="contact-actions">
+                                  <a class="button button--primary" href="tel:3145550218"><span class="lang-en">📞 Call for Free Quote</span><span class="lang-zh">📞 致电获取免费估价</span><span class="lang-es">📞 Llame para una cotización gratuita</span><span class="lang-vi">📞 Gọi Báo Giá Miễn Phí</span></a>
+                                </div>
+                </div>
+                <div class="qr-block">
+                  <img id="qr-vcard" class="qr-block__img" alt="QR code to save our contact">
+                  <span class="qr-block__label">📱 Scan to Save Contact</span>
+                </div>
               </div>
             </article>
             <article class="contact-card">
@@ -879,13 +895,13 @@
     <a class="mobile-call-bar__phone" href="tel:3145550218">
       <span class="mobile-call-bar__icon">📞</span>
       <span class="mobile-call-bar__text">
-        <span class="mobile-call-bar__label"><span class="lang-en">Call for Free Quote</span><span class="lang-zh">致电获取免费估价</span><span class="lang-es">Pedir cotización</span><span class="lang-vi">Gọi Báo Giá Miễn Phí</span></span>
+        <span class="mobile-call-bar__label"><span class="lang-en">Call for Free Quote</span><span class="lang-zh">致电获取免费估价</span><span class="lang-es">Llame para una cotización gratuita</span><span class="lang-vi">Gọi Báo Giá Miễn Phí</span></span>
         <span class="mobile-call-bar__number">(314) 555-0218</span>
       </span>
     </a>
     <a class="mobile-call-bar__directions" href="https://www.google.com/maps/dir/?api=1&destination=760+Baxter+Rd%2C+Chesterfield%2C+MO+63017" target="_blank" rel="noopener">
       <span class="mobile-call-bar__icon">📍</span>
-      <span class="mobile-call-bar__label"><span class="lang-en">Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Cómo llegar</span><span class="lang-vi">Chỉ Đường</span></span>
+      <span class="mobile-call-bar__label"><span class="lang-en">Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Ver cómo llegar</span><span class="lang-vi">Chỉ Đường</span></span>
     </a>
   </div>
 
@@ -938,6 +954,24 @@
           btn.classList.add("active");
         });
       });
+    })();
+      (function () {
+      var s = document.createElement("script");
+      s.src = "https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js";
+      s.onload = function () {
+        function makeQR(id, data) {
+          var el = document.getElementById(id);
+          if (!el) return;
+          try {
+            var qr = qrcode(0, "M");
+            qr.addData(data);
+            qr.make();
+            el.src = qr.createDataURL(4, 0);
+          } catch (e) { el.style.display = "none"; }
+        }
+        makeQR("qr-vcard", "BEGIN:VCARD\nVERSION:3.0\nFN:STL Painting Pros\nTEL;TYPE=WORK,VOICE:3145550218\nEND:VCARD");
+      };
+      document.body.appendChild(s);
     })();
   </script>
 </body>

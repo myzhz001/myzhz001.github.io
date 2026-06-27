@@ -1206,6 +1206,12 @@
     [data-lang="zh"] .signature-card blockquote { line-height: 1.55; }
     [data-lang="zh"] .review-card blockquote,
     [data-lang="zh"] .signature-card blockquote { font-family: var(--font-body); font-style: normal; }
+  
+    /* ── QR Codes ── */
+    .qr-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; margin-top: 24px; }
+    .qr-block { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .qr-block__img { width: 120px; height: 120px; border: 3px solid var(--color-primary); border-radius: 10px; padding: 5px; background: #fff; display: block; }
+    .qr-block__label { font-size: 12px; font-weight: 700; color: var(--color-primary); letter-spacing: 0.06em; text-transform: uppercase; text-align: center; }
   </style>
 </head>
 <body>
@@ -1412,14 +1418,22 @@
                   </tr>
                 </tbody>
               </table>
-              <ul class="contact-list" aria-label="Restaurant contact details">
-                <li class="contact-list__item">
-                  <span class="contact-list__icon" aria-hidden="true">☎</span>
-                  <span><a href="tel:+16363333198">(636) 333-3198</a></span>
-                </li>
-              </ul>
-              <div class="contact-actions">
-                <a class="button button--primary" href="tel:+16363333198"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
+              <div style="display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;">
+                <div style="flex:1; min-width:180px; display:flex; flex-direction:column; gap:8px;">
+                  <ul class="contact-list" aria-label="Restaurant contact details">
+                                  <li class="contact-list__item">
+                                    <span class="contact-list__icon" aria-hidden="true">☎</span>
+                                    <span><a href="tel:+16363333198">(636) 333-3198</a></span>
+                                  </li>
+                                </ul>
+                  <div class="contact-actions">
+                                  <a class="button button--primary" href="tel:+16363333198"><span class="lang-en">Call to Order</span><span class="lang-zh">致电点餐</span><span class="lang-es">Llamar para ordenar</span></a>
+                                </div>
+                </div>
+                <div class="qr-block">
+                  <img id="qr-vcard" class="qr-block__img" alt="QR code to save our contact">
+                  <span class="qr-block__label">📱 Scan to Save Contact</span>
+                </div>
               </div>
             </article>
             <article class="contact-card">
@@ -1559,6 +1573,24 @@
           btn.classList.add("active");
         });
       });
+    })();
+      (function () {
+      var s = document.createElement("script");
+      s.src = "https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js";
+      s.onload = function () {
+        function makeQR(id, data) {
+          var el = document.getElementById(id);
+          if (!el) return;
+          try {
+            var qr = qrcode(0, "M");
+            qr.addData(data);
+            qr.make();
+            el.src = qr.createDataURL(4, 0);
+          } catch (e) { el.style.display = "none"; }
+        }
+        makeQR("qr-vcard", "BEGIN:VCARD\nVERSION:3.0\nFN:Great Peking — Best Chinese Food in Arnold, MO\nTEL;TYPE=WORK,VOICE:+16363333198\nEND:VCARD");
+      };
+      document.body.appendChild(s);
     })();
   </script>
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mike's Handyman STL | Home Repair Ballwin, MO</title>
+  <title>Mike's Handyman STL | Home Repair Ballwin, MO · (314) 555-0147</title>
   <meta name="description" content="Ballwin's trusted handyman service. Drywall, doors, fixtures, tile, and more. No job too small. Free quotes — call Mike today.">
   <meta name="theme-color" content="#2C3E50" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#2C3E50" media="(prefers-color-scheme: dark)">
@@ -11,7 +11,7 @@
   <meta property="og:description" content="Ballwin's trusted handyman service. Drywall, doors, fixtures, tile, and more. No job too small. Free quotes — call Mike today.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://myzhz001.github.io/mikes-handyman-ballwin/">
-  <meta property="og:image" content="assets/handyman-hero.jpg">
+  <meta property="og:image" content="assets/handyman-hero-v1.jpg">
   <link rel="canonical" href="https://myzhz001.github.io/mikes-handyman-ballwin/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,7 +69,7 @@
       text-transform: uppercase; white-space: nowrap; margin-right: 2px;
     }
     .theme-btn {
-      width: 26px; height: 26px; border-radius: 999px; border: 2px solid transparent;
+      width: 44px; min-height: 44px; border-radius: 999px; border: 2px solid transparent;
       cursor: pointer; transition: transform 160ms ease, border-color 160ms ease; padding: 0;
       flex: 0 0 auto;
     }
@@ -113,6 +113,7 @@
       overflow-x: hidden; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
     }
     img, iframe { max-width: 100%; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
     a { color: inherit; text-decoration-thickness: 0.08em; text-underline-offset: 0.18em; }
     a:focus-visible, button:focus-visible { outline: 3px solid rgba(201,168,76,0.78); outline-offset: 3px; }
 
@@ -194,7 +195,7 @@
     .hero {
       position: relative; min-height: 320px; display: grid;
       align-items: center; overflow: hidden; color: #fff;
-      background-image: url(assets/handyman-hero.jpg);
+      background-image: url(assets/handyman-hero-v1.jpg);
       background-position: center; background-size: cover; background-repeat: no-repeat;
     }
     .hero::before {
@@ -235,7 +236,7 @@
     .hero__ctas .button { width: 100%; }
     .hero__phone-display { margin: 8px 0 0; color: rgba(255,255,255,0.90); font-size: 17px; font-weight: 700; }
     .hero__phone-display a {
-      display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration: none;
+      display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration: none; white-space: nowrap;
     }
 
     /* ── Section jump nav ── */
@@ -404,6 +405,12 @@
     .map-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .map-actions { display: flex; flex-direction: column; gap: 10px; align-items: stretch; margin-top: 18px; }
 
+    /* ── QR Codes ── */
+    .qr-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; margin-top: 24px; }
+    .qr-block { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .qr-block__img { width: 120px; height: 120px; border: 3px solid var(--color-primary); border-radius: 10px; padding: 5px; background: #fff; display: block; }
+    .qr-block__label { font-size: 12px; font-weight: 700; color: var(--color-primary); letter-spacing: 0.06em; text-transform: uppercase; text-align: center; }
+
     /* ── Footer ── */
     .site-footer { padding: 30px 0; color: rgba(255,255,255,0.82); background: #2a1111; font-size: 15px; }
     .site-footer__inner { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; justify-content: space-between; }
@@ -426,7 +433,7 @@
       }
       .mobile-call-bar a {
         display: inline-flex; min-height: 54px; align-items: center; justify-content: flex-start;
-        gap: 10px; border-radius: 8px; color: white; font-weight: 700; line-height: 1.1; text-decoration: none;
+        gap: 10px; border-radius: 8px; color: white; font-weight: 700; line-height: 1.1; text-decoration: none; white-space: nowrap;
       }
       .mobile-call-bar__phone { padding: 8px 18px; background: var(--color-primary); }
       .mobile-call-bar__directions { min-width: 116px; padding: 8px 14px; background: var(--color-secondary); }
@@ -496,12 +503,13 @@
             
           </div>
           <a class="site-nav__phone" href="tel:3145550147">(314) 555-0147</a>
-          <a class="button button--primary" href="tel:3145550147"><span class="lang-en">Free Quote</span><span class="lang-zh">免费估价</span><span class="lang-es">Cotización Gratuita</span><span class="lang-vi">Báo Giá Miễn Phí</span></a>
+          <a class="button button--primary" href="tel:3145550147"><span class="lang-en">Free Quote</span><span class="lang-zh">免费估价</span><span class="lang-es">Cotización gratuita</span><span class="lang-vi">Báo Giá Miễn Phí</span></a>
         </div>
       </div>
     </nav>
 
     <header class="hero" id="top" role="banner" aria-label="Professional handyman service in Ballwin, MO">
+      <img src="assets/handyman-hero-v1.jpg" alt="Professional handyman service in Ballwin, MO" class="sr-only" aria-hidden="true">
       <div class="container">
         <div class="hero__content">
           <p class="hero__kicker"><span class="lang-en">Ballwin's Most-Referred</span><span class="lang-zh">Ballwin 口碑之选</span><span class="lang-es">El más recomendado de Ballwin</span><span class="lang-vi"></span></p>
@@ -573,7 +581,7 @@
           </div>
           <div class="services-grid">
             <article class="service-card">
-              <img class="service-card__image" src="assets/handyman-drywall-repair.jpg" alt="Drywall repair and patching in progress" loading="lazy">
+              <img class="service-card__image" src="assets/handyman-drywall-repair-v1.jpg" alt="Handyman actively patching and sanding drywall in a residential room" loading="lazy">
               <span class="service-card__badge"><span class="lang-en">⭐ Most Popular</span><span class="lang-zh">⭐ 热门服务</span><span class="lang-es">⭐ Más solicitado</span><span class="lang-vi"></span></span>
               <div class="service-card__body">
                 <h3 class="service-card__title">
@@ -592,7 +600,7 @@
               </div>
             </article>
             <article class="service-card">
-              <img class="service-card__image" src="assets/handyman-door-repair.jpg" alt="Door installation and repair work" loading="lazy">
+              <img class="service-card__image" src="assets/handyman-door-repair-v1.jpg" alt="Handyman installing a residential interior door in a home entryway" loading="lazy">
               <div class="service-card__body">
                 <h3 class="service-card__title">
                   <span class="lang-en">Door & Window Repair</span>
@@ -603,14 +611,14 @@
                 <p class="service-card__description">
                   <span class="lang-en">Sticking doors, broken frames, drafty windows — we fix and seal them properly. Interior and exterior doors, all hardware replaced if needed.</span>
                   <span class="lang-zh">卡顿的门、破损的门框、漏风的窗户——我们修复并密封到位。室内外门均可处理，所需五金件全部更换。</span>
-                  <span class="lang-es">Puertas atascadas, marcos rotos, ventanas con corrientes de aire — las reparamos y sellamos correctamente.</span>
+                  <span class="lang-es">Puertas atascadas, marcos rotos, ventanas con corrientes de aire — las reparamos y sellamos correctamente. Interiores y exteriores, toda la ferretería reemplazada si es necesario.</span>
                   <span class="lang-vi"></span>
                 </p>
                 <span class="service-card__price"><span class="lang-en">Starting at $95</span><span class="lang-zh">$95起</span><span class="lang-es">Desde $95</span><span class="lang-vi"></span></span>
               </div>
             </article>
             <article class="service-card">
-              <img class="service-card__image" src="assets/handyman-tile-repair.jpg" alt="Tile and grout repair in kitchen or bathroom" loading="lazy">
+              <img class="service-card__image" src="assets/handyman-tile-repair-v1.jpg" alt="Technician grouting and pressing tile in a residential bathroom" loading="lazy">
               <div class="service-card__body">
                 <h3 class="service-card__title">
                   <span class="lang-en">Tile & Grout Repair</span>
@@ -621,14 +629,14 @@
                 <p class="service-card__description">
                   <span class="lang-en">Cracked tiles, missing grout, loose bathroom surrounds. We match your existing tile and grout so the repair blends in — not a patch job.</span>
                   <span class="lang-zh">破裂瓷砖、脱落填缝、松动浴室墙砖。我们匹配您现有的瓷砖和填缝颜色，修复后浑然一体，绝非凑合了事。</span>
-                  <span class="lang-es">Azulejos rotos, lechada faltante, rodeadores de baño sueltos. Igualamos sus azulejos y lechada existentes para que la reparación se integre.</span>
+                  <span class="lang-es">Azulejos rotos, lechada faltante, azulejos o bordes de baño sueltos. Igualamos sus azulejos y lechada existentes para que la reparación se integre.</span>
                   <span class="lang-vi"></span>
                 </p>
                 <span class="service-card__price"><span class="lang-en">Starting at $85</span><span class="lang-zh">$85起</span><span class="lang-es">Desde $85</span><span class="lang-vi"></span></span>
               </div>
             </article>
             <article class="service-card">
-              <img class="service-card__image" src="assets/handyman-fixture-install.jpg" alt="Light fixture and ceiling fan installation" loading="lazy">
+              <img class="service-card__image" src="assets/handyman-fixture-install-v1.jpg" alt="Handyman installing a ceiling fan in a residential living room" loading="lazy">
               <div class="service-card__body">
                 <h3 class="service-card__title">
                   <span class="lang-en">Fixture & Fan Installation</span>
@@ -671,19 +679,19 @@
                 <span class="lang-vi"></span>
               </h2>
               <div class="lang-en">
-                <p>Mike started this business in 2009 after 10 years doing commercial maintenance for apartment complexes around St. Louis County. He saw how many homeowners struggled to find a reliable handyman for small jobs — the big contractors wouldn't bother, and the solo guys would disappear.</p>
+                <p>Mike started this business after years of commercial maintenance work for apartment complexes around St. Louis County. He saw how many homeowners struggled to find a reliable handyman for small jobs — the big contractors wouldn't bother, and the solo guys would disappear.</p>
                 <p>Today, Mike and his small crew handle everything from drywall patches to deck repairs, door installations to tile replacement. Most of his work comes from Nextdoor and word of mouth. That's not an accident — he shows up on time, gives honest quotes, and cleans up when he's done.</p>
                 <p>No job is too small. If you've been putting off that repair because you couldn't find the right person, call Mike. He's been fixing West County homes for 15 years and counting.</p>
               </div>
               <div class="lang-zh">
-                <p>Mike 于 2009 年创立了这项业务。此前，他在圣路易斯县多个公寓小区从事了 10 年的商业物业维护工作。他发现许多房主很难找到可信赖的小型维修工——大公司不愿接小活，而单干的师傅又经常失联。</p>
+                <p>Mike 创立这项业务前，曾在圣路易斯县多个公寓小区长期从事商业物业维护工作。他发现许多房主很难找到可信赖的小型维修工——大公司不愿接小活，而单干的师傅又经常失联。</p>
                 <p>如今，Mike 带领小团队承接各类工作：从修补石膏板、修缮露台、安装门扇到更换瓷砖，无所不能。他的业务大多来自 Nextdoor 和口碑推荐，这绝非偶然——他准时出现、报价实在、完工后打扫干净。</p>
                 <p>没有小到不值得修的活。如果您一直因为找不到合适的人而拖延维修，请联系 Mike。他在西县已为住户服务 15 年，经验丰富。</p>
               </div>
               <div class="lang-es">
-                <p>Mike comenzó este negocio en 2009 después de 10 años haciendo mantenimiento comercial en complejos de apartamentos en el condado de St. Louis. Vio cómo muchos propietarios luchaban por encontrar un handyman confiable para trabajos pequeños.</p>
-                <p>Hoy, Mike y su pequeño equipo manejan de todo: desde reparaciones de paneles de yeso hasta cubiertas, instalación de puertas y reemplazo de azulejos. La mayor parte de su trabajo proviene de Nextdoor y el boca a boca.</p>
-                <p>Ningún trabajo es demasiado pequeño. Si ha estado postergando esa reparación por no encontrar a la persona adecuada, llame a Mike.</p>
+                <p>Mike comenzó este negocio después de años haciendo mantenimiento comercial en complejos de apartamentos en el condado de St. Louis. Vio cómo muchos propietarios luchaban por encontrar un handyman confiable para trabajos pequeños — los grandes contratistas no se molestaban, y los independientes desaparecían.</p>
+                <p>Hoy, Mike y su pequeño equipo manejan de todo: desde reparaciones de paneles de yeso hasta cubiertas, instalación de puertas y reemplazo de azulejos. La mayor parte de su trabajo proviene de Nextdoor y el boca a boca. Eso no es casualidad — llega a tiempo, da presupuestos honestos y limpia cuando termina.</p>
+                <p>Ningún trabajo es demasiado pequeño. Si ha estado postergando esa reparación por no encontrar a la persona adecuada, llame a Mike. Ha estado arreglando hogares del West County por 15 años y contando.</p>
               </div>
               <div class="lang-vi">
                 <p></p>
@@ -702,7 +710,7 @@
               <blockquote>
                 <span class="lang-en">Drywall + door + fixture repair in one visit. Our most-booked combo — covers the repairs most homeowners put off for months.</span>
                 <span class="lang-zh">石膏板修补 + 门扇 + 灯具维修一次完成。我们最受欢迎的组合服务——解决大多数房主拖延已久的维修问题。</span>
-                <span class="lang-es">Reparación de paneles de yeso + puerta + accesorios en una sola visita. Nuestro combo más solicitado.</span>
+                <span class="lang-es">Reparación de paneles de yeso + puerta + accesorios en una sola visita. Nuestro combo más solicitado — cubre las reparaciones que la mayoría de los propietarios posponen por meses.</span>
                 <span class="lang-vi"></span>
                 <cite>
                   <span class="lang-en">Home Repair Combo</span>
@@ -783,7 +791,7 @@
               <span class="lang-en">Visit Today</span>
               <span class="lang-zh">立即咨询</span>
               <span class="lang-es">Solicite su cotización</span>
-              <span class="lang-vi">Ghé Thăm Hôm Nay</span>
+              <span class="lang-vi">Liên Hệ Ngay</span>
             </p>
             <h2 class="section__title" id="contact-title">
               <span class="lang-en">Find Us</span>
@@ -822,14 +830,22 @@
                   <tr><th scope="row"><span class="lang-en">Sunday</span><span class="lang-zh">周日</span><span class="lang-es">Domingo</span><span class="lang-vi">Chủ Nhật</span></th><td><span class="lang-en">Closed</span><span class="lang-zh">休息</span><span class="lang-es">Cerrado</span><span class="lang-vi">Đóng Cửa</span></td></tr>
                 </tbody>
               </table>
-              <ul class="contact-list" aria-label="Business contact details">
-                <li class="contact-list__item">
-                  <span class="contact-list__icon" aria-hidden="true">☎</span>
-                  <span><a href="tel:3145550147">(314) 555-0147</a></span>
-                </li>
-              </ul>
-              <div class="contact-actions">
-                <a class="button button--primary" href="tel:3145550147"><span class="lang-en">📞 Call for Free Quote</span><span class="lang-zh">📞 致电获取免费估价</span><span class="lang-es">📞 Llame para una cotización gratuita</span><span class="lang-vi">📞 Gọi Báo Giá Miễn Phí</span></a>
+              <div style="display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;">
+                <div style="flex:1; min-width:180px; display:flex; flex-direction:column; gap:8px;">
+                  <ul class="contact-list" aria-label="Business contact details">
+                                  <li class="contact-list__item">
+                                    <span class="contact-list__icon" aria-hidden="true">☎</span>
+                                    <span><a href="tel:3145550147">(314) 555-0147</a></span>
+                                  </li>
+                                </ul>
+                  <div class="contact-actions">
+                                  <a class="button button--primary" href="tel:3145550147"><span class="lang-en">📞 Call for Free Quote</span><span class="lang-zh">📞 致电获取免费估价</span><span class="lang-es">📞 Llame para una cotización gratuita</span><span class="lang-vi">📞 Gọi Báo Giá Miễn Phí</span></a>
+                                </div>
+                </div>
+                <div class="qr-block">
+                  <img id="qr-vcard" class="qr-block__img" alt="QR code to save our contact">
+                  <span class="qr-block__label">📱 Scan to Save Contact</span>
+                </div>
               </div>
             </article>
             <article class="contact-card">
@@ -884,13 +900,13 @@
     <a class="mobile-call-bar__phone" href="tel:3145550147">
       <span class="mobile-call-bar__icon">📞</span>
       <span class="mobile-call-bar__text">
-        <span class="mobile-call-bar__label"><span class="lang-en">Call for Free Quote</span><span class="lang-zh">致电获取免费估价</span><span class="lang-es">Pedir cotización</span><span class="lang-vi">Gọi Báo Giá Miễn Phí</span></span>
+        <span class="mobile-call-bar__label"><span class="lang-en">Call for Free Quote</span><span class="lang-zh">致电获取免费估价</span><span class="lang-es">Llame para una cotización gratuita</span><span class="lang-vi">Gọi Báo Giá Miễn Phí</span></span>
         <span class="mobile-call-bar__number">(314) 555-0147</span>
       </span>
     </a>
     <a class="mobile-call-bar__directions" href="https://www.google.com/maps/dir/?api=1&destination=3214+Holloway+Rd%2C+Ballwin%2C+MO+63021" target="_blank" rel="noopener">
       <span class="mobile-call-bar__icon">📍</span>
-      <span class="mobile-call-bar__label"><span class="lang-en">Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Cómo llegar</span><span class="lang-vi">Chỉ Đường</span></span>
+      <span class="mobile-call-bar__label"><span class="lang-en">Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Ver cómo llegar</span><span class="lang-vi">Chỉ Đường</span></span>
     </a>
   </div>
 
@@ -943,6 +959,24 @@
           btn.classList.add("active");
         });
       });
+    })();
+      (function () {
+      var s = document.createElement("script");
+      s.src = "https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js";
+      s.onload = function () {
+        function makeQR(id, data) {
+          var el = document.getElementById(id);
+          if (!el) return;
+          try {
+            var qr = qrcode(0, "M");
+            qr.addData(data);
+            qr.make();
+            el.src = qr.createDataURL(4, 0);
+          } catch (e) { el.style.display = "none"; }
+        }
+        makeQR("qr-vcard", "BEGIN:VCARD\nVERSION:3.0\nFN:Mike's Handyman STL\nTEL;TYPE=WORK,VOICE:3145550147\nEND:VCARD");
+      };
+      document.body.appendChild(s);
     })();
   </script>
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>STL Roofing Co | Roof Repair & Replacement Chesterfield, MO</title>
+  <title>STL Roofing Co | Roof Repair & Replacement Chesterfield, MO · (314) 555-0163</title>
   <meta name="description" content="West County's trusted roofing contractor. Roof repair, replacement, gutters, and storm damage. Licensed & insured — free inspections.">
   <meta name="theme-color" content="#8B1A1A" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#8B1A1A" media="(prefers-color-scheme: dark)">
@@ -11,7 +11,7 @@
   <meta property="og:description" content="West County's trusted roofing contractor. Roof repair, replacement, gutters, and storm damage. Licensed & insured — free inspections.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://myzhz001.github.io/stl-roofing-co/">
-  <meta property="og:image" content="assets/roofing-hero.jpg">
+  <meta property="og:image" content="assets/roofing-hero-v1.jpg">
   <link rel="canonical" href="https://myzhz001.github.io/stl-roofing-co/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,7 +69,7 @@
       text-transform: uppercase; white-space: nowrap; margin-right: 2px;
     }
     .theme-btn {
-      width: 26px; height: 26px; border-radius: 999px; border: 2px solid transparent;
+      width: 44px; min-height: 44px; border-radius: 999px; border: 2px solid transparent;
       cursor: pointer; transition: transform 160ms ease, border-color 160ms ease; padding: 0;
       flex: 0 0 auto;
     }
@@ -113,6 +113,7 @@
       overflow-x: hidden; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
     }
     img, iframe { max-width: 100%; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
     a { color: inherit; text-decoration-thickness: 0.08em; text-underline-offset: 0.18em; }
     a:focus-visible, button:focus-visible { outline: 3px solid rgba(201,168,76,0.78); outline-offset: 3px; }
 
@@ -194,7 +195,7 @@
     .hero {
       position: relative; min-height: 320px; display: grid;
       align-items: center; overflow: hidden; color: #fff;
-      background-image: url(assets/roofing-hero.jpg);
+      background-image: url(assets/roofing-hero-v1.jpg);
       background-position: center; background-size: cover; background-repeat: no-repeat;
     }
     .hero::before {
@@ -235,7 +236,7 @@
     .hero__ctas .button { width: 100%; }
     .hero__phone-display { margin: 8px 0 0; color: rgba(255,255,255,0.90); font-size: 17px; font-weight: 700; }
     .hero__phone-display a {
-      display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration: none;
+      display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration: none; white-space: nowrap;
     }
 
     /* ── Section jump nav ── */
@@ -404,6 +405,12 @@
     .map-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .map-actions { display: flex; flex-direction: column; gap: 10px; align-items: stretch; margin-top: 18px; }
 
+    /* ── QR Codes ── */
+    .qr-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; margin-top: 24px; }
+    .qr-block { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .qr-block__img { width: 120px; height: 120px; border: 3px solid var(--color-primary); border-radius: 10px; padding: 5px; background: #fff; display: block; }
+    .qr-block__label { font-size: 12px; font-weight: 700; color: var(--color-primary); letter-spacing: 0.06em; text-transform: uppercase; text-align: center; }
+
     /* ── Footer ── */
     .site-footer { padding: 30px 0; color: rgba(255,255,255,0.82); background: #2a1111; font-size: 15px; }
     .site-footer__inner { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; justify-content: space-between; }
@@ -426,7 +433,7 @@
       }
       .mobile-call-bar a {
         display: inline-flex; min-height: 54px; align-items: center; justify-content: flex-start;
-        gap: 10px; border-radius: 8px; color: white; font-weight: 700; line-height: 1.1; text-decoration: none;
+        gap: 10px; border-radius: 8px; color: white; font-weight: 700; line-height: 1.1; text-decoration: none; white-space: nowrap;
       }
       .mobile-call-bar__phone { padding: 8px 18px; background: var(--color-primary); }
       .mobile-call-bar__directions { min-width: 116px; padding: 8px 14px; background: var(--color-secondary); }
@@ -496,12 +503,13 @@
             
           </div>
           <a class="site-nav__phone" href="tel:3145550163">(314) 555-0163</a>
-          <a class="button button--primary" href="tel:3145550163"><span class="lang-en">Free Quote</span><span class="lang-zh">免费估价</span><span class="lang-es">Cotización Gratuita</span><span class="lang-vi">Báo Giá Miễn Phí</span></a>
+          <a class="button button--primary" href="tel:3145550163"><span class="lang-en">Free Quote</span><span class="lang-zh">免费估价</span><span class="lang-es">Cotización gratuita</span><span class="lang-vi">Báo Giá Miễn Phí</span></a>
         </div>
       </div>
     </nav>
 
     <header class="hero" id="top" role="banner" aria-label="Professional roofing contractor serving Chesterfield and West County, MO">
+      <img src="assets/roofing-hero-v1.jpg" alt="Professional roofing contractor serving Chesterfield and West County, MO" class="sr-only" aria-hidden="true">
       <div class="container">
         <div class="hero__content">
           <p class="hero__kicker"><span class="lang-en">West County's Trusted Roofers</span><span class="lang-zh">西县最值得信赖的屋顶专家</span><span class="lang-es">Los techadores de confianza de West County</span><span class="lang-vi"></span></p>
@@ -573,7 +581,7 @@
           </div>
           <div class="services-grid">
             <article class="service-card">
-              <img class="service-card__image" src="assets/roofing-repair.jpg" alt="Roof repair and shingle replacement work in progress" loading="lazy">
+              <img class="service-card__image" src="assets/roofing-repair-v1.jpg" alt="Roofer nailing shingles on a residential roof slope" loading="lazy">
               <span class="service-card__badge"><span class="lang-en">⚡ Fast Turnaround</span><span class="lang-zh">⚡ 快速完工</span><span class="lang-es">⚡ Entrega rápida</span><span class="lang-vi"></span></span>
               <div class="service-card__body">
                 <h3 class="service-card__title">
@@ -592,7 +600,7 @@
               </div>
             </article>
             <article class="service-card">
-              <img class="service-card__image" src="assets/roofing-replacement.jpg" alt="New roof installation on a residential home" loading="lazy">
+              <img class="service-card__image" src="assets/roofing-replacement-v1.jpg" alt="Crew installing new roofing shingles on a residential home" loading="lazy">
               <div class="service-card__body">
                 <h3 class="service-card__title">
                   <span class="lang-en">Full Roof Replacement</span>
@@ -610,7 +618,7 @@
               </div>
             </article>
             <article class="service-card">
-              <img class="service-card__image" src="assets/roofing-gutters.jpg" alt="Gutter installation and repair on residential home" loading="lazy">
+              <img class="service-card__image" src="assets/roofing-gutters-v1.jpg" alt="Worker securing gutter sections to the fascia of a residential home" loading="lazy">
               <div class="service-card__body">
                 <h3 class="service-card__title">
                   <span class="lang-en">Gutter Installation & Repair</span>
@@ -628,7 +636,7 @@
               </div>
             </article>
             <article class="service-card">
-              <img class="service-card__image" src="assets/roofing-storm-damage.jpg" alt="Storm damage roof inspection and assessment" loading="lazy">
+              <img class="service-card__image" src="assets/roofing-storm-damage-v1.jpg" alt="Inspector examining storm-damaged shingles on a residential roof" loading="lazy">
               <div class="service-card__body">
                 <h3 class="service-card__title">
                   <span class="lang-en">Storm Damage Assessment</span>
@@ -671,19 +679,19 @@
                 <span class="lang-vi"></span>
               </h2>
               <div class="lang-en">
-                <p>Dave started STL Roofing Co in 2006 after learning the trade from his father, who roofed homes in St. Louis County for 30 years. He's seen what shortcuts do to roofs after a Missouri hailstorm — lifted shingles, water damage, attic mold. He built his company around getting it right the first time.</p>
+                <p>Dave started STL Roofing Co after learning the trade from his father, a veteran roofer who worked St. Louis County for decades. He's seen what shortcuts do to roofs after a Missouri hailstorm — lifted shingles, water damage, attic mold. He built his company around getting it right the first time.</p>
                 <p>Today, STL Roofing Co handles everything from a simple repair to a full architectural shingle replacement. Every project is fully permitted and inspected. Dave is on every job personally — not a subcontractor you've never met. When there's a problem, he calls you.</p>
                 <p>Licensed and insured. Free inspections for storm damage and routine assessments. Serving Chesterfield, Ballwin, Manchester, Wildwood, and Ellisville. If it's over your head, it's in our hands.</p>
               </div>
               <div class="lang-zh">
-                <p>Dave 于 2006 年创立了 STL Roofing Co，技艺传承自父亲——一位在圣路易斯县从事屋顶工作长达30年的老师傅。他见过偷工减料的屋顶在密苏里冰雹风暴后的惨状——翻卷的瓦片、水渍渗透、阁楼发霉。他创立公司的原则只有一个：一次做对。</p>
+                <p>Dave 创立了 STL Roofing Co，技艺传承自父亲——一位在圣路易斯县从事多年屋顶工作的老师傅。他见过偷工减料的屋顶在密苏里冰雹风暴后的惨状——翻卷的瓦片、水渍渗透、阁楼发霉。他创立公司的原则只有一个：一次做对。</p>
                 <p>如今，STL Roofing Co 承接从简单修缮到完整建筑级瓦片更换的所有工程。每个项目全程持证施工并通过验收。Dave 亲自出现在每个工地——不是您从未见过的转包商。出了问题，他会亲自打电话给您。</p>
                 <p>持牌且已投保。风暴损坏及常规检查均免费评估。服务 Chesterfield、Ballwin、Manchester、Wildwood 及 Ellisville。屋顶之上，交给我们。</p>
               </div>
               <div class="lang-es">
-                <p>Dave fundó STL Roofing Co en 2006, aprendiendo el oficio de su padre, quien techó viviendas en el condado de St. Louis durante 30 años. Ha visto lo que hacen los atajos a los techos después de una granizada de Missouri — tejas levantadas, daños por agua, moho en el ático. Construyó su empresa en torno a hacerlo bien desde el principio.</p>
+                <p>Dave fundó STL Roofing Co aprendiendo el oficio de su padre, un veterano techador que trabajó en el condado de St. Louis por décadas. Ha visto lo que hacen los atajos a los techos después de una granizada de Missouri — tejas levantadas, daños por agua, moho en el ático. Construyó su empresa en torno a hacerlo bien desde el principio.</p>
                 <p>Hoy, STL Roofing Co maneja todo, desde una simple reparación hasta un reemplazo completo de tejas arquitectónicas. Cada proyecto está debidamente permitido e inspeccionado. Dave está personalmente en cada trabajo — no un subcontratista que nunca ha conocido. Cuando hay un problema, él lo llama.</p>
-                <p>Con licencia y asegurado. Inspecciones gratuitas para daños por tormenta y evaluaciones de rutina. Si está sobre su cabeza, está en nuestras manos.</p>
+                <p>Con licencia y asegurado. Inspecciones gratuitas para daños por tormenta y evaluaciones de rutina. Sirviendo Chesterfield, Ballwin, Manchester, Wildwood y Ellisville. Si está sobre su cabeza, está en nuestras manos.</p>
               </div>
               <div class="lang-vi">
                 <p></p>
@@ -778,7 +786,7 @@
               <span class="lang-en">Visit Today</span>
               <span class="lang-zh">立即咨询</span>
               <span class="lang-es">Solicite su cotización</span>
-              <span class="lang-vi">Ghé Thăm Hôm Nay</span>
+              <span class="lang-vi">Liên Hệ Ngay</span>
             </p>
             <h2 class="section__title" id="contact-title">
               <span class="lang-en">Find Us</span>
@@ -817,14 +825,22 @@
                   <tr><th scope="row"><span class="lang-en">Sunday</span><span class="lang-zh">周日</span><span class="lang-es">Domingo</span><span class="lang-vi">Chủ Nhật</span></th><td><span class="lang-en">Closed</span><span class="lang-zh">休息</span><span class="lang-es">Cerrado</span><span class="lang-vi">Đóng Cửa</span></td></tr>
                 </tbody>
               </table>
-              <ul class="contact-list" aria-label="Business contact details">
-                <li class="contact-list__item">
-                  <span class="contact-list__icon" aria-hidden="true">☎</span>
-                  <span><a href="tel:3145550163">(314) 555-0163</a></span>
-                </li>
-              </ul>
-              <div class="contact-actions">
-                <a class="button button--primary" href="tel:3145550163"><span class="lang-en">📞 Call for Free Quote</span><span class="lang-zh">📞 致电获取免费估价</span><span class="lang-es">📞 Llame para una cotización gratuita</span><span class="lang-vi">📞 Gọi Báo Giá Miễn Phí</span></a>
+              <div style="display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;">
+                <div style="flex:1; min-width:180px; display:flex; flex-direction:column; gap:8px;">
+                  <ul class="contact-list" aria-label="Business contact details">
+                                  <li class="contact-list__item">
+                                    <span class="contact-list__icon" aria-hidden="true">☎</span>
+                                    <span><a href="tel:3145550163">(314) 555-0163</a></span>
+                                  </li>
+                                </ul>
+                  <div class="contact-actions">
+                                  <a class="button button--primary" href="tel:3145550163"><span class="lang-en">📞 Call for Free Quote</span><span class="lang-zh">📞 致电获取免费估价</span><span class="lang-es">📞 Llame para una cotización gratuita</span><span class="lang-vi">📞 Gọi Báo Giá Miễn Phí</span></a>
+                                </div>
+                </div>
+                <div class="qr-block">
+                  <img id="qr-vcard" class="qr-block__img" alt="QR code to save our contact">
+                  <span class="qr-block__label">📱 Scan to Save Contact</span>
+                </div>
               </div>
             </article>
             <article class="contact-card">
@@ -879,13 +895,13 @@
     <a class="mobile-call-bar__phone" href="tel:3145550163">
       <span class="mobile-call-bar__icon">📞</span>
       <span class="mobile-call-bar__text">
-        <span class="mobile-call-bar__label"><span class="lang-en">Call for Free Quote</span><span class="lang-zh">致电获取免费估价</span><span class="lang-es">Pedir cotización</span><span class="lang-vi">Gọi Báo Giá Miễn Phí</span></span>
+        <span class="mobile-call-bar__label"><span class="lang-en">Call for Free Quote</span><span class="lang-zh">致电获取免费估价</span><span class="lang-es">Llame para una cotización gratuita</span><span class="lang-vi">Gọi Báo Giá Miễn Phí</span></span>
         <span class="mobile-call-bar__number">(314) 555-0163</span>
       </span>
     </a>
     <a class="mobile-call-bar__directions" href="https://www.google.com/maps/dir/?api=1&destination=14320+Manchester+Rd%2C+Chesterfield%2C+MO+63017" target="_blank" rel="noopener">
       <span class="mobile-call-bar__icon">📍</span>
-      <span class="mobile-call-bar__label"><span class="lang-en">Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Cómo llegar</span><span class="lang-vi">Chỉ Đường</span></span>
+      <span class="mobile-call-bar__label"><span class="lang-en">Directions</span><span class="lang-zh">查看路线</span><span class="lang-es">Ver cómo llegar</span><span class="lang-vi">Chỉ Đường</span></span>
     </a>
   </div>
 
@@ -938,6 +954,24 @@
           btn.classList.add("active");
         });
       });
+    })();
+      (function () {
+      var s = document.createElement("script");
+      s.src = "https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js";
+      s.onload = function () {
+        function makeQR(id, data) {
+          var el = document.getElementById(id);
+          if (!el) return;
+          try {
+            var qr = qrcode(0, "M");
+            qr.addData(data);
+            qr.make();
+            el.src = qr.createDataURL(4, 0);
+          } catch (e) { el.style.display = "none"; }
+        }
+        makeQR("qr-vcard", "BEGIN:VCARD\nVERSION:3.0\nFN:STL Roofing Co\nTEL;TYPE=WORK,VOICE:3145550163\nEND:VCARD");
+      };
+      document.body.appendChild(s);
     })();
   </script>
 </body>
