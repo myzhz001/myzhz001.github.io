@@ -404,6 +404,12 @@
     .map-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .map-actions { display: flex; flex-direction: column; gap: 10px; align-items: stretch; margin-top: 18px; }
 
+    /* ── QR Codes ── */
+    .qr-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; margin-top: 24px; }
+    .qr-block { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .qr-block__img { width: 120px; height: 120px; border: 3px solid var(--color-primary); border-radius: 10px; padding: 5px; background: #fff; display: block; }
+    .qr-block__label { font-size: 12px; font-weight: 700; color: var(--color-primary); letter-spacing: 0.06em; text-transform: uppercase; text-align: center; }
+
     /* ── Footer ── */
     .site-footer { padding: 30px 0; color: rgba(255,255,255,0.82); background: #2a1111; font-size: 15px; }
     .site-footer__inner { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; justify-content: space-between; }
@@ -768,6 +774,12 @@
           </div>
           <div class="reviews-footer">
             <a class="link-arrow" href="https://www.google.com/search?q=STL+Pro+Wash+St+Louis+MO+reviews" target="_blank" rel="noopener"><span class="lang-en">Read all 500+ reviews on Google</span><span class="lang-zh">查看 Google 上的 500 多条评价</span><span class="lang-es">Leer las más de 500 reseñas en Google</span><span class="lang-vi">Đọc tất cả 500+ đánh giá trên Google</span></a>
+            <div class="qr-row">
+              <div class="qr-block">
+                <img id="qr-review" class="qr-block__img" alt="QR code to review us on Google">
+                <span class="qr-block__label">⭐ Scan to Review Us</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -827,6 +839,10 @@
               </ul>
               <div class="contact-actions">
                 <a class="button button--primary" href="tel:3145550192"><span class="lang-en">📞 Call for Free Quote</span><span class="lang-zh">📞 致电获取免费估价</span><span class="lang-es">📞 Llame para una cotización gratuita</span><span class="lang-vi">📞 Gọi Báo Giá Miễn Phí</span></a>
+              </div>
+              <div class="qr-block" style="margin-top:20px;">
+                <img id="qr-vcard" class="qr-block__img" alt="QR code to save our contact">
+                <span class="qr-block__label">📱 Scan to Save Contact</span>
               </div>
             </article>
             <article class="contact-card">
@@ -940,6 +956,25 @@
           btn.classList.add("active");
         });
       });
+    })();
+    (function () {
+      var s = document.createElement("script");
+      s.src = "https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js";
+      s.onload = function () {
+        function makeQR(id, data) {
+          var el = document.getElementById(id);
+          if (!el) return;
+          try {
+            var qr = qrcode(0, "M");
+            qr.addData(data);
+            qr.make();
+            el.src = qr.createDataURL(4, 0);
+          } catch (e) { el.style.display = "none"; }
+        }
+        makeQR("qr-review", "https://www.google.com/search?q=STL+Pro+Wash+St+Louis+MO+reviews");
+        makeQR("qr-vcard", "BEGIN:VCARD\nVERSION:3.0\nFN:STL Pro Wash\nTEL;TYPE=WORK,VOICE:3145550192\nADR;TYPE=WORK:;;St. Louis, MO\nEND:VCARD");
+      };
+      document.body.appendChild(s);
     })();
   </script>
 </body>
