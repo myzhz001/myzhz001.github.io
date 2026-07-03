@@ -10,7 +10,7 @@
   <meta property="og:description" content="Des Peres Tailoring & Alterations — 4.5★ tailoring & shoe repair in Des Peres, MO. Decades of experience serving West County. Drop off today. Call (314) 327-2049.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://myzhz001.github.io/des-peres-tailoring-alterations/">
-  <meta property="og:image" content="../photos/service-hero-002.jpg">
+  <meta property="og:image" content="../assets/photos/service/saint_louis_mo/des-peres-tailoring-alterations/og.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
@@ -55,19 +55,18 @@
 
     /* ── Theme switcher UI ── */
     .theme-switcher {
-      position: fixed; right: 16px; top: 78px; z-index: 8888;
-      display: flex; flex-direction: row; align-items: center; gap: 8px;
-      background: #fff; border-radius: 999px; padding: 8px 14px;
+      position: fixed; right: 18px; bottom: 100px; z-index: 8888;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      background: #fff; border-radius: 999px; padding: 10px 8px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.18); border: 1px solid rgba(0,0,0,0.08);
     }
     .theme-switcher__label {
       font-size: 10px; font-weight: 700; color: #888; letter-spacing: 0.08em;
-      text-transform: uppercase; white-space: nowrap; margin-right: 2px;
+      text-transform: uppercase; writing-mode: vertical-rl; transform: rotate(180deg); margin-bottom: 4px;
     }
     .theme-btn {
-      width: 26px; height: 26px; border-radius: 999px; border: 2px solid transparent;
+      width: 44px; min-height: 44px; border-radius: 999px; border: 2px solid transparent;
       cursor: pointer; transition: transform 160ms ease, border-color 160ms ease; padding: 0;
-      flex: 0 0 auto;
     }
     .theme-btn:hover { transform: scale(1.18); }
     .theme-btn.active { border-color: #333; transform: scale(1.12); }
@@ -76,7 +75,7 @@
     .theme-btn[data-theme="mocha-warmth"]     { background: #6B3F2A; }
     .theme-btn[data-theme="forest-calm"]      { background: #1E4D35; }
     .theme-btn[data-theme="slate-modern"]     { background: #2D3142; }
-    @media (max-width: 767px) { .theme-switcher { top: 78px; right: 12px; gap: 6px; padding: 7px 12px; } }
+    @media (max-width: 767px) { .theme-switcher { bottom: 104px; right: 12px; } }
 
     /* ── Language switcher ── */
     .lang-zh, .lang-es, .lang-vi { display: none; }
@@ -182,9 +181,9 @@
 
     /* ── Hero ── */
     .hero {
-      position: relative; min-height: 520px; display: grid;
+      position: relative; min-height: calc(100vh - 70px); display: grid;
       align-items: center; overflow: hidden; color: #fff;
-      background-image: url(../photos/service-hero-002.jpg);
+      background-image: url(../assets/photos/service/saint_louis_mo/des-peres-tailoring-alterations/hero.jpg);
       background-position: center; background-size: cover; background-repeat: no-repeat;
     }
     .hero::before {
@@ -205,7 +204,7 @@
     .hero__kicker::before { content: ""; width: 38px; height: 2px; background: var(--color-accent); }
     .hero__title {
       max-width: 11ch; margin: 0; font-family: var(--font-heading);
-      font-size: clamp(36px, 4.5vw, 58px); font-weight: 700; line-height: 0.96; text-wrap: balance;
+      font-size: clamp(48px, 15vw, 92px); font-weight: 700; line-height: 0.96; text-wrap: balance;
     }
     .hero__tagline {
       max-width: 620px; margin: 22px 0 0; color: rgba(255,255,255,0.92);
@@ -366,7 +365,7 @@
     .hours-table th { width: 42%; color: rgba(44,44,44,0.72); font-weight: 700; }
     .hours-table td { color: var(--color-text); font-weight: 600; text-align: right; }
     .contact-list { display: grid; gap: 12px; margin: 0 0 22px; padding: 0; list-style: none; }
-    .contact-list__item { display: grid; grid-template-columns: 32px 1fr; gap: 10px; align-items: center; }
+    .contact-list__item { display: grid; grid-template-columns: 32px 1fr; gap: 10px; align-items: start; }
     .contact-list__icon {
       display: inline-grid; width: 32px; height: 32px; place-items: center;
       border-radius: 999px; background: rgba(45,106,79,0.1); font-size: 16px;
@@ -376,13 +375,6 @@
     .map-wrap { position: relative; overflow: hidden; min-height: 330px; border-radius: 10px; background: var(--color-section-alt); }
     .map-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .map-actions { display: flex; flex-direction: column; gap: 10px; align-items: stretch; margin-top: 18px; }
-    .contact-address { font-size: 15px; color: var(--color-text); margin: 0 0 14px; }
-
-    /* ── QR Codes ── */
-    .qr-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; margin-top: 24px; }
-    .qr-block { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-    .qr-block__img { width: 120px; height: 120px; border: 3px solid var(--color-primary); border-radius: 10px; padding: 5px; background: #fff; display: block; }
-    .qr-block__label { font-size: 12px; font-weight: 700; color: var(--color-primary); letter-spacing: 0.06em; text-transform: uppercase; text-align: center; }
 
     /* ── Footer ── */
     .site-footer { padding: 30px 0; color: rgba(255,255,255,0.82); background: #2a1111; font-size: 15px; }
@@ -422,10 +414,10 @@
       .container { width: min(100% - 56px, var(--container)); }
       .section { padding: 90px 0; }
       .section-header { margin-bottom: 46px; }
-      .section__title { font-size: clamp(28px, 3.2vw, 36px); }
+      .section__title { font-size: clamp(42px, 5vw, 58px); }
       .site-nav__actions { display: flex; }
-      .hero { min-height: 520px; }
-      .hero__content { padding: 56px 0 60px; }
+      .hero { min-height: calc(92vh - 70px); }
+      .hero__content { padding: 112px 0 116px; }
       .hero__ctas { flex-direction: row; align-items: center; }
       .hero__ctas .button { width: auto; }
       .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
@@ -540,7 +532,7 @@
           </div>
           <div class="services-grid">
             <article class="service-card">
-              <img class="service-card__image" src="../photos/service-svc-clothing-alterations-001.jpg" alt="Clothing Alterations" loading="lazy">
+              <img class="service-card__image" src="../assets/photos/service/saint_louis_mo/des-peres-tailoring-alterations/service_item_1.jpg" alt="Clothing Alterations" loading="lazy">
               <span class="service-card__badge">⭐ Most Popular</span>
               <div class="service-card__body">
                 <span class="service-card__icon" aria-hidden="true">👗</span>
@@ -561,7 +553,7 @@
               </div>
             </article>
             <article class="service-card">
-              <img class="service-card__image" src="../photos/service-svc-bridal-formal-wear-001.jpg" alt="Bridal & Formal Wear" loading="lazy">
+              <img class="service-card__image" src="../assets/photos/service/saint_louis_mo/des-peres-tailoring-alterations/service_item_2.jpg" alt="Bridal & Formal Wear" loading="lazy">
               <div class="service-card__body">
                 <span class="service-card__icon" aria-hidden="true">💍</span>
                 <h3 class="service-card__title">
@@ -581,7 +573,7 @@
               </div>
             </article>
             <article class="service-card">
-              <img class="service-card__image" src="../photos/service-svc-suit-jacket-tailoring-001.jpg" alt="Suit & Jacket Tailoring" loading="lazy">
+              <img class="service-card__image" src="../assets/photos/service/saint_louis_mo/des-peres-tailoring-alterations/service_item_3.jpg" alt="Suit & Jacket Tailoring" loading="lazy">
               <div class="service-card__body">
                 <span class="service-card__icon" aria-hidden="true">👔</span>
                 <h3 class="service-card__title">
@@ -601,7 +593,7 @@
               </div>
             </article>
             <article class="service-card">
-              <img class="service-card__image" src="../photos/service-svc-shoe-repair-001.jpg" alt="Shoe Repair" loading="lazy">
+              <img class="service-card__image" src="../assets/photos/service/saint_louis_mo/des-peres-tailoring-alterations/service_item_4.jpg" alt="Shoe Repair" loading="lazy">
               <div class="service-card__body">
                 <span class="service-card__icon" aria-hidden="true">👞</span>
                 <h3 class="service-card__title">
@@ -699,12 +691,12 @@
             <p class="section__intro">Precise alterations, careful shoe repair, and a sweet couple who genuinely cares about every garment.</p>
           </div>
           <div class="reviews-summary">
-            <span class="reviews-summary__rating">4.6</span>
-            <div class="reviews-summary__stars-wrap" style="--rating: 4.6" aria-label="4.6 out of 5 stars">
+            <span class="reviews-summary__rating">4.5</span>
+            <div class="reviews-summary__stars-wrap" style="--rating: 4.5" aria-label="4.5 out of 5 stars">
               <span aria-hidden="true">★★★★★</span>
               <span class="reviews-summary__stars-fill" aria-hidden="true">★★★★★</span>
             </div>
-            <span class="reviews-summary__label">Based on 10 Yelp reviews</span>
+            <span class="reviews-summary__label">Based on 10 Yahoo Local reviews</span>
           </div>
           <div class="reviews-grid">
             <article class="review-card">
@@ -739,7 +731,7 @@
             </article>
           </div>
           <div class="reviews-footer">
-            <a class="link-arrow" href="https://www.google.com/maps/search/Des+Peres+Tailoring+Alterations+12088+Manchester+Rd+Saint+Louis+MO/" target="_blank" rel="noopener">Read all 10 reviews on Yelp</a>
+            <a class="link-arrow" href="https://www.google.com/maps/search/Des+Peres+Tailoring+Alterations+12088+Manchester+Rd+Saint+Louis+MO/" target="_blank" rel="noopener">Read all 10 reviews on Yahoo Local</a>
           </div>
         </div>
       </section>
@@ -791,22 +783,18 @@
                   <tr><th scope="row">Sunday</th><td>Closed</td></tr>
                 </tbody>
               </table>
-              <div style="display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;">
-                <div style="flex:1; min-width:180px; display:flex; flex-direction:column; gap:8px;">
-                  <ul class="contact-list" aria-label="Business contact details">
-                                  <li class="contact-list__item">
-                                    <span class="contact-list__icon" aria-hidden="true">☎</span>
-                                    <span><a href="tel:+13143272049">(314) 327-2049</a></span>
-                                  </li>
-                                </ul>
-                  <div class="contact-actions">
-                                  <a class="button button--primary" href="tel:+13143272049">📞 Drop Off Today</a>
-                                </div>
-                </div>
-                <div class="qr-block">
-                  <img id="qr-vcard" class="qr-block__img" alt="QR code to save our contact">
-                  <span class="qr-block__label">📱 Scan to Save Contact</span>
-                </div>
+              <ul class="contact-list" aria-label="Business contact details">
+                <li class="contact-list__item">
+                  <span class="contact-list__icon" aria-hidden="true">☎</span>
+                  <span><a href="tel:+13143272049">(314) 327-2049</a></span>
+                </li>
+                <li class="contact-list__item">
+                  <span class="contact-list__icon" aria-hidden="true">⌖</span>
+                  <span>12088 Manchester Rd, Saint Louis, MO 63131</span>
+                </li>
+              </ul>
+              <div class="contact-actions">
+                <a class="button button--primary" href="tel:+13143272049">📞 Drop Off Today</a>
               </div>
             </article>
             <article class="contact-card">
@@ -818,7 +806,6 @@
                   <span class="lang-vi">Bản Đồ &amp; Chỉ Đường</span>
                 </h3>
               </div>
-              <p class="contact-address">📍 12088 Manchester Rd, Saint Louis, MO 63131</p>
               <div class="map-wrap">
                 <iframe
                   src="https://maps.google.com/maps?q=12088+Manchester+Rd+Saint+Louis+MO+63131&output=embed&z=15"
@@ -848,7 +835,7 @@
 
   <!-- Theme switcher -->
   <div class="theme-switcher" role="group" aria-label="Choose color theme">
-    <span class="theme-switcher__label">Choose Your Color</span>
+    <span class="theme-switcher__label">Theme</span>
     <button class="theme-btn active" data-theme="crimson-heritage" title="Crimson Heritage"></button>
     <button class="theme-btn" data-theme="midnight-luxe" title="Midnight Luxe"></button>
     <button class="theme-btn" data-theme="mocha-warmth" title="Mocha Warmth"></button>
@@ -919,24 +906,6 @@
           btn.classList.add("active");
         });
       });
-    })();
-      (function () {
-      var s = document.createElement("script");
-      s.src = "https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js";
-      s.onload = function () {
-        function makeQR(id, data) {
-          var el = document.getElementById(id);
-          if (!el) return;
-          try {
-            var qr = qrcode(0, "M");
-            qr.addData(data);
-            qr.make();
-            el.src = qr.createDataURL(4, 0);
-          } catch (e) { el.style.display = "none"; }
-        }
-        makeQR("qr-vcard", "BEGIN:VCARD\nVERSION:3.0\nFN:Des Peres Tailoring & Alterations\nTEL;TYPE=WORK,VOICE:+13143272049\nURL:https://myzhz001.github.io/des-peres-tailoring-alterations/\nEND:VCARD");
-      };
-      document.body.appendChild(s);
     })();
   </script>
 </body>
